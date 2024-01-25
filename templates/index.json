@@ -6,6 +6,8 @@
         "e8558718-cbeb-47f3-a904-ac59dc08fde8": {
           "type": "slide_item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Image_slider_1.png",
+            "image_mobile": "shopify:\/\/shop_images\/Image_slider_1.png",
             "overlay_slide": 0,
             "slider_effect": "fadeInUp",
             "position_content": "center-content",
@@ -18,10 +20,10 @@
             "font_size_subtitle": 36,
             "font_size_title": 65,
             "font_size_description": 16,
-            "color_subtitle": "#000000",
-            "color_title": "#000000",
-            "color_description": "#000000",
-            "color_description_2": "#000000",
+            "color_subtitle": "#ffffff",
+            "color_title": "#ffffff",
+            "color_description": "#ffffff",
+            "color_description_2": "#ffffff",
             "button_type": "tp-btn__primary"
           }
         }
