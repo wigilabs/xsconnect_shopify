@@ -50,7 +50,7 @@
               "show_separator_line": false,
               "show_account": true,
               "text_content": "",
-              "show_language": false,
+              "show_language": true,
               "show_currency": true,
               "menu": "",
               "color_social": "#ffffff"
