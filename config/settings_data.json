@@ -52,7 +52,7 @@
               "text_content": "",
               "show_language": true,
               "show_currency": true,
-              "menu": "",
+              "menu": "footer",
               "color_social": "#ffffff"
             }
           }
