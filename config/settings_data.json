@@ -43,10 +43,10 @@
             "settings": {
               "show_separator_line": false,
               "show_account": true,
-              "text_content": "<p>Welcome to electronics store!<\/p>",
-              "show_language": true,
+              "text_content": "",
+              "show_language": false,
               "show_currency": true,
-              "menu": "menu-announcement-bar",
+              "menu": "",
               "color_social": "#ffffff"
             }
           }
@@ -119,7 +119,7 @@
             "settings": {
               "item_width": 17,
               "heading": "Information",
-              "menu": "information"
+              "menu": ""
             }
           },
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e": {
@@ -127,7 +127,7 @@
             "settings": {
               "item_width": 17,
               "heading": "Policy",
-              "menu": "policy"
+              "menu": ""
             }
           },
           "923921c8-aca2-4422-82d4-df3c220933d8": {
@@ -135,7 +135,7 @@
             "settings": {
               "item_width": 16,
               "heading": "Customer support",
-              "menu": "customer-support"
+              "menu": ""
             }
           }
         },
@@ -148,7 +148,6 @@
         "settings": {
           "width_layout_ft": "container",
           "border_footer": false,
-          "image_logo": "shopify:\/\/shop_images\/logo6-custom.png",
           "color_background": "#f7f7f7",
           "heading_color": "#000000",
           "subtext_color": "#909090",
@@ -214,8 +213,7 @@
             "type": "menu_category",
             "settings": {
               "heading": "Phone, Tablet, Accessories",
-              "icon": "shopify:\/\/shop_images\/004-tv_1.png",
-              "menu_categories_target": "home",
+              "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
             }
@@ -224,8 +222,7 @@
             "type": "menu_category",
             "settings": {
               "heading": "Television, Speaker, Sound",
-              "icon": "shopify:\/\/shop_images\/005-megaphone_1.png",
-              "menu_categories_target": "shop",
+              "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-3"
             }
@@ -234,7 +231,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Air Conditioner, Air Purifier",
-              "icon": "shopify:\/\/shop_images\/003-clutch_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -244,7 +240,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Appliances",
-              "icon": "shopify:\/\/shop_images\/013-portable-speaker_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -254,7 +249,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Washer, Dryer",
-              "icon": "shopify:\/\/shop_images\/014-camera_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -264,7 +258,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Refrigerator, Freezer",
-              "icon": "shopify:\/\/shop_images\/018-deal.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -274,7 +267,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Laptop, PC Accessories",
-              "icon": "shopify:\/\/shop_images\/015-printer_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -284,7 +276,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Camera, Camcorder",
-              "icon": "shopify:\/\/shop_images\/014-camera_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -294,7 +285,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Printer, Office Equipment",
-              "icon": "shopify:\/\/shop_images\/013-portable-speaker_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -304,7 +294,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Tools",
-              "icon": "shopify:\/\/shop_images\/015-printer_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -314,7 +303,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Video Games",
-              "icon": "shopify:\/\/shop_images\/008-game-controller_0cbe68c2-b47_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -324,7 +312,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Watches",
-              "icon": "shopify:\/\/shop_images\/004-tv_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -334,7 +321,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Motor & Car Electronics",
-              "icon": "shopify:\/\/shop_images\/016-search.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -344,19 +330,18 @@
             "type": "menu_normal",
             "settings": {
               "title_menu": "Home",
-              "menu": "home"
+              "menu": ""
             }
           },
           "f645f132-cae0-4eef-8dd7-7bc230cf7d97": {
             "type": "menu_megamenu",
             "settings": {
               "title_menu": "Shop",
-              "menu": "shop",
+              "menu": "",
               "title_top": "Top content",
               "desc_top": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
               "title_bottom": "Top content",
               "desc_bottom": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
-              "image_banner": "shopify:\/\/shop_images\/collection.png",
               "full_width_dropdown": true,
               "dropdown_columns": "columns-3"
             }
@@ -365,12 +350,11 @@
             "type": "menu_megamenu",
             "settings": {
               "title_menu": "Products",
-              "menu": "product",
+              "menu": "",
               "title_top": "",
               "desc_top": "",
               "title_bottom": "",
               "desc_bottom": "",
-              "image_banner": "shopify:\/\/shop_images\/iphone_1.png",
               "full_width_dropdown": false,
               "dropdown_columns": "columns-2"
             }
@@ -379,7 +363,7 @@
             "type": "menu_normal",
             "settings": {
               "title_menu": "Pages",
-              "menu": "pages"
+              "menu": ""
             }
           }
         },
@@ -404,8 +388,6 @@
         ],
         "settings": {
           "menu_bg": "#ffffff",
-          "logo": "shopify:\/\/shop_images\/logo6-custom.png",
-          "logo_mobile": "shopify:\/\/shop_images\/logo-mobile1.png",
           "phone_number": "+123 4567 890",
           "menu_bg_nav": "#f5583e",
           "menu_text_nav": "#000000",
@@ -419,7 +401,7 @@
           "text_btn_2": "Gift Cards!",
           "link_btn_2": "",
           "text_label_btn_2": "Hot",
-          "menu_mobile": "menu-mobile",
+          "menu_mobile": "",
           "margin_bottom_desktop": 0,
           "margin_bottom_table": 0,
           "margin_bottom_mobile": 0
@@ -447,7 +429,6 @@
         ],
         "settings": {
           "display_layout": "newsletter-layout_1",
-          "background_img": "shopify:\/\/shop_images\/bg-top-footer_ea6b8a3a-442a-43b2.png",
           "newsletter_background": "#f5583e",
           "newsletter_content": "#ffffff",
           "color_bg_button": "#ffffff",
