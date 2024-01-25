@@ -229,85 +229,31 @@
         "margin_bottom_mobile": 40
       }
     },
-    "71b8eb58-2756-4363-83c7-c73942b052ac": {
-      "type": "featured-collection",
-      "settings": {
-        "width_layout": "container",
-        "title": "Best Sellers",
-        "description": "",
-        "display_type": "tab",
-        "collection": "",
-        "background_color": "",
-        "background_full_width": true,
-        "padding_top_bottom": 0,
-        "products_to_show": 6,
-        "column_number": "3",
-        "collection_list": [
-          "top-rated",
-          "frontpage",
-          "on-sale",
-          "tab-featured"
-        ],
-        "gap_item": 0,
-        "style_button_tab": "tp-box-button__style-2",
-        "margin_bottom_button": 30,
-        "text_uppercase": false,
-        "layout_slider": "layout-slider-1",
-        "show_navigation": true,
-        "show_pagigation": true,
-        "sliders_perview": "4",
-        "title_banner": "Super deals",
-        "sale_off": 50,
-        "background_banner": "#f5583e",
-        "product_banner": "",
-        "show_status_bar": true,
-        "number_sold_out": "9",
-        "quantity_available": "16",
-        "countdown_text": "Hurry up! Offer ends in:",
-        "cd_year": 2023,
-        "cd_month": "12",
-        "cd_days": "28",
-        "position_collection": "position_left",
-        "product_item_layout": "use_global",
-        "item_direction_prd_top": "item_row",
-        "color_background_image": "rgba(0,0,0,0)",
-        "type_button": "normal",
-        "text_button": "",
-        "button_type": "tp-btn__primary",
-        "pws_show": false,
-        "pws_title": "Example Title",
-        "pws_desc": "Example Description",
-        "pws_button_name": "View Detail",
-        "pws_button_link": "",
-        "mobile_columns": "2",
-        "margin_bottom_desktop": 50,
-        "margin_bottom_table": 50,
-        "margin_bottom_mobile": 40
-      }
-    },
     "72b4321d-3958-4fb4-9be3-9a639cc5f5f2": {
       "type": "banner-image-card",
       "blocks": {
         "template--18654138204463__72b4321d-3958-4fb4-9be3-9a639cc5f5f2-168148759171d9acf2-0": {
           "type": "item",
           "settings": {
-            "content_position": "content-center-right",
+            "content_position": "content-center-left",
             "content_alignment": "left",
             "hover_item": "none",
             "use_effect_hover": true,
             "background_content": "",
+            "image": "shopify:\/\/shop_images\/banner_gradient.png",
+            "image_mobile": "shopify:\/\/shop_images\/banner_gradient.png",
             "overlay_banner": 0,
             "fix_height_image": true,
             "height_image_mobile": 30,
-            "title": "",
-            "sub_title": "",
+            "title": "<p>Lorem ipsum<\/p>",
+            "sub_title": "<p>Lorem ipsum<\/p>",
             "font_size_title": 36,
-            "color_title": "#000000",
+            "color_title": "#ffffff",
             "font_size_sub_title": 24,
-            "color_sub_title": "#000000",
+            "color_sub_title": "#ffffff",
             "button_type": "tp-btn__primary",
             "button_label": "START BUYING",
-            "link": ""
+            "link": "shopify:\/\/collections\/frontpage"
           }
         }
       },
@@ -397,7 +343,6 @@
     "da1b0273-97b6-4bbf-bd85-2d9887a4ed74",
     "1a3a6cef-0363-489c-956e-348ae5c07cdc",
     "442eb3fa-208e-4782-a38f-da90cf72d88e",
-    "71b8eb58-2756-4363-83c7-c73942b052ac",
     "72b4321d-3958-4fb4-9be3-9a639cc5f5f2",
     "4ff25f0d-d50e-41a6-82d0-081d0a0434e8"
   ]
