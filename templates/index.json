@@ -313,27 +313,16 @@
               "bracelet-sports-smartwatch"
             ]
           }
-        },
-        "ed8753dc-ec8e-4a9e-9215-0a90997eaf6f": {
-          "type": "banner_item",
-          "settings": {
-            "title": "Sale Off",
-            "title_banner": "SMART WATCH",
-            "sub_title": "Fitness Tracker",
-            "price_compare": "$159.00",
-            "price": "$129.99"
-          }
         }
       },
       "block_order": [
         "087d18f3-f521-4033-b81b-e57725c194ec",
         "94a765b5-607d-4948-960d-8f3f47e7fffc",
-        "38f63e18-2773-49b8-82fd-a486c63163b8",
-        "ed8753dc-ec8e-4a9e-9215-0a90997eaf6f"
+        "38f63e18-2773-49b8-82fd-a486c63163b8"
       ],
       "settings": {
         "width_layout": "container",
-        "item_width": 25,
+        "item_width": 33,
         "item_direction_prd_top": "item_row"
       }
     }
