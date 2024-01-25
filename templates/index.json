@@ -51,6 +51,7 @@
         "4143d230-8d44-4c55-b546-c43e8923ce81": {
           "type": "service_item",
           "settings": {
+            "image_service": "shopify:\/\/shop_images\/icon_service_one.png",
             "title_service": "Free shipping",
             "description_service": "From $99",
             "background_item_service": "rgba(0,0,0,0)",
@@ -63,6 +64,7 @@
         "841dd2bd-b62d-47eb-ae4f-3c9bc166327f": {
           "type": "service_item",
           "settings": {
+            "image_service": "shopify:\/\/shop_images\/icon_service_two.png",
             "title_service": "365 days",
             "description_service": "For free return",
             "background_item_service": "rgba(0,0,0,0)",
@@ -75,6 +77,7 @@
         "ce82910a-3ef5-4a14-ba12-193fe250876b": {
           "type": "service_item",
           "settings": {
+            "image_service": "shopify:\/\/shop_images\/icon_service_three.png",
             "title_service": "Support",
             "description_service": "Online support 24\/7",
             "background_item_service": "rgba(0,0,0,0)",
@@ -87,6 +90,7 @@
         "de614041-6569-49fd-acae-c4b6c7d49d44": {
           "type": "service_item",
           "settings": {
+            "image_service": "shopify:\/\/shop_images\/icon_service_four.png",
             "title_service": "99% Positive",
             "description_service": "Feedbacks",
             "background_item_service": "rgba(0,0,0,0)",
