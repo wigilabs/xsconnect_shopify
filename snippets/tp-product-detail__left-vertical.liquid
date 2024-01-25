@@ -1,0 +1,205 @@
+<div class="tp-product-detail__left_wrap flex">
+  <div
+    class="swiper products-vertical__thumb ml-0"
+    thumbsslider=""
+    data-thumb-type="{{ thumbType }}"
+    {% if displayThumb == 'false' %}
+      style="display: none;"
+    {% endif %}
+  >
+    <div class="swiper-wrapper tp-img-thumb">
+      {% for media in product.media %}
+        <div
+          class="swiper-slide tp-img-product__item wp-img-thumb item-thumb {% if media.preview_image.alt contains 'vimeo' %}image-vimeo{% endif %}"
+          data-index="{{ media.position }}"
+          data-media-id="{{ section.id }}-{{ media.position }}"
+        >
+          <img
+            data-index="{{ media.position }}"
+            src="{{ media | image_url: width: media.width , height: media.height }}"
+            loading="lazy"
+            width="{{ media.width }}"
+            height="{{ media.height }}"
+            alt="image"
+            class="image-main"
+          >
+          {% if media.preview_image.alt contains 'vimeo' %}
+            <div class="icon-video">
+              {% render 'icon', icon_name: 'icon-video' %}
+            </div>
+          {%- endif -%}
+          {% render 'box-icon-media-type', media: media %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="products-vertical-prev flex items-center justify-center">
+      <svg fill="none" height="18" viewbox="0 0 10 6" width="18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 1L5 5L1 1" stroke-linecap="round" stroke-linejoin="round" stroke="black"></path>
+      </svg>
+    </div>
+    <div class="products-vertical-next flex items-center justify-center">
+      <svg fill="none" height="18" viewbox="0 0 10 6" width="18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 1L5 5L1 1" stroke-linecap="round" stroke-linejoin="round" stroke="black"></path>
+      </svg>
+    </div>
+  </div>
+  <div class="swiper swiperProType1">
+    <div class="swiper-wrapper tp-img-product">
+      {%- for media in product.media -%}
+        <div
+          class="swiper-slide tp-img-product__item wp-img-thumb image-main {% if media.preview_image.alt contains 'vimeo' %}image-vimeo{% endif %}"
+          data-index="{{ media.position }}"
+          data-index-modal="{{ forloop.index0 }}"
+          data-media-id="{{ section.id }}-{{ media.position }}"
+        >
+          {% case media.media_type %}
+            {% when 'image' %}
+              {%- if innerZoom -%}
+                <div
+                  class="zoom"
+                  onmousemove="innerZoom(event)"
+                  style="background-image: url({{ media | image_url: width: media.width , height: media.height }})"
+                >
+                  <img
+                    data-index="{{ media.position }}"
+                    src="{{ media | image_url: width: media.width , height: media.height }}"
+                    loading="lazy"
+                    width="{{media.width}}"
+                    height="{{ media.height }}"
+                    alt="{{ media.preview_image.alt | escape }}"
+                    class="image-main"
+                  >
+                </div>
+
+              {% else %}
+                <img
+                  data-index="{{ media.position }}"
+                  src="{{ media | image_url: width: media.width , height: media.height }}"
+                  loading="lazy"
+                  width="{{ media.width }}"
+                  height="{{ media.height }}"
+                  alt="{{ media.preview_image.alt | escape }}"
+                  class="image-main"
+                >
+              {%- endif -%}
+              {% if media.preview_image.alt contains 'vimeo' %}
+                <div class="label-video absolute top-5 right-5">{{ 'products.product.media.video' | t }}</div>
+                <div class="icon-video">
+                  {% render 'icon', icon_name: 'icon-video' %}
+                </div>
+              {%- endif -%}
+            {% when 'model' %}
+              {% liquid
+                echo media | media_tag: image_size: '2048x', toggleable: true
+              %}
+
+            {% when 'external_video' %}
+              {% liquid
+                assign video_class = 'type-video js-' | append: media.host
+                if media.host == 'youtube'
+                  echo media | external_video_url: autoplay: false, loop: false, playlist: media.external_id | external_video_tag: class: video_class, loading: 'lazy'
+                else
+                  echo media | external_video_url: autoplay: false, loop: false | external_video_tag: class: video_class, loading: 'lazy'
+                endif
+              %}
+            {% when 'video' %}
+              <div class="tf-video-product">
+                {{
+                  media
+                  | media_tag: image_size: '2048x', autoplay: false, loop: false, controls: true, preload: 'none'
+                }}
+              </div>
+            {% else %}
+
+          {% endcase %}
+          {% render 'box-icon-media-type', media: media %}
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="products-vertical-prev flex items-center justify-center">
+      <svg fill="none" height="18" viewbox="0 0 10 6" width="18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 1L5 5L1 1" stroke-linecap="round" stroke-linejoin="round" stroke="black"></path>
+      </svg>
+    </div>
+    <div class="products-vertical-next flex items-center justify-center">
+      <svg fill="none" height="18" viewbox="0 0 10 6" width="18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 1L5 5L1 1" stroke-linecap="round" stroke-linejoin="round" stroke="black"></path>
+      </svg>
+    </div>
+    <div class="tp-box-wrapper tp-wishlist-compare">
+      <div class="tp-wishlist">
+        <button
+          button-wishlist
+          type="button"
+          aria-label="Add to wishlist"
+          class="button-wishlist"
+          data-product-handle="{{ product.handle }}"
+        >
+          {% render 'icon', icon_name: 'icon-wishlist' %}
+        </button>
+        <script>
+          var wishlistLocalStorage = localStorage.getItem('shopify-wishlist');
+          if (wishlistLocalStorage) {
+            var arrWishlistLocal = wishlistLocalStorage.split(',');
+            var dataProductHandle = '{{ product.handle }}';
+            if (arrWishlistLocal.includes(dataProductHandle)) {
+              var buttonEle = document.querySelector('#product-{{ product.id }}');
+
+              if (buttonEle && !buttonEle.classList.contains('active')) {
+                buttonEle.classList.add('active');
+              }
+            }
+          }
+        </script>
+      </div>
+      <div class="tp-compare">
+        <button
+          button-compare
+          type="button"
+          aria-label="Add to compare"
+          class="button-compare"
+          data-product-handle="{{ product.handle }}"
+        >
+          {% render 'icon', icon_name: 'icon-compare' %}
+        </button>
+
+        <script>
+          var compareLocalStorage = localStorage.getItem('shopify-compare');
+          if (compareLocalStorage) {
+            var arrCompareLocal = compareLocalStorage.split(',');
+            var dataProductHandle = '{{ product.handle }}';
+            if (arrCompareLocal.includes(dataProductHandle)) {
+              var buttonEle = document.querySelector('#product-{{ product.id }}');
+              if (buttonEle && !buttonEle.classList.contains('active')) {
+                buttonEle.classList.add('active');
+              }
+            }
+          }
+        </script>
+      </div>
+    </div>
+    <span class="icon-full-screen">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="var(--color_accent)"
+        class="bi bi-fullscreen-exit"
+        viewBox="0 0 16 16"
+      >
+        <path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5zM0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zm10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4z"/>
+      </svg>
+    </span>
+  </div>
+</div>
+
+<script>
+  function innerZoom(e) {
+    var zoomer = e.currentTarget;
+    e.offsetX ? (offsetX = e.offsetX) : (offsetX = e.touches[0].pageX);
+    e.offsetY ? (offsetY = e.offsetY) : (offsetX = e.touches[0].pageX);
+    x = (offsetX / zoomer.offsetWidth) * 100;
+    y = (offsetY / zoomer.offsetHeight) * 100;
+    zoomer.style.backgroundPosition = x + '% ' + y + '%';
+  }
+</script>

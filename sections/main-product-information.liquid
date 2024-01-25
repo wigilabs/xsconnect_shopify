@@ -1,0 +1,278 @@
+{% liquid
+  assign displayTypeInfo = section.settings.display_type_information
+  assign WidthLayout = section.settings.width_layout
+  assign text_align = section.settings.text_align
+  if text_align == 'left'
+    assign class_text_align = 'text-left'
+  elsif text_align == 'center'
+    assign class_text_align = 'text-center'
+  elsif text_align == 'right'
+    assign class_text_align = 'text-right'
+  elsif text_align == 'justify'
+    assign class_text_align = 'text-justify'
+  endif
+%}
+<div class="main-product-info {{ WidthLayout }} {{ class_text_align }} ">
+  {% case displayTypeInfo %}
+    {% when 'normal' %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {%- when '@app' -%}
+            <h2 class="tp-title mb-1.25">{{ 'products.product.review_product' | t }}</h2>
+            {% render block %}
+          {% when 'description' %}
+            {% if product.description != blank %}
+              <div class="tp-product-detail__description mb-12.5">
+                <h2 class="tp-title mb-1.25">{{ 'products.product.product_description' | t }}</h2>
+                <div class="product-description">{{ product.description }}</div>
+              </div>
+            {% endif %}
+          {% when 'custom-description' %}
+            {% if block.settings.description_custom != blank %}
+              <div class="tp-product-detail__description mb-12.5">
+                <h2 class="tp-title mb-1.25">{{ block.settings.title_description_custom }}</h2>
+                <div class="product-description">
+                  {{ block.settings.description_custom }}
+                </div>
+              </div>
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+    {% when 'tab' %}
+      <div class="main-product-info__tab">
+        <div class="main-product-info__tab__header flex items-center justify-start flex-wrap md:gap-y-0 gap-y-3 mb-7.5">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {%- when '@app' -%}
+                <button
+                  class="tp-title-tabs tab-links relative{% if forloop.first %}active{% endif %}"
+                  data-tab-index="{{ forloop.index }}"
+                >
+                  {{ 'products.product.review_product' | t }}
+                </button>
+              {% when 'description' %}
+                <button
+                  class="tp-title-tabs tab-links relative{% if forloop.first %} active{% endif %}"
+                  data-tab-index="{{ forloop.index }}"
+                >
+                  {{ 'products.product.product_description' | t }}
+                </button>
+              {% when 'custom-description' %}
+                <button
+                  class="tp-title-tabs tab-links relative{% if forloop.first %} active{% endif %}"
+                  data-tab-index="{{ forloop.index }}"
+                >
+                  {{ block.settings.title_description_custom }}
+                </button>
+              {% when 'custom' %}
+                <button
+                  class="tp-title-tabs tab-links relative{% if forloop.first %} active{% endif %}"
+                  data-tab-index="{{ forloop.index }}"
+                >
+                  {{ block.settings.custom_title }}
+                </button>
+            {% endcase %}
+          {% endfor %}
+        </div>
+        <div class="main-product-info__tab__content">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {%- when '@app' -%}
+                <div class="tp-product-detail__description tab-content tab-content-{{ forloop.index }} {% if forloop.first %}active{% else %}d-none{% endif %}">
+                  {% render block %}
+                </div>
+                {% assign imgDesc = block.settings.image_description %}
+                {% if imgDesc != blank %}
+                  <img
+                    class="tp-product-detail__img mt-4"
+                    src="{{ imgDesc | image_url: width: imgDesc.width , height: imgDesc.height }}"
+                    alt="slider background image"
+                    width="{{ imgDesc.width }}"
+                    height="{{ imgDesc.height }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+              {% when 'description' %}
+                <div class="tp-product-detail__description mb-12.5 tab-content tab-content-{{ forloop.index }}  {% if forloop.first %}active{% else %}d-none{% endif %}">
+                  <div class="product-description">{{ product.description }}</div>
+                  {% assign imgDesc = block.settings.image_description %}
+                  {% if imgDesc != blank %}
+                    <img
+                      class="tp-product-detail__img mt-4"
+                      src="{{ imgDesc | image_url: width: imgDesc.width , height: imgDesc.height }}"
+                      alt="slider background image"
+                      width="{{ imgDesc.width }}"
+                      height="{{ imgDesc.height }}"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                </div>
+              {% when 'custom-description' %}
+                {% if block.settings.description_custom != blank %}
+                  <div class="tp-product-detail__description mb-12.5 tab-content tab-content-{{ forloop.index }}  {% if forloop.first %}active{% else %}d-none{% endif %}">
+                    <div class="product-description">{{ block.settings.description_custom }}</div>
+                    {% assign imgDesc = block.settings.image_description %}
+                    {% if imgDesc != blank %}
+                      <img
+                        class="tp-product-detail__img w-auto mt-4"
+                        src="{{ imgDesc | image_url: width: imgDesc.width , height: imgDesc.height }}"
+                        alt="slider background image"
+                        width="{{ imgDesc.width }}"
+                        height="{{ imgDesc.height }}"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% when 'custom' %}
+                <div class="tp-product-detail__description mb-12.5 tab-content tab-content-{{ forloop.index }}  {% if forloop.first %}active{% else %}d-none{% endif %}">
+                  <div class="product-description">
+                    {{ block.settings.custom_liquid }}
+                  </div>
+                  {% assign imgDesc = block.settings.image_description %}
+                  {% if imgDesc != blank %}
+                    <img
+                      class="tp-product-detail__img my-3.75"
+                      src="{{ imgDesc | image_url: width: imgDesc.width , height: imgDesc.height }}"
+                      alt="slider background image"
+                      width="{{ imgDesc.width }}"
+                      height="{{ imgDesc.height }}"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                  <h2>SONTT</h2>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+  {% endcase %}
+</div>
+
+{% javascript %}
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Main product information",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width_layout",
+      "label": "Width layout",
+      "options": [
+        {
+          "value": "container",
+          "label": "Container"
+        },
+        {
+          "value": "sm-container",
+          "label": "Small container"
+        },
+        {
+          "value": "width-full",
+          "label": "Width full"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "select",
+      "id": "display_type_information",
+      "label": "Display type information",
+      "default": "normal",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "tab",
+          "label": "Tab"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align",
+      "options": [
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "justify",
+          "label": "Justify"
+        }
+      ],
+      "default": "justify"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "description",
+      "name": "t:sections.main-product.blocks.description.name",
+      "limit": 1
+    },
+    {
+      "type": "custom-description",
+      "name": "Custom description",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_description_custom",
+          "label": "Title",
+          "default": "Description custom"
+        },
+        {
+          "type": "richtext",
+          "id": "description_custom",
+          "label": "Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_description",
+          "label": "Image description"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "custom",
+      "name": "Custom tab (liquid)",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Heading",
+          "default": "Custom title"
+        },
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Liquid code",
+          "info": "You can use this block to display liquid code (e.g. import metafields you create)"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

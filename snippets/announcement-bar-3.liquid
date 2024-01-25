@@ -1,0 +1,76 @@
+<div class="announcement-bar announcement-bar-style3 w-full" role="region" {{ block.shopify_attributes }}>
+  <div class="{% if section.settings.container_check %}container{% else %}w-full{% endif %}">
+    <div
+      class="announcement-bar-style3-wrapper flex items-center justify-between"
+    >
+      <div class="style3-left">
+        {% if settings.style3_textleft %}
+          <span>{{ settings.style3_textleft }}</span>
+        {% endif %}
+      </div>
+      <div class="style3-right flex items-center">
+        <div class="my-account relative">
+          <span class="flex items-center gap-2">
+            {{ settings.style3_account_title }}
+            {%- render 'icon', icon_name: 'icon-drop-down', color: '#fff' -%}
+          </span>
+          <div class="style3-right__menu">
+            {% if settings.show_account %}
+              {% unless customer %}
+                <div class="login-link">
+                  <a class="right-item" href="/account/login">{{ 'customer.log_in' | t }}</a>
+                </div>
+              {% endunless %}
+            {% endif %}
+            <ul class="menu-account">
+              {% for link in settings.style3_menu.links %}
+                <li class="menu-link">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                  {% if link.links.size > 0 %}
+                    <ul class="menu dropdown-child">
+                      {% for child_link in link.links %}
+                        {% if child_link.links.size <= 0 %}
+                          <li class="menu-link">
+                            <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+
+            {% if settings.show_account %}
+              {% if customer %}
+                <div class="logout-link">
+                  <a class="right-item" href="/account/logout">{{ 'customer.log_out' | t }}</a>
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+        <div class="my-cart">
+          {% if template != 'cart' %}
+            <div class="flex items-center ml-6.5 gap-2.5">
+              <button class="link header__icon--cart link--text focus-inset icon-contain-count relative flex items-center">
+                {% render 'icon', icon_name: 'icon-cart-header-2', width: 20, height: 13 %}
+                <span>My Cart</span>
+                <span class="badge-count count-item-cart">0</span>
+              </button>
+              <span class="subtotal-price">{{ cart.total_price | money }}</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .announcement-bar-style3-wrapper{
+    color: {{ section.settings.text_color }};
+  }
+  .announcement-bar-style3-wrapper path{
+    fill:{{ section.settings.text_color }};
+  }
+</style>

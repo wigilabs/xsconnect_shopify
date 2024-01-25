@@ -1,0 +1,399 @@
+<div class="home-sidebar">
+  {% for block in section.blocks %}
+    {% liquid
+      assign bt = block.settings
+    %}
+    {% case block.type %}
+      {% when 'banner_item' %}
+        <div class="top-product__item-banner relative">
+          <div class="item-banner">
+            <div class="banner-content">
+              {% if bt.title_banner %}
+                <h2>{{ bt.title_banner }}</h2>
+              {% endif %}
+              {% if bt.sub_title %}
+                <p>{{ bt.sub_title }}</p>
+              {% endif %}
+              {% if bt.price or bt.price_compare %}
+                <div class="price-wrap">
+                  {% if bt.price_compare %}
+                    <span class="price_compare line-through">{{ bt.price_compare }}</span>
+                  {% endif %}
+                  {% if bt.price %}
+                    <span class="price">{{ bt.price }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+              <a href="{{ bt.link_banner | default: '#' }}" class="tp-btn tp-btn__primary mt-4"> Shop Now </a>
+            </div>
+            {% assign imageBanner = block.settings.banner %}
+            {% if imageBanner != blank %}
+              {% render 'responsive-image', image: imageBanner %}
+            {% else %}
+              {% render 'no-image-banner', text_size: '' %}
+            {% endif %}
+          </div>
+        </div>
+      {% when 'service_item' %}
+        <div
+          class="tp-service__item flex items-center"
+        >
+          {% assign ImageService = block.settings.image_service %}
+          {% if ImageService != blank %}
+            <img
+              class="tp-service__img mr-4"
+              src="{{ ImageService | image_url: width: ImageService.width , height: ImageService.height }}"
+              alt="slider background image"
+              width="{{ ImageService.width }}"
+              height="{{ ImageService.height }}"
+              loading="lazy"
+            >
+          {% else %}
+            {% render 'no-image', text_size: '80x80', width: 80, height: 80 %}
+          {% endif %}
+          <div class="tp-servoce__content">
+            {% if block.settings.title_service != blank %}
+              <h5 class="tp-content__title font-medium">{{ block.settings.title_service }}</h5>
+            {% endif %}
+            {% if block.settings.description_service != blank %}
+              <p class="tp-content__description text-sm">{{ block.settings.description_service }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% when 'product_column' %}
+        <div class="product-column">
+          {% render 'sidebar-product-slider', title: bt.title_product_column, product_list: bt.product_list %}
+        </div>
+      {% when 'blog_post' %}
+        <div class="blog-post">
+          {% if bt.title_blog != blank %}
+            <div class="title-blog-post flex justify-between items-center">
+              <span class="facet-font-size-title"> {{ bt.title_blog }}</span>
+              <div class="flex items-center">
+                <div class="swiper-sidebar-prev swiper-nav-default__item">
+                  {% render 'icon', icon_name: 'icon-prev-type1', width: '8', height: '8' %}
+                </div>
+                <div class="swiper-sidebar-next swiper-nav-default__item">
+                  {% render 'icon', icon_name: 'icon-next-type1', width: '8', height: '8' %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          <div class="swiper blog-post-sidebar">
+            <div class="swiper-wrapper">
+              {% if bt.blog.articles %}
+                {%- for article in bt.blog.articles -%}
+                  <div class="blog-item swiper-slide">
+                    {%- render 'article-card-slidebar',
+                      show_date: true,
+                      show_button_discover: false,
+                      article: article,
+                      paginate_pages: false,
+                      truncate: 81
+                    -%}
+                  </div>
+                {%- endfor -%}
+              {% else %}
+                {%- assign range = (1..2) -%}
+                {% for star in range %}
+                  {% render 'article-card-no-data' %}
+                {%- endfor -%}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% when 'testimonials' %}
+        <div class="testimonial__main swiper">
+          <div class="swiper-wrapper">
+            <div class=" swiper-slide">
+              <div class="testimonial-item">
+                <div class="testimonial-item__top flex mb-5">
+                  {% assign imageTestimonial = block.settings.image_testimonial_1 %}
+                  {% if imageTestimonial != blank %}
+                    <img
+                      class="tp-our-testimonial__img mr-4"
+                      src="{{ imageTestimonial | image_url: width: imageTestimonial.width , height: imageTestimonial.height }}"
+                      alt="image collection"
+                      width="{{ imageTestimonial.width }}"
+                      height="{{ imageTestimonial.height }}"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    {% render 'no-image', text_size: '', width: 130, height: 100 %}
+                  {% endif %}
+                  <div class="tp-content__wrapper">
+                    {% if block.settings.name_testimonial_1 != blank %}
+                      <div class="tp-content__name">{{ block.settings.name_testimonial_1 }}</div>
+                    {% endif %}
+                    {% if block.settings.job_testimonial_1 != blank %}
+                      <div class="tp-content__job">{{ block.settings.job_testimonial_1 }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+                {% if block.settings.description_testimonial_1 != blank %}
+                  <p class="tp-content__description mb-3.75">{{ block.settings.description_testimonial_1 }}</p>
+                {% endif %}
+              </div>
+            </div>
+            <div class=" swiper-slide">
+              <div class="testimonial-item">
+                <div class="testimonial-item__top flex mb-5">
+                  {% assign imageTestimonial = block.settings.image_testimonial_2 %}
+                  {% if imageTestimonial != blank %}
+                    <img
+                      class="tp-our-testimonial__img mr-4"
+                      src="{{ imageTestimonial | image_url: width: imageTestimonial.width , height: imageTestimonial.height }}"
+                      alt="image collection"
+                      width="{{ imageTestimonial.width }}"
+                      height="{{ imageTestimonial.height }}"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    {% render 'no-image', text_size: '', width: 130, height: 100 %}
+                  {% endif %}
+                  <div class="tp-content__wrapper">
+                    {% if block.settings.name_testimonial_2 != blank %}
+                      <div class="tp-content__name">{{ block.settings.name_testimonial_2 }}</div>
+                    {% endif %}
+                    {% if block.settings.job_testimonial_2 != blank %}
+                      <div class="tp-content__job">{{ block.settings.job_testimonial_2 }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+                {% if block.settings.description_testimonial_2 != blank %}
+                  <p class="tp-content__description mb-3.75">{{ block.settings.description_testimonial_2 }}</p>
+                {% endif %}
+              </div>
+            </div>
+            <div class=" swiper-slide">
+              <div class="testimonial-item">
+                <div class="testimonial-item__top flex mb-5">
+                  {% assign imageTestimonial = block.settings.image_testimonial_3 %}
+                  {% if imageTestimonial != blank %}
+                    <img
+                      class="tp-our-testimonial__img mr-4"
+                      src="{{ imageTestimonial | image_url: width: imageTestimonial.width , height: imageTestimonial.height }}"
+                      alt="image collection"
+                      width="{{ imageTestimonial.width }}"
+                      height="{{ imageTestimonial.height }}"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    {% render 'no-image', text_size: '', width: 130, height: 100 %}
+                  {% endif %}
+                  <div class="tp-content__wrapper">
+                    {% if block.settings.name_testimonial_3 != blank %}
+                      <div class="tp-content__name">{{ block.settings.name_testimonial_3 }}</div>
+                    {% endif %}
+                    {% if block.settings.job_testimonial_3 != blank %}
+                      <div class="tp-content__job">{{ block.settings.job_testimonial_3 }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+                {% if block.settings.description_testimonial_3 != blank %}
+                  <p class="tp-content__description mb-3.75">{{ block.settings.description_testimonial_3 }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination testimonial-pagination"></div>
+        </div>
+    {% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Home sidebar",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Banner item",
+      "type": "banner_item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_banner",
+          "label": "Title",
+          "default": "SMART WATCH"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title",
+          "default": "Fitness Tracker"
+        },
+        {
+          "type": "text",
+          "id": "price_compare",
+          "label": "Price Compare",
+          "default": "$159.00"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$129.99"
+        },
+        {
+          "type": "url",
+          "id": "link_banner",
+          "label": "Link banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner",
+          "label": "Banner"
+        }
+      ]
+    },
+    {
+      "type": "service_item",
+      "name": "Service item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_service",
+          "label": "Image service"
+        },
+        {
+          "type": "text",
+          "id": "title_service",
+          "label": "Title service",
+          "default": "Return Shipping"
+        },
+        {
+          "type": "text",
+          "id": "description_service",
+          "label": "Description service",
+          "default": "On order over $150"
+        }
+      ]
+    },
+    {
+      "name": "Product column",
+      "type": "product_column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_product_column",
+          "label": "Title product column",
+          "default": "Title"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Product list"
+        }
+      ]
+    },
+    {
+      "name": "Blog posts",
+      "type": "blog_post",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_blog",
+          "label": "title Blog",
+          "default": "From the Blog"
+        },
+        {
+          "type": "blog",
+          "id": "blog",
+          "label": "Blog"
+        }
+      ]
+    },
+    {
+      "name": "Testimonials",
+      "type": "testimonials",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Testimonials 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_testimonial_1",
+          "label": " Image testimonial"
+        },
+        {
+          "type": "text",
+          "id": "name_testimonial_1",
+          "label": "Name testimonial",
+          "default": "Maria Emilia"
+        },
+        {
+          "type": "text",
+          "id": "job_testimonial_1",
+          "label": "Job testimonial",
+          "default": "CEO & Founder"
+        },
+
+        {
+          "type": "textarea",
+          "id": "description_testimonial_1",
+          "label": "Description testimonial",
+          "default": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using"
+        },
+        {
+          "type": "header",
+          "content": "Testimonials 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_testimonial_2",
+          "label": " Image testimonial"
+        },
+        {
+          "type": "text",
+          "id": "name_testimonial_2",
+          "label": "Name testimonial",
+          "default": "Maria Emilia"
+        },
+        {
+          "type": "text",
+          "id": "job_testimonial_2",
+          "label": "Job testimonial",
+          "default": "CEO & Founder"
+        },
+
+        {
+          "type": "textarea",
+          "id": "description_testimonial_2",
+          "label": "Description testimonial",
+          "default": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using"
+        },
+        {
+          "type": "header",
+          "content": "Testimonials 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_testimonial_3",
+          "label": " Image testimonial"
+        },
+        {
+          "type": "text",
+          "id": "name_testimonial_3",
+          "label": "Name testimonial",
+          "default": "Maria Emilia"
+        },
+        {
+          "type": "text",
+          "id": "job_testimonial_3",
+          "label": "Job testimonial",
+          "default": "CEO & Founder"
+        },
+
+        {
+          "type": "textarea",
+          "id": "description_testimonial_3",
+          "label": "Description testimonial",
+          "default": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

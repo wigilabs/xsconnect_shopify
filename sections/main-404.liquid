@@ -1,0 +1,86 @@
+{%- liquid
+  assign st = section.settings
+  assign bg_404 = st.bg_404
+  assign pdt_404 = st.pdt_404
+  assign pdb_404 = st.pdt_404
+-%}
+
+<style type="text/css">
+  .page404 {
+    {% if st.image_404 != blank %}
+    background: url({{ st.image_404 | image_url: width: st.image_404.width, height: st.image_404.height }});
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    {% else %}
+      background-color: {{ bg_404 }};
+    {% endif %}
+    padding-top: {{ pdt_404 }}px;
+    padding-bottom: {{ pdb_404 }}px;
+  }
+</style>
+
+<div class="template-404 page-width page-margin center">
+  <div class="page404">
+    <div class="page404__content">
+      <h1 class="page404__title title">
+        {{ 'templates.404.title' | t }}
+      </h1>
+      <p class="page404__subtext">
+        {{ 'templates.404.subtext' | t }}
+      </p>
+      <div class="page404__wrap">
+        <a href="{{ routes.root_url }}" class="tp-btn tp-btn__secondary mb-5">
+          {{ 'templates.404.go_home' | t }}
+        </a>
+        <a href="{{ routes.all_products_collection_url }}" class="tp-btn tp-btn__primary mb-5">
+          {{ 'general.continue_shopping' | t }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "main 404",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_404",
+      "label": "Background 404"
+    },
+    {
+      "type": "color",
+      "id": "bg_404",
+      "label": "Background color",
+      "default": "#EAEAEA"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "pdt_404",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "pdb_404",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ]
+}
+{% endschema %}

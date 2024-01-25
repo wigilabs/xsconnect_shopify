@@ -1,0 +1,553 @@
+{% liquid
+  assign aptime = section.settings.autoplay_time | times: 1000
+  assign positionPagination = section.settings.position_pagination
+
+  if section.settings.collection != blank
+    assign collection = collections[section.settings.collection]
+  endif
+%}
+
+<div class="slide-collection container flex items-center">
+  <div class="is-show-menu-categories" style="min-width:300px"></div>
+  <div class="slide-collection__wrapper flex w-full">
+    <div class="slide-collection__left">
+      <div class="tp-slide">
+        <div
+          class="swiper tp-slide__main js-slide-main"
+          data-section-id="{{ section.id }}"
+          data-loop="{{ section.settings.loop }}"
+          data-autoplay="{{ section.settings.autoplay }}"
+        >
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'slide_item' %}
+                  <div
+                    class="swiper-slide lazy-background {% if block.settings.image == blank %} no_image_slide {% endif %} tp-slide__item tp-slide__item-{{ forloop.index }}"
+                    data-swiper-autoplay="{{ aptime }}"
+                  >
+                    <div class="relative h-full">
+                      <div class="tp-slide__wrapper">
+                        <div class="tp-slide__content {{ block.settings.position_content }} {{ block.settings.text_align_content }}">
+                          {% if block.settings.sub_title != blank %}
+                            <div
+                              class="tp-content__subtitle wow"
+                              data-animated-type="{{ block.settings.slider_effect }}"
+                              {% if block.settings.slider_effect != 'no-effect' %}
+                                data-wow-duration="0.6s" data-wow-delay="0.6s"
+                              {% endif %}
+                              style="visibility: hidden;"
+                            >
+                              {{ block.settings.sub_title }}
+                            </div>
+                          {% endif %}
+                          {% if block.settings.title != blank %}
+                            <div
+                              class="tp-content__title mb-5 wow"
+                              data-animated-type="{{ block.settings.slider_effect }}"
+                              {% if block.settings.slider_effect != 'no-effect' %}
+                                data-wow-duration="0.6s" data-wow-delay="0.8s"
+                              {% endif %}
+                              style="visibility: hidden;"
+                            >
+                              {{ block.settings.title }}
+                            </div>
+                          {% endif %}
+                          {% if block.settings.description_1 != blank %}
+                            <div
+                              class="tp-content__description mb-6.5 wow"
+                              data-animated-type="{{ block.settings.slider_effect }}"
+                              {% if block.settings.slider_effect != 'no-effect' %}
+                                data-wow-duration="0.6s" data-wow-delay="0.8s"
+                              {% endif %}
+                              style="visibility: hidden;"
+                            >
+                              <p>{{ block.settings.description_1 }}</p>
+                            </div>
+                          {% endif %}
+                          <div
+                            class="tp-slide__box flex flex-wrap gap-5 align-items-center justify-content-start wow"
+                            data-animated-type="{{ block.settings.slider_effect }}"
+                            {% if block.settings.slider_effect != 'no-effect' %}
+                              data-wow-duration="0.6s" data-wow-delay="1s"
+                            {% endif %}
+                            style="visibility: hidden;"
+                          >
+                            <a
+                              class="tp-btn tp-btn__primary {% if block.settings.description_2 != blank %}mr-7.5{% endif %}"
+                              href="{% if block.settings.slide_url != blank %}{{ block.settings.slide_url }}{% else %}#{% endif %}"
+                            >
+                              {{ 'button.shop_now' | t }}
+                            </a>
+                            {% if block.settings.description_2 != blank %}
+                              <div class="wp-star_sale wp-star_sale-{{ forloop.index }} flex items-center">
+                                {% render 'icon', icon_name: 'icon-star-empty' %}
+                                <div class="tp-box__price">{{ block.settings.description_2 }}</div>
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              {% endcase %}
+              <style>
+                {% assign overlay = block.settings.overlay_slide | times: 0.1 %}
+                 @media(min-width:768px) {
+                  #shopify-section-{{ section.id }} .tp-slide__item-{{ forloop.index }} {
+                      background: linear-gradient(360deg, rgba(0, 0, 0, {{ overlay }}), rgba(0, 0, 0, {{ overlay }})), url({{ block.settings.image | image_url: width: block.settings.image.width, height: block.settings.image.height }});
+                   }
+                 }
+
+                 @media(max-width:767px) {
+                 {% if block.settings.image_mobile %}
+                 #shopify-section-{{ section.id }} .tp-slide__item-{{ forloop.index }} {
+                       background: linear-gradient(360deg, rgba(0, 0, 0, {{ overlay }}), rgba(0, 0, 0, {{ overlay }})), url({{ block.settings.image_mobile | image_url: width: block.settings.image_mobile.width, height: block.settings.image_mobile.height }});
+                    }
+
+                    {% else %}
+                    #shopify-section-{{ section.id }} .tp-slide__item-{{ forloop.index }} {
+                       background: linear-gradient(360deg, rgba(0, 0, 0, {{ overlay }}), rgba(0, 0, 0, {{ overlay }})), url({{ block.settings.image | image_url: width: block.settings.image.width, height: block.settings.image.height }});
+                    }
+
+                 {% endif %}
+                 }
+                 #shopify-section-{{ section.id }} .tp-slide__item-{{ forloop.index }}{
+                  {% if section.settings.fix_height_img == 'height_image' %}
+                  height: {{ block.settings.image.height | default: '400' }}px;
+                  {% else %}
+                  padding: 334px 0;
+                {% endif %}
+                }
+                #shopify-section-{{ section.id }} .tp-slide__item-{{ forloop.index }} .tp-content__subtitle {
+                    font-size: {{ block.settings.font_size_subtitle }}px;
+                    color: {{ block.settings.color_subtitle }}
+                   }
+
+                   #shopify-section-{{ section.id }} .tp-slide__item-{{ forloop.index }} .tp-content__title p {
+                   font-size: {{ block.settings.font_size_title }}px;
+                   color: {{ block.settings.color_title }};
+                 }
+
+                 #shopify-section-{{ section.id }} .tp-slide__item-{{ forloop.index }} .tp-content__description p {
+                   font-size: {{ block.settings.font_size_description }}px;
+                   color: {{ block.settings.color_description }}}
+                   #shopify-section-{{ section.id }} .wp-star_sale-{{ forloop.index }} path {
+                      stroke: {{ block.settings.color_description_2 }};
+                   }
+                   #shopify-section-{{ section.id }} .wp-star_sale-{{ forloop.index }} .tp-box__price {
+                      color: {{ block.settings.color_description_2 }};
+                   }
+              </style>
+            {% endfor %}
+          </div>
+        </div>
+        {% if section.settings.show_pagination %}
+          <div class="pagination-wrap {{ positionPagination }}">
+            <div class="swiper-pagination tp-swiper-pagination tp-swiper-pagination-{{ section.id }} container"></div>
+          </div>
+        {% endif %}
+      </div>
+      <div class="prd-first-collection">
+        <ul class="flex items-center">
+          {% assign collectionProducts = collection.products %}
+          {% if collectionProducts != blank %}
+            {%- for product in collectionProducts -%}
+              {% if forloop.first == true %}
+                <li class="prd-first-item w-full">
+                  {%
+                    render 'card-product',
+                    card_product: product,
+                    section: section,
+                    layoutProductItem: section.settings.product_item_layout,
+                    lazy_load: true,
+                    default-direction:'item_row',
+                  %}
+                </li>
+              {% endif %}
+            {%- endfor -%}
+          {% else %}
+            <li class="prd-first-item w-full">
+              {%- render 'card-product-no-data' -%}
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="slide-collection__right">
+      <div class="prd-collection-right">
+        <ul class="flex flex-wrap">
+          {% assign collectionProducts = collection.products %}
+          {% if collectionProducts != blank %}
+            {%- for product in collectionProducts limit: 6 -%}
+              {% if forloop.first == false %}
+                <li class="w-1/2 prd-collection-item prd-collection-item-{{ forloop.index }}">
+                  {%
+                    render 'card-product',
+                    card_product: product,
+                    section: section,
+                    layoutProductItem: section.settings.product_item_layout,
+                    lazy_load: true,
+                    default-direction:'item_row',
+                  %}
+                </li>
+              {% endif %}
+            {%- endfor -%}
+          {% else %}
+            {% liquid
+              assign lazy_load = false
+              if forloop.index > 2
+                assign lazy_load = true
+              endif
+              assign numbers = '1,2,3,4,5,6' | split: ','
+            %}
+
+            {%- for item in numbers -%}
+              {% if forloop.first == false %}
+                <li class="w-1/2 prd-collection-item prd-collection-item-{{ forloop.index }}">
+                  {%- render 'card-product-no-data' -%}
+                </li>
+              {% endif %}
+            {%- endfor -%}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} .pagination-wrap circle {
+    fill: transparent;
+     stroke: {{ section.settings.pag_bg }};
+    outline: 2px;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 360;
+     animation: rotate {{ section.settings.autoplay_time | times: 3 }}s linear infinite;
+  }
+  #shopify-section-{{ section.id }} .pagination-wrap .swiper-pagination-bullet::before {
+    background: {{ section.settings.pag_bg }};
+  }
+  @keyframes rotate {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
+
+{% render 'margin-bottom' %}
+{% schema %}
+{
+  "name": "Slide with collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Settings Colelction"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Colelction"
+    },
+    {
+      "type": "header",
+      "content": "Settings Slide"
+    },
+    {
+      "id": "show_pagination",
+      "type": "checkbox",
+      "label": "t:sections.slide.settings.show_pagination.label",
+      "default": true
+    },
+    {
+      "id": "loop",
+      "type": "checkbox",
+      "label": "t:sections.slide.settings.loop.label",
+      "default": true
+    },
+    {
+      "id": "autoplay",
+      "type": "checkbox",
+      "label": "t:sections.slide.settings.autoplay.label",
+      "info": "t:sections.slide.settings.autoplay.info",
+      "default": true
+    },
+    {
+      "id": "autoplay_time",
+      "type": "range",
+      "label": "t:sections.slide.settings.autoplay_time.label",
+      "info": "t:sections.slide.settings.autoplay_time.info",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "s",
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "fix_height_img",
+      "label": "Fix height image",
+      "options": [
+        {
+          "value": "height_by_theme",
+          "label": "By theme"
+        },
+        {
+          "value": "height_image",
+          "label": "Height image"
+        }
+      ],
+      "default": "height_by_theme"
+    },
+    {
+      "type": "select",
+      "id": "position_pagination",
+      "options": [
+        {
+          "value": "left_bottom",
+          "label": "Left bottom"
+        },
+        {
+          "value": "center_bottom",
+          "label": "Center bottom"
+        },
+        {
+          "value": "right_bottom",
+          "label": "Right bottom"
+        },
+        {
+          "value": "left_center",
+          "label": "Left center"
+        },
+        {
+          "value": "right_center",
+          "label": "Right center"
+        }
+      ],
+      "label": "t:sections.slide.settings.position_pagination.label",
+      "default": "center_bottom"
+    },
+    {
+      "type": "color",
+      "id": "pag_bg",
+      "label": "Pagination background color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.margin_bottom.content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Unit: pixel"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "label": "t:sections.margin_bottom.desktop.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_table",
+      "label": "t:sections.margin_bottom.tablet.label",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "label": "t:sections.margin_bottom.mobile.label",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide_item",
+      "name": "Slide item",
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "t:sections.slide.blocks.settings.image"
+        },
+        {
+          "id": "image_mobile",
+          "type": "image_picker",
+          "label": "t:sections.slide.blocks.settings.image_mobile"
+        },
+        {
+          "type": "range",
+          "id": "overlay_slide",
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "unit": "%",
+          "label": "Overlay slide",
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "slider_effect",
+          "options": [
+            {
+              "value": "no-effect",
+              "label": "hidden"
+            },
+            {
+              "value": "fadeInUp",
+              "label": "fadeInUp"
+            },
+            {
+              "value": "fadeInDown",
+              "label": "fadeInDown"
+            },
+            {
+              "value": "fadeInLeft",
+              "label": "fadeInLeft"
+            },
+            {
+              "value": "fadeInRight",
+              "label": "fadeInRight"
+            }
+          ],
+          "label": "Slider effect",
+          "default": "fadeInUp"
+        },
+        {
+          "type": "select",
+          "id": "position_content",
+          "options": [
+            {
+              "value": "left-content",
+              "label": "Left"
+            },
+            {
+              "value": "center-content",
+              "label": "Center"
+            },
+            {
+              "value": "right-content",
+              "label": "Right"
+            }
+          ],
+          "label": "t:sections.slide.settings.position_content.label",
+          "default": "left-content"
+        },
+        {
+          "type": "select",
+          "id": "text_align_content",
+          "label": "Text align content",
+          "options": [
+            {
+              "value": "text_left",
+              "label": "Text left"
+            },
+            {
+              "value": "text_center",
+              "label": "Text center"
+            },
+            {
+              "value": "text_right",
+              "label": "Text right"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "t:sections.slide.blocks.settings.sub_title",
+          "default": "Poolside daze"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "t:sections.slide.blocks.settings.title",
+          "default": "<p>Oasis Scallop Scoop Back Knitted</p>"
+        },
+        {
+          "type": "textarea",
+          "id": "description_1",
+          "label": "t:sections.slide.blocks.settings.description_1",
+          "default": "Discount <br> <span class='money'>50% OFF</span>"
+        },
+        {
+          "type": "text",
+          "id": "description_2",
+          "label": "t:sections.slide.blocks.settings.description_2"
+        },
+        {
+          "id": "slide_url",
+          "type": "url",
+          "label": "t:sections.slide.blocks.settings.url"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.slide.blocks.settings.content"
+        },
+        {
+          "type": "range",
+          "id": "font_size_subtitle",
+          "label": "t:sections.slide.blocks.settings.font_size_subtitle",
+          "min": 10,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "default": 18
+        },
+        {
+          "type": "range",
+          "id": "font_size_title",
+          "label": "t:sections.slide.blocks.settings.font_size_title",
+          "min": 10,
+          "max": 70,
+          "step": 1,
+          "unit": "px",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "font_size_description",
+          "label": "t:sections.slide.blocks.settings.font_size_description",
+          "min": 10,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "default": 16
+        },
+        {
+          "type": "color",
+          "id": "color_subtitle",
+          "label": "t:sections.slide.blocks.settings.color_subtitle",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "color_title",
+          "label": "t:sections.slide.blocks.settings.color_title",
+          "default": "#000"
+        },
+        {
+          "type": "color",
+          "id": "color_description",
+          "label": "t:sections.slide.blocks.settings.color_description",
+          "default": "#000"
+        },
+        {
+          "type": "color",
+          "id": "color_description_2",
+          "label": "Color description 2",
+          "default": "#000"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Slide with collection",
+      "category": "t:sections.slide.category"
+    }
+  ]
+}
+{% endschema %}

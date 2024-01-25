@@ -1,0 +1,65 @@
+{
+  "sections": {
+    "165770078818653e11": {
+      "type": "breadcrumb",
+      "settings": {
+        "width_layout": "container",
+        "color_background": "#f3f3f3",
+        "color_content": "#ffffff",
+        "show_page_title": true,
+        "position_bread_crumb": "center-middle",
+        "pbs_collection": "all",
+        "show_image_collection": false,
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 40,
+        "margin_bottom_mobile": 30
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "width_layout": "container",
+        "column_number": "3",
+        "products_per_page": 16,
+        "fsize_scale": 100,
+        "show_description": true,
+        "is_collapse_description": true,
+        "display_position": "top",
+        "description_max_height": 100,
+        "description_viewmore": "View More",
+        "description_viewless": "View Less",
+        "product_item_layout": "use_global",
+        "item_direction_prd_top": "item_row",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "collection_list": [
+          "apple-serries",
+          "becton-dickinson-pens-syringe",
+          "best-lellars",
+          "best-seller",
+          "blood-pressure",
+          "body-scrub",
+          "body-scrub-1"
+        ],
+        "price_type": "slider",
+        "price_range_config": "10-30,30-50,50-100,100-300",
+        "enable_apply_button": false,
+        "pagination_type": "pagination",
+        "type_load_more": "click",
+        "show_sidebar_banner": false,
+        "title_content": "Content",
+        "description_content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+        "title_collection": "Featured collection",
+        "product_list": [
+
+        ],
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "165770078818653e11",
+    "product-grid"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "1660032789f2a53a70": {
+      "type": "breadcrumb",
+      "settings": {
+        "width_layout": "container",
+        "background_image": "shopify:\/\/shop_images\/breadcrumb.png",
+        "show_page_title": true,
+        "position_bread_crumb": "center-middle",
+        "pbs_collection": "first",
+        "color_background": "rgba(0,0,0,0)",
+        "color_content": "#ffffff",
+        "show_image_collection": false,
+        "margin_bottom_desktop": 0,
+        "margin_bottom_table": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "main": {
+      "type": "collection-layout",
+      "blocks": {
+        "82fd15cd-3d0a-4c63-8c9a-7a2685bd3085": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "laptop",
+            "image_collection": "shopify:\/\/shop_images\/top-view-laptop-with-colourful-b.jpg"
+          }
+        },
+        "279ee8c5-51dd-409b-b742-53804a9e6ede": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "keyboard",
+            "image_collection": "shopify:\/\/shop_images\/desk-office_23-2148110191.jpg"
+          }
+        },
+        "b66541e7-ef55-4d0c-b9ec-61964fadd08e": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "mouse",
+            "image_collection": "shopify:\/\/shop_images\/copy-space-airplane-beside-mouse.jpg"
+          }
+        },
+        "6c4ffb53-917b-4008-bbfa-98a5071c2362": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "computer-screen",
+            "image_collection": "shopify:\/\/shop_images\/computer-mockup-wooden-desk_23-2.jpg"
+          }
+        },
+        "f6ebd5bd-767e-4d74-ac3c-3e7409d4e846": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "laptops-computers",
+            "image_collection": "shopify:\/\/shop_images\/top-view-laptop-with-colourful-b_1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "82fd15cd-3d0a-4c63-8c9a-7a2685bd3085",
+        "279ee8c5-51dd-409b-b742-53804a9e6ede",
+        "b66541e7-ef55-4d0c-b9ec-61964fadd08e",
+        "6c4ffb53-917b-4008-bbfa-98a5071c2362",
+        "f6ebd5bd-767e-4d74-ac3c-3e7409d4e846"
+      ],
+      "settings": {
+        "layout_type": "layout_look_book",
+        "width_layout": "width-full"
+      }
+    }
+  },
+  "order": [
+    "1660032789f2a53a70",
+    "main"
+  ]
+}

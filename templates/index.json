@@ -1,0 +1,505 @@
+{
+  "sections": {
+    "ea31e7c8-131d-446c-b8f4-0919916ec80e": {
+      "type": "slide",
+      "blocks": {
+        "e8558718-cbeb-47f3-a904-ac59dc08fde8": {
+          "type": "slide_item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/home1-slide_012af4cc-2624-4e1c-9.png",
+            "overlay_slide": 0,
+            "slider_effect": "fadeInUp",
+            "position_content": "left-content",
+            "text_align_content": "text_left",
+            "sub_title": "The New Collection",
+            "title": "Smartwatches",
+            "description_1": "<p>Shop to get what you love<\/p>",
+            "description_2": "$ 720.99",
+            "slide_url": "",
+            "font_size_subtitle": 36,
+            "font_size_title": 65,
+            "font_size_description": 16,
+            "color_subtitle": "#000000",
+            "color_title": "#000000",
+            "color_description": "#000000",
+            "color_description_2": "#000000",
+            "button_type": "tp-btn__primary"
+          }
+        },
+        "6297a7b8-61c1-4a07-966c-96ed0d70f51f": {
+          "type": "slide_item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/home1-slide_012af4cc-2624-4e1c-9.png",
+            "overlay_slide": 0,
+            "slider_effect": "fadeInDown",
+            "position_content": "left-content",
+            "text_align_content": "text_left",
+            "sub_title": "The New Collection",
+            "title": "Smartwatches",
+            "description_1": "<p>Shop to get what you love<\/p>",
+            "description_2": "$ 720.99",
+            "slide_url": "",
+            "font_size_subtitle": 36,
+            "font_size_title": 65,
+            "font_size_description": 16,
+            "color_subtitle": "#000000",
+            "color_title": "#000000",
+            "color_description": "#000000",
+            "color_description_2": "#000000",
+            "button_type": "tp-btn__primary"
+          }
+        }
+      },
+      "block_order": [
+        "e8558718-cbeb-47f3-a904-ac59dc08fde8",
+        "6297a7b8-61c1-4a07-966c-96ed0d70f51f"
+      ],
+      "settings": {
+        "width_layout": "width-full",
+        "show_navigation": false,
+        "show_pagination": true,
+        "loop": true,
+        "autoplay": true,
+        "autoplay_time": 7,
+        "fix_height_img": "height_image",
+        "position_pagination": "right_center",
+        "pag_bg": "#000000",
+        "type_navigation": "button_icon",
+        "margin_bottom_desktop": 30,
+        "margin_bottom_table": 30,
+        "margin_bottom_mobile": 30
+      }
+    },
+    "da1b0273-97b6-4bbf-bd85-2d9887a4ed74": {
+      "type": "service",
+      "blocks": {
+        "4143d230-8d44-4c55-b546-c43e8923ce81": {
+          "type": "service_item",
+          "settings": {
+            "image_service": "shopify:\/\/shop_images\/truck_1_1.png",
+            "title_service": "Free shipping",
+            "description_service": "From $99",
+            "background_item_service": "rgba(0,0,0,0)",
+            "service_title": "#000000",
+            "service_brief": "#909090",
+            "font_size_title": 16,
+            "font_size_description": 16
+          }
+        },
+        "841dd2bd-b62d-47eb-ae4f-3c9bc166327f": {
+          "type": "service_item",
+          "settings": {
+            "image_service": "shopify:\/\/shop_images\/debit-card_1_1.png",
+            "title_service": "365 days",
+            "description_service": "For free return",
+            "background_item_service": "rgba(0,0,0,0)",
+            "service_title": "#000000",
+            "service_brief": "#909090",
+            "font_size_title": 16,
+            "font_size_description": 16
+          }
+        },
+        "ce82910a-3ef5-4a14-ba12-193fe250876b": {
+          "type": "service_item",
+          "settings": {
+            "image_service": "shopify:\/\/shop_images\/headphones_1_1.png",
+            "title_service": "Support",
+            "description_service": "Online support 24\/7",
+            "background_item_service": "rgba(0,0,0,0)",
+            "service_title": "#000000",
+            "service_brief": "#909090",
+            "font_size_title": 16,
+            "font_size_description": 16
+          }
+        },
+        "de614041-6569-49fd-acae-c4b6c7d49d44": {
+          "type": "service_item",
+          "settings": {
+            "image_service": "shopify:\/\/shop_images\/positive-vote_1_1.png",
+            "title_service": "99% Positive",
+            "description_service": "Feedbacks",
+            "background_item_service": "rgba(0,0,0,0)",
+            "service_title": "#000000",
+            "service_brief": "#909090",
+            "font_size_title": 16,
+            "font_size_description": 16
+          }
+        }
+      },
+      "block_order": [
+        "4143d230-8d44-4c55-b546-c43e8923ce81",
+        "841dd2bd-b62d-47eb-ae4f-3c9bc166327f",
+        "ce82910a-3ef5-4a14-ba12-193fe250876b",
+        "de614041-6569-49fd-acae-c4b6c7d49d44"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "title": "",
+        "description": "",
+        "gap_item": 0,
+        "layout_service": "layout-service-1",
+        "max_width_image": 50,
+        "service_bg": "#ffffff",
+        "border_item": true,
+        "margin_bottom_desktop": 30,
+        "margin_bottom_table": 30,
+        "margin_bottom_mobile": 30
+      }
+    },
+    "4e501ade-0665-44b5-af34-e444db9ef6a2": {
+      "type": "banner-image-card",
+      "blocks": {
+        "template--18654138204463__4e501ade-0665-44b5-af34-e444db9ef6a2-168137410136f76210-0": {
+          "type": "item",
+          "settings": {
+            "content_position": "content-center-left",
+            "content_alignment": "left",
+            "hover_item": "zoom_image",
+            "use_effect_hover": true,
+            "background_content": "",
+            "image": "shopify:\/\/shop_images\/banner2.png",
+            "overlay_banner": 0,
+            "fix_height_image": true,
+            "height_image_mobile": 50,
+            "title": "<h2>Camera category<\/h2>",
+            "sub_title": "",
+            "font_size_title": 36,
+            "color_title": "#ffffff",
+            "font_size_sub_title": 16,
+            "color_sub_title": "#000000",
+            "button_type": "tp-btn__underline",
+            "button_label": "CHECK OUT DISCOUNT",
+            "link": ""
+          }
+        },
+        "template--18654138204463__4e501ade-0665-44b5-af34-e444db9ef6a2-168137410136f76210-1": {
+          "type": "item",
+          "settings": {
+            "content_position": "content-center-left",
+            "content_alignment": "left",
+            "hover_item": "zoom_image",
+            "use_effect_hover": true,
+            "background_content": "",
+            "image": "shopify:\/\/shop_images\/banner1.png",
+            "overlay_banner": 0,
+            "fix_height_image": true,
+            "height_image_mobile": 50,
+            "title": "<h2>100 Classic phone<\/h2>",
+            "sub_title": "",
+            "font_size_title": 36,
+            "color_title": "#ffffff",
+            "font_size_sub_title": 24,
+            "color_sub_title": "#000000",
+            "button_type": "tp-btn__underline",
+            "button_label": "CHECK OUT DISCOUNT",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18654138204463__4e501ade-0665-44b5-af34-e444db9ef6a2-168137410136f76210-0",
+        "template--18654138204463__4e501ade-0665-44b5-af34-e444db9ef6a2-168137410136f76210-1"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "gap_item": 0,
+        "background_banner": "",
+        "title": "",
+        "description": "",
+        "layout": "layout_1",
+        "padding_top": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom": 0,
+        "margin_top_desktop": 0,
+        "margin_top_table": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_desktop": 70,
+        "margin_bottom_table": 50,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "1a3a6cef-0363-489c-956e-348ae5c07cdc": {
+      "type": "featured-collection",
+      "settings": {
+        "width_layout": "container",
+        "title": "",
+        "description": "",
+        "display_type": "tab",
+        "collection": "",
+        "background_color": "",
+        "background_full_width": true,
+        "padding_top_bottom": 0,
+        "products_to_show": 12,
+        "column_number": "6",
+        "collection_list": [
+          "tab-featured",
+          "on-sale",
+          "top-rated"
+        ],
+        "gap_item": 0,
+        "style_button_tab": "tp-box-button__style-1",
+        "margin_bottom_button": 30,
+        "text_uppercase": false,
+        "layout_slider": "layout-slider-1",
+        "show_navigation": true,
+        "show_pagigation": true,
+        "sliders_perview": "4",
+        "title_banner": "Shop Pet Portraits",
+        "sale_off": 50,
+        "background_banner": "#f5583e",
+        "product_banner": "",
+        "show_status_bar": true,
+        "number_sold_out": "9",
+        "quantity_available": "16",
+        "countdown_text": "Hurry up! Offer ends in:",
+        "cd_year": 2023,
+        "cd_month": "12",
+        "cd_days": "28",
+        "position_collection": "position_left",
+        "product_item_layout": "use_global",
+        "item_direction_prd_top": "use_global",
+        "color_background_image": "rgba(0,0,0,0)",
+        "type_button": "normal",
+        "text_button": "",
+        "button_type": "tp-btn__primary",
+        "pws_show": false,
+        "pws_title": "Example Title",
+        "pws_desc": "Example Description",
+        "pws_button_name": "View Detail",
+        "pws_button_link": "",
+        "mobile_columns": "2",
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "442eb3fa-208e-4782-a38f-da90cf72d88e": {
+      "type": "featured-collection",
+      "settings": {
+        "width_layout": "container",
+        "title": "",
+        "description": "",
+        "display_type": "banner",
+        "collection": "tab-featured",
+        "background_color": "#f7f7f7",
+        "background_full_width": true,
+        "padding_top_bottom": 70,
+        "products_to_show": 8,
+        "column_number": "4",
+        "collection_list": [
+
+        ],
+        "gap_item": 0,
+        "style_button_tab": "tp-box-button__style-1",
+        "margin_bottom_button": 30,
+        "text_uppercase": false,
+        "layout_slider": "layout-slider-1",
+        "show_navigation": true,
+        "show_pagigation": true,
+        "sliders_perview": "4",
+        "title_banner": "Super deals",
+        "sale_off": 50,
+        "background_banner": "#f5583e",
+        "image_banner": "shopify:\/\/shop_images\/Frame_1_7.png",
+        "product_banner": "bluetooth-speaker",
+        "show_status_bar": true,
+        "number_sold_out": "10",
+        "quantity_available": "16",
+        "countdown_text": "Hurry up! Offer ends in:",
+        "cd_year": 2024,
+        "cd_month": "06",
+        "cd_days": "16",
+        "position_collection": "position_left",
+        "product_item_layout": "use_global",
+        "item_direction_prd_top": "use_global",
+        "color_background_image": "rgba(0,0,0,0)",
+        "type_button": "normal",
+        "text_button": "Shop now",
+        "button_type": "tp-btn__primary",
+        "pws_show": false,
+        "pws_title": "Example Title",
+        "pws_desc": "Example Description",
+        "pws_button_name": "View Detail",
+        "pws_button_link": "",
+        "mobile_columns": "2",
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "71b8eb58-2756-4363-83c7-c73942b052ac": {
+      "type": "featured-collection",
+      "settings": {
+        "width_layout": "container",
+        "title": "Best Sellers",
+        "description": "",
+        "display_type": "tab",
+        "collection": "",
+        "background_color": "",
+        "background_full_width": true,
+        "padding_top_bottom": 0,
+        "products_to_show": 6,
+        "column_number": "3",
+        "collection_list": [
+          "top-rated",
+          "frontpage",
+          "on-sale",
+          "tab-featured"
+        ],
+        "gap_item": 0,
+        "style_button_tab": "tp-box-button__style-2",
+        "margin_bottom_button": 30,
+        "text_uppercase": false,
+        "layout_slider": "layout-slider-1",
+        "show_navigation": true,
+        "show_pagigation": true,
+        "sliders_perview": "4",
+        "title_banner": "Super deals",
+        "sale_off": 50,
+        "background_banner": "#f5583e",
+        "product_banner": "",
+        "show_status_bar": true,
+        "number_sold_out": "9",
+        "quantity_available": "16",
+        "countdown_text": "Hurry up! Offer ends in:",
+        "cd_year": 2023,
+        "cd_month": "12",
+        "cd_days": "28",
+        "position_collection": "position_left",
+        "product_item_layout": "use_global",
+        "item_direction_prd_top": "item_row",
+        "color_background_image": "rgba(0,0,0,0)",
+        "type_button": "normal",
+        "text_button": "",
+        "button_type": "tp-btn__primary",
+        "pws_show": false,
+        "pws_title": "Example Title",
+        "pws_desc": "Example Description",
+        "pws_button_name": "View Detail",
+        "pws_button_link": "",
+        "mobile_columns": "2",
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 50,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "72b4321d-3958-4fb4-9be3-9a639cc5f5f2": {
+      "type": "banner-image-card",
+      "blocks": {
+        "template--18654138204463__72b4321d-3958-4fb4-9be3-9a639cc5f5f2-168148759171d9acf2-0": {
+          "type": "item",
+          "settings": {
+            "content_position": "content-center-right",
+            "content_alignment": "left",
+            "hover_item": "none",
+            "use_effect_hover": true,
+            "background_content": "",
+            "image": "shopify:\/\/shop_images\/Untitled.png",
+            "overlay_banner": 0,
+            "fix_height_image": true,
+            "height_image_mobile": 30,
+            "title": "",
+            "sub_title": "",
+            "font_size_title": 36,
+            "color_title": "#000000",
+            "font_size_sub_title": 24,
+            "color_sub_title": "#000000",
+            "button_type": "tp-btn__primary",
+            "button_label": "START BUYING",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18654138204463__72b4321d-3958-4fb4-9be3-9a639cc5f5f2-168148759171d9acf2-0"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "gap_item": 0,
+        "background_banner": "",
+        "title": "",
+        "description": "",
+        "layout": "layout_1",
+        "padding_top": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom": 0,
+        "margin_top_desktop": 0,
+        "margin_top_table": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "4ff25f0d-d50e-41a6-82d0-081d0a0434e8": {
+      "type": "top-products",
+      "blocks": {
+        "087d18f3-f521-4033-b81b-e57725c194ec": {
+          "type": "product_item",
+          "settings": {
+            "title": "Top Reviews",
+            "product_list": [
+              "21st-century-calcium-600-d-liquid-filled-softgels-90-ct",
+              "agadir-argan-oil-daily-moisturizing-conditioner-clear-pack-of-18",
+              "agadir-argan-oil-daily-moisturizing-conditioner-clear"
+            ]
+          }
+        },
+        "94a765b5-607d-4948-960d-8f3f47e7fffc": {
+          "type": "product_item",
+          "settings": {
+            "title": "Top Sales",
+            "product_list": [
+              "apple-iphone-7-plus-32gb",
+              "copy-of-apple-iphone-7-plus-32gb-genuine",
+              "apple-iphone-7-plus-32gb-genuine"
+            ]
+          }
+        },
+        "38f63e18-2773-49b8-82fd-a486c63163b8": {
+          "type": "product_item",
+          "settings": {
+            "title": "Top Search",
+            "product_list": [
+              "bluetooth-speaker-1",
+              "bluetooth-speaker",
+              "bracelet-sports-smartwatch"
+            ]
+          }
+        },
+        "ed8753dc-ec8e-4a9e-9215-0a90997eaf6f": {
+          "type": "banner_item",
+          "settings": {
+            "title": "Sale Off",
+            "title_banner": "SMART WATCH",
+            "sub_title": "Fitness Tracker",
+            "price_compare": "$159.00",
+            "price": "$129.99",
+            "banner": "shopify:\/\/shop_images\/banner-product.png"
+          }
+        }
+      },
+      "block_order": [
+        "087d18f3-f521-4033-b81b-e57725c194ec",
+        "94a765b5-607d-4948-960d-8f3f47e7fffc",
+        "38f63e18-2773-49b8-82fd-a486c63163b8",
+        "ed8753dc-ec8e-4a9e-9215-0a90997eaf6f"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "item_width": 25,
+        "item_direction_prd_top": "item_row"
+      }
+    }
+  },
+  "order": [
+    "ea31e7c8-131d-446c-b8f4-0919916ec80e",
+    "da1b0273-97b6-4bbf-bd85-2d9887a4ed74",
+    "4e501ade-0665-44b5-af34-e444db9ef6a2",
+    "1a3a6cef-0363-489c-956e-348ae5c07cdc",
+    "442eb3fa-208e-4782-a38f-da90cf72d88e",
+    "71b8eb58-2756-4363-83c7-c73942b052ac",
+    "72b4321d-3958-4fb4-9be3-9a639cc5f5f2",
+    "4ff25f0d-d50e-41a6-82d0-081d0a0434e8"
+  ]
+}

@@ -1,0 +1,1404 @@
+{% liquid
+  assign st = section.settings
+  assign WidthLayout = st.width_layout
+  assign displayType = st.display_type
+  assign layoutSlider = st.layout_slider
+  assign typeButton = st.type_button
+  assign styleButton = st.button_type
+  assign styleButtonTabActive = st.style_button_tab
+  assign position_b_c = st.position_collection
+  assign columnNumber = st.column_number
+  assign classColumnNumber = 'col-4'
+  if columnNumber == '2'
+    assign classColumnNumber = 'col-2'
+  elsif columnNumber == '3'
+    assign classColumnNumber = 'col-3'
+  elsif columnNumber == '5'
+    assign classColumnNumber = 'col-5'
+  elsif columnNumber == '6'
+    assign classColumnNumber = 'col-6'
+  endif
+
+  assign pws_show = st.pws_show
+  assign pws_title = st.pws_title
+  assign pws_title = blank
+  assign pws_desc = st.pws_desc
+  assign pws_button_name = st.pws_button_name
+  assign pws_button_link = st.pws_button_link
+  assign pws_random_number = 'now' | date: '%N' | modulo: 1000 | plus: 0
+%}
+
+<div class="tp-featured-collection tp-featured-collection-{{ section.id }} {{ WidthLayout }}{% if pws_show == true %} overflow-hidden pws_section_{{ pws_random_number }}{% endif %}">
+  {% if pws_show == true %}
+    <div class="pws pws-wrapper absolute z-[98] text-left">
+      <span class="close child-pen">
+        {% render 'icon', icon_name: 'icon-close' %}
+      </span>
+      {% if pws_title != blank %}
+        <div class="pws__title">
+          <h3>{{ pws_title }}</h3>
+        </div>
+      {% endif %}
+
+      {% if pws_desc != blank %}
+        <div class="pws__desc">
+          <p>{{ pws_desc }}</p>
+        </div>
+      {% endif %}
+
+      {% if pws_button_link != blank %}
+        <div class="pws__cta">
+          <a
+            class="underline-offset-4 hover:text-[var(--color-hover-product-item-title)]-600"
+            href="{{ pws_button_link }}"
+            title="{{ pws_button_name }}"
+            target="_blank"
+          >
+            {{ pws_button_name }}
+          </a>
+        </div>
+      {% endif %}
+
+      <script>
+        if (screen.width > 1200 && document.querySelector('pws_section_{{ pws_random_number }}')) {
+          let pws_section_{{ pws_random_number }} = document.querySelector('pws_section_{{ pws_random_number }}');
+          const pws_distance_{{ pws_random_number }} = pws_section_{{ pws_random_number }}.getBoundingClientRect().top;
+          window.addEventListener("scroll", (event) => {
+            var scroll = this.scrollY;
+            if (scroll > (pws_distance_{{ pws_random_number }} - 500)) {
+              if (localStorage.getItem('pws_active') !== 'false') {
+                pws_section_{{ pws_random_number }}.classList.add('pws_active');
+              }
+            } else {
+              pws_section_{{ pws_random_number }}.classList.remove('pws_active');
+            }
+          });
+
+          window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('close')) {
+              pws_section_{{ pws_random_number }}.classList.remove('pws_active');
+              localStorage.setItem('pws_active', 'false')
+            }
+          })
+        }
+      </script>
+    </div>
+  {% endif %}
+  {% if displayType == 'tab' %}
+    <div class="tp-fcl__main tp-fcl__main-{{ section.id }} tp-fcl__tabs">
+      <div class="tp-fcl__top {{ styleButtonTabActive }}">
+        {% if section.settings.title != blank %}
+          <h2 class="tp-section__title mb-5">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <div class="tp-fcl__brief mb-5">{{ section.settings.description }}</div>
+        {% endif %}
+        <div class="tp-box-button">
+          {% if section.settings.collection_list != blank %}
+            {%- for collection in section.settings.collection_list -%}
+              <button
+                class="collection_tablinks collection_tablinks-{{ section.id }} {% if forloop.first %} active{% endif %}"
+                data-tab-index="{{ forloop.index }}-{{ section.id }}"
+                data-section-id="{{ section.id }}"
+              >
+                {{ collection.title }}
+              </button>
+            {%- endfor -%}
+          {% else %}
+            {% liquid
+              assign numbers = '1,2,3,4,5' | split: ','
+            %}
+
+            {%- for item in numbers -%}
+              <button
+                class="collection_tablinks collection_tablinks-{{ section.id }} {% if forloop.first %} active{% endif %}"
+                data-tab-index="{{ forloop.index }}-{{ section.id }}"
+                data-section-id="{{ section.id }}"
+              >
+                Tab title
+              </button>
+            {%- endfor -%}
+            {% for item in collection %}
+            {% endfor %}
+            <button
+              class="collection_tablinks collection_tablinks-{{ section.id }} {% if forloop.first %} active{% endif %}"
+              data-tab-index="{{ forloop.index }}-{{ section.id }}"
+              data-section-id="{{ section.id }}"
+            >
+              {{ collection.title }}
+            </button>
+          {% endif %}
+        </div>
+        {% comment %}
+          <div class="tp-box-select">
+            <select name="tpbox-select" id="tpbox-select">
+              {%- for collection in section.settings.collection_list -%}
+                <option
+                  class="collection_tablinks"
+                  {% if forloop.first %}
+                    active
+                  {% endif -%}
+                  value="{{ forloop.index }}"
+                >
+                  {{ collection.title }}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+        {% endcomment %}
+      </div>
+      {% if section.settings.collection_list != blank %}
+        {%- for collection in section.settings.collection_list -%}
+          {% assign collection = collections[collection] %}
+          {%- paginate collection.products by section.settings.products_to_show -%}
+            <div class="relative">
+              <div class="parent-item-{{ forloop.index }}-{{ section.id }} parent-item-{{ section.id }} parent-item js-prd-tab-content  {% if forloop.first %}active{% endif %}">
+                <ul class="tp-fcl__content js-prd-tab-wrapper mobile-{{ section.settings.mobile_columns }}">
+                  {% if collection.products != blank %}
+                    {%- for product in collection.products -%}
+                      {% assign lazy_load = false %}
+                      {%- if forloop.index > 2 -%}
+                        {%- assign lazy_load = true -%}
+                      {%- endif -%}
+                      <li class="tp-fcl__item grid__item {{ classColumnNumber }}">
+                        {% render 'card-product',
+                          card_product: product,
+                          section: section,
+                          layoutProductItem: section.settings.product_item_layout,
+                          lazy_load: lazy_load
+                        %}
+                      </li>
+                    {%- endfor -%}
+                  {% else %}
+                    {% liquid
+                      assign numbers = '1,2,3,4,5,6,7,8,9,10' | split: ','
+                    %}
+                    {%- for item in numbers -%}
+                      <li class="tp-fcl__item grid__item w-1/5">
+                        {%- render 'card-product-no-data' -%}
+                      </li>
+                    {%- endfor -%}
+                  {% endif %}
+                </ul>
+                {% if section.settings.text_button != blank %}
+                  <div class="fcl-load-more">
+                    <a
+                      href="{{ collection.url | default: '#' }}"
+                      class="tp-btn {{ styleButton }} {% if styleButton == "tp-btn__primary" %}mb-8{% endif %}"
+                    >
+                      {{ section.settings.text_button }}
+                    </a>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endpaginate %}
+        {% endfor %}
+      {% else %}
+        {% liquid
+          assign numbers_parent = '1,2,3,4,5,6,7,8,9,10' | split: ','
+        %}
+        {%- for item_parent in numbers_parent -%}
+          <div class="relative">
+            <div class="parent-item-{{ forloop.index }}-{{ section.id }} parent-item-{{ section.id }} parent-item js-prd-tab-content  {% if forloop.first %}active{% endif %}">
+              <ul class="tp-fcl__content js-prd-tab-wrapper mobile-{{ section.settings.mobile_columns }}">
+                {% liquid
+                  assign numbers = '1,2,3,4,5,6,7,8,9,10' | split: ','
+                %}
+                {%- for item in numbers -%}
+                  <li class="tp-fcl__item grid__item w-1/5">
+                    {%- render 'card-product-no-data' -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </div>
+        {%- endfor -%}
+      {% endif %}
+    </div>
+  {% elsif displayType == 'normal' %}
+    <div class="tp-fcl__main tp-fcl__main-{{ section.id }} tp-fcl__main-normal">
+      <div class="tp-fcl__top mb-12.5">
+        {% if section.settings.title != blank %}
+          <h2 class="tp-section__title text-4xl font-medium mb-3.75">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p class="mb-5">{{ section.settings.description }}</p>
+        {% endif %}
+      </div>
+
+      {% liquid
+        if section.settings.collection != blank
+          assign collection = collections[section.settings.collection]
+        endif
+      %}
+      {% if collection != blank %}
+        {%- paginate collection.products by section.settings.products_to_show -%}
+          <div class="parent-item-{{ forloop.index }} js-prd-tab-content parent-item">
+            <ul class="tp-fcl__content js-prd-tab-wrapper mobile-{{ section.settings.mobile_columns }}">
+              {% assign collectionProducts = collection.products | sort: 'published_at' | reverse %}
+              {%- for product in collectionProducts -%}
+                {% liquid
+                  assign lazy_load = false
+                  if forloop.index > 2
+                    assign lazy_load = true
+                  endif
+                -%}
+                <li class="tp-fcl__item grid__item {{ classColumnNumber }}">
+                  {% render 'card-product',
+                    card_product: product,
+                    section: section,
+                    layoutProductItem: section.settings.product_item_layout,
+                    lazy_load: lazy_load
+                  %}
+                </li>
+              {%- endfor -%}
+            </ul>
+            {% if typeButton == 'normal' %}
+              {% if section.settings.text_button != blank %}
+                <div class="fcl-load-more">
+                  <a
+                    href="{{ collection.url | default: '#' }}"
+                    class="tp-btn {{ styleButton }} {% if styleButton == "tp-btn__primary" %}mb-8{% endif %}"
+                  >
+                    {{ section.settings.text_button }}
+                  </a>
+                </div>
+              {% endif %}
+            {% else %}
+              {% if paginate.next %}
+                <input
+                  type="hidden"
+                  value="{{ paginate.next.url }}"
+                  data-next-link
+                  id="next-link"
+                >
+                <input
+                  type="hidden"
+                  value="{{ paginate.pages }}"
+                  data-all-pages
+                  id="all-pages"
+                >
+                <input
+                  type="hidden"
+                  value="{{ paginate.current_page }}"
+                  data-this-page
+                  id="this-page"
+                >
+                <input
+                  type="hidden"
+                  value="{{ collection.url }}"
+                  data-coll-url
+                  id="coll-url"
+                >
+                <div class="load-more_wrap text-center">
+                  <button class="btn js-load-more">
+                    <span class="load-more-text tp-btn {{ styleButton }} font-medium" load-more-text>
+                      {{- 'button.load_more' | t -}}
+                    </span>
+                    <span class="hide icon loading" loader>
+                      {% render 'icon', icon_name: 'icon-loading' %}
+                    </span>
+                  </button>
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endpaginate %}
+      {% else %}
+        <div class="parent-item-default parent-item">
+          <ul class="tp-fcl__content mobile-{{ section.settings.mobile_columns }}">
+            {% liquid
+              assign lazy_load = false
+              if forloop.index > 2
+                assign lazy_load = true
+              endif
+              assign numbers = '1,2,3,4,5,6' | split: ','
+            -%}
+            {% for item in numbers -%}
+              <li class="tp-fcl__item grid__item">
+                {% render 'card-product-no-data' %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  {% elsif displayType == 'slide' %}
+    <div
+      class="tp-fcl__main tp-fcl__main-{{ section.id }} tp-fcl__slider {{ layoutSlider }}"
+      data-slide="{{ layoutSlider }}"
+    >
+      {% if layoutSlider == 'layout-slider-4' %}
+        {% render 'fcl-layout-slider-4', section: section, %}
+      {% else %}
+        <div class="tp-fcl__top mb-12.5">
+          {% if layoutSlider == 'layout-slider-1' %}
+            <div class="tp-fcl__mid flex justify-between items-center">
+              {% if section.settings.title != blank %}
+                <h2 class="tp-section__title mb-5">{{ section.settings.title }}</h2>
+              {% endif %}
+              {% if section.settings.show_navigation %}
+                <div class="swiper-button__nav swiper-nav-default flex flex-row items-center justify-center">
+                  <div class="swiper-nav-prev swiper-nav-default__item">
+                    {% render 'icon', icon_name: 'icon-prev-type1', width: 8, height: 12 %}
+                  </div>
+                  <div class="swiper-nav-next swiper-nav-default__item">
+                    {% render 'icon', icon_name: 'icon-next-type1', width: 8, height: 12 %}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+        {% assign collection = collections[section.settings.collection] %}
+        {% if collection != blank %}
+          <div class="tp-fcl__main-wrapper relative">
+            <div
+              class="swiper fcSwiper"
+              data-type="{{ layoutSlider }}"
+              data-slides-perview="{{ section.settings.sliders_perview }}"
+            >
+              <div class="swiper-wrapper">
+                {% assign collectionProducts = collection.products | sort: 'published_at' | reverse %}
+                {%- for product in collectionProducts -%}
+                  {% liquid
+                    assign lazy_load = false
+                    if forloop.index > 2
+                      assign lazy_load = true
+                    endif
+                  -%}
+                  <div class="grid__item swiper-slide">
+                    {% render 'card-product',
+                      card_product: product,
+                      section: section,
+                      show_description: true,
+                      layoutProductItem: section.settings.product_item_layout,
+                      lazy_load: lazy_load
+                    %}
+                  </div>
+                {%- endfor -%}
+              </div>
+              {% if section.settings.show_pagigation %}
+                {% if layoutSlider == 'layout-slider-1' %}
+                  <div class="swiper-pagination mt-[50px] relative bottom-0"></div>
+                {% endif %}
+                {% if layoutSlider == 'layout-slider-3' %}
+                  <div class="swiper-scrollbar"></div>
+                {% endif %}
+              {% endif %}
+              {% if section.settings.show_navigation %}
+                {% if layoutSlider == 'layout-slider-3' %}
+                  <div class="swiper-button__nav swiper-nav-default flex flex-row items-center justify-center">
+                    <div class="swiper-nav-prev swiper-nav-default__item">
+                      {% render 'icon', icon_name: 'icon-prev-type1', width: 8, height: 12 %}
+                    </div>
+                    <div class="swiper-nav-next swiper-nav-default__item">
+                      {% render 'icon', icon_name: 'icon-next-type1', width: 8, height: 12 %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+            </div>
+            {% if layoutSlider == 'layout-slider-2' %}
+              {% if section.settings.show_navigation %}
+                <div class="swiper-nav-prev swiper-nav-item">
+                  {% render 'icon', icon_name: 'icon-prev-type3' %}
+                </div>
+                <div class="swiper-nav-next swiper-nav-item">
+                  {% render 'icon', icon_name: 'icon-next-type3' %}
+                </div>
+              {% endif %}
+            {% endif %}
+            {% if section.settings.text_button != blank %}
+              <div class="fcl-load-more">
+                <a
+                  href="{{ collection.url | default: '#' }}"
+                  class="tp-btn {{ styleButton }} {% if styleButton == "tp-btn__primary" %}mb-8{% endif %}"
+                >
+                  {{ section.settings.text_button }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        {% else %}
+          <div class="tp-fcl__main-wrapper relative">
+            <div
+              class="swiper fcSwiper"
+              data-type="{{ layoutSlider }}"
+              data-slides-perview="{{ section.settings.sliders_perview }}"
+            >
+              <div class="swiper-wrapper">
+                {% liquid
+                  assign numbers = '1,2,3,4,5,6' | split: ','
+                -%}
+                {% for item in numbers -%}
+                  <div class="grid__item swiper-slide">
+                    {% render 'card-product-no-data' %}
+                  </div>
+                {% endfor %}
+              </div>
+              {% if section.settings.show_pagigation %}
+                {% if layoutSlider == 'layout-slider-1' %}
+                  <div class="swiper-pagination mt-[50px] relative bottom-0"></div>
+                {% endif %}
+                {% if layoutSlider == 'layout-slider-3' %}
+                  <div class="swiper-scrollbar"></div>
+                {% endif %}
+              {% endif %}
+              {% if section.settings.show_navigation %}
+                {% if layoutSlider == 'layout-slider-3' %}
+                  <div class="swiper-button__nav swiper-nav-default flex flex-row items-center justify-center">
+                    <div class="swiper-nav-prev swiper-nav-default__item">
+                      {% render 'icon', icon_name: 'icon-prev-type1', width: 8, height: 12 %}
+                    </div>
+                    <div class="swiper-nav-next swiper-nav-default__item">
+                      {% render 'icon', icon_name: 'icon-next-type1', width: 8, height: 12 %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+            </div>
+            {% if layoutSlider == 'layout-slider-2' %}
+              {% if section.settings.show_navigation %}
+                <div class="swiper-nav-prev swiper-nav-item">
+                  {% render 'icon', icon_name: 'icon-prev-type3' %}
+                </div>
+                <div class="swiper-nav-next swiper-nav-item">
+                  {% render 'icon', icon_name: 'icon-next-type3' %}
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  {% elsif displayType == 'banner' %}
+    <div class="tp-fcl__main tp-fcl__main-{{ section.id }} tp-fcl__main-banner">
+      {% if section.settings.title != blank or section.settings.description != blank %}
+        <div class="tp-fcl__top mb-12.5">
+          {% if section.settings.title != blank %}
+            <h2 class="tp-section__title mb-5">{{ section.settings.title }}</h2>
+          {% endif %}
+          {% if section.settings.description != blank %}
+            <p class="mb-5">{{ section.settings.description }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="tp-fcl__wrapper flex {% if position_b_c == 'position_right' %}flex-row-reverse{% endif %}">
+        <div class="tp-fcl__banner">
+          <div class="tp-fcl__banner-top">
+            <div class="flex items-center justify-between pt-7.5">
+              {% if section.settings.title_banner != blank %}
+                <h2 class="tp-section__title">{{ section.settings.title_banner }}</h2>
+              {% endif %}
+              <div class="sale-popup pr-3.75">
+                <div class="popup-wrapper">
+                  <span class="sale">50%</span>
+                </div>
+              </div>
+            </div>
+            <div class="product-banner mb-10">
+              {% assign product = all_products[section.settings.product_banner] %}
+              {% assign imageBanner = section.settings.image_banner %}
+              <div class="product-image">
+                {% if imageBanner != blank %}
+                  {% render 'responsive-image', image: imageBanner %}
+                {% else %}
+                  {% render 'no-image-banner', text_size: '' %}
+                {% endif %}
+              </div>
+              <a href="{{ product.url }}">
+                <div class="product-title text-center cursor-pointer">
+                  {{ product.title }}
+                </div>
+              </a>
+              <div class="product-price text-center">
+                {% if product.compare_at_price != blank %}
+                  <span class="price-compare price-item">
+                    {{- product.compare_at_price | money_without_trailing_zeros -}}
+                  </span>
+                {% endif %}
+                <span class="price price-item">{{ product.price | money_without_trailing_zeros }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="tp-fcl__banner-bottom">
+            {% if section.settings.show_status_bar %}
+              <div class="inventory mb-6.5">
+                <div class="info">
+                  <span class="sold-out" data-sold="{{ section.settings.number_sold_out }}">
+                    Already sold:
+                    <span class="font-semibold">{{ section.settings.number_sold_out }}</span></span
+                  >
+                  <span class="available" data-quantity="{{ section.settings.quantity_available }}">
+                    Available:
+                    <span class="font-semibold">{{ section.settings.quantity_available }}</span></span
+                  >
+                </div>
+                <div class="status-wrapper">
+                  <div class="status-bar">
+                    {%- assign percent_sold = section.settings.quantity_available
+                      | minus: section.settings.number_sold_out
+                      | times: 100.0
+                      | divided_by: section.settings.quantity_available
+                      | ceil
+                    -%}
+                    <div class="has-sold" data-percent="{{ percent_sold }}" style="width: {{ percent_sold }}%"></div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
+            <div class="countdown-wrapper text-center">
+              <h5 class="countdown-title">{{ section.settings.countdown_text }}:</h5>
+              <div class="banner-countdown">
+                {% liquid
+                  assign year = section.settings.cd_year
+                  if year < 10
+                    assign year = '0' | append: section.settings.cd_year
+                  endif
+                  assign month = section.settings.cd_month
+                  assign days = section.settings.cd_days
+                %}
+                <div
+                  class="banner-countdown-wrap banner-slide__time-{{ forloop.index }}"
+                  data-flash-year="{{ year }}"
+                  data-flash-month="{{ month }}"
+                  data-flash-day="{{ days }}"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% assign collection = collections[section.settings.collection] %}
+        {% if collection != blank %}
+          {%- paginate collection.products by section.settings.products_to_show -%}
+            <div class="parent-item tp-fcl__collection js-prd-tab-content">
+              <ul class="tp-fcl__content js-prd-tab-wrapper mobile-{{ section.settings.mobile_columns }}">
+                {% assign collectionProducts = collection.products | sort: 'published_at' | reverse %}
+                {%- for product in collectionProducts -%}
+                  {% liquid
+                    assign lazy_load = false
+                    if forloop.index > 2
+                      assign lazy_load = true
+                    endif
+                  -%}
+                  <li class="tp-fcl__item grid__item {{ classColumnNumber }}">
+                    {% render 'card-product',
+                      card_product: product,
+                      section: section,
+                      layoutProductItem: section.settings.product_item_layout,
+                      lazy_load: lazy_load
+                    %}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {% endpaginate %}
+        {% else %}
+          <div class="tp-fcl__collection parent-item-default parent-item">
+            <ul class="tp-fcl__content mobile-{{ section.settings.mobile_columns }}">
+              {% liquid
+                assign numbers = '1,2,3,4,5,6' | split: ','
+              -%}
+              {% for item in numbers -%}
+                <li class="tp-fcl__item grid__item">
+                  {% render 'card-product-no-data' %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  {% if section.settings.background_image != blank or section.settings.background_color != blank and section.settings.background_full_width == false %}
+    .tp-featured-collection-{{ section.id }}{
+      {% if section.settings.background_image != blank %}
+        background: url('{{ section.settings.background_image | image_url: width: section.settings.background_image.width, height: section.settings.background_image.height }}');
+        background-repeat: round;
+      {% elsif section.settings.background_color != blank %}
+        background: {{ section.settings.background_color }};
+      {% endif %}
+    }
+  {%  elsif section.settings.background_image != blank or section.settings.background_color != blank and section.settings.background_full_width == true %}
+    #shopify-section-{{ section.id }}{
+      {% if section.settings.background_image != blank %}
+        background: url('{{ section.settings.background_image | image_url: width: section.settings.background_image.width, height: section.settings.background_image.height }}');
+        background-repeat: round;
+      {% elsif section.settings.background_color != blank %}
+        background: {{ section.settings.background_color }};
+      {% endif %}
+    }
+  {% endif %}
+    .tp-fcl__main-{{ section.id }}{
+      padding: {{ section.settings.padding_top_bottom }}px 0;
+    }
+    @media (min-width:992px) {
+    .tp-fcl__main-{{ section.id }} .tp-fcl__content{
+      margin: 0 calc(-{{ st.gap_item }}px/2);
+    }
+    .tp-fcl__main-{{ section.id }} .tp-fcl__item{
+      padding: 0 calc({{ st.gap_item }}px/2);
+      {% if st.gap_item == 0 and settings.hvr_border_item %}
+        margin-left: -1px
+      {% endif %}
+    }
+    }
+    .tp-featured-collection-{{ section.id }} .card__inner{
+      background: {{ section.settings.color_background_image }};
+    }
+    .tp-featured-collection-{{ section.id }} .tp-fcl__top {
+      margin-bottom: {{ section.settings.margin_bottom_button | default: 0 }}px;
+    }
+    .tp-featured-collection-{{ section.id }} .collection_tablinks {
+      {% if section.settings.text_uppercase == true %}
+      text-transform: uppercase;
+      {% endif %}
+    }
+    .tp-fcl__main-{{ section.id }} .tp-fcl__banner {
+        background: linear-gradient(180deg,#fb8700, {{ section.settings.background_banner }});
+
+    }
+    @media(max-width: 767px) {
+      .tp-fcl__main-{{ section.id }} .tp-fcl__banner {
+        background-size: unset !important;
+      }
+      {% if section.settings.item_direction == 'item_row' %}
+      .tp-fcl__item{
+        width: 100% !important;
+      }
+      {% endif %}
+
+    }
+</style>
+
+{% render 'margin-bottom' %}
+{% schema %}
+{
+  "name": "t:sections.featured-collection.name",
+  "tag": "section",
+  "class": "section relative",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width_layout",
+      "label": "Width layout",
+      "options": [
+        {
+          "value": "container",
+          "label": "Container"
+        },
+        {
+          "value": "lg-container",
+          "label": "Large container"
+        },
+        {
+          "value": "width-full",
+          "label": "Width full"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Product by",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    },
+    {
+      "type": "select",
+      "id": "display_type",
+      "label": "Display type",
+      "info": "Please select the style you want to display and select the corresponding profile below",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "tab",
+          "label": "Tab"
+        },
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "banner",
+          "label": "Banner"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Not used for tab type"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "checkbox",
+      "id": "background_full_width",
+      "label": "Background Full Width",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Pading top and bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8,
+      "label": "t:sections.featured-collection.settings.products_to_show.label"
+    },
+    {
+      "type": "select",
+      "id": "column_number",
+      "label": "Column number product",
+      "info": "Apply to tab, banner and normal style",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 column"
+        },
+        {
+          "value": "3",
+          "label": "3 column"
+        },
+        {
+          "value": "4",
+          "label": "4 column"
+        },
+        {
+          "value": "5",
+          "label": "5 column"
+        },
+        {
+          "value": "6",
+          "label": "6 column"
+        }
+      ],
+      "default": "6"
+    },
+    {
+      "type": "header",
+      "content": "Config type tab"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collections",
+      "info": "Only used for format tab",
+      "limit": 8
+    },
+    {
+      "type": "range",
+      "id": "gap_item",
+      "label": "Gap item",
+      "step": 5,
+      "min": 0,
+      "max": 50,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "style_button_tab",
+      "label": "Style button tab",
+      "options": [
+        {
+          "value": "tp-box-button__style-1",
+          "label": "Style 1"
+        },
+        {
+          "value": "tp-box-button__style-2",
+          "label": "Style 2"
+        },
+        {
+          "value": "tp-box-button__style-3",
+          "label": "Style 3"
+        }
+      ],
+      "default": "tp-box-button__style-1"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_button",
+      "label": "Margin bottom button",
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "text_uppercase",
+      "label": "Text uppercase",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Config type slider"
+    },
+    {
+      "type": "select",
+      "id": "layout_slider",
+      "label": "Layout slide",
+      "options": [
+        {
+          "value": "layout-slider-1",
+          "label": "Layout slider 1"
+        },
+        {
+          "value": "layout-slider-2",
+          "label": "Layout slider 2"
+        },
+        {
+          "value": "layout-slider-3",
+          "label": "Layout slider 3"
+        },
+        {
+          "value": "layout-slider-4",
+          "label": "Layout slider 4"
+        }
+      ],
+      "default": "layout-slider-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagigation",
+      "label": "Show pagigation",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "sliders_perview",
+      "label": "Sliders perview",
+      "options": [
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "3.5",
+          "label": "3.5"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "4.5",
+          "label": "4.5"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "5.5",
+          "label": "5.5"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "paragraph",
+      "content": "========================="
+    },
+    {
+      "type": "header",
+      "content": "Config type banner"
+    },
+    {
+      "type": "text",
+      "id": "title_banner",
+      "default": "Super deals",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "number",
+      "id": "sale_off",
+      "default": 50,
+      "label": "Sale off"
+    },
+    {
+      "type": "color",
+      "id": "background_banner",
+      "label": "Background banner",
+      "default": "#f5583e"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_banner",
+      "label": "Image banner"
+    },
+    {
+      "type": "product",
+      "id": "product_banner",
+      "label": " Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_status_bar",
+      "label": "Show status bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "number_sold_out",
+      "label": "Number of sold items",
+      "default": "9"
+    },
+    {
+      "type": "text",
+      "id": "quantity_available",
+      "label": "Number of available items",
+      "default": "16"
+    },
+    {
+      "type": "text",
+      "label": "Countdown text",
+      "id": "countdown_text",
+      "default": "Hurry up! Offer ends in:"
+    },
+    {
+      "id": "cd_year",
+      "type": "number",
+      "label": "Year",
+      "default": 2023
+    },
+    {
+      "type": "select",
+      "id": "cd_month",
+      "label": "Month",
+      "options": [
+        {
+          "value": "01",
+          "label": "01"
+        },
+        {
+          "value": "02",
+          "label": "02"
+        },
+        {
+          "value": "03",
+          "label": "03"
+        },
+        {
+          "value": "04",
+          "label": "04"
+        },
+        {
+          "value": "05",
+          "label": "05"
+        },
+        {
+          "value": "06",
+          "label": "06"
+        },
+        {
+          "value": "07",
+          "label": "07"
+        },
+        {
+          "value": "09",
+          "label": "09"
+        },
+        {
+          "value": "10",
+          "label": "10"
+        },
+        {
+          "value": "11",
+          "label": "11"
+        },
+        {
+          "value": "12",
+          "label": "12"
+        }
+      ],
+      "default": "12"
+    },
+    {
+      "type": "select",
+      "id": "cd_days",
+      "label": "Days",
+      "options": [
+        {
+          "value": "01",
+          "label": "01"
+        },
+        {
+          "value": "02",
+          "label": "02"
+        },
+        {
+          "value": "03",
+          "label": "03"
+        },
+        {
+          "value": "04",
+          "label": "04"
+        },
+        {
+          "value": "05",
+          "label": "05"
+        },
+        {
+          "value": "06",
+          "label": "06"
+        },
+        {
+          "value": "07",
+          "label": "07"
+        },
+        {
+          "value": "09",
+          "label": "09"
+        },
+        {
+          "value": "10",
+          "label": "10"
+        },
+        {
+          "value": "11",
+          "label": "11"
+        },
+        {
+          "value": "12",
+          "label": "12"
+        },
+        {
+          "value": "13",
+          "label": "13"
+        },
+        {
+          "value": "14",
+          "label": "14"
+        },
+        {
+          "value": "15",
+          "label": "15"
+        },
+        {
+          "value": "16",
+          "label": "16"
+        },
+        {
+          "value": "17",
+          "label": "17"
+        },
+        {
+          "value": "18",
+          "label": "18"
+        },
+        {
+          "value": "19",
+          "label": "19"
+        },
+        {
+          "value": "20",
+          "label": "20"
+        },
+        {
+          "value": "21",
+          "label": "21"
+        },
+        {
+          "value": "22",
+          "label": "22"
+        },
+        {
+          "value": "23",
+          "label": "23"
+        },
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "25",
+          "label": "25"
+        },
+        {
+          "value": "26",
+          "label": "26"
+        },
+        {
+          "value": "27",
+          "label": "27"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "29",
+          "label": "29"
+        },
+        {
+          "value": "30",
+          "label": "30"
+        },
+        {
+          "value": "31",
+          "label": "31"
+        }
+      ],
+      "default": "28"
+    },
+    {
+      "type": "select",
+      "id": "position_collection",
+      "label": "Position collection",
+      "options": [
+        {
+          "value": "position_left",
+          "label": "Position left"
+        },
+        {
+          "value": "position_right",
+          "label": "Position right"
+        }
+      ],
+      "default": "position_left"
+    },
+    {
+      "type": "paragraph",
+      "content": "========================="
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "product_item_layout",
+      "label": "Product item layout",
+      "options": [
+        {
+          "value": "use_global",
+          "label": "Use global"
+        },
+        {
+          "value": "layout_1",
+          "label": "Layout 1"
+        },
+        {
+          "value": "layout_2",
+          "label": "Layout 2"
+        },
+        {
+          "value": "layout_3",
+          "label": "Layout 3"
+        }
+      ],
+      "default": "use_global"
+    },
+    {
+      "type": "select",
+      "id": "item_direction_prd_top",
+      "label": "Item direction",
+      "options": [
+        {
+          "label": "Use global",
+          "value": "use_global"
+        },
+        {
+          "value": "item_column",
+          "label": "Column"
+        },
+        {
+          "value": "item_row",
+          "label": "Row"
+        }
+      ],
+      "default": "use_global"
+    },
+    {
+      "type": "color",
+      "id": "color_background_image",
+      "label": "Color background image",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "radio",
+      "id": "type_button",
+      "label": "Type button",
+      "info": "Load more only with display type normal",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "load_more",
+          "label": "Load more"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "text",
+      "id": "text_button",
+      "label": "Text button",
+      "default": "Shop now"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "options": [
+        {
+          "value": "tp-btn__primary",
+          "label": "Button primary"
+        },
+        {
+          "value": "tp-btn__secondary",
+          "label": "Button secondary"
+        },
+        {
+          "value": "tp-btn__alternate",
+          "label": "Button alternate"
+        },
+        {
+          "value": "tp-btn__underline",
+          "label": "Button underline"
+        }
+      ],
+      "label": "Button type",
+      "default": "tp-btn__primary"
+    },
+
+    {
+      "type": "header",
+      "content": "Popup when scrolling to this section"
+    },
+    {
+      "type": "checkbox",
+      "id": "pws_show",
+      "label": "Show popup",
+      "default": false,
+      "info": "Show popup when scrolling to this section"
+    },
+    {
+      "type": "text",
+      "id": "pws_title",
+      "label": "Title",
+      "default": "Example Title",
+      "info": "Popup title"
+    },
+    {
+      "type": "textarea",
+      "id": "pws_desc",
+      "label": "Description",
+      "default": "Example Description",
+      "info": "Popup description"
+    },
+    {
+      "type": "text",
+      "id": "pws_button_name",
+      "label": "Button name",
+      "default": "View Detail",
+      "info": "Button name \"call to action\""
+    },
+    {
+      "type": "url",
+      "id": "pws_button_link",
+      "label": "Button Link",
+      "info": "Enter url for the \"call to action\" button"
+    },
+    {
+      "type": "header",
+      "content": "Mobile display option"
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2",
+      "info": "Number of columns displayed on mobile"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.margin_bottom.content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Unit: pixel"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "label": "t:sections.margin_bottom.desktop.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_table",
+      "label": "t:sections.margin_bottom.tablet.label",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "label": "t:sections.margin_bottom.mobile.label",
+      "default": 40
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection.presets.name"
+    }
+  ]
+}
+{% endschema %}

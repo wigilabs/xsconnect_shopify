@@ -1,0 +1,67 @@
+{% if block.settings.show_wishlist or block.settings.show_compare %}
+  {% if block.settings.use_spacing %}
+    {% render 'block-margin-bottom', className: 'tp-wishlist-compare', block: block %}
+    {% assign classDefault = '' %}
+  {% else %}
+    {% assign classDefault = ' mb-3.75' %}
+  {% endif %}
+
+  <div class="tp-box-wrapper tp-wishlist-compare flex flex-wrap items-center justify-start{{ classDefault }}">
+    {% if block.settings.show_wishlist %}
+      <div class="tp-wishlist flex items-center font-medium mr-7.5">
+        <button
+          button-wishlist
+          type="button"
+          aria-label="Add to wishlist"
+          class="button-wishlist"
+          data-product-handle="{{ product.handle }}"
+        >
+          {% render 'icon', icon_name: 'icon-wishlist' %}
+        </button>
+        <script>
+          var wishlistLocalStorage = localStorage.getItem('shopify-wishlist');
+          if (wishlistLocalStorage) {
+            var arrWishlistLocal = wishlistLocalStorage.split(',');
+            var dataProductHandle = '{{ product.handle }}';
+            if (arrWishlistLocal.includes(dataProductHandle)) {
+              var buttonEle = document.querySelector('#product-{{ product.id }}');
+
+              if (buttonEle && !buttonEle.classList.contains('active')) {
+                buttonEle.classList.add('active');
+              }
+            }
+          }
+        </script>
+        <span class="font-medium">{{ 'products.product.wishlist' | t }}</span>
+      </div>
+    {% endif %}
+    {% if block.settings.show_compare %}
+      <div class="tp-compare flex items-center font-medium mr-12.5">
+        <button
+          button-compare
+          type="button"
+          aria-label="Add to compare"
+          class="button-compare"
+          data-product-handle="{{ product.handle }}"
+        >
+          {% render 'icon', icon_name: 'icon-compare' %}
+        </button>
+
+        <script>
+          var compareLocalStorage = localStorage.getItem('shopify-compare');
+          if (compareLocalStorage) {
+            var arrCompareLocal = compareLocalStorage.split(',');
+            var dataProductHandle = '{{ product.handle }}';
+            if (arrCompareLocal.includes(dataProductHandle)) {
+              var buttonEle = document.querySelector('#product-{{ product.id }}');
+              if (buttonEle && !buttonEle.classList.contains('active')) {
+                buttonEle.classList.add('active');
+              }
+            }
+          }
+        </script>
+        <span class="font-medium">{{ 'products.product.compare' | t }}</span>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

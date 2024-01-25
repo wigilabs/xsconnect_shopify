@@ -1,0 +1,469 @@
+{
+  "current": {
+    "ctn_width": 1310,
+    "font_source": "1",
+    "headings_font_weight": 600,
+    "border_radius_btn": 25,
+    "border_radius_input": 25,
+    "color_primary": "#1a1a1a",
+    "color_accent": "#f5583e",
+    "bg_btn_primary": "#f5583e",
+    "color_border_btn_primary": "#f5583e",
+    "bg_btn_primary_hover": "#fb8700",
+    "color_border_hover_btn_primary": "#fb8700",
+    "color_text_btn_primary_hover": "#fff",
+    "border_btn_secondary": "#f5583e",
+    "color_text_btn_secondary": "#f5583e",
+    "color_text_btn_underline": "#ffffff",
+    "bg_btn_hover": "#1a1a1a",
+    "color_text_btn_hover": "#f6f6f6",
+    "header_design": "header_design_1",
+    "favicon": "shopify:\/\/shop_images\/logo4_32x32_56a6c4af-5b51-41fa-9b0e-07505680e053.png",
+    "gap_item_collection": 0,
+    "border_item": true,
+    "image_ratio": "square",
+    "display_sale_badge": "percent",
+    "position_actions": "bottom_content",
+    "style_price": "style_column",
+    "variant_type": "none",
+    "currency_display_type": "flag__currency_code",
+    "fz_prd_title": 26,
+    "fz_prd_price": 20,
+    "prd_color_price": "#f5583e",
+    "fz_prd_price_compare": 16,
+    "fw_prd_price_compare": 400,
+    "prd_color_price_compare": "#f5583e",
+    "column_number": "3",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "7bf92e03-00f3-4df3-b271-94ab203b2685": {
+            "type": "style1",
+            "settings": {
+              "show_separator_line": false,
+              "show_account": true,
+              "text_content": "<p>Welcome to electronics store!<\/p>",
+              "show_language": true,
+              "show_currency": true,
+              "menu": "menu-announcement-bar",
+              "color_social": "#ffffff"
+            }
+          }
+        },
+        "block_order": [
+          "7bf92e03-00f3-4df3-b271-94ab203b2685"
+        ],
+        "settings": {
+          "background_color": "#f7f7f7",
+          "text_color": "#777777",
+          "container_check": true,
+          "enable_line_bottom": false
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu_bg": "#fff",
+          "logo_position": "middle-left",
+          "home_welcome_messages": "Welcome to my shop!",
+          "container_config": "container",
+          "menu": "main-menu",
+          "menu_mobile": "",
+          "show_line_separator": true,
+          "show_account": true,
+          "show_wishlist": true,
+          "show_currency_language": false,
+          "enable_sticky_header": false,
+          "header_transparent": false,
+          "hover_type": "hover_type_1",
+          "check_label1": false,
+          "name_label1": "Hot",
+          "list_label1": "",
+          "bgcolor_label1": "#ff0000",
+          "textcolor_label1": "#ffffff",
+          "check_label2": false,
+          "name_label2": "New",
+          "list_label2": "",
+          "bgcolor_label2": "#6461FF",
+          "textcolor_label2": "#ffffff",
+          "margin_bottom_desktop": 0,
+          "margin_bottom_table": 0,
+          "margin_bottom_mobile": 0
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "ff72abfa-fbe6-4f15-91e0-ca978e291c69": {
+            "type": "contact",
+            "settings": {
+              "item_width": 50,
+              "title_contact": "Contact Info",
+              "position_content": "content-left",
+              "subtext": "<p>Got Questions? Call us 24\/7!<\/p>",
+              "phone": "(800) 8001-8588",
+              "color_phone": "#000000",
+              "font-size-phone": 16,
+              "phone_2": "(0600) 874 548",
+              "color_email": "#000000",
+              "font-size-email": 16,
+              "address": "17 Princess Road, London, Greater London NW1 8JR, UK",
+              "color_address": "#909090",
+              "font-size-address": 16,
+              "show_social": false
+            }
+          },
+          "4c64e5a1-393a-488f-9b28-d0728e290642": {
+            "type": "link_list",
+            "settings": {
+              "item_width": 17,
+              "heading": "Information",
+              "menu": "information"
+            }
+          },
+          "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e": {
+            "type": "link_list",
+            "settings": {
+              "item_width": 17,
+              "heading": "Policy",
+              "menu": "policy"
+            }
+          },
+          "923921c8-aca2-4422-82d4-df3c220933d8": {
+            "type": "link_list",
+            "settings": {
+              "item_width": 16,
+              "heading": "Customer support",
+              "menu": "customer-support"
+            }
+          }
+        },
+        "block_order": [
+          "ff72abfa-fbe6-4f15-91e0-ca978e291c69",
+          "4c64e5a1-393a-488f-9b28-d0728e290642",
+          "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e",
+          "923921c8-aca2-4422-82d4-df3c220933d8"
+        ],
+        "settings": {
+          "width_layout_ft": "container",
+          "border_footer": false,
+          "image_logo": "shopify:\/\/shop_images\/logo6-custom.png",
+          "color_background": "#f7f7f7",
+          "heading_color": "#000000",
+          "subtext_color": "#909090",
+          "color_social": "#bebebe",
+          "color_hover_item_menu": "#f5583e",
+          "show_social": true,
+          "payment_enable": true,
+          "content_copyright": "Copyright ArrowTheme",
+          "color_content_copyright": "#909090",
+          "margin_bottom_desktop": 0,
+          "margin_bottom_table": 0,
+          "margin_bottom_mobile": 0,
+          "padding_top_desktop": 50,
+          "padding_top_table": 50,
+          "padding_top_mobile": 50
+        }
+      },
+      "someone-purchased": {
+        "type": "someone-purchased",
+        "blocks": {
+          "512a2693-9439-4b22-8d73-285f3fdd874a": {
+            "type": "image",
+            "settings": {
+              "product": "apple-iphone-7-plus-32gb",
+              "from_ago": "Blackburn, UK",
+              "time_ago": "20"
+            }
+          },
+          "41be1e18-5a46-46a3-af58-dbb240dc174a": {
+            "type": "image",
+            "settings": {
+              "product": "apple-macbook-air-13-laptop-i5-1-7ghz-128gb-ssd-el-capitan-4gb",
+              "from_ago": "Blackburn, UK",
+              "time_ago": "20"
+            }
+          },
+          "39be8015-c89f-4a5c-8813-7672ba0c1ef0": {
+            "type": "image",
+            "settings": {
+              "product": "copy-of-apple-iphone-7-plus-32gb",
+              "from_ago": "Blackburn, UK",
+              "time_ago": "20"
+            }
+          }
+        },
+        "block_order": [
+          "512a2693-9439-4b22-8d73-285f3fdd874a",
+          "41be1e18-5a46-46a3-af58-dbb240dc174a",
+          "39be8015-c89f-4a5c-8813-7672ba0c1ef0"
+        ],
+        "settings": {
+          "display_someone-purchased_mb": false,
+          "show_someone-purchased": "left",
+          "someone_speed": "7",
+          "text": "Someone recently bought a",
+          "time_location_text": "[time] minutes ago, from [location]"
+        }
+      },
+      "header-design-1": {
+        "type": "header-design-1",
+        "blocks": {
+          "a406213b-d205-44ca-8f7a-3ac4b06fd378": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Phone, Tablet, Accessories",
+              "icon": "shopify:\/\/shop_images\/004-tv_1.png",
+              "menu_categories_target": "home",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "441d341a-7a56-472a-b8c2-4ecf301a3467": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Television, Speaker, Sound",
+              "icon": "shopify:\/\/shop_images\/005-megaphone_1.png",
+              "menu_categories_target": "shop",
+              "url_category": "",
+              "column_sub_menu": "col-3"
+            }
+          },
+          "845090bb-d041-48ca-8d7c-c96887216e78": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Air Conditioner, Air Purifier",
+              "icon": "shopify:\/\/shop_images\/003-clutch_1.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "34e8ad33-a7d7-47b3-90bd-5c6d3e93fe42": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Appliances",
+              "icon": "shopify:\/\/shop_images\/013-portable-speaker_1.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "eb393b9e-4c8a-41d4-9b2b-8ed5b6a01e6b": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Washer, Dryer",
+              "icon": "shopify:\/\/shop_images\/014-camera_1.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "a228c233-c76f-46c9-b9d3-9656849d449c": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Refrigerator, Freezer",
+              "icon": "shopify:\/\/shop_images\/018-deal.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "fd0fb673-58b7-4482-b116-a77690de76c1": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Laptop, PC Accessories",
+              "icon": "shopify:\/\/shop_images\/015-printer_1.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "9d3aeb15-9cce-4817-860c-768fe5bbb697": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Camera, Camcorder",
+              "icon": "shopify:\/\/shop_images\/014-camera_1.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "16c6c481-d92d-4d7a-815f-0262e113b2e8": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Printer, Office Equipment",
+              "icon": "shopify:\/\/shop_images\/013-portable-speaker_1.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "b441947d-05fb-402e-a310-c1da14741ff1": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Tools",
+              "icon": "shopify:\/\/shop_images\/015-printer_1.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "1e21ff63-4032-4cfb-8358-91179d234265": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Video Games",
+              "icon": "shopify:\/\/shop_images\/008-game-controller_0cbe68c2-b47_1.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "b193317c-f773-42ba-8344-e9c62b440a86": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Watches",
+              "icon": "shopify:\/\/shop_images\/004-tv_1.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "78977ee5-4359-4a26-971a-f70670b37e3d": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Motor & Car Electronics",
+              "icon": "shopify:\/\/shop_images\/016-search.png",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "c25d93cc-286b-4110-91fe-4351416f894a": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "Home",
+              "menu": "home"
+            }
+          },
+          "f645f132-cae0-4eef-8dd7-7bc230cf7d97": {
+            "type": "menu_megamenu",
+            "settings": {
+              "title_menu": "Shop",
+              "menu": "shop",
+              "title_top": "Top content",
+              "desc_top": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
+              "title_bottom": "Top content",
+              "desc_bottom": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
+              "image_banner": "shopify:\/\/shop_images\/collection.png",
+              "full_width_dropdown": true,
+              "dropdown_columns": "columns-3"
+            }
+          },
+          "9bb7287f-bd37-4a75-b304-5787c0a603c9": {
+            "type": "menu_megamenu",
+            "settings": {
+              "title_menu": "Products",
+              "menu": "product",
+              "title_top": "",
+              "desc_top": "",
+              "title_bottom": "",
+              "desc_bottom": "",
+              "image_banner": "shopify:\/\/shop_images\/iphone_1.png",
+              "full_width_dropdown": false,
+              "dropdown_columns": "columns-2"
+            }
+          },
+          "af8ee33b-dd02-4466-81aa-ab1cb58bdb67": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "Pages",
+              "menu": "pages"
+            }
+          }
+        },
+        "block_order": [
+          "a406213b-d205-44ca-8f7a-3ac4b06fd378",
+          "441d341a-7a56-472a-b8c2-4ecf301a3467",
+          "845090bb-d041-48ca-8d7c-c96887216e78",
+          "34e8ad33-a7d7-47b3-90bd-5c6d3e93fe42",
+          "eb393b9e-4c8a-41d4-9b2b-8ed5b6a01e6b",
+          "a228c233-c76f-46c9-b9d3-9656849d449c",
+          "fd0fb673-58b7-4482-b116-a77690de76c1",
+          "9d3aeb15-9cce-4817-860c-768fe5bbb697",
+          "16c6c481-d92d-4d7a-815f-0262e113b2e8",
+          "b441947d-05fb-402e-a310-c1da14741ff1",
+          "1e21ff63-4032-4cfb-8358-91179d234265",
+          "b193317c-f773-42ba-8344-e9c62b440a86",
+          "78977ee5-4359-4a26-971a-f70670b37e3d",
+          "c25d93cc-286b-4110-91fe-4351416f894a",
+          "f645f132-cae0-4eef-8dd7-7bc230cf7d97",
+          "9bb7287f-bd37-4a75-b304-5787c0a603c9",
+          "af8ee33b-dd02-4466-81aa-ab1cb58bdb67"
+        ],
+        "settings": {
+          "menu_bg": "#ffffff",
+          "logo": "shopify:\/\/shop_images\/logo6-custom.png",
+          "logo_mobile": "shopify:\/\/shop_images\/logo-mobile1.png",
+          "phone_number": "+123 4567 890",
+          "menu_bg_nav": "#f5583e",
+          "menu_text_nav": "#000000",
+          "show_line_separator": false,
+          "enable_sticky_header": false,
+          "text_menu_cate": "All categories",
+          "menu_categories_bg": "#fb8700",
+          "menu_categories_text_color": "#ffffff",
+          "text_btn_1": "Buy GemMart",
+          "link_btn_1": "https:\/\/themeforest.net\/item\/gemmart-marketplace-multipurpose-shopify-theme\/28688503?ref=ArrowHiTech",
+          "text_btn_2": "Gift Cards!",
+          "link_btn_2": "",
+          "text_label_btn_2": "Hot",
+          "menu_mobile": "menu-mobile",
+          "margin_bottom_desktop": 0,
+          "margin_bottom_table": 0,
+          "margin_bottom_mobile": 0
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "blocks": {
+          "3f80ac8e-57a9-4e3e-a96c-9ecabdb1e8b1": {
+            "type": "paragraph",
+            "settings": {
+              "text": "<p><strong>Sign up to Newsletter <\/strong>... and receive $20 coupon for first shopping<\/p>",
+              "description_newletter": ""
+            }
+          },
+          "9e18fa87-5415-4c83-a257-05e28cf7c302": {
+            "type": "email_form",
+            "settings": {
+            }
+          }
+        },
+        "block_order": [
+          "3f80ac8e-57a9-4e3e-a96c-9ecabdb1e8b1",
+          "9e18fa87-5415-4c83-a257-05e28cf7c302"
+        ],
+        "settings": {
+          "display_layout": "newsletter-layout_1",
+          "background_img": "shopify:\/\/shop_images\/bg-top-footer_ea6b8a3a-442a-43b2.png",
+          "newsletter_background": "#f5583e",
+          "newsletter_content": "#ffffff",
+          "color_bg_button": "#ffffff",
+          "color_text_button": "#000000",
+          "color_hvr_bg_button": "#f5583e",
+          "color_hvr_text_button": "#ffffff",
+          "color_newsletter": "#000000",
+          "show_social": false,
+          "padding_top": 18,
+          "padding_bottom": 18,
+          "margin_bottom_desktop": 0
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}

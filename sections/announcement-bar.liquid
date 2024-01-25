@@ -1,0 +1,264 @@
+{%- for block in section.blocks -%}
+  {% liquid
+    assign color_social = block.settings.color_social
+    assign show_separator_line = block.settings.show_separator_line
+    assign show_account = block.settings.show_account
+  %}
+  {%- case block.type -%}
+    {%- when 'style1' -%}
+      <div class="announcement-bar announcement-bar-{{ block.type }}" role="region">
+        <div class="{% if section.settings.container_check %}container{% else %}w-full{% endif %}">
+          <div
+            class="flex flex-row items-center justify-between"
+            {% if show_separator_line %}
+              style="border-bottom: 1px solid var(--color-border);"
+            {% endif %}
+          >
+            <div class="{{ block.type }}__left flex items-center">
+              {% if block.settings.show_language %}
+                {% render 'localization-language', device: 'desktop' %}
+              {% endif %}
+              {% if block.settings.show_currency %}
+                {% render 'localization-country', device: 'desktop' %}
+              {% endif %}
+            </div>
+            <div class="{{ block.type }}__right flex items-center">
+              <div class="right-item">
+                {{ block.settings.text_content }}
+              </div>
+              <ul class="{{ block.type }}__right-menu flex items-center">
+                {% if block.settings.menu.links != blank %}
+                  {%- for link in block.settings.menu.links -%}
+                    <li class="menu-item right-item">
+                      <a href="{{ link.url }}">
+                        {{ link.title }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                {% else %}
+                  {% liquid
+                    assign numbers = '1,2,3' | split: ','
+                  %}
+                  {%- for item in numbers -%}
+                    <li class="menu-item">
+                      <a href="#" class="right-item"> Menu item </a>
+                    </li>
+                  {%- endfor -%}
+                {% endif %}
+              </ul>
+              {% if show_account %}
+                {% if customer %}
+                  <div class="logout-link">
+                    <a class="right-item" href="/account/logout">{{ 'customer.log_out' | t }}</a>
+                  </div>
+                {% else %}
+                  <div class="login-link">
+                    <a class="right-item" href="/account/login">{{ 'customer.log_in' | t }}</a>
+                  </div>
+                {% endif %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- when 'style2' -%}
+      <div class="announcement-bar announcement-bar--{{ block.type }}" role="region" {{ block.shopify_attributes }}>
+        <div class="{% if section.settings.container_check %}container{% else %}w-full{% endif %} flex flex-row items-center justify-between">
+          <div class="{{ block.type }}__left text-sm text-white flex items-center justify-center flex-1 text-center">
+            {{ block.settings.text_content }}
+            <a
+              class=""
+              href="{{ block.settings.collection.url | default: '#' }}"
+            >
+              {{ 'button.shop_now' | t }}
+            </a>
+            <div class="announcement-bar__close">
+              {% render 'icon', icon_name: 'icon-close' %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- when 'style3' -%}
+      {% render 'announcement-bar-3', settings: block.settings %}
+  {%- endcase -%}
+{%- endfor -%}
+{% liquid
+  render 'header-extend-jvs'
+%}
+{% comment %}Select color{% endcomment %}
+{% style %}
+  .announcement-bar .style1__left *, .announcement-bar .style2__left *, .style1__right-menu .menu-item a{
+  color:{{ section.settings.text_color }}
+  }
+  .announcement-bar .style2__left a:before{
+    background: {{ section.settings.text_color }}
+  }
+  .announcement-bar .style2__left path{
+    fill:{{ section.settings.text_color }};
+    stroke: {{ section.settings.text_color }}
+  }
+  .announcement-bar .tp-select__btn{
+    color:{{ section.settings.text_color }}
+  }
+  .announcement-bar{
+    background-color:{{ section.settings.background_color }};
+    {% if section.settings.enable_line_bottom %}
+      border-bottom: 1px solid var(--color-border);
+    {% endif %}
+  }
+  .announcement-bar .announcement-bar__translate select {
+    color:{{ section.settings.text_color }}
+  }
+  .announcement-bar .announcement-bar__currency select {
+    color:{{ section.settings.text_color }}
+    }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "tag": "section",
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.announcement-bar.settings.bgcolor.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.announcement-bar.settings.textcolor.label",
+      "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "container_check",
+      "label": "t:sections.announcement-bar.settings.container.label",
+      "info": "t:sections.announcement-bar.settings.container.info",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_line_bottom",
+      "label": "Enable line bottom",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "style1",
+      "name": "t:sections.announcement-bar.blocks.style1.name",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_separator_line",
+          "label": "Show separator line",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_account",
+          "label": "Show account",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "text_content",
+          "default": "<p>Welcome to electronics store!</p>",
+          "label": "t:sections.announcement-bar.blocks.style1.settings.text_content.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_language",
+          "label": "t:sections.announcement-bar.blocks.style1.settings.lang.label",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_currency",
+          "label": "Show currency selector",
+          "default": true
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        },
+        {
+          "type": "color",
+          "id": "color_social",
+          "label": "Color social",
+          "default": "#ffffff"
+        }
+      ]
+    },
+    {
+      "type": "style2",
+      "name": "t:sections.announcement-bar.blocks.style2.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text_content",
+          "default": "<p>Mid-Season Sale Up to 70% Off</p>",
+          "label": "t:sections.announcement-bar.blocks.style2.settings.text_content.label"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    },
+    {
+      "type": "style3",
+      "name": "Style3",
+      "settings": [
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background",
+          "default": "#B1272F"
+        },
+        {
+          "type": "header",
+          "content": "Text left"
+        },
+        {
+          "type": "text",
+          "id": "style3_textleft",
+          "label": "Text left content",
+          "default": "Free shipping on all orders"
+        },
+        {
+          "type": "header",
+          "content": "Account"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_account",
+          "label": "Show account",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "style3_account_title",
+          "label": "Title",
+          "default": "My Account"
+        },
+        {
+          "type": "link_list",
+          "id": "style3_menu",
+          "label": "Menu"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement-bar.name"
+    }
+  ]
+}
+{% endschema %}

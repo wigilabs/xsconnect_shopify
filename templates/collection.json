@@ -1,0 +1,70 @@
+{
+  "sections": {
+    "165770078818653e11": {
+      "type": "breadcrumb",
+      "settings": {
+        "width_layout": "container",
+        "background_image": "shopify:\/\/shop_images\/breadcrumb.png",
+        "show_page_title": true,
+        "position_bread_crumb": "center-middle",
+        "pbs_collection": "first",
+        "color_background": "rgba(0,0,0,0)",
+        "color_content": "#ffffff",
+        "show_image_collection": false,
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 40,
+        "margin_bottom_mobile": 30
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "width_layout": "container",
+        "column_number": "4",
+        "products_per_page": 3,
+        "fsize_scale": 115,
+        "show_description": false,
+        "is_collapse_description": true,
+        "display_position": "top",
+        "description_max_height": 100,
+        "description_viewmore": "View More",
+        "description_viewless": "View Less",
+        "product_item_layout": "use_global",
+        "item_direction_prd_top": "use_global",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "collection_list": [
+
+        ],
+        "price_type": "price_range",
+        "price_range_config": "10-30,30-50,50-100",
+        "enable_apply_button": false,
+        "pagination_type": "pagination",
+        "type_load_more": "click",
+        "show_sidebar_banner": false,
+        "image_banner": "shopify:\/\/shop_images\/home2-banner5-1_e09ca43e-636c-41.png",
+        "title_content": "Content",
+        "description_content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+        "title_collection": "Featured collection",
+        "product_list": [
+          "21st-century-calcium-600-d-liquid-filled-softgels-90-ct",
+          "agadir-argan-oil-daily-moisturizing-conditioner-clear-pack-of-18",
+          "agadir-argan-oil-daily-moisturizing-conditioner-clear",
+          "alberto-vo5-extra-body-volumizing-shampoo-unisex",
+          "alberto-vo5-extra-body-volumizing-shampoo-unisex-1",
+          "alberto-vo5-extra-body-volumizing-shampoo-unisex-12-5-ounce-pack-of-3",
+          "alberto-vo6-extra-body-volumizing-shampoo-unisex-2",
+          "alberto-vo6-extra-body-volumizing-shampoo-unisex-1",
+          "alberto-vo6-extra-body-volumizing-shampoo-unisex",
+          "apple-iphone-7-plus-32gb"
+        ],
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "165770078818653e11",
+    "product-grid"
+  ]
+}

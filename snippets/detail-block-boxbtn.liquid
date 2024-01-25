@@ -1,0 +1,93 @@
+<div class="tp-box-btn flex items-stretch">
+  <div class="tp-box-btn-wrap flex items-center justify-start">
+    <div {{ block.shopify_attributes }} class="qty-wrapper__cart">
+      <product-form class="product-form">
+        {%- form 'product',
+          product,
+          id: product_form_id,
+          class: 'form',
+          novalidate: 'novalidate',
+          data-type: 'add-to-cart-form'
+        -%}
+          <input
+            type="hidden"
+            name="id"
+            value="{{ product.selected_or_first_available_variant.id }}"
+            class="input-detail-variant"
+          >
+          <input type="hidden" name="quantity" value="" class="input-detail-quantity">
+          <div class="product-form__buttons">
+            <button
+              type="submit"
+              name="add"
+              class="
+                {{ block.settings.button_type }} tp-btn product-form__submit button button--full-width
+                {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}
+              "
+              {% if product.selected_or_first_available_variant.available == false %}
+                disabled
+              {% endif %}
+            >
+              {% render 'icon', icon_name: 'icon-cart' %}
+              <span class="add-to-cart-text font-medium leading-none">
+                {%- if product.selected_or_first_available_variant.available -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- else -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- endif -%}
+              </span>
+              {% render 'icon',
+                icon_name: 'icon-loading',
+                class: 'add-to-cart-loading m-auto hidden',
+                width: 76,
+                height: 22
+              %}
+            </button>
+            {%- if block.settings.show_dynamic_checkout -%}
+              {{ form | payment_button }}
+            {%- endif -%}
+          </div>
+        {%- endform -%}
+      </product-form>
+    </div>
+  </div>
+</div>
+{% render 'detail-wishlist-compare', product: product, block: block %}
+
+<style>
+  {% if block.settings.show_wishlist or block.settings.show_compare %}
+  @media (min-width:768px) and (max-width: 992px) {
+      .box-btn__wrap{
+          flex-wrap: wrap;
+      }
+      .tp-wishlist-compare{
+        margin-left: -20px;
+      }
+      .tp-qty-wrapper, .tp-box-btn, .tp-box-wrapper{
+        margin-bottom: 20px;
+      }
+    }
+    @media  (max-width: 400px) {
+        .box-btn__wrap{
+            overflow: hidden;
+        }
+        .tp-compare{
+            display: none;
+        }
+        .tp-qty-wrapper, .tp-box-btn, .tp-box-wrapper{
+          margin-bottom: 20px;
+        }
+        .product-form__input .tp-item__quantity{
+            margin-right: 10px !important;
+        }
+        .tp-wishlist{
+            margin-left: 10px !important;
+        }
+      }
+      @media  (max-width: 345px) {
+        .tp-wishlist{
+            display: none;
+        }
+      }
+  {% endif %}
+</style>

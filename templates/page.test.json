@@ -1,0 +1,136 @@
+{
+  "sections": {
+    "0445a961-f34f-495a-ae49-c4dcbb9a75e0": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "width_layout": "container",
+        "title": "Featured Collection",
+        "description": "<p>Top highlights this season<\/p>",
+        "display_type": "slide",
+        "collection": "women",
+        "background_color": "",
+        "padding_top_bottom": 0,
+        "products_to_show": 8,
+        "column_number": "4",
+        "collection_list": [
+
+        ],
+        "style_button_tab": "tp-box-button__style-2",
+        "margin_bottom_button": 30,
+        "font_size_button": 16,
+        "font_weight_button_tab": 400,
+        "text_uppercase": false,
+        "layout_slider": "layout-slider-1",
+        "show_navigation": true,
+        "show_pagigation": true,
+        "sliders_perview": "4",
+        "title_banner": "Shop Pet Portraits",
+        "description_banner": "<p>Professionally designed based on your pet photos. Surprise the pet parent in your life with a truly unforgettable gift.<\/p>",
+        "position_collection": "position_left",
+        "product_item_layout": "layout_2",
+        "box_shadow": false,
+        "border_item": false,
+        "item_direction": "item_column",
+        "image_ratio": "adapt",
+        "border_radius_image": false,
+        "display_sale_badge": "text_sale",
+        "style_actions": "actions-circle",
+        "position_actions": "top_right",
+        "show_secondary_image": false,
+        "show_count_down": true,
+        "position_content": "content-left",
+        "font_weigh_title": 500,
+        "font_weight_price": 400,
+        "font_weight_price_compare": 400,
+        "color_price": "",
+        "style_price": "style_row",
+        "show_rating": true,
+        "variant_type": "radios_variant",
+        "style_size": "style_background",
+        "type_button": "normal",
+        "text_button": "",
+        "button_type": "tp-btn__primary",
+        "pws_show": false,
+        "pws_title": "Example Title",
+        "pws_desc": "Example Description",
+        "pws_button_name": "View Detail",
+        "pws_button_link": "",
+        "mobile_columns": "2",
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "10396161-fa83-469c-927e-10c5f0492b0b": {
+      "type": "list-collection",
+      "blocks": {
+        "template--16006793396418__10396161-fa83-469c-927e-10c5f0492b0b-167990512144ee1b97-0": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "best-seller"
+          }
+        },
+        "template--16006793396418__10396161-fa83-469c-927e-10c5f0492b0b-167990512144ee1b97-1": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "clothing-pet"
+          }
+        },
+        "template--16006793396418__10396161-fa83-469c-927e-10c5f0492b0b-167990512144ee1b97-2": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "men"
+          }
+        },
+        "template--16006793396418__10396161-fa83-469c-927e-10c5f0492b0b-167990512144ee1b97-3": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "new-arrivals"
+          }
+        },
+        "bead7237-f9ef-4cb4-9a7e-7610b9bb317f": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "bags"
+          }
+        }
+      },
+      "block_order": [
+        "template--16006793396418__10396161-fa83-469c-927e-10c5f0492b0b-167990512144ee1b97-0",
+        "template--16006793396418__10396161-fa83-469c-927e-10c5f0492b0b-167990512144ee1b97-1",
+        "template--16006793396418__10396161-fa83-469c-927e-10c5f0492b0b-167990512144ee1b97-2",
+        "template--16006793396418__10396161-fa83-469c-927e-10c5f0492b0b-167990512144ee1b97-3",
+        "bead7237-f9ef-4cb4-9a7e-7610b9bb317f"
+      ],
+      "settings": {
+        "width_section": "container",
+        "background_collection": "",
+        "heading": "Coats & Jackets",
+        "display_type_collection": "slide",
+        "border_radius_image": false,
+        "hover_image": "zoom",
+        "gap_item": 30,
+        "color_title": "#000000",
+        "fz_title_collection": 18,
+        "slide_perview": "4",
+        "show_navigation": true,
+        "show_count_product": true,
+        "show_btn_shop_now": false,
+        "style_title_collection": "style_nomarl",
+        "description": "",
+        "text_button": "Shop collection",
+        "link_button_banner": "",
+        "button_type": "tp-btn__primary",
+        "button_title": "Shop Now",
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 40,
+        "margin_bottom_mobile": 30
+      }
+    }
+  },
+  "order": [
+    "0445a961-f34f-495a-ae49-c4dcbb9a75e0",
+    "10396161-fa83-469c-927e-10c5f0492b0b"
+  ]
+}

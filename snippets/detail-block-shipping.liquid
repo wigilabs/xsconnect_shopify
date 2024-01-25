@@ -1,0 +1,43 @@
+{% if block.settings.use_spacing %}
+  {% render 'block-margin-bottom', className: 'tp-shipping', block: block %}
+  {% assign classDefault = '' %}
+{% else %}
+  {% assign classDefault = ' mb-3.75' %}
+{% endif %}
+{%- assign page_dr = block.settings.page_delivery -%}
+{% if pages[page_dr].content != blank %}
+  <div class="tp-shipping flex items-center{{ classDefault }}">
+    <span class="title-delivery-return tp-btn tp-btn__underline">
+      {{ block.settings.delivery_return }}
+    </span>
+  </div>
+  <div class="delivery-return">
+    <div class="delivery-return__wrapper page-content-default">
+      {{ pages[page_dr].content }}
+      <span class="close-retunr">
+        {% render 'icon', icon_name: 'icon-close' %}
+      </span>
+    </div>
+  </div>
+{% endif -%}
+
+<script>
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('title-delivery-return')) {
+      const body = e.target.closest('body');
+      const one_collumn = body.querySelector('.tp-product-detail__right-wrapper');
+      const delivery_return = body.querySelector('.delivery-return');
+      body.classList.add('overlay-body-return');
+      delivery_return.classList.add('open');
+      one_collumn.style.position = 'unset';
+    }
+    if (e.target.classList.contains('close-retunr')) {
+      const body = e.target.closest('body');
+      const delivery_return = body.querySelector('.delivery-return');
+      const one_collumn = body.querySelector('.tp-product-detail__right-wrapper');
+      body.classList.remove('overlay-body-return');
+      delivery_return.classList.remove('open');
+      one_collumn.style.position = 'sticky';
+    }
+  });
+</script>

@@ -1,0 +1,205 @@
+{% liquid
+  assign st = section.settings
+  assign WidthLayout = st.width_layout
+  assign displayType = st.display_type
+%}
+<div class="gradient {{ WidthLayout }}">
+  <product-recommendations
+    class="product-recommendations page-width section-{{ section.id }}-padding isolate"
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ st.products_to_show }}"
+  >
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+      <h2 class="product-recommendations__heading {{ st.heading_size }}">
+        {{ st.heading | escape }}
+      </h2>
+      <div class="recommendation-silde swiper">
+        <div class="swiper-wrapper">
+          {% for recommendation in recommendations.products %}
+            <div class="swiper-slide grid__item">
+              {% render 'card-product',
+                card_product: recommendation,
+                section: section,
+                layoutProductItem: st.product_item_layout,
+                lazy_load: lazy_load
+              %}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-prev recommendation-prev">
+          {% render 'icon', icon_name: 'icon-prev-type1' %}
+        </div>
+        <div class="swiper-next recommendation-next">
+          {% render 'icon', icon_name: 'icon-next-type1' %}
+        </div>
+      </div>
+    {% endif %}
+  </product-recommendations>
+</div>
+{% render 'margin-bottom' %}
+
+{% javascript %}
+  class ProductRecommendations extends HTMLElement {
+    constructor() {
+      super();
+      const handleIntersection = (entries, observer) => {
+        if (!entries[0].isIntersecting) return;
+
+        observer.unobserve(this);
+
+        fetch(this.dataset.url)
+          .then((response) => response.text())
+          .then((text) => {
+            const html = document.createElement('div');
+            html.innerHTML = text;
+            const recommendations = html.querySelector('product-recommendations');
+
+            if (recommendations && recommendations.innerHTML.trim().length) {
+              this.innerHTML = recommendations.innerHTML;
+            }
+
+            if (html.querySelector('.grid__item')) {
+              this.classList.add('product-recommendations--loaded');
+            }
+            var swiper = new Swiper('.recommendation-silde', {
+              slidesPerView: 2,
+              spaceBetween: -1,
+              navigation: {
+                nextEl: '.recommendation-next',
+                prevEl: '.recommendation-prev',
+              },
+              breakpoints: {
+                490: {
+                  slidesPerView: 3,
+                },
+                768: {
+                  slidesPerView: 4,
+                },
+                1025: {
+                  slidesPerView: 6,
+                },
+              },
+            });
+          })
+          .catch((e) => {
+            console.error(e);
+          });
+      };
+
+      new IntersectionObserver(handleIntersection.bind(this), {
+        rootMargin: '0px 0px 200px 0px',
+      }).observe(this);
+    }
+  }
+
+  customElements.define('product-recommendations', ProductRecommendations);
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.product-recommendations.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width_layout",
+      "label": "Width layout",
+      "options": [
+        {
+          "value": "container",
+          "label": "Container"
+        },
+        {
+          "value": "sm-container",
+          "label": "Small container"
+        },
+        {
+          "value": "lg-container",
+          "label": "Large container"
+        },
+        {
+          "value": "width-full",
+          "label": "Width full"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.product-recommendations.settings.paragraph__1.content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Related products",
+      "label": "t:sections.product-recommendations.settings.heading.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 15,
+      "step": 1,
+      "default": 6,
+      "label": "t:sections.product-recommendations.settings.products_to_show.label"
+    },
+
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header.content"
+    },
+
+    {
+      "type": "select",
+      "id": "product_item_layout",
+      "label": "Product item layout",
+      "options": [
+        {
+          "value": "use_global",
+          "label": "Use global"
+        },
+        {
+          "value": "layout_1",
+          "label": "Layout 1"
+        },
+        {
+          "value": "layout_2",
+          "label": "Layout 2"
+        },
+        {
+          "value": "layout_3",
+          "label": "Layout 3"
+        }
+      ],
+      "default": "use_global"
+    },
+
+    {
+      "type": "header",
+      "content": "t:sections.margin_bottom.content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Unit: pixel"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "label": "t:sections.margin_bottom.desktop.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_table",
+      "label": "t:sections.margin_bottom.tablet.label",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "label": "t:sections.margin_bottom.mobile.label",
+      "default": 40
+    }
+  ]
+}
+{% endschema %}

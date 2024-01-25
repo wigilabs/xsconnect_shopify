@@ -1,0 +1,73 @@
+{
+  "sections": {
+    "165966922193b757ce": {
+      "type": "breadcrumb",
+      "settings": {
+        "width_layout": "container",
+        "color_background": "#f3f3f3",
+        "color_content": "#ffffff",
+        "show_page_title": true,
+        "position_bread_crumb": "center-middle",
+        "pbs_collection": "first",
+        "show_image_collection": false,
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 40,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "blocks": {
+        "38b949ba-9dfb-4922-9383-85f1c9782d6b": {
+          "type": "about_blog",
+          "settings": {
+            "title": "About blog",
+            "content_about": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised"
+          }
+        },
+        "67413e8b-91da-44cd-998a-7ccd13a7923e": {
+          "type": "categories",
+          "settings": {
+            "title": "Categories",
+            "menu": "categories-blog"
+          }
+        },
+        "60260963-45fe-4435-be19-341b0f5313d6": {
+          "type": "recent_post",
+          "settings": {
+            "title": "Recent Post",
+            "sidebar_recent_blog_name": ""
+          }
+        },
+        "43feabdc-d93d-4c12-a3b9-16c92098227d": {
+          "type": "tags",
+          "settings": {
+            "title": "Tags",
+            "limit_tags": "25"
+          }
+        }
+      },
+      "block_order": [
+        "38b949ba-9dfb-4922-9383-85f1c9782d6b",
+        "67413e8b-91da-44cd-998a-7ccd13a7923e",
+        "60260963-45fe-4435-be19-341b0f5313d6",
+        "43feabdc-d93d-4c12-a3b9-16c92098227d"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "fix_height_img": true,
+        "height_img": 270,
+        "show_date": true,
+        "show_sidebar": true,
+        "layout": "right_column",
+        "view": "list",
+        "show_loadmore_paginate": "paginate",
+        "show_item_per_row": 4
+      }
+    }
+  },
+  "order": [
+    "165966922193b757ce",
+    "main"
+  ]
+}

@@ -1,0 +1,41 @@
+{% liquid
+  assign metafields_desc = product.metafields.custom.featured_description
+  assign bt = block.settings
+  assign border_item = bt.border_item
+  assign type_description = bt.type_description
+  assign desc_display_as = bt.desc_display_as
+  if bt.use_spacing
+    render 'block-margin-bottom', className: 'tp-product-brief', block: block
+    assign classDefault = ''
+  else
+    assign classDefault = ' mb-3.75'
+  endif
+%}
+
+{%- if metafields_desc != null and metafields_desc != '' -%}
+  <div class="tp-product-brief tp-product__features{{ classDefault }}">
+    <div class="item-header flex items-center justify-content-between{% if desc_display_as == 'show' %} activeItemHeader{% endif %}">
+      <div class="item-wrap item-header-title flex items-center justify-between{% if desc_display_as == 'show' %} showContent{% endif %}">
+        {{ bt.title_features }}
+        {% render 'icon', icon_name: 'icon-drop-down-2', width: 10, height: 10 %}
+        {% render 'icon', icon_name: 'icon-arrow-up-2', width: 10, height: 10 %}
+      </div>
+    </div>
+    <div class="item-body-content" style="{% if desc_display_as == 'show' %}max-height: none{% endif %}">
+      <div class="content-wrapper">{{ metafields_desc }}</div>
+    </div>
+  </div>
+{% endif %}
+<style>
+    {% if border_item == true %}
+      .tp-product__features .item-header-title{
+        padding: 10px 15px 7px;
+        border: 1px solid var(--color-border);
+      }
+      .tp-product__features .content-wrapper{
+        padding: 20px;
+        border: 1px solid var(--color-border);
+        border-top: none;
+      }
+  {% endif %}
+</style>

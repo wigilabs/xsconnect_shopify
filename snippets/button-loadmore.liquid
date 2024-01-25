@@ -1,0 +1,11 @@
+{% comment %}
+  Shopify Button Loadmore
+    Usage:
+      - Markup: {%- render 'button-loadmore' -%}
+    Parameters:
+      - product: <Shopify product> (required)
+{% endcomment %}
+<div class="load-more text-center">
+    <a {% if identificareId %}id="{{ identificareId }}"{% endif %} data-type="{{ typeLoadMore }}" class="load-more_btn mt-12 button button--primary hvr-none-border-bottom font-medium cursor-pointer">Load More</a>
+    <div class="load-more_spinner hide w-8 h-8 ml-auto mr-auto border-4 border-solid border-black border-t-gray-200 rounded-full animate-spin"></div>
+</div>

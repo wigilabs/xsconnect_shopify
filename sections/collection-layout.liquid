@@ -1,0 +1,167 @@
+{%  liquid 
+  assign st = section.settings
+  assign type_layout = st.layout_type
+  assign widthLayout = st.width_layout
+%}
+<div class="collection_layout">
+  <div class="{{ widthLayout }}">
+    {% if type_layout == 'layout_grid' %}
+      <div class="collection-layout__list flex items-start flex-wrap">
+        {%- for block in section.blocks -%}
+          {% if block.type == 'collection_item' %}
+            {%  liquid 
+              assign bt = block.settings
+              assign collection = bt.collection_item
+              assign imageCollection = bt.image_collection
+              if imageCollection == blank
+                assign imageCollection = collection.featured_image
+              endif
+            %}
+            <div class="collection-layout__item relative">
+              <a href="{{ collection.url }}">
+                <div class="collection-layout__image">
+                    {% if imageCollection != blank %}
+                      {% render 'responsive-image', image: imageCollection %}
+                    {% else %}
+                      {% render 'no-image-banner', text_size: '' %}
+                    {% endif %}
+                
+                </div>
+                <div class="collection-layout__content">
+                  <h2 class="collection-title">{{ collection.title }}</h2>
+                </div>
+                <div class="collection-layout__content collection-layout__content-hover">
+                  <div class="collection-desc font-normal mb-5">{{ collection.description | strip_html | truncate: 80 }}</div>
+                  <span class="collection-count tp-btn tp-btn__primary cursor-pointer">{{ collection.products_count }} Products</span>
+                </div>
+              </a>  
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+    <div class="collection-layout__lookbook">
+      {%- for block in section.blocks -%}
+        {% if block.type == 'collection_item' %}
+          {%  liquid 
+            assign bt = block.settings
+            assign collection = bt.collection_item
+            assign imageCollection = bt.image_collection
+            if imageCollection == blank
+              assign imageCollection = collection.featured_image
+            endif
+          %}
+          <div class="layout-item" style="background: url({{ imageCollection | image_url: width: imageCollection.width, height: imageCollection.height }});">
+              <div class="item-content text-center">
+                <h2 class="collection-title">
+                  <a href="{{ collection.url }}">
+                    {{ collection.title }}
+                  </a> 
+                  </h2>
+                <span class="collection-count">{{ collection.products_count }} {{ 'templates.search.products' | t }}</span>
+                <div class="collection-desc font-normal mb-6.5">{{ collection.description | strip_html | truncate: 80 }}</div>
+                <a href="{{ collection.url }}"><span class="tp-btn tp-btn__secondary">{{ 'button.shop_now' | t }}</span> </a> 
+              </div> 
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+{% render 'margin-bottom' %}
+{% schema %}
+  {
+    "name":"Collection Layout",
+    "tag":"section",
+    "settings": [
+      {
+        "type": "select",
+        "id":"layout_type",
+        "label": "Type layout", 
+        "options": [
+          {
+            "value": "layout_grid",
+            "label": "Layout grid"
+          },
+          {
+            "value": "layout_look_book",
+            "label": "Layout look book"
+          }
+        ],
+        "default": "layout_grid"
+      },
+      {
+      "type": "select",
+      "id": "width_layout",
+      "label": "Width layout",
+      "options": [
+        {
+          "value": "container",
+          "label": "Container"
+        },
+        {
+          "value": "lg-container",
+          "label": "Large container"
+        },
+        {
+          "value": "width-full",
+          "label": "Width full"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.margin_bottom.content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Unit: pixel"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "label": "t:sections.margin_bottom.desktop.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_table",
+      "label": "t:sections.margin_bottom.tablet.label",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "label": "t:sections.margin_bottom.mobile.label",
+      "default": 40
+    }
+
+    ],
+    "blocks":[
+      {
+        "name": "Collection",
+        "type": "collection_item",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection_item",
+            "label": "Collection"  
+          },
+          {
+            "type":"image_picker",
+            "id": "image_collection",
+            "label": "Image collection",
+            "info": "If the image is empty, the collection image will be taken"
+          }
+        ]
+      } 
+    ],
+    "presets": [
+      {
+        "name":"Collection layout"
+      }
+    ]
+  }
+{% endschema %}

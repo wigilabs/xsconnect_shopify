@@ -1,0 +1,125 @@
+<header class="header-mobile">
+  <div class="header-mobile__wrapper flex flex-row justify-between items-center px-3.5 py-4">
+    <div class="header__logo">
+      {% liquid
+        assign settings = section.settings
+        assign logo_val = settings.logo
+        assign logo_mobile = settings.logo_mobile
+      %}
+      {%- if request.page_type == 'index' -%}
+        <div class="header__heading">
+      {%- endif -%}
+      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset header-logo-desktop">
+        {%- if logo_val != blank -%}
+          {%- assign image_size_2x = settings.logo_width | times: 2 | at_most: 5760 -%}
+          <img
+            srcset="{{ logo_val | image_url: width: settings.logo_width }} 1x, {{ logo_val | image_url: width: image_size_2x }} 2x"
+            src="{{ logo_val | image_url: width: settings.logo_width }}"
+            loading="lazy"
+            class="header__heading-logo"
+            width="{{ settings.logo.width }}"
+            height="{{ settings.logo.height }}"
+            alt="{{ settings.logo.alt | default: shop.name | escape }}"
+          >
+        {%- else -%}
+          <span class="h2">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset header-logo-mobile">
+        {%- if logo_mobile != blank -%}
+          {%- assign image_size_2x = settings.logo_width | times: 2 | at_most: 5760 -%}
+          <img
+            srcset="{{ logo_mobile | image_url: width: settings.logo_width }} 1x, {{ logo_mobile | image_url: width: image_size_2x }} 2x"
+            src="{{ logo_mobile | image_url: width: settings.logo_width }}"
+            loading="lazy"
+            class="header__heading-logo"
+            width="{{ settings.logo_mobile.width }}"
+            height="{{ settings.logo_mobile.height }}"
+            alt="{{ settings.logo-mobile.alt | default: shop.name | escape }}"
+          >
+        {%- else -%}
+          <span class="header-logo-mobile-empty">Logo</span>
+        {%- endif -%}
+      </a>
+      {%- if request.page_type == 'index' -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="header-mobile__right flex items-center justify-end">
+      <div
+        class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}"
+        tabindex="-1"
+      >
+        {%- if settings.predictive_search_enabled -%}
+          <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+        {%- endif -%}
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+          <div class="field">
+            <input name="type" type="hidden" value="product">
+            <input
+              class="search__input field__input"
+              type="search"
+              name="q"
+              value=""
+              placeholder="{{ 'general.search.search' | t }}"
+              {%- if settings.predictive_search_enabled -%}
+                role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list"
+                aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list"
+                autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false"
+              {%- endif -%}
+            >
+            <input name="options[prefix]" type="hidden" value="last">
+            <button class="search__button field__button">
+              {% render 'icon', icon_name: 'icon-search', class: '-rotate-90', width: 15, height: 15 %}
+            </button>
+          </div>
+          <div class="predictive-search predictive-search--header" data-predictive-search tabindex="-1">
+            <div class="predictive-search__loading-state">
+              <svg
+                aria-hidden="true"
+                class="spinner"
+                focusable="false"
+                role="presentation"
+                viewbox="0 0 66 66"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-width="6"></circle>
+              </svg>
+            </div>
+          </div>
+
+          <span aria-hidden="true" class="predictive-search-status visually-hidden" role="status"></span>
+        </form>
+        {%- if settings.predictive_search_enabled -%}
+          </predictive-search>
+        {%- endif -%}
+      </div>
+      <div class="right-icon flex items-center">
+        <button
+          class="right-icon__item header__icon--cart header__icon header__icon--cart link link--text"
+          title="Cart count"
+        >
+          {% render 'icon', icon_name: 'icon-cart-header-3' %}
+        </button>
+        <button class="right-icon__item js-btn-categories-mobile">
+          {% render 'icon', icon_name: 'icon-click-menu', width: 11, height: 11 %}
+        </button>
+        <button class="right-icon__item icon-header-mobile">
+          {% render 'icon', icon_name: 'icon-gear', width: 14, height: 14 %}
+        </button>
+      </div>
+    </div>
+    <nav class="panel-menu-mobile">
+      <div class="close-parent flex items-center font-normal">
+        {% render 'icon', icon_name: 'icon-close', class: 'mr-3.75', width: 10, height: 10 %}
+        Close
+      </div>
+      <div class="main-header-mobile">
+        {% render 'header-menu', call: 'mobile' %}
+      </div>
+    </nav>
+    <div class="categories-mobile">
+      {% render 'menu-categories' %}
+    </div>
+  </div>
+</header>

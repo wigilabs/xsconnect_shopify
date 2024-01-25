@@ -1,0 +1,347 @@
+{
+  "sections": {
+    "ea31e7c8-131d-446c-b8f4-0919916ec80e": {
+      "type": "slide",
+      "blocks": {
+        "e8558718-cbeb-47f3-a904-ac59dc08fde8": {
+          "type": "slide_item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/a-slider1.png",
+            "image_mobile": "shopify:\/\/shop_images\/slider-mobile1.png",
+            "overlay_slide": 0,
+            "slider_effect": "fadeInUp",
+            "position_content": "left-content",
+            "text_align_content": "text_left",
+            "sub_title": "NEW IN",
+            "title": "<p>SUMMER COLLECTION<\/p>",
+            "description_1": "",
+            "description_2": "",
+            "slide_url": "",
+            "font_size_subtitle": 18,
+            "font_size_title": 50,
+            "font_size_description": 16,
+            "color_subtitle": "#000000",
+            "color_title": "#000000",
+            "color_description": "#000000",
+            "color_description_2": "#000000",
+            "button_type": "tp-btn__primary"
+          }
+        },
+        "6297a7b8-61c1-4a07-966c-96ed0d70f51f": {
+          "type": "slide_item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/a-slider2_f16368c4-e006-4e6c-8b5a-556d0d21e23b.png",
+            "image_mobile": "shopify:\/\/shop_images\/slider-mobile2.png",
+            "overlay_slide": 0,
+            "slider_effect": "fadeInDown",
+            "position_content": "left-content",
+            "text_align_content": "text_left",
+            "sub_title": "NEW ARRIVALS",
+            "title": "<p>MAN COLLECTION<\/p>",
+            "description_1": "",
+            "description_2": "",
+            "slide_url": "",
+            "font_size_subtitle": 18,
+            "font_size_title": 50,
+            "font_size_description": 16,
+            "color_subtitle": "#000000",
+            "color_title": "#000000",
+            "color_description": "#000000",
+            "color_description_2": "#000000",
+            "button_type": "tp-btn__primary"
+          }
+        },
+        "ce3a74db-14fc-466f-9b5e-e079103388d7": {
+          "type": "slide_item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/a-slider3.png",
+            "image_mobile": "shopify:\/\/shop_images\/slider-mobile3.png",
+            "overlay_slide": 0,
+            "slider_effect": "fadeInLeft",
+            "position_content": "left-content",
+            "text_align_content": "text_left",
+            "sub_title": "SPRING - SUMMER",
+            "title": "<p>MINI COLLECTION<\/p>",
+            "description_1": "",
+            "description_2": "",
+            "slide_url": "",
+            "font_size_subtitle": 18,
+            "font_size_title": 50,
+            "font_size_description": 16,
+            "color_subtitle": "#000000",
+            "color_title": "#000000",
+            "color_description": "#000000",
+            "color_description_2": "#000000",
+            "button_type": "tp-btn__primary"
+          }
+        }
+      },
+      "block_order": [
+        "e8558718-cbeb-47f3-a904-ac59dc08fde8",
+        "6297a7b8-61c1-4a07-966c-96ed0d70f51f",
+        "ce3a74db-14fc-466f-9b5e-e079103388d7"
+      ],
+      "settings": {
+        "show_navigation": true,
+        "show_pagination": true,
+        "loop": true,
+        "autoplay": true,
+        "autoplay_time": 7,
+        "fix_height_img": "height_by_theme",
+        "position_pagination": "left_bottom",
+        "pag_bg": "#000000",
+        "type_navigation": "button_icon",
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "43fa94af-e2f7-4e99-a60b-4a1dac7b8b4c": {
+      "type": "banner-image-card",
+      "blocks": {
+        "template--15917315129538__43fa94af-e2f7-4e99-a60b-4a1dac7b8b4c-16679793704eb8c5ba-0": {
+          "type": "item",
+          "settings": {
+            "content_position": "content-center-left",
+            "content_alignment": "left",
+            "hover_item": "zoom_image",
+            "use_effect_hover": false,
+            "background_content": "",
+            "image": "shopify:\/\/shop_images\/banner-left_91af4f83-6d23-4286-8584-53b3ebbe7f2e.png",
+            "overlay_banner": 0,
+            "fix_height_image": false,
+            "height_image_mobile": 50,
+            "title": "<p>Best Seller<\/p>",
+            "sub_title": "",
+            "font_size_title": 36,
+            "color_title": "#000000",
+            "color_background_title": "rgba(0,0,0,0)",
+            "font_size_sub_title": 24,
+            "color_sub_title": "#000000",
+            "color_background_sub_title": "",
+            "button_type": "tp-btn__secondary",
+            "button_label": "Shop Now",
+            "link": "shopify:\/\/collections\/best-seller"
+          }
+        },
+        "template--15917315129538__43fa94af-e2f7-4e99-a60b-4a1dac7b8b4c-16679793704eb8c5ba-1": {
+          "type": "item",
+          "settings": {
+            "content_position": "content-center-right",
+            "content_alignment": "left",
+            "hover_item": "zoom_image",
+            "use_effect_hover": false,
+            "background_content": "",
+            "image": "shopify:\/\/shop_images\/banner-right_4559d6ac-37ed-43c3-92c9-d46440d88db2.png",
+            "overlay_banner": 0,
+            "fix_height_image": false,
+            "height_image_mobile": 50,
+            "title": "<p>New Arrivals<\/p>",
+            "sub_title": "",
+            "font_size_title": 36,
+            "color_title": "#000000",
+            "color_background_title": "rgba(0,0,0,0)",
+            "font_size_sub_title": 24,
+            "color_sub_title": "#000000",
+            "color_background_sub_title": "",
+            "button_type": "tp-btn__secondary",
+            "button_label": "Shop Now",
+            "link": "shopify:\/\/collections\/new-arrivals"
+          }
+        }
+      },
+      "block_order": [
+        "template--15917315129538__43fa94af-e2f7-4e99-a60b-4a1dac7b8b4c-16679793704eb8c5ba-0",
+        "template--15917315129538__43fa94af-e2f7-4e99-a60b-4a1dac7b8b4c-16679793704eb8c5ba-1"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "gap_item": 0,
+        "background_banner": "",
+        "title": "",
+        "description": "",
+        "layout": "layout_2",
+        "padding_top": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom": 0,
+        "margin_top_desktop": 0,
+        "margin_top_table": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "fa7cda56-8274-49d4-aa4a-6fc6360c0293": {
+      "type": "featured-collection",
+      "settings": {
+        "width_layout": "container",
+        "title": "Best Sellers",
+        "description": "",
+        "display_type": "slide",
+        "collection": "new-arrivals",
+        "background_color": "",
+        "padding_top_bottom": 0,
+        "products_to_show": 5,
+        "column_number": "4",
+        "collection_list": [
+          "men",
+          "women",
+          "trending"
+        ],
+        "style_button_tab": "tp-box-button__style-1",
+        "margin_bottom_button": 30,
+        "font_size_button": 18,
+        "font_weight_button_tab": 400,
+        "text_uppercase": false,
+        "layout_slider": "layout-slider-1",
+        "show_navigation": true,
+        "show_pagigation": true,
+        "sliders_perview": "4",
+        "title_banner": "Shop Pet Portraits",
+        "description_banner": "<p>Professionally designed based on your pet photos. Surprise the pet parent in your life with a truly unforgettable gift.<\/p>",
+        "position_collection": "position_left",
+        "product_item_layout": "use_global",
+        "type_button": "normal",
+        "text_button": "Show More",
+        "button_type": "tp-btn__secondary",
+        "pws_show": true,
+        "pws_title": "Example Title",
+        "pws_desc": "Storepify have a lot of product layouts and you can customize to create more new product layouts.",
+        "pws_button_name": "View More",
+        "pws_button_link": "https:\/\/storepify.thimpress.com\/pages\/product-item",
+        "mobile_columns": "2",
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "f2fa2f8b-f946-450d-a161-b81a77d00243": {
+      "type": "banner-slide",
+      "blocks": {
+        "template--15917315129538__f2fa2f8b-f946-450d-a161-b81a77d00243-1667980420cb06428d-0": {
+          "type": "bnslide_item",
+          "settings": {
+            "position_countdown": "right-countdown",
+            "image": "shopify:\/\/shop_images\/slider-3.png",
+            "title": "Save off",
+            "percent": "50%",
+            "sub_title": "New Offer Products",
+            "cd_year": 2023,
+            "cd_month": "12",
+            "cd_days": "28",
+            "color_text_count_down": "#ffffff",
+            "color_bg_count_down": "#222222",
+            "link_button": "",
+            "button_type": "tp-btn__secondary"
+          }
+        },
+        "template--15917315129538__f2fa2f8b-f946-450d-a161-b81a77d00243-1667980420cb06428d-2": {
+          "type": "bnslide_item",
+          "settings": {
+            "position_countdown": "right-countdown",
+            "image": "shopify:\/\/shop_images\/slider-1_79e57054-3a96-4bc7-8428-f6a09f506989.png",
+            "title": "Save off",
+            "percent": "30%",
+            "sub_title": "New Offer Products",
+            "cd_year": 2023,
+            "cd_month": "12",
+            "cd_days": "29",
+            "color_text_count_down": "#ffffff",
+            "color_bg_count_down": "#222222",
+            "link_button": "",
+            "button_type": "tp-btn__secondary"
+          }
+        }
+      },
+      "block_order": [
+        "template--15917315129538__f2fa2f8b-f946-450d-a161-b81a77d00243-1667980420cb06428d-0",
+        "template--15917315129538__f2fa2f8b-f946-450d-a161-b81a77d00243-1667980420cb06428d-2"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "show_navigation": true,
+        "show_pagination": true,
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40,
+        "pagi_color": "#ffffff"
+      }
+    },
+    "fe60e7ab-ca21-4b69-baca-5a18acbaa546": {
+      "type": "tp-instagram",
+      "blocks": {
+        "81849b9d-063a-4596-8f7c-5914e42c4180": {
+          "type": "item_instagram",
+          "settings": {
+            "image_instagram": "shopify:\/\/shop_images\/ig1.png",
+            "link_instagram": "https:\/\/www.instagram.com\/p\/CjXUHFzPF9o\/"
+          }
+        },
+        "8ee73743-5876-44f3-be04-227699191536": {
+          "type": "item_instagram",
+          "settings": {
+            "image_instagram": "shopify:\/\/shop_images\/ig2.png",
+            "link_instagram": "https:\/\/www.instagram.com\/p\/CjXUFAkvnHQ\/"
+          }
+        },
+        "6bba2fdd-1540-4f22-b4e7-fbcd2540fd2e": {
+          "type": "item_instagram",
+          "settings": {
+            "image_instagram": "shopify:\/\/shop_images\/ig3.png",
+            "link_instagram": "https:\/\/www.instagram.com\/p\/CjhHFe9PpQ5\/"
+          }
+        },
+        "a7fd0570-eea7-415d-b002-5c90882f83ea": {
+          "type": "item_instagram",
+          "settings": {
+            "image_instagram": "shopify:\/\/shop_images\/ig4.png",
+            "link_instagram": "https:\/\/www.instagram.com\/p\/CjXT9nvvV8K\/"
+          }
+        },
+        "39e851a8-8264-4e84-9db8-12de8be28122": {
+          "type": "item_instagram",
+          "settings": {
+            "image_instagram": "shopify:\/\/shop_images\/ig5.png",
+            "link_instagram": "https:\/\/www.instagram.com\/p\/CjXT7pHvNa0\/"
+          }
+        },
+        "1bc1c1f9-0fc3-48fa-8ee6-a096fc488472": {
+          "type": "item_instagram",
+          "settings": {
+            "image_instagram": "shopify:\/\/shop_images\/ig6.png",
+            "link_instagram": "https:\/\/www.instagram.com\/p\/CjXUuJYPj4g\/"
+          }
+        }
+      },
+      "block_order": [
+        "81849b9d-063a-4596-8f7c-5914e42c4180",
+        "8ee73743-5876-44f3-be04-227699191536",
+        "6bba2fdd-1540-4f22-b4e7-fbcd2540fd2e",
+        "a7fd0570-eea7-415d-b002-5c90882f83ea",
+        "39e851a8-8264-4e84-9db8-12de8be28122",
+        "1bc1c1f9-0fc3-48fa-8ee6-a096fc488472"
+      ],
+      "settings": {
+        "ins_ctn": "container-fluid",
+        "title_instagram": "@ FOLLOW US ON",
+        "sub_title_instagram": "INSTAGRAM",
+        "profile": "https:\/\/www.instagram.com\/storepify\/",
+        "data_instagram": "custom_data",
+        "gap_item": 0,
+        "instagram_to_show": 6,
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "ea31e7c8-131d-446c-b8f4-0919916ec80e",
+    "43fa94af-e2f7-4e99-a60b-4a1dac7b8b4c",
+    "fa7cda56-8274-49d4-aa4a-6fc6360c0293",
+    "f2fa2f8b-f946-450d-a161-b81a77d00243",
+    "fe60e7ab-ca21-4b69-baca-5a18acbaa546"
+  ]
+}

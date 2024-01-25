@@ -1,0 +1,80 @@
+{
+  "sections": {
+    "1660297400b570e9e4": {
+      "type": "breadcrumb",
+      "settings": {
+        "width_layout": "container",
+        "color_background": "#f3f3f3",
+        "color_content": "#ffffff",
+        "show_page_title": true,
+        "position_bread_crumb": "left",
+        "pbs_collection": "first",
+        "show_image_collection": false,
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 40,
+        "margin_bottom_mobile": 30
+      }
+    },
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "019a505c-b6d8-468d-9538-918bc877b334": {
+          "type": "about_blog",
+          "settings": {
+            "title": "About blog",
+            "content_about": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_comment": true
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        },
+        "3cdb65b5-d64c-484f-a51f-ab49ecf1f76d": {
+          "type": "categories",
+          "settings": {
+            "title": "Categories",
+            "menu": "categories-blog"
+          }
+        },
+        "93ea250c-25dd-4104-9e8d-818e3500d5b7": {
+          "type": "recent_post",
+          "settings": {
+            "title": "Recent Post",
+            "sidebar_recent_blog_name": ""
+          }
+        },
+        "49a31e84-5b86-48d6-bb17-fa0637e434d5": {
+          "type": "tags",
+          "settings": {
+            "title": "Tags"
+          }
+        }
+      },
+      "block_order": [
+        "019a505c-b6d8-468d-9538-918bc877b334",
+        "title",
+        "content",
+        "3cdb65b5-d64c-484f-a51f-ab49ecf1f76d",
+        "93ea250c-25dd-4104-9e8d-818e3500d5b7",
+        "49a31e84-5b86-48d6-bb17-fa0637e434d5"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "blog_show_social": true,
+        "show_date": true,
+        "show_author": false
+      }
+    }
+  },
+  "order": [
+    "1660297400b570e9e4",
+    "main"
+  ]
+}

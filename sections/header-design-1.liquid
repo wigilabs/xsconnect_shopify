@@ -1,0 +1,593 @@
+{%- style -%}
+    .header-wrapper{
+        {% if section.settings.background_image != blank %}
+        background: url({{ section.settings.background_image | image_url: width: section.settings.background_image.width, height: section.settings.background_image.height }});
+        {% else %}
+        background: {{ section.settings.menu_bg }};
+        {% endif %}
+    }
+    @media only screen and (max-width: 1024px) {
+    {% if section.settings.background_image %}
+        .header-wrapper{
+            border-bottom: 1px solid #e6e6e6;
+        }
+    {% endif %}
+    }
+
+    .status-item-menu.item-hot {
+        background: {{ section.settings.bgcolor_label1 }};
+        color: {{ section.settings.textcolor_label1 }};
+    }
+    .header .flex-header{
+        background: {{ section.settings.menu_bg_nav }};
+    }
+    .header-ds1 .menu-lv1 a{
+        color: {{ section.settings.menu_text_nav }} !important;
+    }
+    .header-ds1 .menu-lv1 a::before{
+        background: {{ section.settings.menu_text_nav }} !important;
+    }
+    .stand-top-left .header-menu-wrap svg{
+        fill:{{ section.settings.menu_text_nav }};
+        stroke: {{ section.settings.menu_text_nav }};
+    }
+{%- endstyle -%}
+
+{% liquid 
+   
+    assign hasMegamenu = false 
+    assign sizeBlock = section.blocks.size
+
+    if sizeBlock > 0
+        assign hasMegamenu = true
+    endif
+%}
+<div class='header-ds1 header-general'>
+  {% if section.settings.enable_sticky_header %}
+  <sticky-header class="header-sticky">
+  {% endif %}
+    <div class="overscroll-none{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+        <header class="header header-desktop">
+          <div class="header__wrapper">
+            <div class="header__top container">
+              <div class="header__top-wrapper flex items-center justify-between">
+                  {% render 'header-logo' %}
+                <div class="search-modal modal__content gradient flex items-center" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+                    <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
+                        {%- if settings.predictive_search_enabled -%}
+                        <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+                            {%- endif -%}
+                            <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                                <div class="field">
+                                    <input name="type" type="hidden" value="product">
+                                    <input class="search__input field__input" type="search" name="q" value="" placeholder="{{ 'general.search.search' | t }}" {%- if settings.predictive_search_enabled -%} role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list" aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" {%- endif -%}>
+                                    <input name="options[prefix]" type="hidden" value="last">
+                                    <select name="product_type" id="">
+                                        <option value="">Search category</option>
+                                        {% for product_type in shop.types %}  
+                                        {% if product_type != blank %}  
+                                            <option value="{{ product_type }}">{{ product_type }}</option>
+                                        {%- endif -%}
+                                        {% endfor %}
+                                    </select>
+
+                                    <svg class="icon-arrow-down" width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8757 0.125877C10.9151 0.165677 10.9464 0.212958 10.9677 0.265012C10.989 0.317066 11 0.37287 11 0.429228C11 0.485585 10.989 0.541389 10.9677 0.593443C10.9464 0.645497 10.9151 0.692779 10.8757 0.732579L5.79939 5.87412C5.7601 5.91402 5.71341 5.94568 5.66202 5.96728C5.61063 5.98888 5.55553 6 5.49989 6C5.44425 6 5.38915 5.98888 5.33776 5.96728C5.28636 5.94568 5.23968 5.91402 5.20039 5.87412L0.124058 0.732579C0.0446243 0.652125 -2.37356e-08 0.543006 -1.87621e-08 0.429227C-1.37887e-08 0.315449 0.0446243 0.20633 0.124058 0.125876C0.203491 0.0454224 0.311226 0.000223861 0.423561 0.000223866C0.535897 0.000223871 0.643632 0.0454224 0.723064 0.125876L5.49989 4.96493L10.2767 0.125877C10.316 0.0859754 10.3627 0.0543181 10.4141 0.032718C10.4655 0.011118 10.5206 -2.09564e-08 10.5762 -1.85242e-08C10.6319 -1.60919e-08 10.687 0.011118 10.7383 0.0327181C10.7897 0.0543181 10.8364 0.0859754 10.8757 0.125877Z" fill="black"/>
+                                    </svg>
+                                        
+                                </div>
+                
+                                
+                                    <div class="predictive-search predictive-search--header" data-predictive-search tabindex="-1">
+                                        <div class="predictive-search__loading-state">
+                                            <svg aria-hidden="true" class="spinner" focusable="false" role="presentation" viewbox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                                                <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-width="6"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                
+                                    <span aria-hidden="true" class="predictive-search-status visually-hidden" role="status"></span>
+                               
+                            </form>
+                            {%- if settings.predictive_search_enabled -%}
+                        </predictive-search>
+                        {%- endif -%}
+                    </div>
+                    <div class="wrap-language flex items-center">             
+                        {% render 'header-icon' %}
+                        {% if section.settings.phone_number != blank %}
+                            <div class="header-phone-number">
+                                <a class="flex items-center" href="tel: {{ section.settings.phone_number }}" aria-describedby="a11y-external-message">
+                                <span class="icon-phone">
+                                    {% render 'icon', icon_name: 'icon-phone-2', width: 15, height: 15 %}
+                                </span>    
+                                    <span>{{ section.settings.phone_number }}</span>
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+              </div>
+            </div>
+            <nav class="flex-header">
+                <div class="container">
+                    <div class="nav-header-ds1 flex items-center justify-between relative">
+                        <div class="categories-nav flex items-stretch">
+                            {% render 'menu-categories' %}
+                            <div class="header-nav flex items-center"> 
+                                <ul class="header-nav__wrap">
+                                {% for block in section.blocks %}
+																	{% liquid
+																		assign bt = block.settings
+																	%}
+                                    {% case block.type %}
+                                    {% when 'menu_megamenu' %}
+																		<li class="menu-level-1 {% if bt.full_width_dropdown == false %}relative{% endif %}">
+                                            <span class="flex items-center gap-1">
+                                                {{ bt.title_menu }}
+                                                {% if bt.menu != blank %}
+                                                {% render 'icon', icon_name: 'icon-drop-down-2', width: 8, height: 8 %}
+                                                {% endif %}
+                                            </span>
+																							<div class="dropdown-menu mega-menu {% if bt.full_width_dropdown %}dropdown-full{% else %}dropdown-normal{% endif %}">
+                                                {% if bt.title_top != blank or bt.desc_top != blank %}
+                                                    <div class="top-content">
+                                                        {% if bt.title_top != blank %}
+                                                            <h3 class="title-content">{{ bt.title_top }}</h3>
+                                                        {% endif %}
+                                                        {% if bt.desc_top != blank %}
+                                                            <div class="desc-content">
+                                                                {{ bt.desc_top }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>  
+                                                {% endif %}
+                                                <div class="middle-content flex items-start justify-between {{ bt.dropdown_columns }}">
+                                                    {% render 'header-menu', block: block, type: 'menu-left', call: 'desktop' %}
+                                                    {% assign imageBanner = bt.image_banner %}
+                                                    {% if imageBanner != blank %}
+                                                        <div class="image-banner">
+                                                            {% render 'responsive-image', image: imageBanner %}
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+
+                                                {% if bt.title_bottom != blank or bt.desc_bottom != blank %}
+                                                <div class="bottom-content">
+                                                    {% if bt.title_bottom != blank %}
+                                                        <h3 class="title-content">{{ bt.title_bottom }}</h3>
+                                                    {% endif %}
+                                                    {% if bt.desc_bottom != blank %}
+                                                        <div class="desc-content">
+                                                            {{ bt.desc_bottom }}
+                                                        </div>
+                                                    {% endif %}
+                                                </div>  
+                                            {% endif %}
+                                            </div>
+                                        </li>
+                                    {% when 'menu_normal' %}   
+                                        <li class="menu-level-1 relative">
+                                            <span class="flex items-center gap-1">
+                                                {{ block.settings.title_menu }}
+                                                {% if block.settings.menu != blank %}
+                                                {% render 'icon', icon_name: 'icon-drop-down-2', width: 8, height: 8 %}
+                                                {% endif %}
+                                            </span>
+                                            <div class="dropdown-menu menu-normal">
+                                                <div class="middle-content flex items-start justify-between">
+                                                    {% render 'header-menu', block: block, type: 'menu-left', call: 'desktop' %}
+                                                </div> 
+                                            </div>
+                                        </li>
+                                    {% endcase %} 
+                                {% endfor %} 
+                                </ul>           
+                            </div>  
+                        </div>
+                        {% if section.settings.text_btn_1 != blank or section.settings.text_btn_2 != blank %}
+                            <div class="btn-wrap flex items-center">
+                                {% if section.settings.text_btn_1 != blank %}
+                                    <div class="btn-item">
+                                        <a href="{{ section.settings.link_btn_1 | default: '#' }}" title="Buy GenMart" aria-describedby="a11y-external-message">
+                                            {{ section.settings.text_btn_1 }}
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                {% if section.settings.text_btn_2 != blank %}
+                                    <div class="btn-item relative">
+                                        <a href="{{ section.settings.link_btn_2 | default: '#' }}" title="Gift Carts!" class="gift-cart">
+                                            {{ section.settings.text_btn_2 }}
+                                            <span class="label-menu absolute">
+                                                {{ section.settings.text_label_btn_2 }}
+                                                <span></span>
+                                            <span>        
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+          </div>
+        </header>
+        {% render 'header-mobile' %}
+        {% render 'mobile-bottom-navbar' %}
+    </div>
+  {% if section.settings.enable_sticky_header %}
+  </sticky-header>
+  {% endif %}
+</div>
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+{%- endif -%}
+
+{% javascript %}
+    class StickyHeader extends HTMLElement {
+        constructor() {
+            super();
+        }
+        connectedCallback() {
+            (this.header = document.getElementById("shopify-section-header-design-1")),
+                (this.headerBounds = {}),
+                (this.currentScrollTop = 0),
+                (this.preventReveal = !1),
+                (this.predictiveSearch = this.querySelector("predictive-search")),
+                (this.onScrollHandler = this.onScroll.bind(this)),
+                (this.hideHeaderOnScrollUp = () => (this.preventReveal = !0)),
+                this.addEventListener("preventHeaderReveal", this.hideHeaderOnScrollUp),
+                window.addEventListener("scroll", this.onScrollHandler, !1),
+                this.createObserver();
+        }
+        disconnectedCallback() {
+            this.removeEventListener("preventHeaderReveal", this.hideHeaderOnScrollUp), window.removeEventListener("scroll", this.onScrollHandler);
+        }
+        createObserver() {
+            new IntersectionObserver((e, t) => {
+                (this.headerBounds = e[0].intersectionRect), t.disconnect();
+            }).observe(this.header);
+        }
+        onScroll() {
+            let e = window.pageYOffset || document.documentElement.scrollTop;
+            if (!this.predictiveSearch || !this.predictiveSearch.isOpen) {
+                if (e > this.currentScrollTop && e > this.headerBounds.bottom) {
+                    if (this.preventHide) return;
+                    requestAnimationFrame(this.hide.bind(this));
+                } else
+                    e < this.currentScrollTop && e > this.headerBounds.bottom
+                        ? this.preventReveal
+                            ? (window.clearTimeout(this.isScrolling),
+                                (this.isScrolling = setTimeout(() => {
+                                    this.preventReveal = !1;
+                                }, 66)),
+                                requestAnimationFrame(this.hide.bind(this)))
+                            : requestAnimationFrame(this.reveal.bind(this))
+                        : e <= this.headerBounds.top && requestAnimationFrame(this.reset.bind(this));
+                this.currentScrollTop = e;
+            }
+        }
+        hide() {
+            this.header.classList.add("shopify-section-header-hidden", "shopify-section-header-sticky", "sticky", "top-0", "z-[99]");
+        }
+        reveal() {
+            this.header.classList.add("shopify-section-header-sticky", "animate"), this.header.classList.remove("shopify-section-header-hidden");
+        }
+        reset() {
+            this.header.classList.remove("shopify-section-header-hidden", "shopify-section-header-sticky", "animate");
+        }
+    }
+    customElements.define("sticky-header", StickyHeader);
+{% endjavascript %}
+
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+  {% render 'margin-bottom' %}
+{% schema %}
+
+{
+    "name": "Header design 1",
+    "class": "section-header",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background image"
+        },
+        {
+            "type": "color",
+            "id": "menu_bg",
+            "default": "#fff",
+            "label": "t:sections.header.settings.menubg.label"
+        },
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "t:sections.header.settings.logo.label"
+        }, 
+        {
+            "type": "image_picker",
+            "id": "logo_mobile",
+            "label": "Logo mobile"
+        },
+        {
+            "type": "text",
+            "id": "phone_number",
+            "label":"Phone number",
+            "default": "+123 4567 890"
+        },
+        {
+            "type": "color",
+            "id": "menu_bg_nav",
+            "default": "#0b88ee",
+            "label": "Color nav"
+        },
+        {
+            "type": "color",
+            "id": "menu_text_nav",
+            "default": "#fff",
+            "label": "Color text nav"
+        },
+         {
+            "type": "checkbox",
+            "id": "show_line_separator",
+            "default": false,
+            "label": "t:sections.header.settings.show_line_separator.label"
+        }, {
+            "type": "checkbox",
+            "id": "enable_sticky_header",
+            "default": false,
+            "label": "t:sections.header.settings.enable_sticky_header.label",
+            "info": "t:sections.header.settings.enable_sticky_header.info"
+        },
+         {
+            "type": "header",
+            "content": "Config menu categories"
+        },
+        {
+            "type":"text",
+            "id":"text_menu_cate",
+            "label": "Text menu categories",
+            "default": "Browse categories"
+        },
+        {
+            "type": "color",
+            "label": "Background",
+            "id": "menu_categories_bg",
+            "default": "#71AF19"
+        },
+        {
+            "type": "color",
+            "label": "Text color",
+            "id": "menu_categories_text_color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "header",
+            "content": "Button Header"
+        },
+        {
+            "type": "text",
+            "id":"text_btn_1",
+            "label": "Text button 1",
+            "default": "Button 1"
+        },
+        {
+            "type": "url",
+            "id": "link_btn_1",
+            "label": "Link button 1"           
+        },
+        {
+            "type": "text",
+            "id":"text_btn_2",
+            "label": "Text button 2",
+            "default": "Button 2"
+        },
+        {
+            "type": "url",
+            "id": "link_btn_2",
+            "label": "Link button 2"           
+        },
+        {
+            "type": "text",
+            "id":"text_label_btn_2",
+            "label": "Text label button 2",
+            "default": "Hot"
+        },
+        {
+            "type": "link_list",
+            "id": "menu_mobile",
+            "label": "Menu mobile"
+        },
+        {
+            "type":"header",
+            "content":"t:sections.margin_bottom.content"
+         },
+         {
+            "type":"number",
+            "id":"margin_bottom_desktop",
+            "label":"t:sections.margin_bottom.desktop.label",
+            "default":0
+         },
+         {
+            "type":"number",
+            "id":"margin_bottom_table",
+            "label":"t:sections.margin_bottom.tablet.label",
+            "default":0
+         },
+         {
+            "type":"number",
+            "id":"margin_bottom_mobile",
+            "label":"t:sections.margin_bottom.mobile.label",
+            "default":0
+         }
+
+    ],
+    "blocks": [
+        {
+					"name": "Menu Category",
+					"type": "menu_category",
+					"settings": [
+							{
+									"type": "textarea",
+									"label": "Category name",
+									"id": "heading",
+									"default": "Fruits & Vegetables"
+							},
+							{
+									"type": "image_picker",
+									"id": "icon",
+									"label": "Icon"
+							},
+							{
+									"type": "link_list",
+									"id": "menu_categories_target",
+									"label": "Menu"
+							},
+							{
+									"type": "url",
+									"id": "url_category",
+									"label": "Url category",
+									"info": "Use when not exist menu"
+							},
+							{
+							"type": "select",
+							"id": "column_sub_menu",
+							"label": "Columns number menu",
+							"options": [
+									{
+									"value": "col-1",
+									"label": "Col 1"
+									},
+									{
+									"value": "col-2",
+									"label": "Col 2"
+									},
+									{
+									"value": "col-3",
+									"label": "Col 3"
+									},
+									{
+									"value": "col-4",
+									"label": "Col 4"
+									}
+							],
+							"default": "col-1"
+							}
+					]
+        },
+        {
+					"name": "Menu-megamenu",
+					"type": "menu_megamenu",
+					"settings": [
+							{
+									"type": "text",
+									"id": "title_menu",
+									"label": "Menu title"
+							},
+							{
+									"type": "link_list",
+									"id": "menu",
+									"default": "main-menu",
+									"label": "t:sections.header.settings.menu.label"
+							},
+							{
+									"type": "text",
+									"id":"title_top",
+									"label": "Title top",
+									"default": "Top content"
+							},
+							{
+									"type": "richtext",
+									"id":"desc_top",
+									"label": "Description Top",
+									"default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
+							},
+							{
+									"type": "text",
+									"id":"title_bottom",
+									"label": "Title top",
+									"default": "Top content"
+							},
+							{
+									"type": "richtext",
+									"id":"desc_bottom",
+									"label": "Description Bottom",
+									"default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
+							},
+							{
+									"type": "image_picker",
+									"id": "image_banner",
+									"label": "Image banner"
+							},
+							{
+								"type": "checkbox",
+								"id": "full_width_dropdown",
+								"label":"Full width dropdown",
+								"default": true
+							},
+							{
+								"type": "select",
+								"id":"dropdown_columns",
+								"label": "Dropdown columns",
+								"options": [
+									{
+										"value": "column-1",
+										"label": "1 column"
+									},
+									{
+										"value": "columns-2",
+										"label": "2 columns"
+									},
+									{
+										"value": "columns-3",
+										"label": "3 columns"
+									},
+									{
+										"value": "columns-4",
+										"label": "4 columns"
+									}
+								],
+								"default": "columns-2"
+							}
+					]
+        },
+        {
+            "name": "Menu-normal",
+            "type": "menu_normal",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title_menu",
+                    "label": "Menu title"
+                },
+                {
+                    "type": "link_list",
+                    "id": "menu",
+                    "default": "main-menu",
+                    "label": "t:sections.header.settings.menu.label"
+                }  
+            ]
+        }
+        
+    ],
+    "presets":[
+    {
+      "name":"Header design 1"
+    }
+  ]
+}
+
+{% endschema %}

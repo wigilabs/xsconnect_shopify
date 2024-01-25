@@ -1,0 +1,94 @@
+<div class="prd-banner">
+  <div class="container">
+    <div class="prd-banner__wrapper flex items-stretch">
+      {% for block in section.blocks %}
+        {% liquid
+          assign bt = block.settings
+          assign product = bt.product
+          assign text_content = bt.content
+        %}
+        {% case block.type %}
+          {% when 'product' %}
+            <div class="prd-banner__prd w-4/12">
+              {% if product != blank %}
+                {% render 'card-product',
+                  card_product: product,
+                  section: section,
+                  layoutProductItem: section.settings.product_item_layout,
+                  lazy_load: true,
+                  default-direction: 'item_row',
+                  show_rating: false
+                %}
+              {% else %}
+                {%- render 'card-product-no-data' -%}
+              {% endif %}
+            </div>
+          {% when 'text' %}
+            <div class="prd-banner__text w-4/12">
+              <div class="flex items-center h-full flex-col justify-center text-center">{{ text_content }}</div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% render 'margin-bottom' %}
+{% schema %}
+{
+  "name": "Product Banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "label": "t:sections.margin_bottom.desktop.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_table",
+      "label": "t:sections.margin_bottom.tablet.label",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "label": "t:sections.margin_bottom.mobile.label",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product banner"
+    }
+  ]
+}
+{% endschema %}

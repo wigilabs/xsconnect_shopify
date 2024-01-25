@@ -1,0 +1,902 @@
+{% liquid
+  assign imageDisplayType = section.settings.image_display_type
+  assign innerZoom = section.settings.inner_zoom_image
+  if imageDisplayType == 'thumb_vertical'
+    assign classImageDisplayType = 'type-thumb-vertical'
+    assign dataImageChange = 'true'
+    assign thumbType = 'vertical'
+    assign displayThumb = 'true'
+  elsif imageDisplayType == 'thumb_horizontal'
+    assign classImageDisplayType = 'type-thumb-horizontal'
+    assign dataImageChange = 'true'
+    assign thumbType = 'horizontal'
+    assign displayThumb = 'true'
+  elsif imageDisplayType == 'none_thumb'
+    assign classImageDisplayType = 'type-none-thumb'
+    assign dataImageChange = 'true'
+    assign displayThumb = 'false'
+  elsif imageDisplayType == 'two_collumns'
+    assign classImageDisplayType = 'type-two-collumns'
+    assign dataImageChange = 'false'
+  elsif imageDisplayType == 'one_collumn'
+    assign classImageDisplayType = 'type-one-collumns'
+    assign dataImageChange = 'false'
+  endif
+%}
+
+<div class="tp-product-detail detail-layout-2">
+  <input type="hidden" id="product_id" value="{{ product.id }}">
+  <input type="hidden" id="product_handle" value="{{ product.handle }}">
+  <div class="container">
+    <div class="tp-product-detail__main {{ classImageDisplayType }} flex justify-between my-12.5">
+      <div class="tp-product-detail__left auto-height-{{ section.settings.image_height_auto }}">
+        {% liquid
+          case imageDisplayType
+            when 'thumb_vertical', 'thumb_horizontal', 'none_thumb'
+              render 'tp-product-detail__left-vertical', product: product, thumbType: thumbType, displayThumb: displayThumb, innerZoom: innerZoom
+            when 'two_collumns', 'one_collumn'
+              render 'tp-product-detail__left-grid', product: product
+              render 'modal-swiper-gallery-main-product', id: 'modal_single_product', listItemGallery: product.media, typePage: 'home-gallery-main-product', elementClickEvent1: 'image-main'
+          endcase
+        %}
+      </div>
+      <div class="tp-product-detail__right">
+        <div class="tp-product-detail__right-wrapper">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'external_product' %}
+                  {% render "detail-block-external", block: block %}
+              {%- when '@app' -%}
+                {% render block %}
+              {% when 'title' %}
+                {% render "detail-block-title", product: product, block: block %}
+              {% when 'price' %}
+                {% render "detail-block-price", product: product, block: block %}
+              {%- when 'viewing' -%}
+                {% render "detail-block-view", product: product, block: block %}
+              {%- when 'variant_picker' -%}
+                {% render "detail-block-variant", product: product, block: block %}
+              {% when 'box-btn' %}
+                {% if block.settings.use_spacing %}
+                  {% render 'block-margin-bottom', className: "box-btn__wrap", block: block %}
+                  {% assign classDefault = "" %}
+                {% else %}
+                  {% assign classDefault = " mb-3.75" %}
+                {% endif %}
+                <div class="box-btn__wrap flex flex-row items-center justify-start {{ classDefault }}">
+                    {% render "detail-block-quantity", product: product, block: block %}
+                    {% render "detail-block-boxbtn", product: product, block: block %}
+                </div>
+              {%- when 'buy_buttons' -%}
+                {% render "detail-block-buybtn", product: product, block: block %}
+              {% when 'product_organization' %}
+                  {% render "detail-block-organization", product: product, block: block %}
+                {% when 'description' %}
+                    {% render "detail-block-description", product: product, block: block %}
+                {% when 'features' %}
+                    {% render "detail-block-features", product: product, block: block %}
+                {% when 'share' %}
+                    {% render "detail-block-share", product: product, block: block %}
+                {% when 'shipping' %}
+                    {% render "detail-block-shipping", product: product, block: block %}
+              {% when 'estimated_delivery' %}
+                {% render "detail-block-delivery", product: product, block: block %}
+              {% when 'wishlist_compare' %}
+                {% render "detail-wishlist-compare", product: product, block: block %}
+            {% endcase %}
+          {% endfor %}
+
+          {% comment %}Custom margin bottom for product review app block{% endcomment %}
+
+            {% if section.settings.use_spacing_review %}
+              <style>
+              .spr-starrating {
+                  margin-bottom: {{ section.settings.margin_bottom_review }}px;
+                }
+              </style>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .tp-product-detail__left .swiper-slide-thumb-active::before {
+      border: 2px solid {{ section.settings.color_thumbactive }};
+  }
+</style>
+
+{% if settings.show_sticky_atc == true %}
+  {% render 'sticky-product-detail', product: product %}
+{% endif %}
+
+<script>
+// save product in localStorage
+var dataProduct = {{ product | json }}
+var dataProductHandle = [
+  {
+    {{ product.id }}: dataProduct.handle
+  }
+]
+
+var currentRecently = localStorage.getItem("recently_product")
+
+	if (currentRecently) {
+		var dataCurrentRecently = Object.values(JSON.parse(currentRecently))
+
+    if(dataCurrentRecently.length >= 6){
+    dataCurrentRecently.pop()
+    }
+		var countElementRecentlyCurrent = Object.keys(dataCurrentRecently).length
+   	// Check isset in localStorage \
+		var issetInLocalStorage = false
+		for (const item of dataCurrentRecently) {
+     if (  Object.keys(item) == {{ product.id }}){
+      issetInLocalStorage = true
+				break
+     }
+		}
+    if (!issetInLocalStorage) {
+			// Check count dataCurrentRecently
+      const arrTmp = dataProductHandle.concat(dataCurrentRecently)
+      localStorage.setItem('recently_product', JSON.stringify(arrTmp))
+		}
+	} else {
+		localStorage.setItem('recently_product', JSON.stringify(dataProductHandle))
+	}
+
+
+  // on/off brief products
+  const accTog = document.querySelectorAll(".item-header");
+  accTog.forEach((accToggle) => {
+      accToggle.addEventListener('click', () => {
+          const height = accToggle.nextElementSibling.scrollHeight;
+          const itemHeaderTitle = accToggle.querySelector(".item-wrap");
+          accToggle.classList.toggle("activeItemHeader");
+          if (accToggle.classList.contains("activeItemHeader")) {
+              accToggle.nextElementSibling.style.maxHeight = `${height}px`;
+              itemHeaderTitle && itemHeaderTitle.classList.add('showContent');
+          }
+          else {
+              accToggle.nextElementSibling.style.maxHeight = "0px";
+              itemHeaderTitle && itemHeaderTitle.classList.remove('showContent');
+          }
+      });
+  });
+
+</script>
+{% schema %}
+{
+  "name": "t:sections.main-product.name",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text",
+      "name": "t:sections.main-product.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Text block",
+          "label": "t:sections.main-product.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.main-product.blocks.text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.main-product.blocks.text.settings.text_style.options__2.label"
+            },
+            {
+              "value": "uppercase",
+              "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "t:sections.main-product.blocks.price.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            },
+            {
+              "value": "image",
+              "label": "Image"
+            }
+          ],
+          "default": "button",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        },
+        {
+          "type": "color",
+          "id": "picker_type_active",
+          "label": "Active variant picker color",
+          "default": "#57da74"
+        },
+        {
+          "type": "color",
+          "id": "picker_type_hover",
+          "label": "Hover variant picker color",
+          "default": "#57da74"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "box-btn",
+      "name": "Quantity & Add to cart",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "button_type",
+          "options": [
+            {
+              "value": "tp-btn__primary",
+              "label": "Button primary"
+            },
+            {
+              "value": "tp-btn__secondary",
+              "label": "Button secondary"
+            },
+            {
+              "value": "tp-btn__alternate",
+              "label": "Button alternate"
+            },
+            {
+              "value": "tp-btn__underline",
+              "label": "Button underline"
+            }
+          ],
+          "label": "Button type",
+          "default": "tp-btn__primary"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "t:sections.main-product.blocks.buy_buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+        },
+        {
+          "type": "text",
+          "id": "text_buy_it_now",
+          "label": "Text button buy it now",
+          "info": "If empty, the default text Shopify will be used"
+        },
+        {
+          "id": "color_global",
+          "type": "checkbox",
+          "label": "Use color global",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "color-button-text",
+          "label": "Button text color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "color-button-bg",
+          "label": "Button bg color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "color-button-text-hover",
+          "label": "Hover button text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "color-button-bg-hover",
+          "label": "Hover button bg color",
+          "default": "#000000"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "product_organization",
+      "name": "Product information",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_vendor",
+          "label": "Show vendor",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_sku",
+          "label": "Show product code",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_availability",
+          "label": "Show availability status",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_categories",
+          "label": "Show category name",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "category_text",
+          "label": "Category display text",
+          "info": "This option only works when the 'Show category name' option is enabled",
+          "default": "Category: "
+        },
+        {
+          "type": "select",
+          "id": "category_type",
+          "label": "which category to show?",
+          "info": "This option only works when the 'Show category name' option is enabled",
+          "options": [
+            {
+              "value": "first",
+              "label": "First category"
+            },
+            {
+              "value": "last",
+              "label": "Last category"
+            },
+            {
+              "value": "all",
+              "label": "All categories"
+            }
+          ],
+          "default": "first"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "t:sections.main-product.blocks.description.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "desc_display_as",
+          "label": "Initial display state",
+          "options": [
+            {
+              "value": "hide",
+              "label": "Hidden"
+            },
+            {
+              "value": "show",
+              "label": "Show"
+            }
+          ],
+          "default": "hide"
+        },
+        {
+          "type": "color",
+          "id": "p_desc_iconcolor",
+          "label": "Icon color",
+          "default": "#000000"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "name": "Features",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-product.blocks.share.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_pinterest",
+          "label": "Show pinterest",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_instagram",
+          "label": "Show instagram",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_facebook",
+          "label": "Show facebook",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_twitter",
+          "label": "Show twitter",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_copy",
+          "label": "Show copy link",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "shipping",
+      "name": "Free Shipping & Returns",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "shipping_label",
+          "label": "Content",
+          "default": "On all orders over $200"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "estimated_delivery",
+      "name": "Estimated Delivery",
+      "limit": 1,
+      "settings": [
+        {
+          "id": "ed_icon",
+          "type": "checkbox",
+          "label": "Show icon?",
+          "default": true
+        },
+        {
+          "id": "ed_text",
+          "type": "text",
+          "label": "Delivery text",
+          "default": "Estimated Delivery: "
+        },
+        {
+          "type": "number",
+          "id": "ed_in",
+          "label": "Deliver in:",
+          "default": 7
+        },
+        {
+          "type": "number",
+          "id": "ed_delay",
+          "label": "Delay time",
+          "default": 2
+        },
+        {
+          "type": "richtext",
+          "id": "ed_additional",
+          "label": "Additional delivery text"
+        },
+        {
+          "type": "richtext",
+          "id": "ed_badges_text",
+          "label": "Trust badges text",
+          "default": "<p>Guarantee safe & secure checkout</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "ed_badges_image",
+          "label": "Trust badges image",
+          "info": "Recommended size: 390x40 px"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "t:sections.main-product.blocks.custom_liquid.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.label",
+          "info": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.info"
+        }
+      ]
+    },
+    {
+      "type": "popup",
+      "name": "t:sections.main-product.blocks.popup.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Pop-up link text",
+          "label": "t:sections.main-product.blocks.popup.settings.link_label.label"
+        },
+        {
+          "id": "page",
+          "type": "page",
+          "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "rating",
+      "name": "t:sections.main-product.blocks.rating.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
+        }
+      ]
+    },
+    {
+      "type": "viewing",
+      "name": "Fake viewer",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "display_form",
+          "label": "Display",
+          "options": [
+            {
+              "value": "display_row",
+              "label": "Row"
+            },
+            {
+              "value": "display_column",
+              "label": "Column"
+            }
+          ],
+          "default": "display_row"
+        },
+        {
+          "type": "text",
+          "id": "change_text_view",
+          "label": "Change text view",
+          "default": "people are viewing the right now"
+        },
+        {
+          "type": "text",
+          "id": "change_text_sold",
+          "label": "Change text sold",
+          "default": "sold in last"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_viewing",
+          "label": "Show viewing number?",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_sold",
+          "label": "Show product sold?",
+          "default": true
+        },
+        {
+          "id": "fv_min",
+          "type": "number",
+          "label": "Viewing number (min)",
+          "default": 20
+        },
+        {
+          "id": "fv_max",
+          "type": "number",
+          "label": "Viewing number (max)",
+          "default": 100
+        },
+        {
+          "id": "time_random",
+          "type": "number",
+          "label": "Viewing number (ms)",
+          "default": 10000
+        },
+        {
+          "id": "fv_sold",
+          "type": "number",
+          "label": "Product sold",
+          "default": 6
+        },
+        {
+          "id": "fv_hour",
+          "type": "number",
+          "label": "Hour",
+          "default": 24
+        },
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "external_product",
+      "name": "External Product",
+      "limit": 1,
+      "settings": [
+        {
+          "id": "exp_title",
+          "type": "text",
+          "label": "Button text",
+          "default": "Buy Now"
+        },
+        {
+          "id": "exp_url",
+          "type": "url",
+          "label": "External url"
+        },
+        {
+          "id": "exp_target",
+          "type": "checkbox",
+          "label": "Open in new window?",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "wishlist_compare",
+      "name": "Wishlist & Compare",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_wishlist",
+          "label": "Show wishlist",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_compare",
+          "label": "Show compare",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "use_spacing",
+          "label": "Use the spacing option with the block below.",
+          "default": false,
+          "info": "If this option is not used, the spacing will be set to the default value."
+        },
+        {
+          "type": "number",
+          "id": "margin_bottom_block",
+          "label": "Margin bottom (px)",
+          "default": 0
+        },
+        {
+          "type": "checkbox",
+          "id": "show_separator_line",
+          "label": "Show separator line",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_display_type",
+      "label": "Image display type",
+      "options": [
+        {
+          "value": "none_thumb",
+          "label": "None thumb"
+        },
+        {
+          "value": "thumb_vertical",
+          "label": "Thumb vertical"
+        },
+        {
+          "value": "thumb_horizontal",
+          "label": "Thumb horizontal"
+        },
+        {
+          "value": "two_collumns",
+          "label": "Two columns"
+        },
+        {
+          "value": "one_collumn",
+          "label": "One collumn"
+        }
+      ],
+      "default": "thumb_vertical"
+    },
+    {
+      "type": "checkbox",
+      "id": "inner_zoom_image",
+      "label": "Hover inner zoom image",
+      "info": "Does not apply to one column and two columns",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "color_thumbactive",
+      "label": "Active product border color",
+      "default": "#57da74"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_spacing_review",
+      "label": "Use the spacing option with the block below (Product review app block)",
+      "default": false,
+      "info": "If this option is not used, the spacing will be set to the default value."
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_review",
+      "label": "Margin bottom (px)",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

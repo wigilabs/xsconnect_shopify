@@ -1,0 +1,351 @@
+<div class="tp-about">
+  <div class="tp-about__wrapper container">
+    {% for block in section.blocks %}
+      {% liquid
+        assign ImageBackground1 = block.settings.image_featured_about_1
+        assign ImageBackground2 = block.settings.image_featured_about_2
+        assign ImageBackground3 = block.settings.image_featured_about_3
+        assign ImageAvatar1 = block.settings.image_avatar_1
+        assign ImageAvatar2 = block.settings.image_avatar_2
+        assign ImageAvatar3 = block.settings.image_avatar_3
+        assign ImageAvatar4 = block.settings.image_avatar_4
+      %}
+      {% case block.type %}
+        {% when 'avatar' %}
+          <div class="tp-about__avatar flex  flex-wrap justify-start items-start">
+            <div class="tp-about__avatar__item text-center">
+              {% if ImageAvatar1 != blank %}
+                <img
+                  class="full-img"
+                  src="{{ ImageAvatar1 | image_url: width: ImageAvatar1.width , height: ImageAvatar1.height }}"
+                  alt="background image"
+                  width="{{ ImageAvatar1.width }}"
+                  height="{{ ImageAvatar1.height }}"
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="item-content">
+                {% if block.settings.name_avatar_1 != blank %}
+                  <h2 class="tp-block-title">{{ block.settings.name_avatar_1 }}</h2>
+                {% endif %}
+                {% if block.settings.job_avatar_1 %}
+                  <div class="avatar-job">
+                    {{ block.settings.job_avatar_1 }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="tp-about__avatar__item text-center">
+              {% if ImageAvatar2 != blank %}
+                <img
+                  class="full-img"
+                  src="{{ ImageAvatar2 | image_url: width: ImageAvatar2.width , height: ImageAvatar2.height }}"
+                  alt="background image"
+                  width="{{ ImageAvatar2.width }}"
+                  height="{{ ImageAvatar2.height }}"
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="item-content">
+                {% if block.settings.name_avatar_2 != blank %}
+                  <h2 class="tp-block-title">{{ block.settings.name_avatar_2 }}</h2>
+                {% endif %}
+                {% if block.settings.job_avatar_2 %}
+                  <div class="avatar-job">
+                    {{ block.settings.job_avatar_2 }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="tp-about__avatar__item text-center">
+              {% if ImageAvatar3 != blank %}
+                <img
+                  class="full-img"
+                  src="{{ ImageAvatar3 | image_url: width: ImageAvatar3.width , height: ImageAvatar3.height }}"
+                  alt="background image"
+                  width="{{ ImageAvatar3.width }}"
+                  height="{{ ImageAvatar3.height }}"
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="item-content">
+                {% if block.settings.name_avatar_3 != blank %}
+                  <h2 class="tp-block-title">{{ block.settings.name_avatar_3 }}</h2>
+                {% endif %}
+                {% if block.settings.job_avatar_3 %}
+                  <div class="avatar-job">
+                    {{ block.settings.job_avatar_3 }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="tp-about__avatar__item text-center">
+              {% if ImageAvatar4 != blank %}
+                <img
+                  class="full-img"
+                  src="{{ ImageAvatar4 | image_url: width: ImageAvatar4.width , height: ImageAvatar4.height }}"
+                  alt="background image"
+                  width="{{ ImageAvatar4.width }}"
+                  height="{{ ImageAvatar4.height }}"
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="item-content">
+                {% if block.settings.name_avatar_4 != blank %}
+                  <h2 class="tp-block-title">{{ block.settings.name_avatar_4 }}</h2>
+                {% endif %}
+                {% if block.settings.job_avatar_4 %}
+                  <div class="avatar-job">
+                    {{ block.settings.job_avatar_4 }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% when 'featured-about' %}
+          <div class="tp-about__featured flex justify-start items-start gap-7.5 flex-col md:flex-row">
+            <div class="tp-about__featured__item text-center">
+              {% if ImageBackground1 != blank %}
+                <img
+                  class="full-img"
+                  src="{{ ImageBackground1 | image_url: width: ImageBackground1.width , height: ImageBackground1.height }}"
+                  alt="background image"
+                  width="{{ImageBackground1.width}}"
+                  height="{{ImageBackground1.height}}"
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="item-content">
+                {% if block.settings.title_featured_about_1 != blank %}
+                  <h2 class="tp-block-title mb-2.5">{{ block.settings.title_featured_about_1 }}</h2>
+                {% endif %}
+                {% if block.settings.desc_featured_about_1 %}
+                  <div class="tp-about-desc">
+                    {{ block.settings.desc_featured_about_1 }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="tp-about__featured__item text-center">
+              {% if ImageBackground2 != blank %}
+                <img
+                  class="full-img"
+                  src="{{ ImageBackground2 | image_url: width: ImageBackground2.width , height: ImageBackground2.height }}"
+                  alt="background image"
+                  width="{{ImageBackground2.width}}"
+                  height="{{ImageBackground2.height}}"
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="item-content">
+                {% if block.settings.title_featured_about_2 != blank %}
+                  <h2 class="tp-block-title mb-2.5">{{ block.settings.title_featured_about_2 }}</h2>
+                {% endif %}
+                {% if block.settings.desc_featured_about_2 %}
+                  <div class="tp-about-desc">
+                    {{ block.settings.desc_featured_about_2 }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="tp-about__featured__item text-center">
+              {% if ImageBackground3 != blank %}
+                <img
+                  class="full-img"
+                  src="{{ ImageBackground3 | image_url: width: ImageBackground3.width , height: ImageBackground3.height }}"
+                  alt="background image"
+                  width="{{ImageBackground3.width}}"
+                  height="{{ImageBackground3.height}}"
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="item-content">
+                {% if block.settings.title_featured_about_3 != blank %}
+                  <h2 class="tp-block-title mb-2.5">{{ block.settings.title_featured_about_3 }}</h2>
+                {% endif %}
+                {% if block.settings.desc_featured_about_3 %}
+                  <div class="tp-about-desc">
+                    {{ block.settings.desc_featured_about_3 }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "tp-about",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "featured-about",
+      "name": "Featured about",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Featured about 1"
+        },
+        {
+          "type": "text",
+          "id": "title_featured_about_1",
+          "label": "Title featured about 1",
+          "default": "Communucation"
+        },
+        {
+          "type": "richtext",
+          "id": "desc_featured_about_1",
+          "label": "Description featured about 1",
+          "default": "<p>By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_featured_about_1",
+          "label": "Image featured about 1"
+        },
+        {
+          "type": "header",
+          "content": "Featured about 2"
+        },
+        {
+          "type": "text",
+          "id": "title_featured_about_2",
+          "label": "Title featured about 2",
+          "default": "Communucation"
+        },
+        {
+          "type": "richtext",
+          "id": "desc_featured_about_2",
+          "label": "Description featured about 2",
+          "default": "<p>By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_featured_about_2",
+          "label": "Image featured about 2"
+        },
+        {
+          "type": "header",
+          "content": "Featured about 3"
+        },
+        {
+          "type": "text",
+          "id": "title_featured_about_3",
+          "label": "Title featured about 3",
+          "default": "Communucation"
+        },
+        {
+          "type": "richtext",
+          "id": "desc_featured_about_3",
+          "label": "Description featured about 3",
+          "default": "<p>By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_featured_about_3",
+          "label": "Image featured about 3"
+        }
+      ]
+    },
+    {
+      "type": "avatar",
+      "name": "Avatar",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Avatar 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_avatar_1",
+          "label": "Image avatar 1"
+        },
+        {
+          "type": "text",
+          "id": "name_avatar_1",
+          "label": "Name avatar",
+          "default": "Thomas Snow"
+        },
+        {
+          "type": "text",
+          "id": "job_avatar_1",
+          "label": "Job avatar",
+          "default": "CEO/Founder"
+        },
+        {
+          "type": "header",
+          "content": "Avatar 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_avatar_2",
+          "label": "Image avatar 2"
+        },
+        {
+          "type": "text",
+          "id": "name_avatar_2",
+          "label": "Name avatar",
+          "default": "Thomas Snow"
+        },
+        {
+          "type": "text",
+          "id": "job_avatar_2",
+          "label": "Job avatar",
+          "default": "CEO/Founder"
+        },
+        {
+          "type": "header",
+          "content": "Avatar 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_avatar_3",
+          "label": "Image avatar 3"
+        },
+        {
+          "type": "text",
+          "id": "name_avatar_3",
+          "label": "Name avatar",
+          "default": "Thomas Snow"
+        },
+        {
+          "type": "text",
+          "id": "job_avatar_3",
+          "label": "Job avatar",
+          "default": "CEO/Founder"
+        },
+        {
+          "type": "header",
+          "content": "Avatar 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_avatar_4",
+          "label": "Image avatar 4"
+        },
+        {
+          "type": "text",
+          "id": "name_avatar_4",
+          "label": "Name avatar",
+          "default": "Thomas Snow"
+        },
+        {
+          "type": "text",
+          "id": "job_avatar_4",
+          "label": "Job avatar",
+          "default": "CEO/Founder"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About"
+    }
+  ]
+}
+{% endschema %}

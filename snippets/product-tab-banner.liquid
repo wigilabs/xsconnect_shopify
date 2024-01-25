@@ -1,0 +1,111 @@
+<div class="prd-tab-banner__wrapper flex items-stretch">
+  <div class="prd-tab-banner__tab selectSection">
+    {% for block in section.blocks %}
+      {% if block.type == 'normal_tab' %}
+        {% liquid
+          assign bt = block.settings
+          assign collection = collections[bt.collection]
+          assign tab_title = block.settings.heading
+          if tab_title == blank
+            assign tab_title = collection.title
+          endif
+        %}
+        <button
+          class="tab-item tab-item-{{ section.id }} {% if forloop.first %} active{% endif %}"
+          data-number="{{ forloop.index }}"
+          data-section-id="{{ section.id }}"
+        >
+          {{ tab_title }}
+        </button>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="prd-tab-top__tab-mobile relative hidden">
+    {% render 'icon', icon_name: 'icon-drop-down-2' %}
+    <select
+      class="prd-tab-select-{{ section.id }}"
+      style="-webkit-appearance: none;"
+    >
+      {% for block in section.blocks %}
+        {% if block.type == 'normal_tab' %}
+          {% liquid
+            assign bt = block.settings
+            assign collection = collections[bt.collection]
+            assign tab_title = block.settings.heading
+            if tab_title == blank
+              assign tab_title = collection.title
+            endif
+          %}
+          <option
+            class="tab-item-mobile-{{ section.id }}"
+            {% if forloop.first %}
+              active
+            {% endif -%}
+            value="{{ forloop.index }}"
+          >
+            {{ tab_title }}
+          </option>
+        {% endif %}
+      {%- endfor -%}
+    </select>
+  </div>
+  <div class="prd-tab-banner__banner effect-flashed">
+    {% for block in section.blocks %}
+      {% if block.type == 'banner' %}
+        <a href=" {{ block.settings.link_banner | default: '#' }}">
+          {% liquid
+            if block.type == 'banner'
+              assign imageBanner = block.settings.image_banner
+              if imageBanner != blank
+                render 'responsive-image', image: imageBanner
+              else
+                render 'no-image-banner', text_size: ''
+              endif
+            endif
+          %}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="prd-tab-banner__prd">
+    {%- for block in section.blocks -%}
+      {% if block.type == 'normal_tab' %}
+        {% assign collection = collections[block.settings.collection] %}
+        <div
+          class="prd-tab-banner__prd-wrapper js-prd-tab-content"
+          data-number="{{ forloop.index }}"
+        >
+          {% if collection != blank %}
+            <ul class="prd-tab-banner__prd-inner js-prd-tab-wrapper">
+              {%- for product in collection.products limit: 6 -%}
+                {% assign lazy_load = false %}
+                {%- if forloop.index > 2 -%}
+                  {%- assign lazy_load = true -%}
+                {%- endif -%}
+                <li class="prd-item">
+                  {% render 'card-product',
+                    card_product: product,
+                    section: section,
+                    layoutProductItem: section.settings.product_item_layout,
+                    lazy_load: lazy_load
+                  %}
+                </li>
+              {%- endfor -%}
+            </ul>
+          {% else %}
+            <ul class="prd-tab-banner__prd-inner">
+              {% liquid
+                assign numbers = '1,2,3,4,5,6' | split: ','
+              %}
+              {%- for item in numbers -%}
+                <li class="prd-item">
+                  {%- render 'card-product-no-data' -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          {% endif %}
+        </div>
+      {%- endif -%}
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{%- if card_product and card_product != empty -%}
+  {% if layoutProductItem == 'layout_1' %}
+    {% render 'card-product-layout-1',
+      card_product: card_product,
+      section: section,
+      show_description: show_description,
+      lazy_load: lazy_load,
+      collection_list: collection_list,
+      default-direction: default-direction
+    %}
+  {% elsif layoutProductItem == 'layout_2' %}
+    {% render 'card-product-layout-2', card_product: card_product, section: section, lazy_load: lazy_load %}
+  {% else %}
+    {% if settings.product_item_layout == 'layout_1' %}
+      {% render 'card-product-layout-1',
+        card_product: card_product,
+        section: section,
+        lazy_load: lazy_load,
+        show_description: show_description,
+        collection_list: collection_list,
+        default-direction: default-direction
+      %}
+    {% elsif settings.product_item_layout == 'layout_2' %}
+      {% render 'card-product-layout-2', card_product: card_product, section: section, lazy_load: lazy_load %}
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

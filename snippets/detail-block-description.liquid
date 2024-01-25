@@ -1,0 +1,53 @@
+{% liquid
+  assign bt = block.settings
+  assign border_item = bt.border_item
+  assign type_description = bt.type_description
+  assign desc_display_as = bt.desc_display_as
+  if type_description == 'desc_product'
+    assign desc_product = product.description
+  else
+    assign desc_product = bt.static_content
+  endif
+
+  if block.settings.use_spacing
+    render 'block-margin-bottom', className: 'tp-product-brief', block: block
+    assign classDefault = ''
+  else
+    assign classDefault = ' mb-3.75'
+  endif
+%}
+
+{% if desc_product != blank %}
+  <div class="tp-product-brief tp-product-brief-{{ block.id }}{{ classDefault }}">
+    {% if bt.title_description != blank %}
+      <div class="item-header flex items-center justify-content-between{% if desc_display_as == 'show' %} activeItemHeader{% endif %}">
+        <div class="item-wrap tp-title-description flex items-center justify-between{% if desc_display_as == 'show' %} showContent{% endif %}">
+          {{ bt.title_description }}
+          {% render 'icon', icon_name: 'icon-drop-down-2', width: 10, height: 10 %}
+          {% render 'icon', icon_name: 'icon-arrow-up-2', width: 10, height: 10 %}
+        </div>
+      </div>
+    {% endif %}
+    <div
+      class="item-body-content"
+      style="{% if desc_display_as == 'show' %}max-height: none{% endif %}"
+    >
+      <div class="content-wrapper">
+        {{ desc_product }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+<style>
+    {% if border_item == true %}
+      .tp-product-brief-{{ block.id }} .tp-title-description{
+        padding: 10px 15px 7px;
+        border: 1px solid var(--color-border);
+      }
+      .tp-product-brief-{{ block.id }} .content-wrapper{
+        padding: 20px;
+        border: 1px solid var(--color-border);
+        border-top: none;
+      }
+  {% endif %}
+</style>

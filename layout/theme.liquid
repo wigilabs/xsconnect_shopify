@@ -1,0 +1,417 @@
+<!doctype html>
+{% assign rtl = settings.rtl %}
+<html
+  class="no-js{% if rtl == true %} is-rtl{% endif %}"
+  lang="{{ request.locale.iso_code }}"
+  {% if rtl == true or cart.attributes.rtl_click == 'true' %}
+    dir="rtl"
+  {% endif %}
+>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="" name="theme-color">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link
+      crossorigin
+      href="https://cdn.shopify.com"
+      rel="preconnect"
+    >
+
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
+      >
+    {%- endif -%}
+
+    {%- unless settings.type_body_font.system? -%}
+      <link
+        crossorigin
+        href="https://fonts.shopifycdn.com"
+        rel="preconnect"
+      >
+    {%- endunless -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %}
+        &ndash; tagged "{{ current_tags | join: ', ' }}"
+      {%- endif -%}
+      {%- if current_page != 1 %}
+        &ndash; Page {{ current_page -}}
+      {%- endif -%}
+      {%- unless page_title contains shop.name %}
+        &ndash; {{ shop.name -}}
+      {%- endunless -%}
+    </title>
+
+    <script src="{{ 'wow.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'swiper-bundle.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'lazyload.min.js' | asset_url }}" defer="defer"></script>
+    {% if settings.free_shipping_active and settings.free_shipping_effective %}
+      <script src="{{ 'confetti.browser.min.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'main.min.js' | asset_url }}" defer="defer"></script>
+    {{ 'swiper-bundle.css' | asset_url | stylesheet_tag }}
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    {% comment %}Check right to left{% endcomment %}
+    {% if rtl == true or cart.attributes.rtl_click == 'true' %}
+      {{ 'main.rtl.css' | asset_url | stylesheet_tag }}
+      {{ 'tailwind.rtl.css' | asset_url | stylesheet_tag }}
+    {% else %}
+      {{ 'tailwind.css' | asset_url | stylesheet_tag }}
+      {{ 'main.min.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+    {{ 'animate.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+
+    {%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+      assign loadingType = settings.preloader_type
+      assign ldStatus = settings.ld_status
+      assign ldBg = settings.ld_bg
+      assign ldText = settings.ld_color
+      assign ctn_width = settings.ctn_width
+    %}
+
+    {%- style -%}
+      .container {
+        max-width: {{ ctn_width }}px;
+      }
+    {%- endstyle -%}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('n-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+
+    {% render 'css-variables' %}
+    {% render 'css-product-item' %}
+  </head>
+
+  <body
+    class="gradient antialiased {% if ldStatus == 'visible' %}over{% endif %}"
+    data-reminder-switch-tab="{{ settings.enable_reminder_when_switch_tab }}"
+  >
+    {% if ldStatus == 'visible' %}
+      <div class="preloader {{ loadingType }} {{ ldStatus }}s">
+        {% case loadingType %}
+          {% when 'preloader-1' %}
+            <div class="preloader-type loader-wrapper">
+              <div class="loader"></div>
+              <div class="loader-section section-left"></div>
+              <div class="loader-section section-right"></div>
+            </div>
+          {% when 'preloader-4' %}
+            <div class="preloader-type-4">
+              <div class="spinner">
+                {%- assign upload_image_gif = settings.upload_image_gif -%}
+                {{
+                  upload_image_gif
+                  | image_url: width: upload_image_gif.width
+                  | image_tag: class: 'add_your_class_here', loading: 'lazy'
+                }}
+              </div>
+            </div>
+        {% endcase %}
+      </div>
+    {% endif %}
+    {%- render 'cart-drawer' -%}
+    <div id="main-wrapper" class="tp-main-wrapper">
+      <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+        {{ 'accessibility.skip_to_text' | t }}
+      </a>
+
+      {% liquid
+        if settings.show_announcement_bar
+          section 'announcement-bar'
+        endif
+        if settings.header_design == 'header_default'
+          section 'header'
+        elsif settings.header_design == 'header_design_1'
+          section 'header-design-1'
+        elsif settings.header_design == 'header_design_2'
+          section 'header-design-2'
+        elsif settings.header_design == 'header_design_3'
+          section 'header-design-3'
+        endif
+      %}
+      <main
+        class="content-for-layout focus-none"
+        id="MainContent"
+        role="main"
+        tabindex="-1"
+      >
+        {% if settings.homepage_sidebar == true and template == 'index' %}
+          <div class="main-is-sidebar container">
+            <div class="main-is-sidebar__inner flex">
+              <div class="main-sidebar">
+                {% section 'home-sidebar' %}
+              </div>
+              <div class="main-content">
+                {{ content_for_layout }}
+              </div>
+              <div class="scrollbox-btn">
+                {% render 'icon', icon_name: 'icon-gear' %}
+              </div>
+            </div>
+            {% section 'top-products' %}
+          </div>
+        {% else %}
+          {{ content_for_layout }}
+        {% endif %}
+      </main>
+      {% if settings.show_newsletter %}
+        {% section 'newsletter' %}
+      {% endif %}
+
+      {% section 'footer' %}
+
+      {% assign domains = 'storepify.thimpress.com,storepify-jewelry.myshopify.com,storepify-organic.myshopify.com,storepify-craft.myshopify.com,storepify-socks.myshopify.com,storepify-clogs.myshopify.com,storepify-pet.myshopify.com,storepify-gift.myshopify.com,storepify-kids.myshopify.com,storepify-anime.myshopify.com,storepify-furniture.myshopify.com,storepify-full-width.myshopify.com,storepify-tiktok.myshopify.com,storepify-wine.myshopify.com' %}
+      {% if domains contains shop.domain %}
+        {% section 'management-tools' %}
+      {% endif %}
+
+      {% render 'tp-modal' %}
+
+      {% liquid
+        if settings.show_gift_wrap and settings.collection_gift_wrap != blank
+          render 'tp-modal-gift-wrap'
+        endif
+        if settings.show_popup_login_customer
+          render 'tp-modal-login'
+        endif
+        if settings.show_popup_enable_age_veri
+          render 'tp-modal-enable-age'
+        endif
+      %}
+
+      {% if settings['display_someone-purchased'] %}
+        <div class="footbar-fixed someone-purchased-fixed">
+          {% section 'someone-purchased' %}
+        </div>
+      {% endif %}
+
+      <!-- The actual snackbar -->
+      <div id="snackbar" class=""></div>
+      <script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        window.cartStrings = {
+          error: `{{ 'sections.cart.cart_error' | t }}`,
+          quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
+        }
+
+        window.routes = {
+          cart_add_url: '{{ routes.cart_add_url }}',
+          cart_change_url: '{{ routes.cart_change_url }}',
+          cart_update_url: '{{ routes.cart_update_url }}',
+          predictive_search_url: '{{ routes.predictive_search_url }}'
+        };
+
+        window.variantStrings = {
+          addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+          soldOut: `{{ 'products.product.sold_out' | t }}`,
+          unavailable: `{{ 'products.product.unavailable' | t }}`,
+          quickBuy: `{{ 'products.product.quick_buy' | t }}`
+        }
+
+        window.currencyStrings = {
+          iso_code: '{{ cart.currency.iso_code }}',
+          name: '{{ cart.currency.name }}',
+          symbol: '{{ cart.currency.symbol }}'
+        }
+
+        window.messNotifications = {
+          added_product_to_wish_list: '{{ 'general.mess_notifications.added_product_to_wish_list' | t }}',
+          removed_product_from_wish_list: '{{ 'general.mess_notifications.removed_product_from_wish_list' | t }}',
+          added_product_to_compare: '{{ 'general.mess_notifications.added_product_to_compare' | t }}',
+          removed_product_from_compare: '{{ 'general.mess_notifications.removed_product_from_compare' | t }}'
+        }
+
+        window.showNotifications = function(mess) {
+          var x = document.querySelector("#snackbar");
+
+          if (x) {
+            if (x.classList.contains('show')) {
+              x.classList.remove('show')
+            }
+
+            x.classList.add('show')
+            x.innerHTML = mess
+
+            setTimeout(function() {
+              x.classList.remove('show')
+            }, 3000);
+          }
+        }
+
+        window.hideNotifications = function() {
+          var x = document.querySelector("#snackbar");
+          if (x && x.classList.contains('show')) {
+            x.classList.remove('show')
+          }
+        }
+
+        window.countItemInCart = {{ cart.items.size }}
+
+        window.renderCountWishlist = function() {
+          const countWishListDOM = document.querySelectorAll(".count-wishlist")
+          countWishListDOM.innerHTML = null
+          if (countWishListDOM.length > 0) {
+            let strWishlistFromLocal = localStorage.getItem('shopify-wishlist')
+            if (strWishlistFromLocal) {
+              let arrWishlistFromLocal = strWishlistFromLocal.split(",");
+
+              if (arrWishlistFromLocal.length > 0) {
+                if (arrWishlistFromLocal.length < 10) {
+                  countWishListDOM.forEach(item => {
+                    item.innerHTML = '0' + arrWishlistFromLocal.length
+                  })
+                } else {
+                  countWishListDOM.forEach(item => {
+                    item.innerHTML = arrWishlistFromLocal.length
+                  })
+                } countWishListDOM.forEach(item => {
+                  item.classList.remove('hidden')
+                })
+              } else {
+                countWishListDOM.forEach(item => {
+                  countWishListDOM.classList.add('hidden')
+                })
+              }
+            }
+          }
+        }
+
+        window.renderCountInCart = function() {
+          const countItemCart = document.querySelectorAll(".count-item-cart")
+          countItemCart.innerHTML = null
+          if (countItemCart.length > 0) {
+            fetch('/cart.json').then(res => res.json()).then(data => {
+              countItemCart.forEach(item => {
+                    item.innerHTML = data.item_count
+                  })
+            })
+          }
+        }
+
+        window.debounce = function debounce(fn, wait) {
+          let t;
+          return(...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn.apply(this, args), wait);
+          };
+        }
+
+        window.cart_ajax_display = "{{ settings.cart_ajax_display }}"
+
+        // Change document title when change tab in brower
+        if (document.body.getAttribute('data-reminder-switch-tab') === 'true') {
+            let siteTitleDefault = '';
+            siteTitleDefault = document.title;
+            let reminderText1 = "{{ settings.text_reminder_when_switch_tab_1 }}"
+            let reminderText2 = "{{ settings.text_reminder_when_switch_tab_2 }}"
+
+            let arrReminder = []
+            if (reminderText1) {
+                arrReminder.push(reminderText1)
+            }
+            if (reminderText2) {
+                arrReminder.push(reminderText2)
+            }
+            let point = 0;
+            function changeReminderTitle() {
+                document.title = arrReminder[point]
+
+                if (point < arrReminder.length - 1) {
+                    point++;
+                } else {
+                    point = 0
+                }
+
+                window.changeReminderTitleTimeout = setTimeout(() => {
+                    changeReminderTitle()
+                }, 3000)
+            }
+
+            window.addEventListener('blur', () => {
+                if (reminderText1.length === 0 && reminderText2.length === 0) {
+                    document.title = siteTitleDefault
+                } else {
+                    changeReminderTitle()
+                }
+
+            });
+
+            window.addEventListener('focus', () => {
+                clearTimeout(window.changeReminderTitleTimeout)
+                document.title = siteTitleDefault;
+            });
+        }
+
+        // End Change document title when change tab in browser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </script>
+      {% render 'cookie-banner' %}
+
+      {% if settings.np_show != 'hidden' %}
+        {% if settings.np_show == 'show_on_home_page' %}
+          {% if template == 'index' %}
+            {% render 'newletter-popup' %}
+          {% endif %}
+        {% else %}
+          {% render 'newletter-popup' %}
+        {% endif %}
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<div class="tp-deals">
+  {% if section.blocks.size > 0 %}
+    <div class="tp-deals__wrapper">
+      {% if section.settings.title != blank %}
+        <h4 class="section-title">{{ section.settings.title }}</h4>
+      {% endif %}
+      <div
+        class="tp-deals__countdown swiper"
+      >
+        <div class="swiper-wrapper items-center">
+          {% for block in section.blocks %}
+            {%- assign card_product = all_products[block.settings.product] -%}
+            <div class="tp-deals__countdown-item swiper-slide">
+              <div class="prd-item-cdn">
+                <div class="prd-item-cdn__inner flex items-center">
+                  <div class="prd-item-cdn__image">
+                    {% render 'responsive-image', image: card_product.featured_image %}
+                    {% if card_product != blank %}
+                      <div class="sale-popup">
+                        <div class="popup-wrapper">
+                          <div class="add-to-cart">
+                            <product-form>
+                              {%- form 'product',
+                                card_product,
+                                class: product_form_id,
+                                novalidate: 'novalidate',
+                                data-type: 'add-to-cart-form'
+                              -%}
+                                <input
+                                  type="hidden"
+                                  name="id"
+                                  value="{{ card_product.selected_or_first_available_variant.id }}"
+                                  disabled
+                                >
+                                <button
+                                  type="submit"
+                                  name="add"
+                                  class="prd-item-atc quick-add-{{ section_id }}{{ card_product.id }}"
+                                  aria-haspopup="dialog"
+                                  aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+                                  aria-live="polite"
+                                  data-sold-out-message="true"
+                                  {% if card_product.selected_or_first_available_variant.available == false %}
+                                    disabled
+                                  {% endif %}
+                                >
+                                  <span
+                                    class="add-to-cart-text flex items-center justify-center gap-1{% if card_product.selected_or_first_available_variant.available == true %} cursor-pointer{% endif %}"
+                                  >
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="25"
+                                      height="20"
+                                      fill="currentColor"
+                                      class="bi bi-basket2-fill"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z"/>
+                                    </svg>
+                                  </span>
+
+                                  {% render 'icon',
+                                    icon_name: 'icon-loading',
+                                    class: 'add-to-cart-loading  m-auto hidden',
+                                    width: 26,
+                                    height: 26
+                                  %}
+                                </button>
+                              {%- endform -%}
+                            </product-form>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class="prd-item-cdn__content">
+                    <div class="prd-ttile">{{ card_product.title }}</div>
+                    <div class="prd-price">
+                      {% assign priceId = 'price-' | append: section.id | append: '-' | append: card_product.id %}
+                      {% render 'price',
+                        product: card_product,
+                        use_variant: true,
+                        price_class: 'product-item-storepify',
+                        section: section,
+                        id: priceId
+                      %}
+                    </div>
+                    <div class="countdown-wrapper">
+                      <h5>Hurry up! Offer ends in:</h5>
+                      <div
+                        class="countdown tp-deals-countdown-js"
+                        data-year="{{ block.settings.until_year }}"
+                        data-month="{{ block.settings.until_month }}"
+                        data-day="{{ block.settings.until_day }}"
+                        data-text-day="{{ 'general.countdown.days' | t }}"
+                        data-text-hour="{{ 'general.countdown.hours' | t }}"
+                        data-text-min="{{ 'general.countdown.mins' | t }}"
+                        data-text-sec="{{ 'general.countdown.secs' | t }}"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+{
+  "name": "GPS Daily Deal V2",
+  "class": "index-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Specific settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Deals of the week"
+    },
+    {
+      "type": "color",
+      "id": "background_slide",
+      "label": "Background color of all slide",
+      "default": "#F5583E"
+    },
+    {
+      "type": "color",
+      "id": "background_active",
+      "label": "Background color of slide active",
+      "default": "#252531"
+    },
+    {
+      "type": "select",
+      "id": "nav_dots",
+      "label": "Nav dots style",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "Navigation default"
+        },
+        {
+          "value": "2",
+          "label": "Navigation top"
+        },
+        {
+          "value": "3",
+          "label": "Dots default"
+        },
+        {
+          "value": "4",
+          "label": "Dots top"
+        },
+        {
+          "value": "5",
+          "label": "None"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "countdown",
+      "name": "Product Deal V2",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "label": "Countdown text",
+          "id": "countdown_text",
+          "default": "Hurry up! Offer ends in:"
+        },
+        {
+          "type": "range",
+          "id": "until_day",
+          "label": "Until day",
+          "default": 1,
+          "min": 1,
+          "max": 31,
+          "step": 1
+        },
+        {
+          "type": "range",
+          "id": "until_month",
+          "label": "Until month",
+          "default": 1,
+          "min": 1,
+          "max": 12,
+          "step": 1
+        },
+        {
+          "type": "range",
+          "id": "until_year",
+          "label": "Until year",
+          "default": 2023,
+          "min": 2023,
+          "max": 2050,
+          "step": 1
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "GPS Daily Deal V2",
+      "category": "Product",
+      "blocks": [
+        {
+          "type": "countdown"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

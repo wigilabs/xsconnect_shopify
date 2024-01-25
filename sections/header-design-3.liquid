@@ -1,0 +1,417 @@
+{%- style -%}
+  .header-wrapper{
+      background: {{ section.settings.menu_bg }};
+  }
+  @media only screen and (max-width: 1024px) {
+  {% if section.settings.background_image %}
+      .header-wrapper{
+          border-bottom: 1px solid #e6e6e6;
+      }
+  {% endif %}
+  }
+
+  .status-item-menu.item-hot {
+      background: {{ section.settings.bgcolor_label1 }};
+      color: {{ section.settings.textcolor_label1 }};
+  }
+{%- endstyle -%}
+
+{% liquid
+  assign st = section.settings
+%}
+<div class="header-ds3 header-general">
+  {% if section.settings.enable_sticky_header %}
+    <sticky-header class="header-sticky">
+  {% endif %}
+  <div class="overscroll-none container{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+    <header class="header header-desktop">
+      <div class="header__wrapper flex items-center justify-between h-full">
+        <div class="header__left flex items-center relative">
+          {% render 'header-logo' %}
+          <span class="icon-megamenu">
+            {% render 'icon', icon_name: 'icon-click-menu' %}
+          </span>
+          <div class="menu-categories {% if template == 'index' %}is-open-menu-cate{% endif %}">
+            {% if section.blocks.size > 0 %}
+              <div class="menu-categories__content">
+                <ul>
+                  {% for block in section.blocks %}
+                    {% case block.type %}
+                      {% when 'menu_category' %}
+                        {% liquid
+                          assign backgroundImage = block.settings.background_image
+                        %}
+                        <li class="cate-menu-lv1" data-category-name="{{ block.settings.heading }}">
+                          {% if block.settings.menu_categories_target != blank %}
+                            <div class="cate-title flex justify-between items-center">
+                              <div class="menu-categories__content--title flex items-center">
+                                {% if block.settings.icon != blank %}
+                                  <img
+                                    src="{{ block.settings.icon | image_url: width: block.settings.icon.width , height: block.settings.icon.height }}"
+                                    alt="icon-{{ block.settings.heading }}"
+                                    width="{{ block.settings.icon.width }}"
+                                    height="{{ block.settings.icon.height }}"
+                                    loading="lazy"
+                                  >
+                                {% else %}
+                                  {{ 'collection-6' | placeholder_svg_tag: 'icon-header-img-default' }}
+                                {% endif %}
+                                <span class="menu-categories__content--title"> {{ block.settings.heading }}</span>
+                              </div>
+                              {% render 'icon', icon_name: 'icon-arrow-right-2', width: 8, height: 8 %}
+                            </div>
+                          {% else %}
+                            {% assign urlTarget = block.settings.url_category | default: '#' %}
+                            <div class="cate-title flex items-center">
+                              {% if block.settings.icon != blank %}
+                                <img
+                                  src="{{ block.settings.icon | image_url: width: block.settings.icon.width , height: block.settings.icon.height }}"
+                                  alt="icon-{{ block.settings.heading }}"
+                                  width="{{ block.settings.icon.width }}"
+                                  height="{{ block.settings.icon.height }}"
+                                  loading="lazy"
+                                >
+                              {% else %}
+                                {{ 'collection-6' | placeholder_svg_tag: 'icon-header-img-default' }}
+                              {% endif %}
+                              <a class="menu-categories__content--title" href="{{ urlTarget }}">
+                                {{- block.settings.heading -}}
+                              </a>
+                            </div>
+                          {% endif %}
+
+                          {% if block.settings.menu_categories_target != blank %}
+                            <div
+                              class="sub-menu-category"
+                              data-category-name-belong="{{ block.settings.heading }}"
+                              {% if backgroundImage != blank %}
+                                style="
+                                  background-image: url('{{ backgroundImage | image_url: width: backgroundImage.width, height: backgroundImage.height }}');
+                                  background-repeat: no-repeat;
+                                  background-position: right bottom;
+                                "
+                              {% endif %}
+                            >
+                              <div class="list-mn-category">
+                                <div class="list-mn-category__mega {{ block.settings.column_sub_menu }}">
+                                  {%- for link in block.settings.menu_categories_target.links -%}
+                                    <div class="menu-item live-{{ link.levels }}">
+                                      <a
+                                        href="{{ link.url }}"
+                                        title="{{ link.title | escape }}"
+                                        class="sub-cate-lv1"
+                                        data-level="{{ link.levels }}"
+                                      >
+                                        {{ link.title | escape }}
+                                      </a>
+                                      {% if link.levels == 1 %}
+                                        <div class="sub-meu-cate">
+                                          {% for child_link in link.links %}
+                                            <div class="sub-item">
+                                              <a
+                                                href="{{ child_link.url }}"
+                                                title="{{ child_link.title | escape }}"
+                                                class=""
+                                                data-level="{{ child_link.levels }}"
+                                              >
+                                                {{ child_link.title | escape }}
+                                              </a>
+                                            </div>
+                                          {% endfor %}
+                                        </div>
+                                      {% endif %}
+                                    </div>
+                                  {% endfor %}
+                                </div>
+                              </div>
+                            </div>
+                          {% endif %}
+                        </li>
+                    {% endcase %}
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="header__center">
+          <div class="header-phone-number">
+            <a href="tel: {{ section.settings.phone_number }}">
+              <span>{{ section.settings.phone_number }}</span>
+            </a>
+          </div>
+        </div>
+        <div class="header__right">
+          <div
+            class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}"
+            tabindex="-1"
+          >
+            {%- if settings.predictive_search_enabled -%}
+              <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+            {%- endif -%}
+            <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+              <div class="field">
+                <input name="type" type="hidden" value="product">
+                <input
+                  class="search__input field__input"
+                  type="search"
+                  name="q"
+                  value=""
+                  placeholder="{{ 'general.search.search' | t }}"
+                  {%- if settings.predictive_search_enabled -%}
+                    role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list"
+                    aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list"
+                    autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false"
+                  {%- endif -%}
+                >
+                <input name="options[prefix]" type="hidden" value="last">
+                <button class="search__button field__button flex items-center">
+                  {% render 'icon', icon_name: 'icon-search', class: '-rotate-90', width: 15, height: 15 %}
+                  Search
+                </button>
+              </div>
+              <div class="predictive-search predictive-search--header" data-predictive-search tabindex="-1">
+                <div class="predictive-search__loading-state">
+                  <svg
+                    aria-hidden="true"
+                    class="spinner"
+                    focusable="false"
+                    role="presentation"
+                    viewbox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-width="6"></circle>
+                  </svg>
+                </div>
+              </div>
+
+              <span aria-hidden="true" class="predictive-search-status visually-hidden" role="status"></span>
+            </form>
+            {%- if settings.predictive_search_enabled -%}
+              </predictive-search>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </header>
+    {% render 'header-mobile' %}
+    {% render 'mobile-bottom-navbar' %}
+  </div>
+  {% if section.settings.enable_sticky_header %}
+    </sticky-header>
+  {% endif %}
+</div>
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
+{%- endif -%}
+
+{% javascript %}
+  class StickyHeader extends HTMLElement {
+    constructor() {
+      super();
+    }
+    connectedCallback() {
+      (this.header = document.getElementById('shopify-section-header-design-1')),
+        (this.headerBounds = {}),
+        (this.currentScrollTop = 0),
+        (this.preventReveal = !1),
+        (this.predictiveSearch = this.querySelector('predictive-search')),
+        (this.onScrollHandler = this.onScroll.bind(this)),
+        (this.hideHeaderOnScrollUp = () => (this.preventReveal = !0)),
+        this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp),
+        window.addEventListener('scroll', this.onScrollHandler, !1),
+        this.createObserver();
+    }
+    disconnectedCallback() {
+      this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp),
+        window.removeEventListener('scroll', this.onScrollHandler);
+    }
+    createObserver() {
+      new IntersectionObserver((e, t) => {
+        (this.headerBounds = e[0].intersectionRect), t.disconnect();
+      }).observe(this.header);
+    }
+    onScroll() {
+      let e = window.pageYOffset || document.documentElement.scrollTop;
+      if (!this.predictiveSearch || !this.predictiveSearch.isOpen) {
+        if (e > this.currentScrollTop && e > this.headerBounds.bottom) {
+          if (this.preventHide) return;
+          requestAnimationFrame(this.hide.bind(this));
+        } else
+          e < this.currentScrollTop && e > this.headerBounds.bottom
+            ? this.preventReveal
+              ? (window.clearTimeout(this.isScrolling),
+                (this.isScrolling = setTimeout(() => {
+                  this.preventReveal = !1;
+                }, 66)),
+                requestAnimationFrame(this.hide.bind(this)))
+              : requestAnimationFrame(this.reveal.bind(this))
+            : e <= this.headerBounds.top && requestAnimationFrame(this.reset.bind(this));
+        this.currentScrollTop = e;
+      }
+    }
+    hide() {
+      this.header.classList.add(
+        'shopify-section-header-hidden',
+        'shopify-section-header-sticky',
+        'sticky',
+        'top-0',
+        'z-[99]'
+      );
+    }
+    reveal() {
+      this.header.classList.add('shopify-section-header-sticky', 'animate'),
+        this.header.classList.remove('shopify-section-header-hidden');
+    }
+    reset() {
+      this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
+    }
+  }
+  customElements.define('sticky-header', StickyHeader);
+{% endjavascript %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": {{ shop.name | json }},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {{ potential_action_target | json }},
+      "query-input": "required name=search_term_string"
+    },
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+{% render 'margin-bottom' %}
+{% schema %}
+{
+  "name": "Header design 3",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "color",
+      "id": "menu_bg",
+      "default": "#fff",
+      "label": "t:sections.header.settings.menubg.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:sections.header.settings.logo.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_mobile",
+      "label": "Logo mobile"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone number",
+      "default": "+123 4567 890",
+      "info": "If left empty, the element will be hidden"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": false,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_header",
+      "default": false,
+      "label": "t:sections.header.settings.enable_sticky_header.label",
+      "info": "t:sections.header.settings.enable_sticky_header.info"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_mobile",
+      "label": "Menu mobile"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.margin_bottom.content"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "label": "t:sections.margin_bottom.desktop.label",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_table",
+      "label": "t:sections.margin_bottom.tablet.label",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "label": "t:sections.margin_bottom.mobile.label",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Menu Category",
+      "type": "menu_category",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Category name",
+          "id": "heading",
+          "default": "Fruits & Vegetables"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_categories_target",
+          "label": "Menu"
+        },
+        {
+          "type": "url",
+          "id": "url_category",
+          "label": "Url category",
+          "info": "Use when not exist menu"
+        },
+        {
+          "type": "select",
+          "id": "column_sub_menu",
+          "label": "Columns number menu",
+          "options": [
+            {
+              "value": "col-1",
+              "label": "Col 1"
+            },
+            {
+              "value": "col-2",
+              "label": "Col 2"
+            },
+            {
+              "value": "col-3",
+              "label": "Col 3"
+            },
+            {
+              "value": "col-4",
+              "label": "Col 4"
+            }
+          ],
+          "default": "col-1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header design 3"
+    }
+  ]
+}
+{% endschema %}

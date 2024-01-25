@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "1660032789f2a53a70": {
+      "type": "breadcrumb",
+      "settings": {
+        "width_layout": "container",
+        "background_image": "shopify:\/\/shop_images\/breadcrumb.png",
+        "show_page_title": true,
+        "position_bread_crumb": "center-middle",
+        "pbs_collection": "first",
+        "color_background": "rgba(0,0,0,0)",
+        "color_content": "#ffffff",
+        "show_image_collection": false,
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 50,
+        "margin_bottom_mobile": 30
+      }
+    },
+    "main": {
+      "type": "collection-layout",
+      "blocks": {
+        "82fd15cd-3d0a-4c63-8c9a-7a2685bd3085": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "iphone"
+          }
+        },
+        "279ee8c5-51dd-409b-b742-53804a9e6ede": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "samsung"
+          }
+        },
+        "b66541e7-ef55-4d0c-b9ec-61964fadd08e": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "iphone-accessories"
+          }
+        },
+        "6c4ffb53-917b-4008-bbfa-98a5071c2362": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "headphone"
+          }
+        },
+        "f6ebd5bd-767e-4d74-ac3c-3e7409d4e846": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "camera-camcorder"
+          }
+        },
+        "5e3608cb-40b1-421b-831b-d70242435d0b": {
+          "type": "collection_item",
+          "settings": {
+            "collection_item": "tab-featured"
+          }
+        }
+      },
+      "block_order": [
+        "82fd15cd-3d0a-4c63-8c9a-7a2685bd3085",
+        "279ee8c5-51dd-409b-b742-53804a9e6ede",
+        "b66541e7-ef55-4d0c-b9ec-61964fadd08e",
+        "6c4ffb53-917b-4008-bbfa-98a5071c2362",
+        "f6ebd5bd-767e-4d74-ac3c-3e7409d4e846",
+        "5e3608cb-40b1-421b-831b-d70242435d0b"
+      ],
+      "settings": {
+        "layout_type": "layout_grid",
+        "width_layout": "container"
+      }
+    }
+  },
+  "order": [
+    "1660032789f2a53a70",
+    "main"
+  ]
+}

@@ -1,0 +1,572 @@
+{%- style -%}
+  .header-wrapper{
+      {% if section.settings.background_image != blank %}
+      background: url({{ section.settings.background_image | image_url: width: section.settings.background_image.width, height: section.settings.background_image.height }});
+      {% else %}
+      background: {{ section.settings.menu_bg }};
+      {% endif %}
+  }
+  @media only screen and (max-width: 1024px) {
+  {% if section.settings.background_image %}
+      .header-wrapper{
+          border-bottom: 1px solid #e6e6e6;
+      }
+  {% endif %}
+  }
+
+  .status-item-menu.item-hot {
+      background: {{ section.settings.bgcolor_label1 }};
+      color: {{ section.settings.textcolor_label1 }};
+  }
+{%- endstyle -%}
+
+{% liquid
+  assign st = section.settings
+  assign hasMegamenu = false
+  assign sizeBlock = section.blocks.size
+  if sizeBlock > 0
+    assign hasMegamenu = true
+  endif
+%}
+<div class="header-ds2 header-general">
+  {% if section.settings.enable_sticky_header %}
+    <sticky-header class="header-sticky">
+  {% endif %}
+  <div class="overscroll-none{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+    <header class="header header-desktop">
+      <div class="header__wrapper">
+        <div class="header__top container">
+          <div class="header__top-wrapper flex items-center justify-between relative">
+            {% render 'header-logo' %}
+            <nav class="flex-header">
+              <div class="nav-header-ds1 flex items-center justify-between">
+                <div class="categories-nav flex items-stretch">
+                  <div class="header-nav flex items-center">
+                    <ul class="header-nav__wrap">
+                      {% for block in section.blocks %}
+                        {% liquid
+                          assign bt = block.settings
+                        %}
+                        {% case block.type %}
+                          {% when 'menu_megamenu' %}
+                            <li class="menu-level-1 {% if bt.full_width_dropdown == false %}relative{% endif %}">
+                              <span class="flex items-center gap-1">
+                                {{ bt.heading }}
+                                {% if bt.menu != blank %}
+                                  {% render 'icon', icon_name: 'icon-drop-down-2', width: 8, height: 8 %}
+                                {% endif %}
+                              </span>
+                              <div class="dropdown-menu mega-menu {% if bt.full_width_dropdown %}dropdown-full{% else %}dropdown-normal{% endif %}">
+                                {% if bt.title_top != blank or bt.desc_top != blank %}
+                                  <div class="top-content">
+                                    {% if bt.title_top != blank %}
+                                      <h3 class="title-content">{{ bt.title_top }}</h3>
+                                    {% endif %}
+                                    {% if bt.desc_top != blank %}
+                                      <div class="desc-content">
+                                        {{ bt.desc_top }}
+                                      </div>
+                                    {% endif %}
+                                  </div>
+                                {% endif %}
+                                <div class="middle-content flex items-start justify-between {{ bt.dropdown_columns }}">
+                                  {% render 'header-menu', block: block, type: 'menu-left', call: 'desktop' %}
+                                  {% assign imageBanner = bt.image_banner %}
+                                  {% if imageBanner != blank %}
+                                    <div class="image-banner">
+                                      {% render 'responsive-image', image: imageBanner %}
+                                    </div>
+                                  {% endif %}
+                                </div>
+
+                                {% if bt.title_bottom != blank or bt.desc_bottom != blank %}
+                                  <div class="bottom-content">
+                                    {% if bt.title_bottom != blank %}
+                                      <h3 class="title-content">{{ bt.title_bottom }}</h3>
+                                    {% endif %}
+                                    {% if bt.desc_bottom != blank %}
+                                      <div class="desc-content">
+                                        {{ bt.desc_bottom }}
+                                      </div>
+                                    {% endif %}
+                                  </div>
+                                {% endif %}
+                              </div>
+                            </li>
+                          {% when 'menu_normal' %}
+                            <li class="menu-level-1 relative">
+                              <span class="flex items-center gap-1">
+                                {{ bt.heading }}
+                                {% if bt.menu != blank %}
+                                  {% render 'icon', icon_name: 'icon-drop-down-2', width: 8, height: 8 %}
+                                {% endif %}
+                              </span>
+                              <div class="dropdown-menu menu-normal">
+                                <div class="middle-content flex items-start justify-between">
+                                  {% render 'header-menu', block: block, type: 'menu-left', call: 'desktop' %}
+                                </div>
+                              </div>
+                            </li>
+                        {% endcase %}
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+                {% if st.phone_number != blank or st.link_contact %}
+                  <div class="header-info flex items-center">
+                    {% if st.phone_number != blank %}
+                      <a href="tel:{{ st.phone_number | default: '#' }}" title="Buy GenMart">
+                        <div class="info-item flex items-center">
+                          <span class="info-item-icon">
+                            {% render 'icon', icon_name: 'icon-phone-2', width: 30, height: 30 %}
+                          </span>
+                          <div class="info-item-content flex flex-col">
+                            <span class="item-value">{{ st.phone_number }}</span>
+                            <span class="item-label">{{ st.label_phone }}</span>
+                          </div>
+                        </div>
+                      </a>
+                    {% endif %}
+                    {% if st.link_contact != blank %}
+                      <a href="{{ st.link_contact | default: '#' }}" title="Buy GenMart">
+                        <div class="info-item  flex items-center">
+                          <span class="info-item-icon">
+                            {% render 'icon', icon_name: 'icon-email-2', width: 30, height: 30 %}
+                          </span>
+                          <div class="info-item-content flex flex-col">
+                            <span class="item-value">{{ st.contact_us }}</span>
+                            <span class="item-label">{{ st.text_message }}</span>
+                          </div>
+                        </div>
+                      </a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </nav>
+          </div>
+          <div class="flex items-stretch header__middle">
+            {% render 'menu-categories' %}
+            <div
+              class="search-modal modal__content gradient flex items-center"
+              role="dialog"
+              aria-modal="true"
+              aria-label="{{ 'general.search.search' | t }}"
+            >
+              <div
+                class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}"
+                tabindex="-1"
+              >
+                {%- if settings.predictive_search_enabled -%}
+                  <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+                {%- endif -%}
+                <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                  <div class="field">
+                    <input name="type" type="hidden" value="product">
+                    <input
+                      class="search__input field__input"
+                      type="search"
+                      name="q"
+                      value=""
+                      placeholder="{{ 'general.search.search' | t }}"
+                      {%- if settings.predictive_search_enabled -%}
+                        role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list"
+                        aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list"
+                        autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false"
+                      {%- endif -%}
+                    >
+                    <input name="options[prefix]" type="hidden" value="last">
+                    <button class="search__button field__button">
+                      {% render 'icon', icon_name: 'icon-search', class: '-rotate-90', width: 15, height: 15 %}
+                    </button>
+                  </div>
+                  <div class="predictive-search predictive-search--header" data-predictive-search tabindex="-1">
+                    <div class="predictive-search__loading-state">
+                      <svg
+                        aria-hidden="true"
+                        class="spinner"
+                        focusable="false"
+                        role="presentation"
+                        viewbox="0 0 66 66"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle class="path" cx="33" cy="33" fill="none" r="30" stroke-width="6"></circle>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <span aria-hidden="true" class="predictive-search-status visually-hidden" role="status"></span>
+                </form>
+                {%- if settings.predictive_search_enabled -%}
+                  </predictive-search>
+                {%- endif -%}
+              </div>
+              <div class="flex items-center">
+                <a class="ml-6.5 icon-contain-count" href="/pages/compare" title="compare">
+                  <svg width="15" height="15" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path d="M10.08,7l1,1,3.44-3.45L11,1,10,2l1.8,1.8H2v1.4h9.82ZM5.86,9l-1-1L1.42,11.5,4.91,15l1-1L4.1,12.2H14V10.8H4.1Z"></path>
+                    </g>
+                  </svg>
+                </a>
+                <a class="ml-6.5 icon-contain-count" href="/pages/wishlist" title="wishlist">
+                  <svg fill="none" width="15" height="15" viewbox="0 0 27 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.0723 2.92773C23.4614 2.31659 22.7361 1.83178 21.9378 1.50101C21.1396 1.17025 20.2839 1 19.4199 1C18.5558 1 17.7001 1.17025 16.9019 1.50101C16.1036 1.83178 15.3783 2.31659 14.7674 2.92773L13.4997 4.19549L12.2319 2.92773C10.998 1.69384 9.3245 1.00064 7.57951 1.00064C5.83452 1.00064 4.16099 1.69384 2.92709 2.92773C1.6932 4.16163 1 5.83515 1 7.58015C1 9.32514 1.6932 10.9987 2.92709 12.2326L4.19485 13.5003L13.4997 22.8052L22.8045 13.5003L24.0723 12.2326C24.6834 11.6217 25.1682 10.8964 25.499 10.0981C25.8298 9.29986 26 8.44424 26 7.58015C26 6.71606 25.8298 5.86043 25.499 5.06216C25.1682 4.26388 24.6834 3.53859 24.0723 2.92773V2.92773Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="black"/>
+                  </svg>
+                </a>
+                {% if template != 'cart' %}
+                  <div class="flex items-center mx-6.5 ">
+                    <button class="link link--text focus-inset icon-contain-count relative">
+                      {% render 'icon', icon_name: 'icon-cart-header', width: 15, height: 15 %}
+                      <p class="badge-count count-item-cart absolute">0</p>
+                    </button>
+                    <span class="subtotal-price">{{ cart.total_price | money }}</span>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% render 'header-mobile' %}
+    {% render 'mobile-bottom-navbar' %}
+  </div>
+  {% if section.settings.enable_sticky_header %}
+    </sticky-header>
+  {% endif %}
+</div>
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
+{%- endif -%}
+
+{% javascript %}
+  class StickyHeader extends HTMLElement {
+    constructor() {
+      super();
+    }
+    connectedCallback() {
+      (this.header = document.getElementById('shopify-section-header-design-1')),
+        (this.headerBounds = {}),
+        (this.currentScrollTop = 0),
+        (this.preventReveal = !1),
+        (this.predictiveSearch = this.querySelector('predictive-search')),
+        (this.onScrollHandler = this.onScroll.bind(this)),
+        (this.hideHeaderOnScrollUp = () => (this.preventReveal = !0)),
+        this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp),
+        window.addEventListener('scroll', this.onScrollHandler, !1),
+        this.createObserver();
+    }
+    disconnectedCallback() {
+      this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp),
+        window.removeEventListener('scroll', this.onScrollHandler);
+    }
+    createObserver() {
+      new IntersectionObserver((e, t) => {
+        (this.headerBounds = e[0].intersectionRect), t.disconnect();
+      }).observe(this.header);
+    }
+    onScroll() {
+      let e = window.pageYOffset || document.documentElement.scrollTop;
+      if (!this.predictiveSearch || !this.predictiveSearch.isOpen) {
+        if (e > this.currentScrollTop && e > this.headerBounds.bottom) {
+          if (this.preventHide) return;
+          requestAnimationFrame(this.hide.bind(this));
+        } else
+          e < this.currentScrollTop && e > this.headerBounds.bottom
+            ? this.preventReveal
+              ? (window.clearTimeout(this.isScrolling),
+                (this.isScrolling = setTimeout(() => {
+                  this.preventReveal = !1;
+                }, 66)),
+                requestAnimationFrame(this.hide.bind(this)))
+              : requestAnimationFrame(this.reveal.bind(this))
+            : e <= this.headerBounds.top && requestAnimationFrame(this.reset.bind(this));
+        this.currentScrollTop = e;
+      }
+    }
+    hide() {
+      this.header.classList.add(
+        'shopify-section-header-hidden',
+        'shopify-section-header-sticky',
+        'sticky',
+        'top-0',
+        'z-[99]'
+      );
+    }
+    reveal() {
+      this.header.classList.add('shopify-section-header-sticky', 'animate'),
+        this.header.classList.remove('shopify-section-header-hidden');
+    }
+    reset() {
+      this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
+    }
+  }
+  customElements.define('sticky-header', StickyHeader);
+{% endjavascript %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": {{ shop.name | json }},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {{ potential_action_target | json }},
+      "query-input": "required name=search_term_string"
+    },
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+{% render 'margin-bottom' %}
+{% schema %}
+{
+  "name": "Header design 2",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "menu_bg",
+      "default": "#fff",
+      "label": "t:sections.header.settings.menubg.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:sections.header.settings.logo.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_mobile",
+      "label": "Logo mobile"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone number",
+      "default": "+123 4567 890",
+      "info": "If left empty, the element will be hidden"
+    },
+    {
+      "type": "text",
+      "id": "label_phone",
+      "label": "Phone number",
+      "default": "Call us anytime"
+    },
+    {
+      "type": "text",
+      "id": "contact_us",
+      "label": "Contact",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "text_message",
+      "label": "Text message",
+      "default": "Leave us a message"
+    },
+    {
+      "type": "url",
+      "id": "link_contact",
+      "label": "Link contact",
+      "info": "If left empty, the element will be hidden"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": false,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_header",
+      "default": false,
+      "label": "t:sections.header.settings.enable_sticky_header.label",
+      "info": "t:sections.header.settings.enable_sticky_header.info"
+    },
+    {
+      "type": "header",
+      "content": "Config menu categories"
+    },
+    {
+      "type": "text",
+      "id": "text_menu_cate",
+      "label": "Text menu categories",
+      "default": "Browse categories"
+    },
+    {
+      "type": "color",
+      "label": "Background",
+      "id": "menu_categories_bg",
+      "default": "#71AF19"
+    },
+    {
+      "type": "color",
+      "label": "Text color",
+      "id": "menu_categories_text_color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_mobile",
+      "label": "Menu mobile"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.margin_bottom.content"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "label": "t:sections.margin_bottom.desktop.label",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_table",
+      "label": "t:sections.margin_bottom.tablet.label",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "label": "t:sections.margin_bottom.mobile.label",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Menu Category",
+      "type": "menu_category",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Category name",
+          "id": "heading",
+          "default": "Menu category"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_categories_target",
+          "label": "Menu"
+        },
+        {
+          "type": "url",
+          "id": "url_category",
+          "label": "Url category",
+          "info": "Use when not exist menu"
+        }
+      ]
+    },
+    {
+      "name": "Menu-megamenu",
+      "type": "menu_megamenu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Menu title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "main-menu",
+          "label": "t:sections.header.settings.menu.label"
+        },
+        {
+          "type": "text",
+          "id": "title_top",
+          "label": "Title top",
+          "default": "Top content"
+        },
+        {
+          "type": "richtext",
+          "id": "desc_top",
+          "label": "Description Top",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
+        },
+        {
+          "type": "text",
+          "id": "title_bottom",
+          "label": "Title top",
+          "default": "Top content"
+        },
+        {
+          "type": "richtext",
+          "id": "desc_bottom",
+          "label": "Description Bottom",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_banner",
+          "label": "Image banner"
+        },
+        {
+          "type": "checkbox",
+          "id": "full_width_dropdown",
+          "label": "Full width dropdown",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "dropdown_columns",
+          "label": "Dropdown columns",
+          "options": [
+            {
+              "value": "column-1",
+              "label": "1 column"
+            },
+            {
+              "value": "columns-2",
+              "label": "2 columns"
+            },
+            {
+              "value": "columns-3",
+              "label": "3 columns"
+            },
+            {
+              "value": "columns-4",
+              "label": "4 columns"
+            }
+          ],
+          "default": "columns-2"
+        }
+      ]
+    },
+    {
+      "name": "Menu-normal",
+      "type": "menu_normal",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Menu title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "main-menu",
+          "label": "t:sections.header.settings.menu.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header design 2"
+    }
+  ]
+}
+{% endschema %}

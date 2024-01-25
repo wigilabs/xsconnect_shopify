@@ -1,0 +1,29 @@
+{% liquid
+    assign recommen_sts = settings.recommen_sts
+    assign recommen_title = settings.recommen_title
+    assign recommen_sub = settings.recommen_sub
+    assign product_list = settings.product_list
+    assign start_time = settings.start_time
+%}
+
+{% if recommen_sts == 'visible' %}
+    <div class="recommen-pr z-auto fixed top-0 w-full h-full px-7.5 py-7.5 {{ recommen_sts }}">
+        <div class="recommen-pr__wrap z-50 fixed top-2/4 left-2/4 bg-white w-full max-w-4xl">
+            <div class="recommen-pr__element recommen-popup px-7.5 py-7.5 overflow-x-hidden" data-start="{{ start_time | times: 1000 }}" data-delay="">
+                <div class="recommen-pr__above mb-7.5">
+                    <h2 class="recommen-pr__title mb-5 text-black font-normal md:text-4xl text-3xl text-center">{{ recommen_title }}</h2>
+                    <p class="recommen-pr__sub text-sm md:text-base text-center text-current">{{ recommen_sub }}</p>
+                </div>
+                {% comment %} <button class="change-random flex items-center justify-end w-full mb-2.5" id="recommen-change">
+                    <svg class="w-4 h-4 duration-300 hover:fill-blue-500" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.61 122.88"><title>update</title><path d="M111.9,61.57a5.36,5.36,0,0,1,10.71,0A61.3,61.3,0,0,1,17.54,104.48v12.35a5.36,5.36,0,0,1-10.72,0V89.31A5.36,5.36,0,0,1,12.18,84H40a5.36,5.36,0,1,1,0,10.71H23a50.6,50.6,0,0,0,88.87-33.1ZM106.6,5.36a5.36,5.36,0,1,1,10.71,0V33.14A5.36,5.36,0,0,1,112,38.49H84.44a5.36,5.36,0,1,1,0-10.71H99A50.6,50.6,0,0,0,10.71,61.57,5.36,5.36,0,1,1,0,61.57,61.31,61.31,0,0,1,91.07,8,61.83,61.83,0,0,1,106.6,20.27V5.36Z"></path></svg>
+                </button> {% endcomment %}
+                <div class="recommen-pr__below grid md:grid-cols-3 grid-cols-2 gap-7.5">
+                    {% for product in settings.product_list %}
+                          {% render 'card-product' , card_product: product, section: section, layoutProductItem: section.settings.product_item_layout, lazy_load: lazy_load %}
+                      {% endfor %}
+                </div>
+            </div>
+            <button type="button" class="recommen-pr__close absolute top-0 right-0 w-7 h-7 bg-slate-400 duration-300 hover:bg-blue-500 text-white text-xl" id="close-recommen-pr">x</button>
+        </div>
+    </div>
+{% endif %}

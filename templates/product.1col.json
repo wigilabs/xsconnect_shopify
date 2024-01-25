@@ -1,0 +1,167 @@
+{
+  "sections": {
+    "166063262668832fd0": {
+      "type": "breadcrumb",
+      "settings": {
+        "width_layout": "container",
+        "background_image": "shopify:\/\/shop_images\/breadcrumb.png",
+        "show_page_title": true,
+        "position_bread_crumb": "center-middle",
+        "pbs_collection": "first",
+        "color_background": "rgba(0,0,0,0)",
+        "color_content": "#ffffff",
+        "show_image_collection": false,
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 40,
+        "margin_bottom_mobile": 30
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "use_spacing": true,
+            "margin_bottom_block": 25
+          }
+        },
+        "f9e7e584-30ea-42e9-84d3-6da85ba88d02": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/star_rating\/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {
+            "stars_fill_color": "#fb8700",
+            "star_size": 15,
+            "text_align": "center",
+            "product": "{{product}}",
+            "stars_text_empty": ""
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "use_spacing": false,
+            "margin_bottom_block": 0
+          }
+        },
+        "a69b5c4c-3919-4f1b-9036-53446295ce22": {
+          "type": "description",
+          "settings": {
+            "title_description": "",
+            "type_description": "desc_stactic",
+            "static_content": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and.<\/p>\n<br>\n<ul class=\"list list-style1\">\n<li>2 Year Electromax Shop<\/li>\n<li>Scratch Resistant Sapphire<\/li>\n<li>Fixed Stainless Steel set with Diamonds<\/li>\n<li>Date display at the 6 o'clock position<\/li>\n<li>Free shipping<\/li>\n<\/ul>",
+            "desc_display_as": "show",
+            "border_item": false,
+            "use_spacing": true,
+            "margin_bottom_block": 10
+          }
+        },
+        "62b72ba7-b927-4440-9eda-42d6b2f15b4d": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown",
+            "picker_type_active": "#57da74",
+            "picker_type_hover": "#57da74",
+            "width_variant_image": 40,
+            "use_spacing": true,
+            "margin_bottom_block": 30
+          }
+        },
+        "73a4d26a-4b6b-429f-afd0-2cbaa945f84a": {
+          "type": "box-btn",
+          "settings": {
+            "button_type": "tp-btn__primary",
+            "show_wishlist": true,
+            "show_compare": true,
+            "use_spacing": true,
+            "margin_bottom_block": 5
+          }
+        },
+        "c01f5146-b043-446a-8304-06ca501a8ed5": {
+          "type": "product_organization",
+          "settings": {
+            "show_vendor": true,
+            "show_sku": true,
+            "show_availability": true,
+            "show_categories": true,
+            "category_text": "Category:",
+            "category_type": "first",
+            "use_spacing": true,
+            "margin_bottom_block": 0
+          }
+        },
+        "126369a1-abb9-482b-a17d-126ff9e07cf0": {
+          "type": "shipping",
+          "settings": {
+            "delivery_return": "Delivery & Return",
+            "page_delivery": "delivery-return",
+            "use_spacing": true,
+            "margin_bottom_block": 0
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "f9e7e584-30ea-42e9-84d3-6da85ba88d02",
+        "price",
+        "a69b5c4c-3919-4f1b-9036-53446295ce22",
+        "62b72ba7-b927-4440-9eda-42d6b2f15b4d",
+        "73a4d26a-4b6b-429f-afd0-2cbaa945f84a",
+        "c01f5146-b043-446a-8304-06ca501a8ed5",
+        "126369a1-abb9-482b-a17d-126ff9e07cf0"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "image_display_type": "one_collumn",
+        "inner_zoom_image": true,
+        "use_spacing_review": true,
+        "margin_bottom_review": 12,
+        "show_sidebar": "hidden",
+        "title_featured_product": "Featured product",
+        "product_list_featured": [
+
+        ],
+        "title_sale_product": "Sale product",
+        "product_list_sale": [
+
+        ]
+      }
+    },
+    "1656554829fa14d20e": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "width_layout": "container",
+        "heading": "You may also like",
+        "products_to_show": 15,
+        "product_item_layout": "use_global",
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "16567449761a9a8486": {
+      "type": "main-recently",
+      "settings": {
+        "width_layout": "container",
+        "heading": "Recently viewed",
+        "products_to_show": "4",
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "166063262668832fd0",
+    "main",
+    "1656554829fa14d20e",
+    "product-recommendations",
+    "16567449761a9a8486"
+  ]
+}

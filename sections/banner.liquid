@@ -1,0 +1,210 @@
+{% liquid
+  assign WidthLayout = section.settings.width_layout_banner
+%}
+<div class="tp-banner tp-banner-{{ section.id }}">
+  <div class="tp-banner__main {{ WidthLayout }}">
+    {% if section.settings.title != blank or section.settings.description != blank %}
+      <div class="tp-fcl__top mb-12.5">
+        {% if section.settings.title != blank %}
+          <h2 class="tp-section__title mb-5">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="mb-5">{{ section.settings.description }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="tp-banner__text-box flex items-center gap-7.5">
+      {% for block in section.blocks %}
+        {% liquid
+          assign bt = block.settings
+        %}
+        {% case block.type %}
+          {% when 'banner_with_text_box' %}
+            <div class="tp-banner__text-box-item box-item-{{ block.id }} effect-flashed  w-1/2 relative">
+              <a href="{{ block.settings.link_banner | default: '#' }}">
+                <div class="item-box-img">
+                  {% assign ImageBanner = block.settings.image_banner %}
+                  {% if ImageBanner != blank %}
+                    {{
+                      ImageBanner
+                      | image_url: width: 3840
+                      | image_tag:
+                        loading: 'lazy',
+                        width: ImageBanner.width,
+                        height: ImageBanner.height,
+                        class: 'img-banner',
+                        sizes: '100vw',
+                        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+                    }}
+                  {% else %}
+                    {% render 'no-image', text_size: '630x540', width: 630, height: 450 %}
+                  {% endif %}
+                </div>
+                <div class="item-box-content">
+                  <div class="item-box-content-wrapper">
+                    <div class="content-left">
+                      {{ block.settings.content_box_left }}
+                    </div>
+                    <div class="content-right">
+                      {{ block.settings.content_box_right }}
+                    </div>
+                  </div>
+                </div>
+                <style>
+                  .box-item-{{ block.id }} .content-left{
+                    background-color: {{ bt.box_left_color }};
+                  }
+                  .box-item-{{ block.id }} .content-right{
+                    background-color: {{ bt.box_right_color }};
+                    color:{{ bt.content_box_right_color }};
+                  }
+                </style>
+              </a>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .tp-banner-{{ section.id }}{
+    background:{{ section.settings.background_banner }};
+    {% if section.settings.background_banner != 'rgba(0,0,0,0)' and section.settings.background_banner != blank %}
+      padding: 100px 0
+    {% endif %}
+  }
+</style>
+{% render 'margin-bottom' %}
+{% schema %}
+{
+  "name": "Banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width_layout_banner",
+      "label": "Width layout",
+      "options": [
+        {
+          "value": "container",
+          "label": "Container"
+        },
+        {
+          "value": "sm-container",
+          "label": "Small container"
+        },
+        {
+          "value": "lg-container",
+          "label": "Large container"
+        },
+        {
+          "value": "width-full",
+          "label": "Width full"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "color",
+      "id": "background_banner",
+      "label": "Background banner"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.margin_bottom.content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Unit: pixel"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "label": "t:sections.margin_bottom.desktop.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_table",
+      "label": "t:sections.margin_bottom.tablet.label",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "label": "t:sections.margin_bottom.mobile.label",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner_with_text_box",
+      "name": "Banner with text box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_banner",
+          "label": "Image"
+        },
+        {
+          "type": "header",
+          "content": "Text box"
+        },
+        {
+          "type": "textarea",
+          "id": "content_box_left",
+          "label": "Content box left",
+          "default": "<span class='title'>BIG SALE <br>NEWBORN<br></span><span class='sub-title'>April 30 to May 5</span>"
+        },
+        {
+          "type": "textarea",
+          "id": "content_box_right",
+          "label": "Content box right",
+          "default": "<span class='sub-title-2'>A PRICE</span> <br> <span class='money'>$2</span>"
+        },
+        {
+          "type": "url",
+          "id": "link_banner",
+          "label": "Link banner"
+        },
+        {
+          "type": "color",
+          "id": "box_left_color",
+          "label": "Box left color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "box_right_color",
+          "label": "Box right color",
+          "default": "#CEBEE5"
+        },
+        {
+          "type": "color",
+          "id": "content_box_right_color",
+          "label": "Content box right color",
+          "default": "#fff"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner",
+      "category": "Custom content"
+    }
+  ]
+}
+{% endschema %}

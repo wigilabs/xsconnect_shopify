@@ -1,0 +1,127 @@
+{
+  "sections": {
+    "16588012130153d954": {
+      "type": "breadcrumb",
+      "settings": {
+        "width_layout": "container",
+        "color_background": "rgba(0,0,0,0)",
+        "color_content": "#ffffff",
+        "show_page_title": true,
+        "position_bread_crumb": "center-middle",
+        "pbs_collection": "first",
+        "show_image_collection": false,
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 30,
+        "margin_bottom_mobile": 20
+      }
+    },
+    "main": {
+      "type": "tp-about",
+      "blocks": {
+        "14ad217f-9734-4bbc-bae0-417cdeaafa4d": {
+          "type": "featured-about",
+          "settings": {
+            "title_featured_about_1": "What we really do?",
+            "desc_featured_about_1": "<p>Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.<\/p>",
+            "image_featured_about_1": "shopify:\/\/shop_images\/about-us-1.jpg",
+            "title_featured_about_2": "Our Vision",
+            "desc_featured_about_2": "<p>Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.<\/p>",
+            "image_featured_about_2": "shopify:\/\/shop_images\/about-us-2.jpg",
+            "title_featured_about_3": "History of Beginning",
+            "desc_featured_about_3": "<p>Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.<\/p>",
+            "image_featured_about_3": "shopify:\/\/shop_images\/about-us-1.jpg"
+          }
+        },
+        "c1e405bc-79b8-4cae-b321-bb4ce1f73937": {
+          "type": "avatar",
+          "settings": {
+            "image_avatar_1": "shopify:\/\/shop_images\/employee-1.png",
+            "name_avatar_1": "Thomas Snow",
+            "job_avatar_1": "CEO\/Founder",
+            "image_avatar_2": "shopify:\/\/shop_images\/employee-2.png",
+            "name_avatar_2": "Thomas Snow",
+            "job_avatar_2": "CEO\/Founder",
+            "image_avatar_3": "shopify:\/\/shop_images\/employee-3.png",
+            "name_avatar_3": "Thomas Snow",
+            "job_avatar_3": "CEO\/Founder",
+            "image_avatar_4": "shopify:\/\/shop_images\/employee-4.png",
+            "name_avatar_4": "Thomas Snow",
+            "job_avatar_4": "CEO\/Founder"
+          }
+        }
+      },
+      "block_order": [
+        "14ad217f-9734-4bbc-bae0-417cdeaafa4d",
+        "c1e405bc-79b8-4cae-b321-bb4ce1f73937"
+      ],
+      "settings": {
+      }
+    },
+    "0f202fc1-51fe-4f94-825c-1b4c111a4ef9": {
+      "type": "FAQ",
+      "blocks": {
+        "bd7905cb-ec81-48cf-a0fd-3100e718274b": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I place an order?",
+            "ask": "<p>In order to process your order we require the following information:<\/p><p>- Your shipping, order information & billing address.<\/p>"
+          }
+        },
+        "08edfe5f-cd33-47c2-96f4-5f77ecbe1e12": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I place an order?",
+            "ask": "<p>In order to process your order we require the following information:<\/p><p>- Your shipping, order information & billing address.<\/p>"
+          }
+        },
+        "dbce5019-59bd-4270-b5a3-ce0f6b36aa15": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I place an order?",
+            "ask": "<p>In order to process your order we require the following information:<\/p><p>- Your shipping, order information & billing address.<\/p>"
+          }
+        },
+        "7f9359a6-5a85-4d56-a23d-31208dd7d6df": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I place an order?",
+            "ask": "<p>In order to process your order we require the following information:<\/p><p>- Your shipping, order information & billing address.<\/p>"
+          }
+        },
+        "fca87f08-34b3-4ae7-bc08-7b9f019a670b": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I place an order?",
+            "ask": "<p>In order to process your order we require the following information:<\/p><p>- Your shipping, order information & billing address.<\/p>"
+          }
+        },
+        "a9868f81-ed63-44a8-ac30-6834ac1f2f4e": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I place an order?",
+            "ask": "<p>In order to process your order we require the following information:<\/p><p>- Your shipping, order information & billing address.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "bd7905cb-ec81-48cf-a0fd-3100e718274b",
+        "08edfe5f-cd33-47c2-96f4-5f77ecbe1e12",
+        "dbce5019-59bd-4270-b5a3-ce0f6b36aa15",
+        "7f9359a6-5a85-4d56-a23d-31208dd7d6df",
+        "fca87f08-34b3-4ae7-bc08-7b9f019a670b",
+        "a9868f81-ed63-44a8-ac30-6834ac1f2f4e"
+      ],
+      "settings": {
+        "type_faqs": "faqs_type2",
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 40,
+        "margin_bottom_mobile": 30
+      }
+    }
+  },
+  "order": [
+    "16588012130153d954",
+    "main",
+    "0f202fc1-51fe-4f94-825c-1b4c111a4ef9"
+  ]
+}

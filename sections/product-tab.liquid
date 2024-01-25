@@ -1,0 +1,147 @@
+{% liquid
+  assign st = section.settings
+  assign tab_layout = st.tab_layout
+%}
+
+<div class="prd-tab prd-tab-{{ section.id }}" section-id="{{ section.id }}">
+  <div class="container">
+    {% if section.settings.title != blank %}
+      <h2 class="tp-section__title mb-5">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if tab_layout == 'tab_banner' %}
+      <div class="prd-tab-banner">
+        {% render 'product-tab-banner', block: block %}
+      </div>
+    {% else %}
+      <div class="prd-tab-top">
+        {% render 'product-tab-top', block: block %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% render 'margin-bottom' %}
+{% schema %}
+{
+  "name": "Product tab",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Title section"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.margin_bottom.content"
+    },
+    {
+      "type": "select",
+      "id": "tab_layout",
+      "label": "Tab layout",
+      "options": [
+        {
+          "value": "tab_top",
+          "label": "Tab top"
+        },
+        {
+          "value": "tab_banner",
+          "label": "Tab banner"
+        }
+      ],
+      "default": "tab_banner"
+    },
+    {
+      "type": "paragraph",
+      "content": "Unit: pixel"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "label": "t:sections.margin_bottom.desktop.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_table",
+      "label": "t:sections.margin_bottom.tablet.label",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "label": "t:sections.margin_bottom.mobile.label",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Normal tab",
+      "type": "normal_tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Tab title",
+          "default": "Tab title",
+          "info": "Leave blank to use collection title as tab's title"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    },
+    {
+      "name": "Banner",
+      "type": "banner",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_banner",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link_banner",
+          "label": "Link banner"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product tab",
+      "blocks": [
+        {
+          "type": "normal_tab"
+        },
+        {
+          "type": "normal_tab"
+        },
+        {
+          "type": "normal_tab"
+        },
+        {
+          "type": "normal_tab"
+        },
+        {
+          "type": "normal_tab"
+        },
+        {
+          "type": "normal_tab"
+        },
+        {
+          "type": "banner"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

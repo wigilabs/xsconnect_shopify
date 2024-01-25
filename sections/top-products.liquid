@@ -1,0 +1,225 @@
+{% liquid
+  assign WidthLayout = section.settings.width_layout
+%}
+<div class="top-product {{ WidthLayout }}">
+  <div class="top-product__wrap flex items-start gap-7.5">
+    {% for block in section.blocks %}
+      {% liquid
+        assign bt = block.settings
+      %}
+      {%- case block.type -%}
+        {%- when 'product_item' -%}
+          <div class="top-product__item">
+            {% if bt.title != blank %}
+              <div class="item-title mb-6.5">
+                <h2>{{ bt.title }}</h2>
+              </div>
+            {% endif %}
+            <div class="item-products">
+              {% if bt.product_list != blank %}
+                {% for product in bt.product_list %}
+                  <div class="item-product">
+                    {% render 'card-product-layout-2',
+                      card_product: product,
+                      layoutProductItem: bt.number_product_show,
+                      section: section,
+                      lazy_load: lazy_load,
+                      show_rating: false
+                    %}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% liquid
+                  assign lazy_load = false
+                  if forloop.index > 2
+                    assign lazy_load = true
+                  endif
+                  assign numbers = '1,2,3' | split: ','
+                -%}
+                {% for item in numbers -%}
+                  <div class="tp-fcl__item grid__item">
+                    {% render 'card-product-no-data' %}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        {%- when 'banner_item' -%}
+          <div class="top-product__item top-product__item-banner">
+            {% if bt.title != blank %}
+              <div class="item-title mb-6.5">
+                <h2>{{ bt.title }}</h2>
+              </div>
+            {% endif %}
+            <div class="item-banner relative">
+              <div class="banner-content">
+                {% if bt.title_banner %}
+                  <h2>{{ bt.title_banner }}</h2>
+                {% endif %}
+                {% if bt.sub_title %}
+                  <p>{{ bt.sub_title }}</p>
+                {% endif %}
+                {% if bt.price or bt.price_compare %}
+                  <div class="price-wrap">
+                    {% if bt.price_compare %}
+                      <span class="price_compare line-through">{{ bt.price_compare }}</span>
+                    {% endif %}
+                    {% if bt.price %}
+                      <span class="price">{{ bt.price }}</span>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+              {% assign imageBanner = block.settings.banner %}
+              {% if imageBanner != blank %}
+                {% render 'responsive-image', image: imageBanner %}
+              {% else %}
+                {% render 'no-image-banner', text_size: '' %}
+              {% endif %}
+            </div>
+          </div>
+      {%- endcase -%}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  function heightItem() {
+    const top_product__wrap = document.querySelector('.top-product__wrap');
+    if (!top_product__wrap) return;
+    const top_product_item = top_product__wrap.querySelector('.item-products');
+    const image_banner = top_product__wrap.querySelector('.item-banner')?.querySelector('img');
+    const height_item_product = top_product_item.clientHeight;
+    image_banner.style.height = height_item_product + 'px';
+  }
+  heightItem();
+</script>
+<style>
+  .top-product__item{
+    width: {{ section.settings.item_width }}%;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Top Proudct",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width_layout",
+      "label": "Width layout",
+      "options": [
+        {
+          "value": "container",
+          "label": "Container"
+        },
+        {
+          "value": "lg-container",
+          "label": "Large container"
+        },
+        {
+          "value": "width-full",
+          "label": "Width full"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "range",
+      "id": "item_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Item width",
+      "default": 25
+    },
+    {
+      "type": "select",
+      "id": "item_direction_prd_top",
+      "label": "Item direction",
+      "options": [
+        {
+          "label": "Use global",
+          "value": "use_global"
+        },
+        {
+          "value": "item_column",
+          "label": "Column"
+        },
+        {
+          "value": "item_row",
+          "label": "Row"
+        }
+      ],
+      "default": "use_global"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Product Item",
+      "type": "product_item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Top Product"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Product list"
+        }
+      ]
+    },
+    {
+      "name": "Banner item",
+      "type": "banner_item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Top Product"
+        },
+        {
+          "type": "text",
+          "id": "title_banner",
+          "label": "Title",
+          "default": "SMART WATCH"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title",
+          "default": "Fitness Tracker"
+        },
+        {
+          "type": "text",
+          "id": "price_compare",
+          "label": "Price Compare",
+          "default": "$159.00"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$129.99"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner",
+          "label": "Banner"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top Product"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "image_404": "shopify:\/\/shop_images\/404.jpg",
+        "bg_404": "#eaeaea",
+        "pdt_404": 80,
+        "pdb_404": 80
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

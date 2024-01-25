@@ -1,0 +1,73 @@
+{
+  "sections": {
+    "3e544a4a-7a38-45f9-958d-4486604aca4b": {
+      "type": "breadcrumb",
+      "settings": {
+        "width_layout": "container",
+        "color_background": "#f5583e",
+        "color_content": "#ffffff",
+        "show_page_title": true,
+        "position_bread_crumb": "center-middle",
+        "pbs_collection": "first",
+        "show_image_collection": false,
+        "margin_bottom_desktop": 50,
+        "margin_bottom_table": 40,
+        "margin_bottom_mobile": 30
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "blocks": {
+        "bf279155-a8c5-47d8-86cd-7dc43715755a": {
+          "type": "about_blog",
+          "settings": {
+            "title": "About blog",
+            "content_about": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised"
+          }
+        },
+        "67413e8b-91da-44cd-998a-7ccd13a7923e": {
+          "type": "categories",
+          "settings": {
+            "title": "Categories",
+            "menu": "categories-blog"
+          }
+        },
+        "60260963-45fe-4435-be19-341b0f5313d6": {
+          "type": "recent_post",
+          "settings": {
+            "title": "Recent Post",
+            "sidebar_recent_blog_name": ""
+          }
+        },
+        "43feabdc-d93d-4c12-a3b9-16c92098227d": {
+          "type": "tags",
+          "settings": {
+            "title": "Recent tags",
+            "limit_tags": "25"
+          }
+        }
+      },
+      "block_order": [
+        "bf279155-a8c5-47d8-86cd-7dc43715755a",
+        "67413e8b-91da-44cd-998a-7ccd13a7923e",
+        "60260963-45fe-4435-be19-341b0f5313d6",
+        "43feabdc-d93d-4c12-a3b9-16c92098227d"
+      ],
+      "settings": {
+        "width_layout": "container",
+        "fix_height_img": true,
+        "height_img": 200,
+        "show_date": true,
+        "show_sidebar": true,
+        "layout": "right_column",
+        "view": "grid_3_column",
+        "show_loadmore_paginate": "paginate",
+        "show_item_per_row": 6
+      }
+    }
+  },
+  "order": [
+    "3e544a4a-7a38-45f9-958d-4486604aca4b",
+    "main"
+  ]
+}
