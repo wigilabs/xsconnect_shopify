@@ -23,7 +23,7 @@
     "bg_btn_hover": "#a42a68",
     "color_text_btn_hover": "#a42a68",
     "header_design": "header_design_1",
-    "favicon": "shopify:\/\/shop_images\/logo4_32x32_56a6c4af-5b51-41fa-9b0e-07505680e053.png",
+    "favicon": "shopify:\/\/shop_images\/logo_xs_connect.png",
     "gap_item_collection": 0,
     "border_item": true,
     "image_ratio": "square",
@@ -38,6 +38,7 @@
     "fz_prd_price_compare": 16,
     "fw_prd_price_compare": 400,
     "prd_color_price_compare": "#f5583e",
+    "np_show": "hidden_popup",
     "column_number": "3",
     "sections": {
       "announcement-bar": {
