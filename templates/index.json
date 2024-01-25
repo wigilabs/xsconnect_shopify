@@ -135,7 +135,8 @@
         "products_to_show": 12,
         "column_number": "6",
         "collection_list": [
-          "frontpage"
+          "frontpage",
+          "prueba"
         ],
         "gap_item": 0,
         "style_button_tab": "tp-box-button__style-1",
