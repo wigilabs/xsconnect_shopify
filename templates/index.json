@@ -6,34 +6,10 @@
         "e8558718-cbeb-47f3-a904-ac59dc08fde8": {
           "type": "slide_item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/home1-slide_012af4cc-2624-4e1c-9.png",
             "overlay_slide": 0,
             "slider_effect": "fadeInUp",
-            "position_content": "left-content",
-            "text_align_content": "text_left",
-            "sub_title": "The New Collection",
-            "title": "Smartwatches",
-            "description_1": "<p>Shop to get what you love<\/p>",
-            "description_2": "$ 720.99",
-            "slide_url": "",
-            "font_size_subtitle": 36,
-            "font_size_title": 65,
-            "font_size_description": 16,
-            "color_subtitle": "#000000",
-            "color_title": "#000000",
-            "color_description": "#000000",
-            "color_description_2": "#000000",
-            "button_type": "tp-btn__primary"
-          }
-        },
-        "6297a7b8-61c1-4a07-966c-96ed0d70f51f": {
-          "type": "slide_item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/home1-slide_012af4cc-2624-4e1c-9.png",
-            "overlay_slide": 0,
-            "slider_effect": "fadeInDown",
-            "position_content": "left-content",
-            "text_align_content": "text_left",
+            "position_content": "center-content",
+            "text_align_content": "text_center",
             "sub_title": "The New Collection",
             "title": "Smartwatches",
             "description_1": "<p>Shop to get what you love<\/p>",
@@ -51,8 +27,7 @@
         }
       },
       "block_order": [
-        "e8558718-cbeb-47f3-a904-ac59dc08fde8",
-        "6297a7b8-61c1-4a07-966c-96ed0d70f51f"
+        "e8558718-cbeb-47f3-a904-ac59dc08fde8"
       ],
       "settings": {
         "width_layout": "width-full",
@@ -76,7 +51,6 @@
         "4143d230-8d44-4c55-b546-c43e8923ce81": {
           "type": "service_item",
           "settings": {
-            "image_service": "shopify:\/\/shop_images\/truck_1_1.png",
             "title_service": "Free shipping",
             "description_service": "From $99",
             "background_item_service": "rgba(0,0,0,0)",
@@ -89,7 +63,6 @@
         "841dd2bd-b62d-47eb-ae4f-3c9bc166327f": {
           "type": "service_item",
           "settings": {
-            "image_service": "shopify:\/\/shop_images\/debit-card_1_1.png",
             "title_service": "365 days",
             "description_service": "For free return",
             "background_item_service": "rgba(0,0,0,0)",
@@ -102,7 +75,6 @@
         "ce82910a-3ef5-4a14-ba12-193fe250876b": {
           "type": "service_item",
           "settings": {
-            "image_service": "shopify:\/\/shop_images\/headphones_1_1.png",
             "title_service": "Support",
             "description_service": "Online support 24\/7",
             "background_item_service": "rgba(0,0,0,0)",
@@ -115,7 +87,6 @@
         "de614041-6569-49fd-acae-c4b6c7d49d44": {
           "type": "service_item",
           "settings": {
-            "image_service": "shopify:\/\/shop_images\/positive-vote_1_1.png",
             "title_service": "99% Positive",
             "description_service": "Feedbacks",
             "background_item_service": "rgba(0,0,0,0)",
@@ -157,7 +128,6 @@
             "hover_item": "zoom_image",
             "use_effect_hover": true,
             "background_content": "",
-            "image": "shopify:\/\/shop_images\/banner2.png",
             "overlay_banner": 0,
             "fix_height_image": true,
             "height_image_mobile": 50,
@@ -180,7 +150,6 @@
             "hover_item": "zoom_image",
             "use_effect_hover": true,
             "background_content": "",
-            "image": "shopify:\/\/shop_images\/banner1.png",
             "overlay_banner": 0,
             "fix_height_image": true,
             "height_image_mobile": 50,
@@ -300,7 +269,6 @@
         "title_banner": "Super deals",
         "sale_off": 50,
         "background_banner": "#f5583e",
-        "image_banner": "shopify:\/\/shop_images\/Frame_1_7.png",
         "product_banner": "bluetooth-speaker",
         "show_status_bar": true,
         "number_sold_out": "10",
@@ -394,7 +362,6 @@
             "hover_item": "none",
             "use_effect_hover": true,
             "background_content": "",
-            "image": "shopify:\/\/shop_images\/Untitled.png",
             "overlay_banner": 0,
             "fix_height_image": true,
             "height_image_mobile": 30,
@@ -474,8 +441,7 @@
             "title_banner": "SMART WATCH",
             "sub_title": "Fitness Tracker",
             "price_compare": "$159.00",
-            "price": "$129.99",
-            "banner": "shopify:\/\/shop_images\/banner-product.png"
+            "price": "$129.99"
           }
         }
       },
