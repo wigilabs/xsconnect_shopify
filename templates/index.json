@@ -182,15 +182,14 @@
         "title": "",
         "description": "",
         "display_type": "banner",
-        "collection": "",
+        "collection": "prueba",
         "background_color": "#f7f7f7",
         "background_full_width": true,
         "padding_top_bottom": 70,
         "products_to_show": 8,
         "column_number": "4",
         "collection_list": [
-          "frontpage",
-          "prueba"
+
         ],
         "gap_item": 0,
         "style_button_tab": "tp-box-button__style-1",
