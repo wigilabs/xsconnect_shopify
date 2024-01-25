@@ -33,15 +33,15 @@
       ],
       "settings": {
         "width_layout": "width-full",
-        "show_navigation": false,
-        "show_pagination": true,
+        "show_navigation": true,
+        "show_pagination": false,
         "loop": true,
         "autoplay": true,
         "autoplay_time": 7,
         "fix_height_img": "height_image",
         "position_pagination": "right_center",
         "pag_bg": "#000000",
-        "type_navigation": "button_icon",
+        "type_navigation": "button_icon_title",
         "margin_bottom_desktop": 30,
         "margin_bottom_table": 30,
         "margin_bottom_mobile": 30
