@@ -1,31 +1,44 @@
 {
   "current": {
+    "recommen_sts": "hidden",
     "ctn_width": 1310,
     "font_source": "1",
     "headings_font_weight": 600,
     "border_radius_btn": 25,
     "border_radius_input": 25,
-    "color_primary": "#1a1a1a",
-    "color_accent": "#f5583e",
-    "bg_btn_primary": "#f5583e",
-    "color_border_btn_primary": "#f5583e",
-    "bg_btn_primary_hover": "#fb8700",
-    "color_border_hover_btn_primary": "#fb8700",
+    "color_primary": "#d63888",
+    "color_secondary": "#fba242",
+    "color_accent": "#d63888",
+    "border_color": "#1a1a1a",
+    "bg_btn_primary": "#d63888",
+    "color_border_btn_primary": "#d63888",
+    "bg_btn_primary_hover": "#a42a68",
+    "color_border_hover_btn_primary": "#a42a68",
     "color_text_btn_primary_hover": "#fff",
-    "border_btn_secondary": "#f5583e",
-    "color_text_btn_secondary": "#f5583e",
-    "color_text_btn_underline": "#ffffff",
-    "bg_btn_hover": "#1a1a1a",
-    "color_text_btn_hover": "#f6f6f6",
+    "border_btn_secondary": "#fba242",
+    "color_text_btn_secondary": "#d88b38",
+    "bg_btn_secondary_hover": "#d88b38",
+    "bg_btn_alternate": "#d63888",
+    "color_text_btn_underline": "#a42a68",
+    "bg_btn_hover": "#a42a68",
+    "color_text_btn_hover": "#a42a68",
     "header_design": "header_design_1",
-    "favicon": "shopify:\/\/shop_images\/logo4_32x32_56a6c4af-5b51-41fa-9b0e-07505680e053.png",
+    "favicon": "shopify:\/\/shop_images\/logo_xs_connect.png",
     "gap_item_collection": 0,
+    "gpi_show_quickview": false,
+    "gpi_show_compare": false,
+    "gpi_show_atc": true,
     "border_item": true,
+    "item_direction": "item_column",
     "image_ratio": "square",
     "display_sale_badge": "percent",
     "position_actions": "bottom_content",
     "style_price": "style_column",
     "variant_type": "none",
+    "color_hover_bg_btn": "#a42a68",
+    "color_product_item_price": "#d63888",
+    "color_price_item_last": "#d63888",
+    "color_sale_badge": "#a42a68",
     "currency_display_type": "flag__currency_code",
     "fz_prd_title": 26,
     "fz_prd_price": 20,
@@ -33,6 +46,7 @@
     "fz_prd_price_compare": 16,
     "fw_prd_price_compare": 400,
     "prd_color_price_compare": "#f5583e",
+    "np_show": "hidden_popup",
     "column_number": "3",
     "sections": {
       "announcement-bar": {
@@ -43,10 +57,10 @@
             "settings": {
               "show_separator_line": false,
               "show_account": true,
-              "text_content": "<p>Welcome to electronics store!<\/p>",
+              "text_content": "<p>Welcome to XS Connect store!<\/p>",
               "show_language": true,
               "show_currency": true,
-              "menu": "menu-announcement-bar",
+              "menu": "menu-header-bar",
               "color_social": "#ffffff"
             }
           }
@@ -55,7 +69,7 @@
           "7bf92e03-00f3-4df3-b271-94ab203b2685"
         ],
         "settings": {
-          "background_color": "#f7f7f7",
+          "background_color": "#ececec",
           "text_color": "#777777",
           "container_check": true,
           "enable_line_bottom": false
@@ -119,7 +133,7 @@
             "settings": {
               "item_width": 17,
               "heading": "Information",
-              "menu": "information"
+              "menu": ""
             }
           },
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e": {
@@ -127,7 +141,7 @@
             "settings": {
               "item_width": 17,
               "heading": "Policy",
-              "menu": "policy"
+              "menu": ""
             }
           },
           "923921c8-aca2-4422-82d4-df3c220933d8": {
@@ -135,7 +149,7 @@
             "settings": {
               "item_width": 16,
               "heading": "Customer support",
-              "menu": "customer-support"
+              "menu": ""
             }
           }
         },
@@ -148,15 +162,15 @@
         "settings": {
           "width_layout_ft": "container",
           "border_footer": false,
-          "image_logo": "shopify:\/\/shop_images\/logo6-custom.png",
+          "image_logo": "shopify:\/\/shop_images\/logo_xs_connect.png",
           "color_background": "#f7f7f7",
           "heading_color": "#000000",
           "subtext_color": "#909090",
           "color_social": "#bebebe",
-          "color_hover_item_menu": "#f5583e",
-          "show_social": true,
+          "color_hover_item_menu": "#a42a68",
+          "show_social": false,
           "payment_enable": true,
-          "content_copyright": "Copyright ArrowTheme",
+          "content_copyright": "Copyright XSConnect",
           "color_content_copyright": "#909090",
           "margin_bottom_desktop": 0,
           "margin_bottom_table": 0,
@@ -214,8 +228,7 @@
             "type": "menu_category",
             "settings": {
               "heading": "Phone, Tablet, Accessories",
-              "icon": "shopify:\/\/shop_images\/004-tv_1.png",
-              "menu_categories_target": "home",
+              "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
             }
@@ -224,8 +237,7 @@
             "type": "menu_category",
             "settings": {
               "heading": "Television, Speaker, Sound",
-              "icon": "shopify:\/\/shop_images\/005-megaphone_1.png",
-              "menu_categories_target": "shop",
+              "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-3"
             }
@@ -234,7 +246,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Air Conditioner, Air Purifier",
-              "icon": "shopify:\/\/shop_images\/003-clutch_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -244,7 +255,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Appliances",
-              "icon": "shopify:\/\/shop_images\/013-portable-speaker_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -254,7 +264,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Washer, Dryer",
-              "icon": "shopify:\/\/shop_images\/014-camera_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -264,7 +273,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Refrigerator, Freezer",
-              "icon": "shopify:\/\/shop_images\/018-deal.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -274,7 +282,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Laptop, PC Accessories",
-              "icon": "shopify:\/\/shop_images\/015-printer_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -284,7 +291,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Camera, Camcorder",
-              "icon": "shopify:\/\/shop_images\/014-camera_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -294,7 +300,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Printer, Office Equipment",
-              "icon": "shopify:\/\/shop_images\/013-portable-speaker_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -304,7 +309,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Tools",
-              "icon": "shopify:\/\/shop_images\/015-printer_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -314,7 +318,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Video Games",
-              "icon": "shopify:\/\/shop_images\/008-game-controller_0cbe68c2-b47_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -324,7 +327,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Watches",
-              "icon": "shopify:\/\/shop_images\/004-tv_1.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -334,7 +336,6 @@
             "type": "menu_category",
             "settings": {
               "heading": "Motor & Car Electronics",
-              "icon": "shopify:\/\/shop_images\/016-search.png",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -344,19 +345,18 @@
             "type": "menu_normal",
             "settings": {
               "title_menu": "Home",
-              "menu": "home"
+              "menu": ""
             }
           },
           "f645f132-cae0-4eef-8dd7-7bc230cf7d97": {
             "type": "menu_megamenu",
             "settings": {
               "title_menu": "Shop",
-              "menu": "shop",
+              "menu": "",
               "title_top": "Top content",
               "desc_top": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
               "title_bottom": "Top content",
               "desc_bottom": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
-              "image_banner": "shopify:\/\/shop_images\/collection.png",
               "full_width_dropdown": true,
               "dropdown_columns": "columns-3"
             }
@@ -365,12 +365,11 @@
             "type": "menu_megamenu",
             "settings": {
               "title_menu": "Products",
-              "menu": "product",
+              "menu": "",
               "title_top": "",
               "desc_top": "",
               "title_bottom": "",
               "desc_bottom": "",
-              "image_banner": "shopify:\/\/shop_images\/iphone_1.png",
               "full_width_dropdown": false,
               "dropdown_columns": "columns-2"
             }
@@ -379,7 +378,7 @@
             "type": "menu_normal",
             "settings": {
               "title_menu": "Pages",
-              "menu": "pages"
+              "menu": ""
             }
           }
         },
@@ -404,22 +403,22 @@
         ],
         "settings": {
           "menu_bg": "#ffffff",
-          "logo": "shopify:\/\/shop_images\/logo6-custom.png",
-          "logo_mobile": "shopify:\/\/shop_images\/logo-mobile1.png",
+          "logo": "shopify:\/\/shop_images\/logo_xs_connect.png",
+          "logo_mobile": "shopify:\/\/shop_images\/logo_xs_connect.png",
           "phone_number": "+123 4567 890",
-          "menu_bg_nav": "#f5583e",
-          "menu_text_nav": "#000000",
+          "menu_bg_nav": "#d63888",
+          "menu_text_nav": "#a42a68",
           "show_line_separator": false,
           "enable_sticky_header": false,
           "text_menu_cate": "All categories",
-          "menu_categories_bg": "#fb8700",
+          "menu_categories_bg": "#ff47a4",
           "menu_categories_text_color": "#ffffff",
           "text_btn_1": "Buy GemMart",
-          "link_btn_1": "https:\/\/themeforest.net\/item\/gemmart-marketplace-multipurpose-shopify-theme\/28688503?ref=ArrowHiTech",
-          "text_btn_2": "Gift Cards!",
+          "link_btn_1": "",
+          "text_btn_2": "",
           "link_btn_2": "",
-          "text_label_btn_2": "Hot",
-          "menu_mobile": "menu-mobile",
+          "text_label_btn_2": "",
+          "menu_mobile": "main-menu",
           "margin_bottom_desktop": 0,
           "margin_bottom_table": 0,
           "margin_bottom_mobile": 0
@@ -447,12 +446,11 @@
         ],
         "settings": {
           "display_layout": "newsletter-layout_1",
-          "background_img": "shopify:\/\/shop_images\/bg-top-footer_ea6b8a3a-442a-43b2.png",
-          "newsletter_background": "#f5583e",
+          "newsletter_background": "#d63888",
           "newsletter_content": "#ffffff",
-          "color_bg_button": "#ffffff",
+          "color_bg_button": "#d63888",
           "color_text_button": "#000000",
-          "color_hvr_bg_button": "#f5583e",
+          "color_hvr_bg_button": "#a42a68",
           "color_hvr_text_button": "#ffffff",
           "color_newsletter": "#000000",
           "show_social": false,
