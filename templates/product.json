@@ -4,12 +4,12 @@
       "type": "breadcrumb",
       "settings": {
         "width_layout": "container",
-        "background_image": "shopify:\/\/shop_images\/breadcrumb.png",
+        "background_image": "shopify:\/\/shop_images\/Image_slider_1.png",
+        "color_background": "rgba(0,0,0,0)",
+        "color_content": "#ffffff",
         "show_page_title": true,
         "position_bread_crumb": "center-middle",
         "pbs_collection": "first",
-        "color_background": "rgba(0,0,0,0)",
-        "color_content": "#ffffff",
         "show_image_collection": false,
         "margin_bottom_desktop": 50,
         "margin_bottom_table": 40,
@@ -24,16 +24,6 @@
           "settings": {
             "use_spacing": true,
             "margin_bottom_block": 25
-          }
-        },
-        "1d3e24ae-930d-4fb8-8a05-7e482d43b2d9": {
-          "type": "shopify:\/\/apps\/product-reviews\/blocks\/star_rating\/bae150af-8da8-48b2-9867-398188115e5f",
-          "settings": {
-            "stars_fill_color": "#f5bb3e",
-            "star_size": 12,
-            "text_align": "center",
-            "product": "{{product}}",
-            "stars_text_empty": ""
           }
         },
         "price": {
@@ -101,7 +91,6 @@
       },
       "block_order": [
         "title",
-        "1d3e24ae-930d-4fb8-8a05-7e482d43b2d9",
         "price",
         "dd8ed903-53f9-4b7e-9e0f-7e6e0a4f3f3e",
         "62b72ba7-b927-4440-9eda-42d6b2f15b4d",
@@ -140,17 +129,11 @@
             "title_description_custom": "Guarantee",
             "description_custom": "<h5>Electromax shop<\/h5><ul><li>Electromax shop guarantees you the utmost in quality, authenticity, and reputability<\/li><li>30 Day money back guarantee<\/li><li>No restocking fee on items under $4000<\/li><li>All our watches have the original manufacturer's serial numbers intact.<\/li><li>1 to 5 year warranty on all watches<\/li><\/ul><h5>30 Day money back guarantee<\/h5><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>"
           }
-        },
-        "a48f4121-a545-4ad0-af86-9495bb91c30a": {
-          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
-          "settings": {
-          }
         }
       },
       "block_order": [
         "ea076908-5598-4939-82d5-95640004e4b5",
-        "9633974a-ca88-42d6-93bc-ac97f5098dab",
-        "a48f4121-a545-4ad0-af86-9495bb91c30a"
+        "9633974a-ca88-42d6-93bc-ac97f5098dab"
       ],
       "settings": {
         "width_layout": "container",
