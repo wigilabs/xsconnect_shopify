@@ -33,18 +33,6 @@
             "margin_bottom_block": 0
           }
         },
-        "dd8ed903-53f9-4b7e-9e0f-7e6e0a4f3f3e": {
-          "type": "description",
-          "settings": {
-            "title_description": "",
-            "type_description": "desc_stactic",
-            "static_content": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and.<\/p>",
-            "desc_display_as": "show",
-            "border_item": false,
-            "use_spacing": true,
-            "margin_bottom_block": 10
-          }
-        },
         "62b72ba7-b927-4440-9eda-42d6b2f15b4d": {
           "type": "variant_picker",
           "settings": {
@@ -92,7 +80,6 @@
       "block_order": [
         "title",
         "price",
-        "dd8ed903-53f9-4b7e-9e0f-7e6e0a4f3f3e",
         "62b72ba7-b927-4440-9eda-42d6b2f15b4d",
         "73a4d26a-4b6b-429f-afd0-2cbaa945f84a",
         "c01f5146-b043-446a-8304-06ca501a8ed5",
