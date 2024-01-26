@@ -143,7 +143,7 @@
         "gap_item": 0,
         "style_button_tab": "tp-box-button__style-1",
         "margin_bottom_button": 30,
-        "text_uppercase": false,
+        "text_uppercase": true,
         "layout_slider": "layout-slider-1",
         "show_navigation": true,
         "show_pagigation": true,
