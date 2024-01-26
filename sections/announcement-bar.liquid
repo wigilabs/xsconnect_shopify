@@ -26,6 +26,8 @@
               <div class="right-item">
                 {{ block.settings.text_content }}
               </div>
+              {%comment %}
+              This is the menu at the bar. 
               <ul class="{{ block.type }}__right-menu flex items-center">
                 {% if block.settings.menu.links != blank %}
                   {%- for link in block.settings.menu.links -%}
@@ -46,6 +48,7 @@
                   {%- endfor -%}
                 {% endif %}
               </ul>
+            {% endcomment %}
               {% if show_account %}
                 {% if customer %}
                   <div class="logout-link">
