@@ -1,3 +1,4 @@
+{{ 'custom.css' | asset_url | stylesheet_tag }}
 {% liquid
   assign st = section.settings
   assign WidthLayout = st.width_layout
@@ -93,11 +94,12 @@
         {% if section.settings.description != blank %}
           <div class="tp-fcl__brief mb-5">{{ section.settings.description }}</div>
         {% endif %}
+      <div class="services-button">
         <div class="tp-box-button">
           {% if section.settings.collection_list != blank %}
             {%- for collection in section.settings.collection_list -%}
               <button
-                class="collection_tablinks collection_tablinks-{{ section.id }} {% if forloop.first %} active{% endif %}"
+                class="collection_tablinks collection_tablinks-{{ section.id }} {% if forloop.first %} active{% endif %} text-feature-home"
                 data-tab-index="{{ forloop.index }}-{{ section.id }}"
                 data-section-id="{{ section.id }}"
               >
@@ -129,6 +131,7 @@
             </button>
           {% endif %}
         </div>
+      </div>
         {% comment %}
           <div class="tp-box-select">
             <select name="tpbox-select" id="tpbox-select">
@@ -552,7 +555,7 @@
             {% endif %}
 
             <div class="countdown-wrapper text-center">
-              <h5 class="countdown-title">{{ section.settings.countdown_text }}:</h5>
+              <h5 class="countdown-title title-hurry">{{ section.settings.countdown_text }}</h5>
               <div class="banner-countdown">
                 {% liquid
                   assign year = section.settings.cd_year
@@ -662,7 +665,7 @@
       {% endif %}
     }
     .tp-fcl__main-{{ section.id }} .tp-fcl__banner {
-        background: linear-gradient(180deg,#fb8700, {{ section.settings.background_banner }});
+        background: linear-gradient(180deg,{{ section.settings.background_banner_1 }}, {{ section.settings.background_banner }});
 
     }
     @media(max-width: 767px) {
@@ -955,6 +958,12 @@
       "id": "sale_off",
       "default": 50,
       "label": "Sale off"
+    },
+    {
+      "type": "color",
+      "id": "background_banner_1",
+      "label": "Background banner",
+      "default": "#D73B86"
     },
     {
       "type": "color",

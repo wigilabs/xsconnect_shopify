@@ -1,0 +1,30 @@
+.tp-content__title:hover{
+    color: #D63888!important;
+  }
+  .tp-content__description:hover{
+    color: #D63888!important;
+  }
+  .text-feature-home{
+    color: #000000!important;
+  }
+  .text-feature-home:hover{
+    color: #D63888!important;
+  }
+  #shopify-section-template--15242141401157__1a3a6cef-0363-489c-956e-348ae5c07cdc > div > div > div.tp-fcl__top.tp-box-button__style-1 > div > div > button.collection_tablinks.collection_tablinks-template--15242141401157__1a3a6cef-0363-489c-956e-348ae5c07cdc.active.text-feature-home{
+    color: #D63888!important;
+  }
+  .services-button{
+    display: flex;
+    justify-content: center;
+  }
+  .tp-fcl__main-banner .tp-fcl__banner .popup-wrapper .sale:after, .tp-fcl__main-banner .tp-fcl__banner .popup-wrapper .sale:before{
+    #ffffff!important;
+  }
+  .title-hurry{
+    font-size: 22px!important;
+  }
+  .button-baner-card{
+    position: absolute;
+    top: 40%;
+    left: 75%;
+  }

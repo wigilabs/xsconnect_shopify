@@ -1,3 +1,4 @@
+{{ 'custom.css' | asset_url | stylesheet_tag }}
 {% liquid
   assign WidthLayout = section.settings.width_layout
   assign layoutType = section.settings.layout
@@ -113,10 +114,10 @@
                     </div>
                   {% endif %}
                   {% if block.settings.button_label != blank %}
-                    <div class="tp-btn {{ block.settings.button_type }}">
-                      {{ block.settings.button_label }}
-                    </div>
                   {% endif %}
+                  <div class="tp-btn {{ block.settings.button_type }} button-baner-card">
+                    {{ block.settings.button_label }}
+                  </div>
                 </div>
               </a>
             </div>
