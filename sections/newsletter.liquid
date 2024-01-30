@@ -16,7 +16,7 @@
     background: url({{ section.settings.background_img | image_url: width: section.settings.background_img.width, height: section.settings.background_img.height }});
     background-size: cover;
     {% else %}
-      background: {{ section.settings.newsletter_background }}
+    background: linear-gradient(90deg,{{ section.settings.newsletter_background }}, {{ section.settings.newsletter_background_1 }});
     {% endif %}
   }
 
@@ -203,9 +203,15 @@
     },
     {
       "type": "color",
+      "id": "newsletter_background_1",
+      "label": "Newsletter background",
+      "default": "#D63888"
+    },
+    {
+      "type": "color",
       "id": "newsletter_background",
       "label": "Newsletter background",
-      "default": "#f3f3f3"
+      "default": "#FBA242"
     },
     {
       "type": "color",
