@@ -25,9 +25,9 @@
   }
   .button-baner-card{
     position: absolute;
-    top: 20%;
-    left: 360%;
-    width: 157px;
+    top:-12%;
+    left: 382%;
+    width: 158px;
   }
   .sale-50 {
       background-color: #ffffff!important;
