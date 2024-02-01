@@ -17,9 +17,9 @@
     display: flex;
     justify-content: center;
   }
-  .tp-fcl__main-banner .tp-fcl__banner .popup-wrapper .sale:after, .tp-fcl__main-banner .tp-fcl__banner .popup-wrapper .sale:before{
-    #ffffff!important;
-  }
+  /* .tp-fcl__main-banner .tp-fcl__banner .popup-wrapper .sale:after, .tp-fcl__main-banner .tp-fcl__banner .popup-wrapper .sale:before{
+    #ffffff;
+  } */
   .title-hurry{
     font-size: 22px!important;
   }
@@ -48,5 +48,5 @@
     color: #fff!important;;
     font-weight: 400!important;;
     padding: 10px 0 10px 20px!important;;
-    width: 450px!important;;
+    width: 450px!important;
 }
