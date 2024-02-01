@@ -16,7 +16,7 @@
       }
 
       .number-contact a {
-      color: {{ block.settings.color_phone }};
+      color: {{ section.settings.color_phone }};
       font-size: {{ block.settings.font-size-phone }}px;
       }
 
@@ -516,12 +516,6 @@
           "default": "(800) 8001-8588"
         },
         {
-          "type": "color",
-          "id": "color_phone",
-          "label": "t:sections.footer.blocks.text.settings.phone.color",
-          "default": "#909090"
-        },
-        {
           "type": "range",
           "id": "font-size-phone",
           "min": 10,
@@ -675,6 +669,12 @@
       "id": "color_hover_item_menu",
       "label": "Color hover item menu",
       "default": "#f5583e"
+    },
+    {
+      "type": "color",
+      "id": "color_phone",
+      "label": "t:sections.footer.blocks.text.settings.phone.color",
+      "default": "#000000"
     },
     {
       "type": "header",
