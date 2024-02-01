@@ -11,7 +11,7 @@
         "position_bread_crumb": "center-middle",
         "pbs_collection": "first",
         "show_image_collection": false,
-        "margin_bottom_desktop": 50,
+        "margin_bottom_desktop": 30,
         "margin_bottom_table": 40,
         "margin_bottom_mobile": 30
       }
