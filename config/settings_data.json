@@ -446,10 +446,11 @@
         ],
         "settings": {
           "display_layout": "newsletter-layout_1",
+          "newsletter_background_1": "#fba242",
           "newsletter_background": "#d63888",
           "newsletter_content": "#ffffff",
           "color_bg_button": "#d63888",
-          "color_text_button": "#000000",
+          "color_text_button": "#ffffff",
           "color_hvr_bg_button": "#a42a68",
           "color_hvr_text_button": "#ffffff",
           "color_newsletter": "#000000",
