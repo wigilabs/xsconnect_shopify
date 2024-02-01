@@ -132,7 +132,7 @@
             "settings": {
               "item_width": 17,
               "heading": "MENU",
-              "menu": "menu-header-bar"
+              "menu": "main-menu"
             }
           },
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e": {
@@ -140,14 +140,23 @@
             "settings": {
               "item_width": 17,
               "heading": "Policy",
-              "menu": ""
+              "menu": "main-menu"
+            }
+          },
+          "link_list_rFyh8C": {
+            "type": "link_list",
+            "settings": {
+              "item_width": 25,
+              "heading": "Quick links",
+              "menu": "main-menu"
             }
           }
         },
         "block_order": [
           "ff72abfa-fbe6-4f15-91e0-ca978e291c69",
           "4c64e5a1-393a-488f-9b28-d0728e290642",
-          "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e"
+          "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e",
+          "link_list_rFyh8C"
         ],
         "settings": {
           "width_layout_ft": "container",
