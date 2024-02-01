@@ -28,3 +28,13 @@
     top: 40%;
     left: 75%;
   }
+  .sale-50 {
+      background-color: #ffffff!important;
+      background: linear-gradient(180deg,#ffffff,#ffffff)!important;
+      border-radius: 50px;
+      -ms-box-shadow: 0 0 0 rgba(0, 0, 0, 0.4)!important;
+      -o-box-shadow: 0 0 0 rgba(0, 0, 0, 0.4)!important;
+      box-shadow: 0 0 rgb(0 0 0 / 40%)!important;
+      color: #d83e84!important;
+      font-weight: bold!important;
+  }
