@@ -119,6 +119,11 @@
                     {{ block.settings.button_label }}
                   </div>
                 </div>
+                {% if block.settings.button_label != blank %}
+                  <div class="tp-btn {{ block.settings.button_type }} boton-banner-card-home">
+                    {{ block.settings.button_label }}
+                  </div>
+                {% endif %}
               </a>
             </div>
           </div>

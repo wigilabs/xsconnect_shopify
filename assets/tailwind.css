@@ -1716,3 +1716,18 @@ video {
     flex-wrap: wrap;
   }
 }
+/*CUSTOM CSS*/
+.principal-color:hover{
+  color:#D63888;
+}
+/*FEATURE COLLECTIONS HOME*/
+.tp-fcl__main-template--15223390732357__442eb3fa-208e-4782-a38f-da90cf72d88e .tp-fcl__banner {
+  background: linear-gradient(180deg, #D63888, #FBA242)!important;
+}
+@media (min-width: 1024px) {
+.boton-banner-card-home{
+  position: absolute;
+  top: 37%;
+  left: 77%;
+}
+  }

@@ -185,6 +185,8 @@
                                 </ul>           
                             </div>  
                         </div>
+                        {%comment %}
+                        Header | Right btn
                         {% if section.settings.text_btn_1 != blank or section.settings.text_btn_2 != blank %}
                             <div class="btn-wrap flex items-center">
                                 {% if section.settings.text_btn_1 != blank %}
@@ -194,6 +196,7 @@
                                         </a>
                                     </div>
                                 {% endif %}
+                            {% endcomment %}
                                 {% if section.settings.text_btn_2 != blank %}
                                     <div class="btn-item relative">
                                         <a href="{{ section.settings.link_btn_2 | default: '#' }}" title="Gift Carts!" class="gift-cart">
