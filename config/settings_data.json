@@ -112,7 +112,7 @@
           "ff72abfa-fbe6-4f15-91e0-ca978e291c69": {
             "type": "contact",
             "settings": {
-              "item_width": 50,
+              "item_width": 100,
               "title_contact": "Contact Info",
               "position_content": "content-left",
               "subtext": "<p>Got Questions? Call us 24\/7!<\/p>",
@@ -132,8 +132,8 @@
             "type": "link_list",
             "settings": {
               "item_width": 17,
-              "heading": "Information",
-              "menu": ""
+              "heading": "MENU",
+              "menu": "menu-header-bar"
             }
           },
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e": {
@@ -143,21 +143,12 @@
               "heading": "Policy",
               "menu": ""
             }
-          },
-          "923921c8-aca2-4422-82d4-df3c220933d8": {
-            "type": "link_list",
-            "settings": {
-              "item_width": 16,
-              "heading": "Customer support",
-              "menu": ""
-            }
           }
         },
         "block_order": [
           "ff72abfa-fbe6-4f15-91e0-ca978e291c69",
           "4c64e5a1-393a-488f-9b28-d0728e290642",
-          "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e",
-          "923921c8-aca2-4422-82d4-df3c220933d8"
+          "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e"
         ],
         "settings": {
           "width_layout_ft": "container",
