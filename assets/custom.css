@@ -25,8 +25,9 @@
   }
   .button-baner-card{
     position: absolute;
-    top: 40%;
-    left: 75%;
+    top:-12%;
+    left: 382%;
+    width: 158px;
   }
   .sale-50 {
       background-color: #ffffff!important;
@@ -38,3 +39,14 @@
       color: #d83e84!important;
       font-weight: bold!important;
   }
+  .newsletter {
+      background: linear-gradient(90deg,#d63888, #fba242)!important;
+  }
+  newsletter .field__input {
+    background-color: hsla(0,0%,100%,.2);
+    border-radius: 60px!important;;
+    color: #fff!important;;
+    font-weight: 400!important;;
+    padding: 10px 0 10px 20px!important;;
+    width: 450px!important;;
+}
