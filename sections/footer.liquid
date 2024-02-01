@@ -121,7 +121,7 @@
                 <div class="footer-contact flex-wrap d-flex align-items-center mb-7.5">
                   {% if block.settings.phone != blank %}
                     <div class="contact-phone flex items-center mr-2.5 mb-4">
-                      <span class="contact-text number-contact-{{ section.id }}">
+                      <span class="contact-text number-contact-{{ section.id }} color-general-footer">
                         <a href="tel:{{ block.settings.phone }}">{{ block.settings.phone }}</a>
                       </span>
                     </div>
@@ -142,7 +142,7 @@
                 </div>
               {% endif %}
               {% if block.settings.address != blank %}
-                <p class="footer-address">
+                <p class="footer-address color-general-footer">
                   <span>Addres: </span>
                   {{ block.settings.address }}
                 </p>
