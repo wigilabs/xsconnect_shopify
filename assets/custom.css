@@ -53,12 +53,3 @@
 .color-general-footer{
   color:#000000!important;
 }
-.products-vertical__thumb, .swiperProType1 {
-  border: 1px solid #dedede!important;
-}
-.tp-product-detail__left .products-vertical__thumb {
-  border: 1px solid #dedede!important;
-}
-.tp-product-detail__left .products-vertical__thumb .wp-img-thumb {
-  border-bottom: 1px solid #ffffff!important;
-}
