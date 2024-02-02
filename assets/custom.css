@@ -83,3 +83,6 @@
 .tp-product-detail__right .price__sale .price-item--regular {
   color: #d63888;
 }
+.tp-box-button__style-1 .active{
+  color: #d63888!important;
+}
