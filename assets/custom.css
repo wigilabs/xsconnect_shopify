@@ -77,3 +77,9 @@
 .product-description {
   color: #000000!important;
 }
+.tp-product-detail__right .price__sale .price-item--last {
+  color: #d63888;
+}
+.tp-product-detail__right .price__sale .price-item--regular {
+  color: #d63888;
+}
