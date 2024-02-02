@@ -171,9 +171,9 @@
       "type": "featured-collection",
       "settings": {
         "width_layout": "container",
-        "title": "Tab Feature",
+        "title": "",
         "description": "",
-        "display_type": "normal",
+        "display_type": "tab",
         "collection": "prueba",
         "background_color": "",
         "background_full_width": true,
@@ -181,7 +181,8 @@
         "products_to_show": 8,
         "column_number": "6",
         "collection_list": [
-
+          "prueba",
+          "frontpage"
         ],
         "gap_item": 30,
         "style_button_tab": "tp-box-button__style-1",
