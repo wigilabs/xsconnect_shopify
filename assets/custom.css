@@ -23,7 +23,7 @@
   .title-hurry{
     font-size: 22px!important;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1500px) {
   .button-baner-card{
     position: fixed;
     top:17%;
@@ -31,7 +31,7 @@
     width: 158px;
   }
 }
-  @media screen and (min-width: 1024px) {
+  @media screen and (max-width: 1024px) {
   .button-baner-card{
     position: fixed;
     top:17%;
