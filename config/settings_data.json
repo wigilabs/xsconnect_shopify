@@ -147,8 +147,8 @@
             "type": "link_list",
             "settings": {
               "item_width": 25,
-              "heading": "Quick links",
-              "menu": "main-menu"
+              "heading": "Brands",
+              "menu": "brands"
             }
           }
         },
