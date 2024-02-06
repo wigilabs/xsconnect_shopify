@@ -112,7 +112,7 @@
           "ff72abfa-fbe6-4f15-91e0-ca978e291c69": {
             "type": "contact",
             "settings": {
-              "item_width": 25,
+              "item_width": 33,
               "title_contact": "Contact Info",
               "position_content": "content-left",
               "subtext": "<p>Got Questions? Call us 24\/7!<\/p>",
@@ -127,14 +127,6 @@
               "show_social": false
             }
           },
-          "4c64e5a1-393a-488f-9b28-d0728e290642": {
-            "type": "link_list",
-            "settings": {
-              "item_width": 25,
-              "heading": "MENU",
-              "menu": "main-menu"
-            }
-          },
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e": {
             "type": "link_list",
             "settings": {
@@ -143,10 +135,18 @@
               "menu": "useful-links"
             }
           },
-          "link_list_rFyh8C": {
+          "4c64e5a1-393a-488f-9b28-d0728e290642": {
             "type": "link_list",
             "settings": {
               "item_width": 25,
+              "heading": "Important documents",
+              "menu": "important-documents"
+            }
+          },
+          "link_list_rFyh8C": {
+            "type": "link_list",
+            "settings": {
+              "item_width": 26,
               "heading": "Brands",
               "menu": "brands"
             }
@@ -154,8 +154,8 @@
         },
         "block_order": [
           "ff72abfa-fbe6-4f15-91e0-ca978e291c69",
-          "4c64e5a1-393a-488f-9b28-d0728e290642",
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e",
+          "4c64e5a1-393a-488f-9b28-d0728e290642",
           "link_list_rFyh8C"
         ],
         "settings": {
