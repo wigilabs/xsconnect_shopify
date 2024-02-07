@@ -120,8 +120,8 @@
         "custom_description_AjLWim": {
           "type": "custom-description",
           "settings": {
-            "title_description_custom": "Description custom",
-            "description_custom": ""
+            "title_description_custom": "Shipping",
+            "description_custom": "<p>Lorem Ipsum<\/p>"
           }
         }
       },
