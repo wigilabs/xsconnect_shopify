@@ -58,8 +58,8 @@
               "show_separator_line": false,
               "show_account": true,
               "text_content": "<p>Welcome to XS Connect store!<\/p>",
-              "show_language": false,
-              "show_currency": false,
+              "show_language": true,
+              "show_currency": true,
               "menu": "menu-header-bar",
               "color_social": "#ffffff"
             }
