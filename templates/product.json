@@ -113,15 +113,15 @@
         "9633974a-ca88-42d6-93bc-ac97f5098dab": {
           "type": "custom-description",
           "settings": {
-            "title_description_custom": "Guarantee",
-            "description_custom": "<h5>Electromax shop<\/h5><ul><li>Electromax shop guarantees you the utmost in quality, authenticity, and reputability<\/li><li>30 Day money back guarantee<\/li><li>No restocking fee on items under $4000<\/li><li>All our watches have the original manufacturer's serial numbers intact.<\/li><li>1 to 5 year warranty on all watches<\/li><\/ul><h5>30 Day money back guarantee<\/h5><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>"
+            "title_description_custom": "Warranty",
+            "description_custom": "<ul><li>One (1) Year Back to Base Warranty on New and Used Equipment and Accessories.*<\/li><li> Back to Base Warranty requires the faulty item to be returned to XS Network Tech for inspection and repair or replacement. <\/li><li>Five (5) Year Back to Base Warranty on all Blue Cable Co branded products<\/li><\/ul>"
           }
         },
         "custom_description_AjLWim": {
           "type": "custom-description",
           "settings": {
-            "title_description_custom": "Description custom",
-            "description_custom": ""
+            "title_description_custom": "Shipping",
+            "description_custom": "<p>Lorem Ipsum<\/p>"
           }
         }
       },
@@ -144,6 +144,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "width_layout": "container",
         "heading": "Related products",
@@ -152,57 +153,6 @@
         "margin_bottom_desktop": 30,
         "margin_bottom_table": 10,
         "margin_bottom_mobile": 0
-      }
-    },
-    "top_products_jekbyN": {
-      "type": "top-products",
-      "blocks": {
-        "product_item_CAei9a": {
-          "type": "product_item",
-          "settings": {
-            "title": "Top Product",
-            "product_list": [
-              "21st-century-calcium-600-d-liquid-filled-softgels-90-ct",
-              "agadir-argan-oil-daily-moisturizing-conditioner-clear-pack-of-18",
-              "agadir-argan-oil-daily-moisturizing-conditioner-clear",
-              "alberto-vo5-extra-body-volumizing-shampoo-unisex"
-            ]
-          }
-        },
-        "product_item_G9UdY3": {
-          "type": "product_item",
-          "settings": {
-            "title": "Top Product",
-            "product_list": [
-              "alberto-vo5-extra-body-volumizing-shampoo-unisex-1",
-              "alberto-vo5-extra-body-volumizing-shampoo-unisex-12-5-ounce-pack-of-3",
-              "alberto-vo6-extra-body-volumizing-shampoo-unisex-2",
-              "alberto-vo6-extra-body-volumizing-shampoo-unisex-1"
-            ]
-          }
-        },
-        "product_item_wDhjUV": {
-          "type": "product_item",
-          "settings": {
-            "title": "Top Product",
-            "product_list": [
-              "apple-iphone-7-plus-32gb",
-              "copy-of-apple-iphone-7-plus-32gb-genuine",
-              "apple-iphone-7-plus-32gb-genuine",
-              "copy-of-apple-iphone-7-plus-32gb"
-            ]
-          }
-        }
-      },
-      "block_order": [
-        "product_item_CAei9a",
-        "product_item_G9UdY3",
-        "product_item_wDhjUV"
-      ],
-      "settings": {
-        "width_layout": "container",
-        "item_width": 33,
-        "item_direction_prd_top": "use_global"
       }
     },
     "main-recently": {
@@ -216,6 +166,61 @@
         "margin_bottom_table": 60,
         "margin_bottom_mobile": 40
       }
+    },
+    "featured_collection_UBn9iM": {
+      "type": "featured-collection",
+      "settings": {
+        "width_layout": "container",
+        "title": "",
+        "description": "",
+        "display_type": "tab",
+        "collection": "prueba",
+        "background_color": "",
+        "background_full_width": true,
+        "padding_top_bottom": 0,
+        "products_to_show": 8,
+        "column_number": "6",
+        "collection_list": [
+          "prueba",
+          "frontpage"
+        ],
+        "gap_item": 30,
+        "style_button_tab": "tp-box-button__style-1",
+        "margin_bottom_button": 30,
+        "text_uppercase": false,
+        "layout_slider": "layout-slider-1",
+        "show_navigation": true,
+        "show_pagigation": true,
+        "sliders_perview": "4",
+        "title_banner": "Super deals",
+        "sale_off": 50,
+        "background_banner_1": "#d73b86",
+        "background_banner": "#f5583e",
+        "product_banner": "",
+        "show_status_bar": true,
+        "number_sold_out": "9",
+        "quantity_available": "16",
+        "countdown_text": "Hurry up! Offer ends in:",
+        "cd_year": 2023,
+        "cd_month": "12",
+        "cd_days": "28",
+        "position_collection": "position_left",
+        "product_item_layout": "use_global",
+        "item_direction_prd_top": "use_global",
+        "color_background_image": "rgba(0,0,0,0)",
+        "type_button": "normal",
+        "text_button": "Shop now",
+        "button_type": "tp-btn__primary",
+        "pws_show": false,
+        "pws_title": "Example Title",
+        "pws_desc": "Example Description",
+        "pws_button_name": "View Detail",
+        "pws_button_link": "",
+        "mobile_columns": "2",
+        "margin_bottom_desktop": 80,
+        "margin_bottom_table": 60,
+        "margin_bottom_mobile": 40
+      }
     }
   },
   "order": [
@@ -224,7 +229,7 @@
     "main-product-information",
     "1663925088067ce9b8",
     "product-recommendations",
-    "top_products_jekbyN",
-    "main-recently"
+    "main-recently",
+    "featured_collection_UBn9iM"
   ]
 }
