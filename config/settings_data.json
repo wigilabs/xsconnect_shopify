@@ -459,6 +459,35 @@
           "padding_bottom": 18,
           "margin_bottom_desktop": 0
         }
+      },
+      "custom-fonts": {
+        "type": "custom-fonts",
+        "blocks": {
+          "image_7NrgrY": {
+            "type": "image",
+            "settings": {
+              "name": "gilroy",
+              "custom_font_weight": "none",
+              "custom_font_style": "none",
+              "custom_font_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0570\/8955\/6549\/files\/gilroy.woff2",
+              "apply_h1": true,
+              "apply_h2": true,
+              "apply_h3": true,
+              "apply_h4": true,
+              "apply_h5": true,
+              "apply_h6": true,
+              "apply_span": true,
+              "apply_p": true,
+              "apply_custom": ""
+            }
+          }
+        },
+        "block_order": [
+          "image_7NrgrY"
+        ],
+        "settings": {
+          "enable": true
+        }
       }
     },
     "content_for_index": [
