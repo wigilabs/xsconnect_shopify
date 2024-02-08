@@ -341,43 +341,31 @@
               "column_sub_menu": "col-1"
             }
           },
-          "c25d93cc-286b-4110-91fe-4351416f894a": {
+          "menu_normal_mDi7yj": {
             "type": "menu_normal",
             "settings": {
               "title_menu": "Home",
               "menu": ""
             }
           },
-          "f645f132-cae0-4eef-8dd7-7bc230cf7d97": {
-            "type": "menu_megamenu",
-            "settings": {
-              "title_menu": "Shop",
-              "menu": "",
-              "title_top": "Top content",
-              "desc_top": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
-              "title_bottom": "Top content",
-              "desc_bottom": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
-              "full_width_dropdown": true,
-              "dropdown_columns": "columns-3"
-            }
-          },
-          "9bb7287f-bd37-4a75-b304-5787c0a603c9": {
-            "type": "menu_megamenu",
-            "settings": {
-              "title_menu": "Products",
-              "menu": "",
-              "title_top": "",
-              "desc_top": "",
-              "title_bottom": "",
-              "desc_bottom": "",
-              "full_width_dropdown": false,
-              "dropdown_columns": "columns-2"
-            }
-          },
-          "af8ee33b-dd02-4466-81aa-ab1cb58bdb67": {
+          "menu_normal_tXB9RT": {
             "type": "menu_normal",
             "settings": {
-              "title_menu": "Pages",
+              "title_menu": "Products",
+              "menu": ""
+            }
+          },
+          "menu_normal_4yaWNT": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "About us",
+              "menu": ""
+            }
+          },
+          "menu_normal_fXMazR": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "Contact us",
               "menu": ""
             }
           }
@@ -396,10 +384,10 @@
           "1e21ff63-4032-4cfb-8358-91179d234265",
           "b193317c-f773-42ba-8344-e9c62b440a86",
           "78977ee5-4359-4a26-971a-f70670b37e3d",
-          "c25d93cc-286b-4110-91fe-4351416f894a",
-          "f645f132-cae0-4eef-8dd7-7bc230cf7d97",
-          "9bb7287f-bd37-4a75-b304-5787c0a603c9",
-          "af8ee33b-dd02-4466-81aa-ab1cb58bdb67"
+          "menu_normal_mDi7yj",
+          "menu_normal_tXB9RT",
+          "menu_normal_4yaWNT",
+          "menu_normal_fXMazR"
         ],
         "settings": {
           "menu_bg": "#ffffff",
