@@ -167,8 +167,8 @@
                                             </div>
                                         </li>
                                     {% when 'menu_normal' %}   
+                                        {% if block.settings.title_menu != black %}
                                         <li class="menu-level-1 relative">
-                                            {% if lock.settings.title_menu_link != black %}
                                             <span class="flex items-center gap-1">
                                                 <a href="{{ block.settings.title_menu_link }}">{{ block.settings.title_menu }}</a>
                                             </span>
