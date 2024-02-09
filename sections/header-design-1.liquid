@@ -169,34 +169,14 @@
                                     {% when 'menu_normal' %}   
                                         <li class="menu-level-1 relative">
                                             <span class="flex items-center gap-1">
-                                                {{ block.settings.title_menu }}
-                                                {% if block.settings.menu != blank %}
-                                                {% render 'icon', icon_name: 'icon-drop-down-2', width: 8, height: 8 %}
-                                                {% endif %}
+                                                <a href="{{ block.settings.title_menu_link }}">{{ block.settings.title_menu }}</a>
                                             </span>
-                                            <div class="dropdown-menu menu-normal">
-                                                <div class="middle-content flex items-start justify-between">
-                                                    {% render 'header-menu', block: block, type: 'menu-left', call: 'desktop' %}
-                                                </div> 
-                                            </div>
                                         </li>
                                     {% endcase %} 
                                 {% endfor %} 
                                 </ul>           
                             </div>  
                         </div>
-                        {%comment %}
-                        Header | Right btn
-                        {% if section.settings.text_btn_1 != blank or section.settings.text_btn_2 != blank %}
-                            <div class="btn-wrap flex items-center">
-                                {% if section.settings.text_btn_1 != blank %}
-                                    <div class="btn-item">
-                                        <a href="{{ section.settings.link_btn_1 | default: '#' }}" title="Buy GenMart" aria-describedby="a11y-external-message">
-                                            {{ section.settings.text_btn_1 }}
-                                        </a>
-                                    </div>
-                                {% endif %}
-                            {% endcomment %}
                                 {% if section.settings.text_btn_2 != blank %}
                                     <div class="btn-item relative">
                                         <a href="{{ section.settings.link_btn_2 | default: '#' }}" title="Gift Carts!" class="gift-cart">
@@ -577,11 +557,11 @@
                     "label": "Menu title"
                 },
                 {
-                    "type": "link_list",
-                    "id": "menu",
-                    "default": "main-menu",
-                    "label": "t:sections.header.settings.menu.label"
-                }  
+                    "type": "url",
+                    "id": "title_menu_link",
+                    "label": "Choose the link",
+                    "default": "/collections/all"
+                }
             ]
         }
         
