@@ -177,7 +177,8 @@
                                 </ul>           
                             </div>  
                         </div>
-                                {% if section.settings.text_btn_2 != blank %}
+                                
+                            </div>{% if section.settings.text_btn_2 != blank %}
                                     <div class="btn-item relative">
                                         <a href="{{ section.settings.link_btn_2 | default: '#' }}" title="Gift Carts!" class="gift-cart">
                                             {{ section.settings.text_btn_2 }}
@@ -188,7 +189,6 @@
                                         </a>
                                     </div>
                                 {% endif %}
-                            </div>
                         {% endif %}
                     </div>
                 </div>
@@ -198,9 +198,9 @@
         {% render 'header-mobile' %}
         {% render 'mobile-bottom-navbar' %}
     </div>
-  {% if section.settings.enable_sticky_header %}
-  </sticky-header>
-  {% endif %}
+        {% if section.settings.enable_sticky_header %}
+        </sticky-header>
+        {% endif %}
 </div>
 {%- if request.page_type == 'index' -%}
   {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
