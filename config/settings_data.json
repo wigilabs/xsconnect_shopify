@@ -224,146 +224,26 @@
       "header-design-1": {
         "type": "header-design-1",
         "blocks": {
-          "a406213b-d205-44ca-8f7a-3ac4b06fd378": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Phone, Tablet, Accessories",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "441d341a-7a56-472a-b8c2-4ecf301a3467": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Television, Speaker, Sound",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-3"
-            }
-          },
-          "845090bb-d041-48ca-8d7c-c96887216e78": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Air Conditioner, Air Purifier",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "34e8ad33-a7d7-47b3-90bd-5c6d3e93fe42": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Appliances",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "eb393b9e-4c8a-41d4-9b2b-8ed5b6a01e6b": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Washer, Dryer",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "a228c233-c76f-46c9-b9d3-9656849d449c": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Refrigerator, Freezer",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "fd0fb673-58b7-4482-b116-a77690de76c1": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Laptop, PC Accessories",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "9d3aeb15-9cce-4817-860c-768fe5bbb697": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Camera, Camcorder",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "16c6c481-d92d-4d7a-815f-0262e113b2e8": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Printer, Office Equipment",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "b441947d-05fb-402e-a310-c1da14741ff1": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Tools",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "1e21ff63-4032-4cfb-8358-91179d234265": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Video Games",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "b193317c-f773-42ba-8344-e9c62b440a86": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Watches",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "78977ee5-4359-4a26-971a-f70670b37e3d": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Motor & Car Electronics",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
           "menu_normal_ytV8Xe": {
             "type": "menu_normal",
             "settings": {
               "title_menu": "88888",
               "title_menu_link": "shopify:\/\/collections\/all"
             }
+          },
+          "menu_category_z6wBNz": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Fruits & Vegetables",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
           }
         },
         "block_order": [
-          "a406213b-d205-44ca-8f7a-3ac4b06fd378",
-          "441d341a-7a56-472a-b8c2-4ecf301a3467",
-          "845090bb-d041-48ca-8d7c-c96887216e78",
-          "34e8ad33-a7d7-47b3-90bd-5c6d3e93fe42",
-          "eb393b9e-4c8a-41d4-9b2b-8ed5b6a01e6b",
-          "a228c233-c76f-46c9-b9d3-9656849d449c",
-          "fd0fb673-58b7-4482-b116-a77690de76c1",
-          "9d3aeb15-9cce-4817-860c-768fe5bbb697",
-          "16c6c481-d92d-4d7a-815f-0262e113b2e8",
-          "b441947d-05fb-402e-a310-c1da14741ff1",
-          "1e21ff63-4032-4cfb-8358-91179d234265",
-          "b193317c-f773-42ba-8344-e9c62b440a86",
-          "78977ee5-4359-4a26-971a-f70670b37e3d",
-          "menu_normal_ytV8Xe"
+          "menu_normal_ytV8Xe",
+          "menu_category_z6wBNz"
         ],
         "settings": {
           "menu_bg": "#ffffff",
