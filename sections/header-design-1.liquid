@@ -168,7 +168,6 @@
                                         </li>
                                     {% when 'menu_normal' %}   
                                         {% if block.settings.title_menu != black %}
-                                        {% if block.settings.title_menu != black %}
                                         <li class="menu-level-1 relative">
                                             <span class="flex items-center gap-1">
                                                 <a href="{{ block.settings.title_menu_link }}">{{ block.settings.title_menu }}</a>
@@ -180,12 +179,9 @@
                                 </ul>           
                             </div>  
                         </div>
-<<<<<<< HEAD
-                                
-                            </div>{% if section.settings.text_btn_2 != blank %}
-=======
-                                {% if section.settings.text_btn_2 != blank %}
->>>>>>> 25e724b2a6aaf6cf543f5d2599e6908faeb2befd
+                            </div>
+                            
+                            {% if section.settings.text_btn_2 != blank %}
                                     <div class="btn-item relative">
                                         <a href="{{ section.settings.link_btn_2 | default: '#' }}" title="Gift Carts!" class="gift-cart">
                                             {{ section.settings.text_btn_2 }}
