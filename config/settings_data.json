@@ -233,17 +233,17 @@
               "column_sub_menu": "col-1"
             }
           },
-          "menu_normal_BGtVRt": {
+          "menu_normal_Td8BFC": {
             "type": "menu_normal",
             "settings": {
-              "title_menu": "jjjjjjjjjjjjjjj",
+              "title_menu": "jhjhjhjh",
               "title_menu_link": "shopify:\/\/collections\/all"
             }
           }
         },
         "block_order": [
           "menu_category_z6wBNz",
-          "menu_normal_BGtVRt"
+          "menu_normal_Td8BFC"
         ],
         "settings": {
           "menu_bg": "#ffffff",
