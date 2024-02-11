@@ -113,3 +113,9 @@
 .card__content .prd-item-atc:hover {
   background-color:#FBA242!important;
 }
+.price .price-item{
+  font-weight: 700!important;
+}
+.card .price-item {
+    color: #000000!important;
+}
