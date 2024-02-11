@@ -47,6 +47,7 @@
     "fw_prd_price_compare": 400,
     "prd_color_price_compare": "#f5583e",
     "np_show": "hidden_popup",
+    "np_popup_timeout": 60,
     "column_number": "3",
     "sections": {
       "announcement-bar": {
