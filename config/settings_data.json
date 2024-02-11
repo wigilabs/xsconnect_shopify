@@ -246,12 +246,20 @@
               "title_menu": "jhhhhhhhhh",
               "title_menu_link": "shopify:\/\/collections\/all"
             }
+          },
+          "menu_normal_HQ9YkJ": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "hfghfghfgh",
+              "title_menu_link": "shopify:\/\/collections\/all"
+            }
           }
         },
         "block_order": [
           "menu_normal_ytV8Xe",
           "menu_category_z6wBNz",
-          "menu_normal_aTaYBB"
+          "menu_normal_aTaYBB",
+          "menu_normal_HQ9YkJ"
         ],
         "settings": {
           "menu_bg": "#ffffff",
