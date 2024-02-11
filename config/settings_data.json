@@ -216,7 +216,7 @@
         "settings": {
           "display_someone-purchased_mb": false,
           "show_someone-purchased": "left",
-          "someone_speed": "7",
+          "someone_speed": "180",
           "text": "Someone recently bought a",
           "time_location_text": "[time] minutes ago, from [location]"
         }
