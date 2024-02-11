@@ -123,25 +123,25 @@
         "margin_bottom_mobile": 30
       }
     },
-    "1a3a6cef-0363-489c-956e-348ae5c07cdc": {
+    "featured_collection_npmXyi": {
       "type": "featured-collection",
       "settings": {
         "width_layout": "container",
-        "title": "",
+        "title": "Product by",
         "description": "",
-        "display_type": "tab",
+        "display_type": "normal",
         "collection": "",
         "background_color": "",
         "background_full_width": true,
         "padding_top_bottom": 0,
-        "products_to_show": 12,
+        "products_to_show": 8,
         "column_number": "6",
         "collection_list": [
-          "frontpage",
           "prueba",
+          "frontpage",
           "tp-tated"
         ],
-        "gap_item": 0,
+        "gap_item": 30,
         "style_button_tab": "tp-box-button__style-1",
         "margin_bottom_button": 30,
         "text_uppercase": false,
@@ -149,9 +149,9 @@
         "show_navigation": true,
         "show_pagigation": true,
         "sliders_perview": "4",
-        "title_banner": "Shop Pet Portraits",
+        "title_banner": "Super deals",
         "sale_off": 50,
-        "background_banner_1": "#d63888",
+        "background_banner_1": "#D73B86",
         "background_banner": "#f5583e",
         "product_banner": "",
         "show_status_bar": true,
@@ -164,9 +164,9 @@
         "position_collection": "position_left",
         "product_item_layout": "use_global",
         "item_direction_prd_top": "use_global",
-        "color_background_image": "rgba(0,0,0,0)",
+        "color_background_image": "transparent",
         "type_button": "normal",
-        "text_button": "",
+        "text_button": "Shop now",
         "button_type": "tp-btn__primary",
         "pws_show": false,
         "pws_title": "Example Title",
@@ -335,7 +335,7 @@
   "order": [
     "ea31e7c8-131d-446c-b8f4-0919916ec80e",
     "da1b0273-97b6-4bbf-bd85-2d9887a4ed74",
-    "1a3a6cef-0363-489c-956e-348ae5c07cdc",
+    "featured_collection_npmXyi",
     "442eb3fa-208e-4782-a38f-da90cf72d88e",
     "72b4321d-3958-4fb4-9be3-9a639cc5f5f2",
     "4ff25f0d-d50e-41a6-82d0-081d0a0434e8"
