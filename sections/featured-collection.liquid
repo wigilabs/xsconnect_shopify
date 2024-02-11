@@ -110,6 +110,7 @@
             {% liquid
               assign numbers = '1,2,3,4,5' | split: ','
             %}
+
             {%- for item in numbers -%}
               <button
                 class="collection_tablinks collection_tablinks-{{ section.id }} {% if forloop.first %} active{% endif %}"
