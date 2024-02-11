@@ -125,3 +125,9 @@
 .card-wrapper__layout-2 .add-to-cart-text svg {
     fill: #fff!important;
 }
+.card-wrapper__layout-2 .card__inner {
+    border-right: 1px solid #DEDEDE!important;
+}
+.card-wrapper__layout-2:hover .card__inner {
+    border-right: 1px solid #d63888!important;
+}
