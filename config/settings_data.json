@@ -224,13 +224,6 @@
       "header-design-1": {
         "type": "header-design-1",
         "blocks": {
-          "menu_normal_ytV8Xe": {
-            "type": "menu_normal",
-            "settings": {
-              "title_menu": "88888",
-              "title_menu_link": "shopify:\/\/collections\/all"
-            }
-          },
           "menu_category_z6wBNz": {
             "type": "menu_category",
             "settings": {
@@ -239,11 +232,18 @@
               "url_category": "",
               "column_sub_menu": "col-1"
             }
+          },
+          "menu_normal_Td8BFC": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "jhjhjhjh",
+              "title_menu_link": "shopify:\/\/collections\/all"
+            }
           }
         },
         "block_order": [
-          "menu_normal_ytV8Xe",
-          "menu_category_z6wBNz"
+          "menu_category_z6wBNz",
+          "menu_normal_Td8BFC"
         ],
         "settings": {
           "menu_bg": "#ffffff",
