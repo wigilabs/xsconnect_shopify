@@ -51,7 +51,12 @@
       "cart_empty": "Votre carte est actuellement vide.",
       "note": "Noter",
       "subtotal": "Total",
-      "view_cart": "Voir le panier"
+      "view_cart": "Voir le panier",
+      "cancel": "Annuler",
+      "add_coupon": "Ajouter un coupon",
+      "coupon_noti": "Le code promo fonctionnera sur la page de paiement",
+      "coupon_save": "Sauvegarder",
+      "remove_all": "Vider le panier"
     },
     "share": {
       "close": "Close share",
@@ -63,13 +68,26 @@
       "of": "of",
       "next_slide": "Slide right",
       "previous_slide": "Slide left"
+    },
+    "mess_notifications": {
+      "added_product_to_wish_list": "Un produit a été ajouté à la liste de souhaits",
+      "removed_product_from_wish_list": "Un produit a été supprimé de la liste de souhaits",
+      "added_product_to_compare": "Un produit a été ajouté au comparateur",
+      "removed_product_from_compare": "Un produit a été supprimé du comparateur"
+    },
+    "countdown": {
+      "days": "Jours",
+      "hours": "Heures",
+      "mins": "Minutes",
+      "secs": "Secondes"
     }
   },
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
     "button_label": "Subscribe",
-    "button_newsletter_ft": "S'abonner"
+    "button_newsletter_ft": "S'abonner",
+    "label_social": "Liens sociaux"
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
@@ -139,7 +157,8 @@
         "image_available": "Image {{ index }} is now available in gallery view",
         "open_media": "Open media {{ index }} in modal",
         "play_model": "Play 3D Viewer",
-        "play_video": "Play video"
+        "play_video": "Play video",
+        "video": "Vidéo"
       },
       "quantity": {
         "label": "Quantity",
@@ -180,7 +199,11 @@
       "xr_button_label": "View in your space, loads item in augmented reality window",
       "include_taxes": "Tax included.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping<\/a> calculated at checkout.",
-      "review_product": "Évaluer le produit"
+      "review_product": "Évaluer le produit",
+      "quick_buy": "Acheter maintenant",
+      "in_stock": "En stock",
+      "out_of_stock": "Rupture de stock",
+      "label_copied": "Copié"
     },
     "modal": {
       "label": "Media gallery"
@@ -249,7 +272,9 @@
     },
     "404": {
       "title": "Page not found",
-      "subtext": "Go back and try a difference link"
+      "subtext": "Go back and try a difference link",
+      "go_home": "Rentrer chez soi",
+      "contact_us": "Contactez-nous"
     }
   },
   "sections": {
@@ -290,7 +315,10 @@
       "login": {
         "title": "Have an account?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in<\/a> to check out faster."
-      }
+      },
+      "discount_code": "Code de réduction",
+      "discount_code_noti": "Le code de réduction a été appliqué",
+      "discount_code_applied": "Appliquer"
     },
     "footer": {
       "payment": "Payment methods",
@@ -448,7 +476,10 @@
       "password": "Password",
       "password_confirm": "Confirm password",
       "submit": "Reset password"
-    }
+    },
+    "welcome_notice": "Content de te revoir",
+    "my_friend": "Mon ami",
+    "dash_board": "Tableau de bord"
   },
   "gift_cards": {
     "issued": {
@@ -484,5 +515,50 @@
     "home": {
       "label": "Maison"
     }
+  },
+  "shopify": {
+    "checkout": {
+      "one": {
+        "errors": {
+          "merchandise": {
+            "gift_card_price_must_be_greater_than_zero": "Le prix de la carte cadeau doit être supérieur à 0."
+          }
+        }
+      }
+    },
+    "notices": {
+      "cart": {
+        "gift_card_price_must_be_greater_than_zero": "Le produit groupé '%{name}' ne peut pas être ajouté au panier."
+      }
+    }
+  },
+  "homepage": {
+    "start_buying": "Commencez à acheter"
+  },
+  "layout": {
+    "navigation": {
+      "search": "Recherche",
+      "expand": "développer",
+      "collapse": "effondrement"
+    },
+    "cart": {
+      "title": "Chariot",
+      "items_count": {
+        "one": "article",
+        "other": "articles"
+      }
+    },
+    "customer": {
+      "account": "Compte",
+      "log_out": "Se déconnecter",
+      "log_in": "Se connecter",
+      "create_account": "Registre"
+    },
+    "footer": {
+      "social_link": "Liens sociaux"
+    }
+  },
+  "product_items": {
+    "select_option": "Sélectionnez une option"
   }
 }

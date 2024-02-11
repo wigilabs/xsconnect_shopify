@@ -113,15 +113,15 @@
         "9633974a-ca88-42d6-93bc-ac97f5098dab": {
           "type": "custom-description",
           "settings": {
-            "title_description_custom": "Guarantee",
-            "description_custom": "<h5>Electromax shop<\/h5><ul><li>Electromax shop guarantees you the utmost in quality, authenticity, and reputability<\/li><li>30 Day money back guarantee<\/li><li>No restocking fee on items under $4000<\/li><li>All our watches have the original manufacturer's serial numbers intact.<\/li><li>1 to 5 year warranty on all watches<\/li><\/ul><h5>30 Day money back guarantee<\/h5><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>"
+            "title_description_custom": "Warranty",
+            "description_custom": "<ul><li>One (1) Year Back to Base Warranty on New and Used Equipment and Accessories.*<\/li><li> Back to Base Warranty requires the faulty item to be returned to XS Network Tech for inspection and repair or replacement. <\/li><li>Five (5) Year Back to Base Warranty on all Blue Cable Co branded products<\/li><\/ul>"
           }
         },
         "custom_description_AjLWim": {
           "type": "custom-description",
           "settings": {
-            "title_description_custom": "Description custom",
-            "description_custom": ""
+            "title_description_custom": "Shipping",
+            "description_custom": "<p>Lorem Ipsum<\/p>"
           }
         }
       },
@@ -194,7 +194,7 @@
         "sliders_perview": "4",
         "title_banner": "Super deals",
         "sale_off": 50,
-        "background_banner_1": "#D73B86",
+        "background_banner_1": "#d73b86",
         "background_banner": "#f5583e",
         "product_banner": "",
         "show_status_bar": true,
@@ -207,7 +207,7 @@
         "position_collection": "position_left",
         "product_item_layout": "use_global",
         "item_direction_prd_top": "use_global",
-        "color_background_image": "transparent",
+        "color_background_image": "rgba(0,0,0,0)",
         "type_button": "normal",
         "text_button": "Shop now",
         "button_type": "tp-btn__primary",

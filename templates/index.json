@@ -12,11 +12,11 @@
             "slider_effect": "fadeInUp",
             "position_content": "center-content",
             "text_align_content": "text_center",
-            "sub_title": "The New Collection",
-            "title": "Smartwatches",
-            "description_1": "<p>Shop to get what you love<\/p>",
+            "sub_title": "Lorem Ipsum",
+            "title": "Lorem Ipsum",
+            "description_1": "<p>Lorem Ipsum Lorem<\/p>",
             "description_2": "$ 720.99",
-            "slide_url": "",
+            "slide_url": "shopify:\/\/collections\/prueba",
             "font_size_subtitle": 36,
             "font_size_title": 65,
             "font_size_description": 16,
@@ -137,8 +137,9 @@
         "products_to_show": 12,
         "column_number": "6",
         "collection_list": [
+          "frontpage",
           "prueba",
-          "frontpage"
+          "tp-tated"
         ],
         "gap_item": 0,
         "style_button_tab": "tp-box-button__style-1",
@@ -150,6 +151,7 @@
         "sliders_perview": "4",
         "title_banner": "Shop Pet Portraits",
         "sale_off": 50,
+        "background_banner_1": "#d63888",
         "background_banner": "#f5583e",
         "product_banner": "",
         "show_status_bar": true,
@@ -187,8 +189,8 @@
         "collection": "prueba",
         "background_color": "#f7f7f7",
         "background_full_width": true,
-        "padding_top_bottom": 70,
-        "products_to_show": 8,
+        "padding_top_bottom": 100,
+        "products_to_show": 12,
         "column_number": "4",
         "collection_list": [
 
@@ -203,6 +205,7 @@
         "sliders_perview": "4",
         "title_banner": "Super deals",
         "sale_off": 50,
+        "background_banner_1": "#d73b86",
         "background_banner": "#f5583e",
         "image_banner": "shopify:\/\/shop_images\/notebook_1af4a24d-9c42-4bed-8d28-297ad67515f5.png",
         "product_banner": "21st-century-calcium-600-d-liquid-filled-softgels-90-ct",
@@ -263,7 +266,7 @@
         "template--18654138204463__72b4321d-3958-4fb4-9be3-9a639cc5f5f2-168148759171d9acf2-0"
       ],
       "settings": {
-        "width_layout": "container",
+        "width_layout": "width-full",
         "gap_item": 0,
         "background_banner": "",
         "title": "",

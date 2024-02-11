@@ -23,7 +23,7 @@
     "bg_btn_hover": "#a42a68",
     "color_text_btn_hover": "#a42a68",
     "header_design": "header_design_1",
-    "favicon": "shopify:\/\/shop_images\/logo_xs_connect.png",
+    "favicon": "shopify:\/\/shop_images\/favicon_02d577d9-c66b-43f5-b543-9c96a5ba339a.png",
     "gap_item_collection": 0,
     "gpi_show_quickview": false,
     "gpi_show_compare": false,
@@ -58,8 +58,8 @@
               "show_separator_line": false,
               "show_account": true,
               "text_content": "<p>Welcome to XS Connect store!<\/p>",
-              "show_language": false,
-              "show_currency": false,
+              "show_language": true,
+              "show_currency": true,
               "menu": "menu-header-bar",
               "color_social": "#ffffff"
             }
@@ -112,7 +112,7 @@
           "ff72abfa-fbe6-4f15-91e0-ca978e291c69": {
             "type": "contact",
             "settings": {
-              "item_width": 100,
+              "item_width": 33,
               "title_contact": "Contact Info",
               "position_content": "content-left",
               "subtext": "<p>Got Questions? Call us 24\/7!<\/p>",
@@ -121,41 +121,41 @@
               "phone_2": "",
               "color_email": "#000000",
               "font-size-email": 16,
-              "address": "",
+              "address": "<b>Addres: <\/b>Headquarters: Bondi Beach, NSW, Australia",
               "color_address": "#909090",
               "font-size-address": 16,
               "show_social": false
             }
           },
-          "4c64e5a1-393a-488f-9b28-d0728e290642": {
-            "type": "link_list",
-            "settings": {
-              "item_width": 17,
-              "heading": "MENU",
-              "menu": "main-menu"
-            }
-          },
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e": {
             "type": "link_list",
             "settings": {
-              "item_width": 17,
-              "heading": "Policy",
-              "menu": "main-menu"
+              "item_width": 25,
+              "heading": "Useful links",
+              "menu": "useful-links"
+            }
+          },
+          "4c64e5a1-393a-488f-9b28-d0728e290642": {
+            "type": "link_list",
+            "settings": {
+              "item_width": 25,
+              "heading": "Important documents",
+              "menu": "important-documents"
             }
           },
           "link_list_rFyh8C": {
             "type": "link_list",
             "settings": {
-              "item_width": 25,
-              "heading": "Quick links",
-              "menu": "main-menu"
+              "item_width": 26,
+              "heading": "Brands",
+              "menu": "brands"
             }
           }
         },
         "block_order": [
           "ff72abfa-fbe6-4f15-91e0-ca978e291c69",
-          "4c64e5a1-393a-488f-9b28-d0728e290642",
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e",
+          "4c64e5a1-393a-488f-9b28-d0728e290642",
           "link_list_rFyh8C"
         ],
         "settings": {
@@ -221,209 +221,6 @@
           "time_location_text": "[time] minutes ago, from [location]"
         }
       },
-      "header-design-1": {
-        "type": "header-design-1",
-        "blocks": {
-          "a406213b-d205-44ca-8f7a-3ac4b06fd378": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Phone, Tablet, Accessories",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "441d341a-7a56-472a-b8c2-4ecf301a3467": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Television, Speaker, Sound",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-3"
-            }
-          },
-          "845090bb-d041-48ca-8d7c-c96887216e78": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Air Conditioner, Air Purifier",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "34e8ad33-a7d7-47b3-90bd-5c6d3e93fe42": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Appliances",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "eb393b9e-4c8a-41d4-9b2b-8ed5b6a01e6b": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Washer, Dryer",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "a228c233-c76f-46c9-b9d3-9656849d449c": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Refrigerator, Freezer",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "fd0fb673-58b7-4482-b116-a77690de76c1": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Laptop, PC Accessories",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "9d3aeb15-9cce-4817-860c-768fe5bbb697": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Camera, Camcorder",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "16c6c481-d92d-4d7a-815f-0262e113b2e8": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Printer, Office Equipment",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "b441947d-05fb-402e-a310-c1da14741ff1": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Tools",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "1e21ff63-4032-4cfb-8358-91179d234265": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Video Games",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "b193317c-f773-42ba-8344-e9c62b440a86": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Watches",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "78977ee5-4359-4a26-971a-f70670b37e3d": {
-            "type": "menu_category",
-            "settings": {
-              "heading": "Motor & Car Electronics",
-              "menu_categories_target": "",
-              "url_category": "",
-              "column_sub_menu": "col-1"
-            }
-          },
-          "c25d93cc-286b-4110-91fe-4351416f894a": {
-            "type": "menu_normal",
-            "settings": {
-              "title_menu": "Home",
-              "menu": ""
-            }
-          },
-          "f645f132-cae0-4eef-8dd7-7bc230cf7d97": {
-            "type": "menu_megamenu",
-            "settings": {
-              "title_menu": "Shop",
-              "menu": "",
-              "title_top": "Top content",
-              "desc_top": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
-              "title_bottom": "Top content",
-              "desc_bottom": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
-              "full_width_dropdown": true,
-              "dropdown_columns": "columns-3"
-            }
-          },
-          "9bb7287f-bd37-4a75-b304-5787c0a603c9": {
-            "type": "menu_megamenu",
-            "settings": {
-              "title_menu": "Products",
-              "menu": "",
-              "title_top": "",
-              "desc_top": "",
-              "title_bottom": "",
-              "desc_bottom": "",
-              "full_width_dropdown": false,
-              "dropdown_columns": "columns-2"
-            }
-          },
-          "af8ee33b-dd02-4466-81aa-ab1cb58bdb67": {
-            "type": "menu_normal",
-            "settings": {
-              "title_menu": "Pages",
-              "menu": ""
-            }
-          }
-        },
-        "block_order": [
-          "a406213b-d205-44ca-8f7a-3ac4b06fd378",
-          "441d341a-7a56-472a-b8c2-4ecf301a3467",
-          "845090bb-d041-48ca-8d7c-c96887216e78",
-          "34e8ad33-a7d7-47b3-90bd-5c6d3e93fe42",
-          "eb393b9e-4c8a-41d4-9b2b-8ed5b6a01e6b",
-          "a228c233-c76f-46c9-b9d3-9656849d449c",
-          "fd0fb673-58b7-4482-b116-a77690de76c1",
-          "9d3aeb15-9cce-4817-860c-768fe5bbb697",
-          "16c6c481-d92d-4d7a-815f-0262e113b2e8",
-          "b441947d-05fb-402e-a310-c1da14741ff1",
-          "1e21ff63-4032-4cfb-8358-91179d234265",
-          "b193317c-f773-42ba-8344-e9c62b440a86",
-          "78977ee5-4359-4a26-971a-f70670b37e3d",
-          "c25d93cc-286b-4110-91fe-4351416f894a",
-          "f645f132-cae0-4eef-8dd7-7bc230cf7d97",
-          "9bb7287f-bd37-4a75-b304-5787c0a603c9",
-          "af8ee33b-dd02-4466-81aa-ab1cb58bdb67"
-        ],
-        "settings": {
-          "menu_bg": "#ffffff",
-          "logo": "shopify:\/\/shop_images\/logo_xs_connect.png",
-          "logo_mobile": "shopify:\/\/shop_images\/logo_xs_connect.png",
-          "phone_number": "+123 4567 890",
-          "menu_bg_nav": "#d63888",
-          "menu_text_nav": "#a42a68",
-          "show_line_separator": false,
-          "enable_sticky_header": false,
-          "text_menu_cate": "All categories",
-          "menu_categories_bg": "#ff47a4",
-          "menu_categories_text_color": "#ffffff",
-          "text_btn_1": "Buy GemMart",
-          "link_btn_1": "",
-          "text_btn_2": "",
-          "link_btn_2": "",
-          "text_label_btn_2": "",
-          "menu_mobile": "main-menu",
-          "margin_bottom_desktop": 0,
-          "margin_bottom_table": 0,
-          "margin_bottom_mobile": 0
-        }
-      },
       "newsletter": {
         "type": "newsletter",
         "blocks": {
@@ -458,6 +255,105 @@
           "padding_top": 18,
           "padding_bottom": 18,
           "margin_bottom_desktop": 0
+        }
+      },
+      "custom-fonts": {
+        "type": "custom-fonts",
+        "blocks": {
+          "image_7NrgrY": {
+            "type": "image",
+            "settings": {
+              "name": "gilroy",
+              "custom_font_weight": "none",
+              "custom_font_style": "none",
+              "custom_font_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0570\/8955\/6549\/files\/gilroy.woff2",
+              "apply_h1": true,
+              "apply_h2": true,
+              "apply_h3": true,
+              "apply_h4": true,
+              "apply_h5": true,
+              "apply_h6": true,
+              "apply_span": true,
+              "apply_p": true,
+              "apply_custom": ""
+            }
+          }
+        },
+        "block_order": [
+          "image_7NrgrY"
+        ],
+        "settings": {
+          "enable": true
+        }
+      },
+      "header-design-1": {
+        "type": "header-design-1",
+        "blocks": {
+          "menu_category_qfDFHQ": {
+            "type": "menu_category",
+            "settings": {
+              "heading": "Fruits & Vegetables",
+              "menu_categories_target": "",
+              "url_category": "",
+              "column_sub_menu": "col-1"
+            }
+          },
+          "menu_normal_R49G6T": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "Home",
+              "title_menu_url": "\/"
+            }
+          },
+          "menu_normal_QhEmrN": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "Products",
+              "title_menu_url": "shopify:\/\/collections\/prueba"
+            }
+          },
+          "menu_normal_CzJzHH": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "About us",
+              "title_menu_url": "\/"
+            }
+          },
+          "menu_normal_DETiRt": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "Contact us",
+              "title_menu_url": "shopify:\/\/pages\/contact"
+            }
+          }
+        },
+        "block_order": [
+          "menu_category_qfDFHQ",
+          "menu_normal_R49G6T",
+          "menu_normal_QhEmrN",
+          "menu_normal_CzJzHH",
+          "menu_normal_DETiRt"
+        ],
+        "settings": {
+          "menu_bg": "#ffffff",
+          "logo": "shopify:\/\/shop_images\/logo_xs_connect.png",
+          "phone_number": "+123 4567 890",
+          "menu_bg_nav": "#d63888",
+          "menu_text_nav": "#ffffff",
+          "show_line_separator": false,
+          "enable_sticky_header": false,
+          "text_menu_cate": "All categories",
+          "menu_categories_bg": "#ff47a4",
+          "menu_categories_text_color": "#ffffff",
+          "text_btn_1": "Button 1",
+          "link_btn_1": "",
+          "text_btn_2": "Button 2",
+          "link_btn_2": "",
+          "text_label_btn_2": "Hot",
+          "menu_mobile": "",
+          "margin_bottom_desktop": 0,
+          "margin_bottom_table": 0,
+          "margin_bottom_mobile": 0
         }
       }
     },

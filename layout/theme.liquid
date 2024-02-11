@@ -110,6 +110,7 @@
     class="gradient antialiased {% if ldStatus == 'visible' %}over{% endif %}"
     data-reminder-switch-tab="{{ settings.enable_reminder_when_switch_tab }}"
   >
+    {% section 'custom-fonts' %}
     {% if ldStatus == 'visible' %}
       <div class="preloader {{ loadingType }} {{ ldStatus }}s">
         {% case loadingType %}
