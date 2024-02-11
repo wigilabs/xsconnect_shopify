@@ -239,11 +239,19 @@
               "url_category": "",
               "column_sub_menu": "col-1"
             }
+          },
+          "menu_normal_aTaYBB": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "jhhhhhhhhh",
+              "title_menu_link": "shopify:\/\/collections\/all"
+            }
           }
         },
         "block_order": [
           "menu_normal_ytV8Xe",
-          "menu_category_z6wBNz"
+          "menu_category_z6wBNz",
+          "menu_normal_aTaYBB"
         ],
         "settings": {
           "menu_bg": "#ffffff",
