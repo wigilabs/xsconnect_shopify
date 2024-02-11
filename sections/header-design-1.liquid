@@ -172,7 +172,7 @@
                                         {% if block.settings.title_menu != black %}
                                         <li class="menu-level-1 relative">
                                             <span class="flex items-center gap-1">
-                                                <a href="{{ block.settings.title_menu_link }}">
+                                                <a class="text-white" href="{{ block.settings.title_menu_url }}">
                                                     {{ block.settings.title_menu }}
                                                 </a>
                                             </span>
@@ -566,10 +566,10 @@
                 },
                 {
                     "type": "url",
-                    "id": "title_menu_link",
-                    "label": "Choose the link",
-                    "default": "/collections/all"
-                }
+                    "id": "title_menu_url",
+                    "label": "main-menu",
+                    "info": "t:sections.header.settings.menu.label"
+                }  
             ]
         }
         
