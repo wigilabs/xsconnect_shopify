@@ -336,6 +336,7 @@
         ],
         "settings": {
           "menu_bg": "#ffffff",
+          "logo": "shopify:\/\/shop_images\/logo_xs_connect.png",
           "phone_number": "+123 4567 890",
           "menu_bg_nav": "#d63888",
           "menu_text_nav": "#ffffff",
