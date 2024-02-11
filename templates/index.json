@@ -129,7 +129,7 @@
         "width_layout": "container",
         "title": "Product by",
         "description": "",
-        "display_type": "normal",
+        "display_type": "tab",
         "collection": "",
         "background_color": "",
         "background_full_width": true,
