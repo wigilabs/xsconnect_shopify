@@ -166,26 +166,32 @@
                                             {% endif %}
                                             </div>
                                         </li>
-                                    {% when 'menu_normal' %}
-                                        
-                                        {% if block.settings.title_menu != black %}
+                                    {% when 'menu_normal' %}   
                                         <li class="menu-level-1 relative">
                                             <span class="flex items-center gap-1">
-                                                <a class="text-white" href="{{ block.settings.title_menu_url }}">
-                                                    {{ block.settings.title_menu }}
-                                                </a>
+                                             <a class="text-white" href="{{ block.settings.title_menu_url }}">{{ block.settings.title_menu }}</a>   
                                             </span>
+                                            <div class="dropdown-menu menu-normal">
+                                                <div class="middle-content flex items-start justify-between">
+                                                    {% render 'header-menu', block: block, type: 'menu-left', call: 'desktop' %}
+                                                </div> 
+                                            </div>
                                         </li>
-                                        {% endif %}
-                                        
                                     {% endcase %} 
                                 {% endfor %} 
                                 </ul>           
                             </div>  
                         </div>
-                            </div>
-                            
-                            {% if section.settings.text_btn_2 != blank %}
+                        {% if section.settings.text_btn_1 != blank or section.settings.text_btn_2 != blank %}
+                            <div class="btn-wrap flex items-center">
+                                {% if section.settings.text_btn_1 != blank %}
+                                    <div class="btn-item">
+                                        <a href="{{ section.settings.link_btn_1 | default: '#' }}" title="Buy GenMart" aria-describedby="a11y-external-message">
+                                            {{ section.settings.text_btn_1 }}
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                {% if section.settings.text_btn_2 != blank %}
                                     <div class="btn-item relative">
                                         <a href="{{ section.settings.link_btn_2 | default: '#' }}" title="Gift Carts!" class="gift-cart">
                                             {{ section.settings.text_btn_2 }}
@@ -196,6 +202,7 @@
                                         </a>
                                     </div>
                                 {% endif %}
+                            </div>
                         {% endif %}
                     </div>
                 </div>
@@ -205,9 +212,9 @@
         {% render 'header-mobile' %}
         {% render 'mobile-bottom-navbar' %}
     </div>
-        {% if section.settings.enable_sticky_header %}
-        </sticky-header>
-        {% endif %}
+  {% if section.settings.enable_sticky_header %}
+  </sticky-header>
+  {% endif %}
 </div>
 {%- if request.page_type == 'index' -%}
   {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
@@ -567,7 +574,7 @@
                     "type": "url",
                     "id": "title_menu_url",
                     "label": "main-menu",
-                    "info": "Please, choose the link"
+                    "info": "t:sections.header.settings.menu.label"
                 }  
             ]
         }
