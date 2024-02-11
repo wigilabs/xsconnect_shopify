@@ -129,7 +129,7 @@
                                                 {% render 'icon', icon_name: 'icon-drop-down-2', width: 8, height: 8 %}
                                                 {% endif %}
                                             </span>
-																							<div class="dropdown-menu mega-menu {% if bt.full_width_dropdown %}dropdown-full{% else %}dropdown-normal{% endif %}">
+											<div class="dropdown-menu mega-menu {% if bt.full_width_dropdown %}dropdown-full{% else %}dropdown-normal{% endif %}">
                                                 {% if bt.title_top != blank or bt.desc_top != blank %}
                                                     <div class="top-content">
                                                         {% if bt.title_top != blank %}
@@ -171,11 +171,6 @@
                                             <span class="flex items-center gap-1">
                                              <a class="text-white" href="{{ block.settings.title_menu_url }}">{{ block.settings.title_menu }}</a>   
                                             </span>
-                                            <div class="dropdown-menu menu-normal">
-                                                <div class="middle-content flex items-start justify-between">
-                                                    {% render 'header-menu', block: block, type: 'menu-left', call: 'desktop' %}
-                                                </div> 
-                                            </div>
                                         </li>
                                     {% endcase %} 
                                 {% endfor %} 
