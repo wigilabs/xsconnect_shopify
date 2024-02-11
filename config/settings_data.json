@@ -335,14 +335,14 @@
           "menu_normal_DETiRt"
         ],
         "settings": {
-          "menu_bg": "#fff",
+          "menu_bg": "#ffffff",
           "phone_number": "+123 4567 890",
-          "menu_bg_nav": "#a42a68",
-          "menu_text_nav": "#fff",
+          "menu_bg_nav": "#d63888",
+          "menu_text_nav": "#ffffff",
           "show_line_separator": false,
           "enable_sticky_header": false,
           "text_menu_cate": "All categories",
-          "menu_categories_bg": "#d63888",
+          "menu_categories_bg": "#ff47a4",
           "menu_categories_text_color": "#ffffff",
           "text_btn_1": "Button 1",
           "link_btn_1": "",
