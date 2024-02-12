@@ -121,7 +121,7 @@
           "type": "custom-description",
           "settings": {
             "title_description_custom": "Shipping",
-            "description_custom": "<p>Lorem Ipsum<\/p>"
+            "description_custom": "<p>&lt;p&gt;Lorem Ipsum<\/p>"
           }
         }
       },
