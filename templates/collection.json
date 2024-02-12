@@ -39,7 +39,7 @@
         "price_range_config": "10-30,30-50,50-100",
         "enable_apply_button": false,
         "pagination_type": "pagination",
-        "type_load_more": "click",
+        "type_load_more": "scroll",
         "show_sidebar_banner": false,
         "title_content": "Content",
         "description_content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
