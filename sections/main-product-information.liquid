@@ -24,14 +24,14 @@
             {% if product.description != blank %}
               <div class="tp-product-detail__description mb-12.5">
                 <h2 class="tp-title mb-1.25">{{ 'products.product.product_description' | t }}</h2>
-                <div class="product-description">{{ product.description }}</div>
+                <div class="product-description text-black">{{ product.description }}</div>
               </div>
             {% endif %}
           {% when 'custom-description' %}
             {% if block.settings.description_custom != blank %}
               <div class="tp-product-detail__description mb-12.5">
                 <h2 class="tp-title mb-1.25">{{ block.settings.title_description_custom }}</h2>
-                <div class="product-description text-black">
+                <div class="product-description text-black text-black">
                   {{ block.settings.description_custom }}
                 </div>
               </div>
@@ -94,7 +94,7 @@
                 {% endif %}
               {% when 'description' %}
                 <div class="tp-product-detail__description mb-12.5 tab-content tab-content-{{ forloop.index }}  {% if forloop.first %}active{% else %}d-none{% endif %}">
-                  <div class="product-description">{{ product.description }}</div>
+                  <div class="product-description text-black">{{ product.description }}</div>
                   {% assign imgDesc = block.settings.image_description %}
                   {% if imgDesc != blank %}
                     <img
@@ -110,7 +110,7 @@
               {% when 'custom-description' %}
                 {% if block.settings.description_custom != blank %}
                   <div class="tp-product-detail__description mb-12.5 tab-content tab-content-{{ forloop.index }}  {% if forloop.first %}active{% else %}d-none{% endif %}">
-                    <div class="product-description">{{ block.settings.description_custom }}</div>
+                    <div class="product-description text-black">{{ block.settings.description_custom }}</div>
                     {% assign imgDesc = block.settings.image_description %}
                     {% if imgDesc != blank %}
                       <img
@@ -126,7 +126,7 @@
                 {% endif %}
               {% when 'custom' %}
                 <div class="tp-product-detail__description mb-12.5 tab-content tab-content-{{ forloop.index }}  {% if forloop.first %}active{% else %}d-none{% endif %}">
-                  <div class="product-description">
+                  <div class="product-description text-black">
                     {{ block.settings.custom_liquid }}
                   </div>
                   {% assign imgDesc = block.settings.image_description %}
