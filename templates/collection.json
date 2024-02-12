@@ -30,7 +30,7 @@
         "description_viewless": "View Less",
         "product_item_layout": "use_global",
         "item_direction_prd_top": "use_global",
-        "enable_filtering": true,
+        "enable_filtering": false,
         "filter_type": "vertical",
         "collection_list": [
 
