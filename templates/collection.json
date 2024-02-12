@@ -20,8 +20,8 @@
       "settings": {
         "width_layout": "container",
         "column_number": "1",
-        "products_per_page": 3,
-        "fsize_scale": 115,
+        "products_per_page": 6,
+        "fsize_scale": 100,
         "show_description": false,
         "is_collapse_description": true,
         "display_position": "top",
