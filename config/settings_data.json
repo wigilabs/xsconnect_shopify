@@ -292,7 +292,6 @@
         "blocks": {
           "menu_category_qfDFHQ": {
             "type": "menu_category",
-            "disabled": true,
             "settings": {
               "heading": "Fruits & Vegetables",
               "menu_categories_target": "",
@@ -347,12 +346,12 @@
           "text_menu_cate": "All categories",
           "menu_categories_bg": "#ff47a4",
           "menu_categories_text_color": "#ffffff",
-          "text_btn_1": "Button 1",
+          "text_btn_1": "",
           "link_btn_1": "",
-          "text_btn_2": "Button 2",
+          "text_btn_2": "",
           "link_btn_2": "",
-          "text_label_btn_2": "Hot",
-          "menu_mobile": "",
+          "text_label_btn_2": "",
+          "menu_mobile": "main-menu",
           "margin_bottom_desktop": 0,
           "margin_bottom_table": 0,
           "margin_bottom_mobile": 0
