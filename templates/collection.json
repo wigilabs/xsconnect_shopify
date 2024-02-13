@@ -41,7 +41,6 @@
         "pagination_type": "loadmore",
         "type_load_more": "scroll",
         "show_sidebar_banner": false,
-        "image_banner": "shopify:\/\/shop_images\/banner_gradient.png",
         "title_content": "Content",
         "description_content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         "title_collection": "Featured collection",
