@@ -30,7 +30,7 @@
         "description_viewless": "View Less",
         "product_item_layout": "use_global",
         "item_direction_prd_top": "use_global",
-        "enable_filtering": false,
+        "enable_filtering": true,
         "filter_type": "vertical",
         "collection_list": [
 
@@ -40,7 +40,7 @@
         "enable_apply_button": false,
         "pagination_type": "pagination",
         "type_load_more": "scroll",
-        "show_sidebar_banner": false,
+        "show_sidebar_banner": true,
         "title_content": "Content",
         "description_content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         "title_collection": "Featured collection",
