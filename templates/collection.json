@@ -23,7 +23,7 @@
         "products_per_page": 6,
         "fsize_scale": 100,
         "show_description": false,
-        "is_collapse_description": false,
+        "is_collapse_description": true,
         "display_position": "top",
         "description_max_height": 100,
         "description_viewmore": "View More",
