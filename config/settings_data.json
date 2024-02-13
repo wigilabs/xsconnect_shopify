@@ -292,6 +292,7 @@
         "blocks": {
           "menu_category_qfDFHQ": {
             "type": "menu_category",
+            "disabled": true,
             "settings": {
               "heading": "Fruits & Vegetables",
               "menu_categories_target": "",
