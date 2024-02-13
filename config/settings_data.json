@@ -47,6 +47,7 @@
     "fw_prd_price_compare": 400,
     "prd_color_price_compare": "#f5583e",
     "np_show": "hidden_popup",
+    "np_popup_timeout": 60,
     "column_number": "3",
     "sections": {
       "announcement-bar": {
@@ -216,7 +217,7 @@
         "settings": {
           "display_someone-purchased_mb": false,
           "show_someone-purchased": "left",
-          "someone_speed": "7",
+          "someone_speed": "180",
           "text": "Someone recently bought a",
           "time_location_text": "[time] minutes ago, from [location]"
         }
@@ -289,14 +290,7 @@
       "header-design-1": {
         "type": "header-design-1",
         "blocks": {
-          "menu_normal_R49G6T": {
-            "type": "menu_normal",
-            "settings": {
-              "title_menu": "hgfghhgfghghhhhggggh",
-              "title_menu_url": ""
-            }
-          },
-          "menu_category_8j9AUW": {
+          "menu_category_qfDFHQ": {
             "type": "menu_category",
             "settings": {
               "heading": "Fruits & Vegetables",
@@ -304,28 +298,60 @@
               "url_category": "",
               "column_sub_menu": "col-1"
             }
+          },
+          "menu_normal_R49G6T": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "Home",
+              "title_menu_url": "\/"
+            }
+          },
+          "menu_normal_QhEmrN": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "Products",
+              "title_menu_url": "shopify:\/\/collections\/prueba"
+            }
+          },
+          "menu_normal_CzJzHH": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "About us",
+              "title_menu_url": "\/"
+            }
+          },
+          "menu_normal_DETiRt": {
+            "type": "menu_normal",
+            "settings": {
+              "title_menu": "Contact us",
+              "title_menu_url": "shopify:\/\/pages\/contact"
+            }
           }
         },
         "block_order": [
+          "menu_category_qfDFHQ",
           "menu_normal_R49G6T",
-          "menu_category_8j9AUW"
+          "menu_normal_QhEmrN",
+          "menu_normal_CzJzHH",
+          "menu_normal_DETiRt"
         ],
         "settings": {
-          "menu_bg": "#fff",
+          "menu_bg": "#ffffff",
+          "logo": "shopify:\/\/shop_images\/logo_xs_connect.png",
           "phone_number": "+123 4567 890",
-          "menu_bg_nav": "#a42a68",
-          "menu_text_nav": "#fff",
+          "menu_bg_nav": "#d63888",
+          "menu_text_nav": "#ffffff",
           "show_line_separator": false,
           "enable_sticky_header": false,
-          "text_menu_cate": "Browse categories",
-          "menu_categories_bg": "#d63888",
+          "text_menu_cate": "All categories",
+          "menu_categories_bg": "#ff47a4",
           "menu_categories_text_color": "#ffffff",
-          "text_btn_1": "Button 1",
+          "text_btn_1": "",
           "link_btn_1": "",
-          "text_btn_2": "Button 2",
+          "text_btn_2": "",
           "link_btn_2": "",
-          "text_label_btn_2": "Hot",
-          "menu_mobile": "",
+          "text_label_btn_2": "",
+          "menu_mobile": "main-menu",
           "margin_bottom_desktop": 0,
           "margin_bottom_table": 0,
           "margin_bottom_mobile": 0

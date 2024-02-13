@@ -104,3 +104,30 @@
 .tp-box-button__style-1 .active{
   color: #d63888!important;
 }
+.card__content .prd-item-atc .add-to-cart-text svg{
+  fill:#FBA242!important;
+}
+.card__content .prd-item-atc:hover  .add-to-cart-text svg{
+  fill:#FFF!important;
+}
+.card__content .prd-item-atc:hover {
+  background-color:#FBA242!important;
+}
+.price .price-item{
+  font-weight: 700!important;
+}
+.card .price-item {
+    color: #000000!important;
+}
+.card .product-item-badge{
+  background-color:#FBA242!important;
+}
+.card-wrapper__layout-2 .add-to-cart-text svg {
+    fill: #fff!important;
+}
+.card-wrapper__layout-2 .card__inner {
+    border-right: 1px solid #DEDEDE!important;
+}
+.card-wrapper__layout-2:hover .card__inner {
+    border-right: 1px solid #d63888!important;
+}
