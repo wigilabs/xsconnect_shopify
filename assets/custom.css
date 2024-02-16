@@ -131,3 +131,7 @@
 .card-wrapper__layout-2:hover .card__inner {
     border-right: 1px solid #d63888!important;
 }
+.drawer__contents .cart-item__details .product-option{
+  color: #000000!important;
+  font-weight: bold!important;
+}
