@@ -48,6 +48,9 @@
     "prd_color_price_compare": "#f5583e",
     "np_show": "hidden_popup",
     "np_popup_timeout": 60,
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_xs_connect.png",
+    "checkout_accent_color": "#a42a68",
+    "checkout_button_color": "#d63888",
     "column_number": "3",
     "sections": {
       "announcement-bar": {
