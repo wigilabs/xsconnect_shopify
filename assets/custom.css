@@ -135,3 +135,7 @@
   color: #000000!important;
   font-weight: bold!important;
 }
+.btn-go-cart{
+  border: var(--border-width-btn) solid #d63888;
+  color: #d63888;
+}
