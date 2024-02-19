@@ -55,7 +55,7 @@
                   class="tp-title-tabs tab-links relative{% if forloop.first %} active{% endif %}"
                   data-tab-index="{{ forloop.index }}"
                 >
-                  {{ 'products.product.product_description' | t }}
+                  {{ block.settings.name_tab_description }}
                 </button>
               {% when 'custom-description' %}
                 <button
@@ -234,7 +234,15 @@ body p {
     {
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "name_tab_description",
+          "label": "Description tab name",
+          "default": "Description"
+        }
+      ]
     },
     {
       "type": "custom-description",
