@@ -145,3 +145,6 @@
 .font-normal{
   font-weight: 300!important;
 }
+.tp-cart .btn_continue {
+    color: #d63888!important;
+}
