@@ -142,3 +142,6 @@
 .product-grid__head {
     border-bottom: 1px solid #EAEAEA!important;
 }
+.font-normal{
+  font-weight: 300!important;
+}
