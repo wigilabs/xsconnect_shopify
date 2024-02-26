@@ -122,7 +122,7 @@
                               <div class="visually-hidden">
                                 {{ 'products.product.price.sale_price' | t }}
                               </div>
-                              <span class="price price--end price__cart">
+                              <span class="price price--end price__cart name-product">
                                 {{ item.final_price | money }}
                               </span>
                             </div>
@@ -142,7 +142,7 @@
                               </div>
                             {%- endif -%}
                           {%- else -%}
-                            <span class="price price--end price__cart">
+                            <span class="price price--end price__cart name-product">
                               {{ item.original_price | money }}
                             </span>
                           {%- endif -%}
