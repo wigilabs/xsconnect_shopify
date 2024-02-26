@@ -3,9 +3,14 @@
     "1660028901f2520ecf": {
       "type": "breadcrumb",
       "settings": {
-        "position_bread_crumb": "left",
-        "pbs_collection": "first",
+        "width_layout": "container",
+        "background_image": "shopify:\/\/shop_images\/Image_slider_1.png",
         "color_background": "#f3f3f3",
+        "color_content": "#fff",
+        "show_page_title": true,
+        "position_bread_crumb": "center-bottom",
+        "pbs_collection": "first",
+        "show_image_collection": false,
         "margin_bottom_desktop": 50,
         "margin_bottom_table": 30,
         "margin_bottom_mobile": 20
@@ -16,18 +21,21 @@
       "blocks": {
         "d19bec52-a167-416f-baa8-327e7006af2d": {
           "type": "subtotal",
-          "settings": {}
+          "settings": {
+          }
         },
         "68856f2e-255d-4ec4-b847-287a50e6d68e": {
           "type": "buttons",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [
         "d19bec52-a167-416f-baa8-327e7006af2d",
         "68856f2e-255d-4ec4-b847-287a50e6d68e"
       ],
-      "settings": {}
+      "settings": {
+      }
     }
   },
   "order": [
