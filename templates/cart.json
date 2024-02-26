@@ -8,7 +8,7 @@
         "color_background": "#f3f3f3",
         "color_content": "#fff",
         "show_page_title": true,
-        "position_bread_crumb": "center-bottom",
+        "position_bread_crumb": "center-middle",
         "pbs_collection": "first",
         "show_image_collection": false,
         "margin_bottom_desktop": 50,
