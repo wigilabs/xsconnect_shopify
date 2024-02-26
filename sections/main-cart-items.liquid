@@ -68,7 +68,9 @@
                           <div class="tp-cart__item-product">
                             <div class="tp-cart__item-product-info">
                               <div class="tp-cart__item-product-title">
-                                <a href="{{ item.url }}" class="cart-item__name">{{ item.product.title | escape }}</a>
+                                <a href="{{ item.url }}" class="cart-item__name name-product">
+                                  {{- item.product.title | escape -}}
+                                </a>
                               </div>
                               {%- if item.product.has_only_default_variant == false
                                 or item.properties.size != 0
@@ -484,7 +486,7 @@
   </form>
 </div>
 <style>
-    a {
+    .name-product {
       color: #2B3645;
   }
 </style>
