@@ -139,3 +139,6 @@
   border: var(--border-width-btn) solid #d63888;
   color: #d63888;
 }
+.product-grid__head {
+    border-bottom: 1px solid #EAEAEA!important;
+}
