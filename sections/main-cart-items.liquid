@@ -342,14 +342,14 @@
           id="main-cart-footer"
           data-id="{{ section.id }}"
         >
-          <h2 class="tp-cart__right__title mb-5">{{ 'general.cart.order_summary' | t }}</h2>
+          <h2 class="tp-cart__right__title mb-5 name-product">{{ 'general.cart.order_summary' | t }}</h2>
           <div class="cart__right">
             {%- if settings.show_shipping -%}
               {% render 'shipping-calculator', customer: customer %}
             {%- endif -%}
             {%- if settings.show_note -%}
               <cart-note class="cart__note field">
-                <h5 class="mb-5" for="Cart-note">{{ 'sections.cart.note' | t }}</h5>
+                <h5 class="mb-5 name-product" for="Cart-note">{{ 'sections.cart.note' | t }}</h5>
                 <textarea
                   rows="3"
                   class="text-area field__input"
