@@ -33,6 +33,20 @@
             "image_featured_about_3": "shopify:\/\/shop_images\/iStock-1413642645.png"
           }
         },
+        "featured_about_cwWmhT": {
+          "type": "featured-about",
+          "settings": {
+            "title_featured_about_1": "Communucation",
+            "desc_featured_about_1": "<p>By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send.<\/p>",
+            "image_featured_about_1": "shopify:\/\/shop_images\/iStock-1467826047.png",
+            "title_featured_about_2": "Communucation",
+            "desc_featured_about_2": "<p>By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send.<\/p>",
+            "image_featured_about_2": "shopify:\/\/shop_images\/iStock-1454530389.png",
+            "title_featured_about_3": "Communucation",
+            "desc_featured_about_3": "<p>By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send.<\/p>",
+            "image_featured_about_3": "shopify:\/\/shop_images\/iStock-1457011366.png"
+          }
+        },
         "c1e405bc-79b8-4cae-b321-bb4ce1f73937": {
           "type": "avatar",
           "settings": {
@@ -52,6 +66,7 @@
       },
       "block_order": [
         "14ad217f-9734-4bbc-bae0-417cdeaafa4d",
+        "featured_about_cwWmhT",
         "c1e405bc-79b8-4cae-b321-bb4ce1f73937"
       ],
       "settings": {
