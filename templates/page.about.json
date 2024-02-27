@@ -4,6 +4,7 @@
       "type": "breadcrumb",
       "settings": {
         "width_layout": "container",
+        "background_image": "shopify:\/\/shop_images\/Image_slider_1.png",
         "color_background": "rgba(0,0,0,0)",
         "color_content": "#ffffff",
         "show_page_title": true,
@@ -23,28 +24,24 @@
           "settings": {
             "title_featured_about_1": "What we really do?",
             "desc_featured_about_1": "<p>Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.<\/p>",
-            "image_featured_about_1": "shopify:\/\/shop_images\/about-us-1.jpg",
+            "image_featured_about_1": "shopify:\/\/shop_images\/iStock-1491196684.png",
             "title_featured_about_2": "Our Vision",
             "desc_featured_about_2": "<p>Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.<\/p>",
-            "image_featured_about_2": "shopify:\/\/shop_images\/about-us-2.jpg",
+            "image_featured_about_2": "shopify:\/\/shop_images\/iStock-1449248201.png",
             "title_featured_about_3": "History of Beginning",
             "desc_featured_about_3": "<p>Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.<\/p>",
-            "image_featured_about_3": "shopify:\/\/shop_images\/about-us-1.jpg"
+            "image_featured_about_3": "shopify:\/\/shop_images\/iStock-1413642645.png"
           }
         },
         "c1e405bc-79b8-4cae-b321-bb4ce1f73937": {
           "type": "avatar",
           "settings": {
-            "image_avatar_1": "shopify:\/\/shop_images\/employee-1.png",
             "name_avatar_1": "Thomas Snow",
             "job_avatar_1": "CEO\/Founder",
-            "image_avatar_2": "shopify:\/\/shop_images\/employee-2.png",
             "name_avatar_2": "Thomas Snow",
             "job_avatar_2": "CEO\/Founder",
-            "image_avatar_3": "shopify:\/\/shop_images\/employee-3.png",
             "name_avatar_3": "Thomas Snow",
             "job_avatar_3": "CEO\/Founder",
-            "image_avatar_4": "shopify:\/\/shop_images\/employee-4.png",
             "name_avatar_4": "Thomas Snow",
             "job_avatar_4": "CEO\/Founder"
           }
