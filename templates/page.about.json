@@ -19,23 +19,6 @@
     "main": {
       "type": "tp-about",
       "blocks": {
-        "c1e405bc-79b8-4cae-b321-bb4ce1f73937": {
-          "type": "avatar",
-          "disabled": true,
-          "settings": {
-            "image_avatar_1": "shopify:\/\/shop_images\/image_35.png",
-            "name_avatar_1": "Thomas Snow",
-            "job_avatar_1": "CEO\/Founder",
-            "image_avatar_2": "shopify:\/\/shop_images\/image_34.png",
-            "name_avatar_2": "Thomas Snow",
-            "job_avatar_2": "CEO\/Founder",
-            "image_avatar_3": "shopify:\/\/shop_images\/image_33.png",
-            "name_avatar_3": "Thomas Snow",
-            "job_avatar_3": "CEO\/Founder",
-            "name_avatar_4": "",
-            "job_avatar_4": ""
-          }
-        },
         "featured_about_KcBrqR": {
           "type": "featured-about",
           "settings": {
@@ -52,7 +35,6 @@
         }
       },
       "block_order": [
-        "c1e405bc-79b8-4cae-b321-bb4ce1f73937",
         "featured_about_KcBrqR"
       ],
       "settings": {
