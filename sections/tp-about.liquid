@@ -120,7 +120,7 @@
                   <h2 class="tp-block-title mb-2.5">{{ block.settings.title_featured_about_1 }}</h2>
                 {% endif %}
                 {% if block.settings.desc_featured_about_1 %}
-                  <div class="tp-about-desc">
+                  <div class="tp-about-desc fix-desc">
                     {{ block.settings.desc_featured_about_1 }}
                   </div>
                 {% endif %}
@@ -142,7 +142,7 @@
                   <h2 class="tp-block-title mb-2.5">{{ block.settings.title_featured_about_2 }}</h2>
                 {% endif %}
                 {% if block.settings.desc_featured_about_2 %}
-                  <div class="tp-about-desc">
+                  <div class="tp-about-desc fix-desc">
                     {{ block.settings.desc_featured_about_2 }}
                   </div>
                 {% endif %}
@@ -164,7 +164,7 @@
                   <h2 class="tp-block-title mb-2.5">{{ block.settings.title_featured_about_3 }}</h2>
                 {% endif %}
                 {% if block.settings.desc_featured_about_3 %}
-                  <div class="tp-about-desc">
+                  <div class="tp-about-desc fix-desc">
                     {{ block.settings.desc_featured_about_3 }}
                   </div>
                 {% endif %}
@@ -175,7 +175,14 @@
     {% endfor %}
   </div>
 </div>
-
+<style>
+  .fix-desc{
+    border: 0px solid transparent!important;
+    width: 400px!important;
+    margin: 0%!important;
+    padding: 0%!important;
+  }
+</style>
 {% schema %}
 {
   "name": "tp-about",
