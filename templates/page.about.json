@@ -39,72 +39,10 @@
       ],
       "settings": {
       }
-    },
-    "0f202fc1-51fe-4f94-825c-1b4c111a4ef9": {
-      "type": "FAQ",
-      "blocks": {
-        "bd7905cb-ec81-48cf-a0fd-3100e718274b": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Lorem ipsum dolor sit amet",
-            "ask": "<p>Lorem ipsum dolor sit amet<\/p>"
-          }
-        },
-        "08edfe5f-cd33-47c2-96f4-5f77ecbe1e12": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Lorem ipsum dolor sit amet",
-            "ask": "<p>Lorem ipsum dolor sit amet<\/p>"
-          }
-        },
-        "dbce5019-59bd-4270-b5a3-ce0f6b36aa15": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Lorem ipsum dolor sit amet",
-            "ask": "<p>Lorem ipsum dolor sit amet<\/p>"
-          }
-        },
-        "7f9359a6-5a85-4d56-a23d-31208dd7d6df": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Lorem ipsum dolor sit amet",
-            "ask": "<p>Lorem ipsum dolor sit amet<\/p>"
-          }
-        },
-        "fca87f08-34b3-4ae7-bc08-7b9f019a670b": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Lorem ipsum dolor sit amet",
-            "ask": "<p>Lorem ipsum dolor sit amet<\/p>"
-          }
-        },
-        "a9868f81-ed63-44a8-ac30-6834ac1f2f4e": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Lorem ipsum dolor sit amet",
-            "ask": "<p>Lorem ipsum dolor sit amet<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "bd7905cb-ec81-48cf-a0fd-3100e718274b",
-        "08edfe5f-cd33-47c2-96f4-5f77ecbe1e12",
-        "dbce5019-59bd-4270-b5a3-ce0f6b36aa15",
-        "7f9359a6-5a85-4d56-a23d-31208dd7d6df",
-        "fca87f08-34b3-4ae7-bc08-7b9f019a670b",
-        "a9868f81-ed63-44a8-ac30-6834ac1f2f4e"
-      ],
-      "settings": {
-        "type_faqs": "faqs_type2",
-        "margin_bottom_desktop": 50,
-        "margin_bottom_table": 40,
-        "margin_bottom_mobile": 30
-      }
     }
   },
   "order": [
     "16588012130153d954",
-    "main",
-    "0f202fc1-51fe-4f94-825c-1b4c111a4ef9"
+    "main"
   ]
 }
