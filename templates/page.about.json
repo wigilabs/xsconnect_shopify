@@ -35,10 +35,25 @@
             "name_avatar_4": "",
             "job_avatar_4": ""
           }
+        },
+        "featured_about_KcBrqR": {
+          "type": "featured-about",
+          "settings": {
+            "title_featured_about_1": "Communucation",
+            "desc_featured_about_1": "<p>XS Connect is an online store with a focus on delivering product as fast and cost effectively as possible. We stock and resell network components such as Fibre Optic Transceivers, Patch Cables, Ethernet Cables and Data center cables.<\/p>",
+            "image_featured_about_1": "shopify:\/\/shop_images\/iStock-1491196684.png",
+            "title_featured_about_2": "Communucation",
+            "desc_featured_about_2": "<p>XS Connect stocks brand new and used vendor optics, from most major IT network vendors. We buy these in bulk, ensuring competitive prices and an adequate stock holding in our warehouse in Sydney, Australia. All vendor optics are purchased from trusted sources and undergo rigorous authenticity checks prior to resale.<\/p>",
+            "image_featured_about_2": "shopify:\/\/shop_images\/iStock-1449248201.png",
+            "title_featured_about_3": "Communucation",
+            "desc_featured_about_3": "<p>Blue Cable Co - XS Connect is the sole distributor of Blue Cable Co (BCC) products (www.bluecableco.com). BCC offers compatible Fibre Optic Transceivers, coded to work with all major network vendor devices. BCC also offers Fibre Optic Patch Cables, Ethernet Cables and other Data center cables such as Power and Console Cables.<\/p>",
+            "image_featured_about_3": "shopify:\/\/shop_images\/iStock-1413642645.png"
+          }
         }
       },
       "block_order": [
-        "c1e405bc-79b8-4cae-b321-bb4ce1f73937"
+        "c1e405bc-79b8-4cae-b321-bb4ce1f73937",
+        "featured_about_KcBrqR"
       ],
       "settings": {
       }
