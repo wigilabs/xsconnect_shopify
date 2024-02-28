@@ -49,6 +49,7 @@
         },
         "c1e405bc-79b8-4cae-b321-bb4ce1f73937": {
           "type": "avatar",
+          "disabled": true,
           "settings": {
             "image_avatar_1": "shopify:\/\/shop_images\/image_35.png",
             "name_avatar_1": "Thomas Snow",
