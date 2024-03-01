@@ -9,7 +9,7 @@
         {% when 'form' %}
           <div class="tp-contact__form mb-10 md:mb-0">
             {%- if block.settings.heading != blank -%}
-              <h1 class="title">{{ block.settings.heading | escape }}</h1>
+              <h1 class="title text-black">{{ block.settings.heading | escape }}</h1>
             {%- else -%}
               <h1 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h1>
             {%- endif -%}
