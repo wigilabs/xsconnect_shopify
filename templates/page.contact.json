@@ -38,7 +38,7 @@
             "info_description": "",
             "label_phone": "Phone",
             "number_phone": "<p>(800) 8001-8588<\/p>",
-            "label_address": "",
+            "label_address": "Address",
             "address": "",
             "label_email": "Email",
             "address_email": "<p>support@email.com<\/p>"
