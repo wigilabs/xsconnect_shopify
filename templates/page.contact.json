@@ -38,8 +38,8 @@
             "info_description": "",
             "label_phone": "Phone",
             "number_phone": "<p>(800) 8001-8588<\/p>",
-            "label_address": "Address",
-            "address": "<p>Headquaters: Bondi Beach, NSW, Australia<\/p><p>Warehouse: Botany, NSW, Australia<br\/><\/p>",
+            "label_address": "",
+            "address": "",
             "label_email": "Email",
             "address_email": "<p>support@email.com<\/p>"
           }

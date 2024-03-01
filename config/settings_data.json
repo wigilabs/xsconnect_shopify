@@ -320,7 +320,7 @@
             "type": "menu_normal",
             "settings": {
               "title_menu": "About us",
-              "title_menu_url": "\/"
+              "title_menu_url": "shopify:\/\/pages\/about-us"
             }
           },
           "menu_normal_DETiRt": {
