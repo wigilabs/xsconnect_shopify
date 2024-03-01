@@ -158,3 +158,6 @@
 .tp-contact__info .content-item .content-label{
   font-weight: bold!important;
 }
+.tp-contact__info .content-item svg path {
+    fill: #ffffff !important;
+}
