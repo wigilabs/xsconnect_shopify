@@ -155,6 +155,6 @@
 .tp-btn__primary {
   text-transform: uppercase!important;
 }
-..tp-contact__info .content-item .content-label{
+.tp-contact__info .content-item .content-label{
   font-weight: bold!important;
 }
