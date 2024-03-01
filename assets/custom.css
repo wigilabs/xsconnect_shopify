@@ -146,5 +146,9 @@
   font-weight: 300!important;
 }
 .tp-cart .btn_continue {
-    color: #d63888!important;
+  color: #d63888!important;
+}
+.tp-contact__form .field__input{
+  border: 1px solid #C8C8C8!important;
+  border-radius: 38px!important;
 }
