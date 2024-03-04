@@ -159,5 +159,5 @@
   font-weight: bold!important;
 }
 .tp-contact__info .content-item svg path {
-    fill: #ffffff !important;
+    fill: transparent !important;
 }
