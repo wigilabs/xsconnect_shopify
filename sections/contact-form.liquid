@@ -116,7 +116,7 @@
             {% if block.settings.address != blank %}
               <div class="content-item">
                 {% render 'icon', icon_name: 'pin-address', width: 30, height: 30 %}
-                <div class="content-item__wrapper">
+                <div class="content-item__wrapper" style="margin-top: 10px;">
                   <span class="content-label text-black text-contact-footer">{{ block.settings.label_address }}</span>
                   <div class="content-value">
                     {{ block.settings.address }}
@@ -127,7 +127,7 @@
             {% if block.settings.address_email != blank %}
               <div class="content-item">
                 {% render 'icon', icon_name: 'icon--mail--contact', width: 30, height: 30 %}
-                <div class="content-item__wrapper">
+                <div class="content-item__wrapper" style="margin-top: 10px;">
                   <span class="content-label text-black text-contact-footer">{{ block.settings.label_email }}</span>
                   <div class="content-value">
                     {{ block.settings.address_email }}
@@ -138,7 +138,7 @@
             {% if block.settings.number_phone != blank %}
               <div class="content-item">
                 {% render 'icon', icon_name: 'icon--phone', width: 30, height: 30 %}
-                <div class="content-item__wrapper">
+                <div class="content-item__wrapper" style="margin-top: 10px;">
                   <span class="content-label text-black text-contact-footer">{{ block.settings.label_phone }}</span>
                   <div class="content-value">
                     {{ block.settings.number_phone }}
