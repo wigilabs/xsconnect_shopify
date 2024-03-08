@@ -100,9 +100,8 @@
                   endif
                 %}
 
-                <div class="tp-image-card__content absolute {{ contentPosition }} {{ classTextAlign }}" style="display:flex;">
+                <div class="tp-image-card__content absolute {{ contentPosition }} {{ classTextAlign }}">
                   {% if block.settings.title != blank %}
-                    
                     <div class="tp-content-banner {% if block.settings.button_label != blank %}mb-3.75{% endif %} {% if  block.settings.sub_title != blank %}flex flex-col{% endif %}">
                       {% if block.settings.sub_title != blank %}
                         <div class="tp-content-sub-heading tp-content-sub-heading-{{ section.id }}-{{ forloop.index }}  inline-block">
@@ -113,25 +112,17 @@
                         {{ block.settings.title }}
                       </div>
                     </div>
-                    
                   {% endif %}
                   {% if block.settings.button_label != blank %}
                   {% endif %}
-                  
-                 <div class="container">
-                  
+                <div class="container">
                   <div class="tp-btn {{ block.settings.button_type }} button-baner-card">
                     {{ block.settings.button_label }}
-                  </div>
-                  
                 </div>
-                  
                 </div>
-                
+                </div>
               </a>
-              
             </div>
-            
           </div>
       {% endcase %}
     {% endfor %}
