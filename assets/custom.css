@@ -164,3 +164,6 @@
 .tp-about__featured__item {
     border: 0px solid var(--color-border)!important;
 }
+.tp-contact__info .content-item {
+    border: 1px solid  #DEDEDE!important;
+}
