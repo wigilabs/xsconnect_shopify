@@ -161,3 +161,6 @@
 .tp-contact__info .content-item svg path {
     fill: transparent !important;
 }
+.tp-about__featured__item {
+    border: 0px solid var(--color-border)!important;
+}
