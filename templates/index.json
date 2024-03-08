@@ -151,7 +151,7 @@
         "sliders_perview": "4",
         "title_banner": "Super deals",
         "sale_off": 50,
-        "background_banner_1": "#D73B86",
+        "background_banner_1": "#d73b86",
         "background_banner": "#f5583e",
         "product_banner": "",
         "show_status_bar": true,
@@ -164,7 +164,7 @@
         "position_collection": "position_left",
         "product_item_layout": "use_global",
         "item_direction_prd_top": "use_global",
-        "color_background_image": "transparent",
+        "color_background_image": "rgba(0,0,0,0)",
         "type_button": "normal",
         "text_button": "Shop now",
         "button_type": "tp-btn__primary",
@@ -240,7 +240,7 @@
         "template--18654138204463__72b4321d-3958-4fb4-9be3-9a639cc5f5f2-168148759171d9acf2-0": {
           "type": "item",
           "settings": {
-            "content_position": "content-center-left",
+            "content_position": "content-center-right",
             "content_alignment": "left",
             "hover_item": "none",
             "use_effect_hover": true,
