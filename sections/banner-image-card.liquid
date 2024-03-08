@@ -101,25 +101,36 @@
 
                 <div class="tp-image-card__content absolute {{ contentPosition }} {{ classTextAlign }}">
                   {% if block.settings.title != blank %}
+                    
                     <div class="tp-content-banner {% if block.settings.button_label != blank %}mb-3.75{% endif %} {% if  block.settings.sub_title != blank %}flex flex-col{% endif %}">
+                      
                       {% if block.settings.sub_title != blank %}
                         <div class="tp-content-sub-heading tp-content-sub-heading-{{ section.id }}-{{ forloop.index }}  inline-block">
                           {{ block.settings.sub_title }}
                         </div>
                       {% endif %}
+                      
                       <div class="tp-content-heading tp-content-heading-{{ section.id }}-{{ forloop.index }} inline-block">
                         {{ block.settings.title }}
                       </div>
+                      
                     </div>
                   {% endif %}
+                  
                   {% if block.settings.button_label != blank %}
+                     <div class="tp-image-card__content absolute {{ contentPosition }} {{ classTextAlign }}">
                     <div class="tp-btn {{ block.settings.button_type }}">
                       {{ block.settings.button_label }}
                     </div>
+                    </div>
                   {% endif %}
+                  
                 </div>
+                
               </a>
+              
             </div>
+            
           </div>
       {% endcase %}
     {% endfor %}
