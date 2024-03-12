@@ -17,7 +17,7 @@
           <select
             id="address_province"
             name="address[province]"
-            data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"
+            data-default={{ customer.default_address.province }}"
           ></select>
         </p>
         <p class="field flex-1">
