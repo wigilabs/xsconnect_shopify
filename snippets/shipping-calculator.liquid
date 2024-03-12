@@ -1,4 +1,3 @@
-{{ "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" | script_tag }} 
 {% unless settings.shipping_calculator == 'Disabled' %}
   <div id="shipping-calculator" class="tp-shipping-calculator">
     <h5 class="mb-5">{{ settings.shipping_calculator_heading | default: 'Get shipping estimates' }}</h5>
