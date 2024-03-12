@@ -1,105 +1,24 @@
-<script>
-  const selectors = {
-    customerAddresses: '[data-customer-addresses]',
-    addressCountrySelect: '[data-address-country-select]',
-    addressContainer: '[data-address]',
-    toggleAddressButton: 'button[aria-expanded]',
-    cancelAddressButton: 'button[type="reset"]',
-    deleteAddressButton: 'button[data-confirm-message]',
-  };
-  const attributes = {
-    expanded: 'aria-expanded',
-    confirmMessage: 'data-confirm-message',
-  };
-  class CustomerAddresses {
-    constructor() {
-      this.elements = this._getElements();
-      if (Object.keys(this.elements).length === 0) return;
-      this._setupCountries();
-      this._setupEventListeners();
-    }
-    _getElements() {
-      const container = document.querySelector(selectors.customerAddresses);
-      return container
-        ? {
-            container,
-            addressContainer: container.querySelector(selectors.addressContainer),
-            toggleButtons: document.querySelectorAll(selectors.toggleAddressButton),
-            cancelButtons: container.querySelectorAll(selectors.cancelAddressButton),
-            deleteButtons: container.querySelectorAll(selectors.deleteAddressButton),
-            countrySelects: container.querySelectorAll(selectors.addressCountrySelect),
-          }
-        : {};
-    }
-    _setupCountries() {
-      if (Shopify && Shopify.CountryProvinceSelector) {
-        // eslint-disable-next-line no-new
-        new Shopify.CountryProvinceSelector('AddressCountryNew', 'AddressProvinceNew', {
-          hideElement: 'AddressProvinceContainerNew',
-        });
-        this.elements.countrySelects.forEach((select) => {
-          const formId = select.dataset.formId;
-          // eslint-disable-next-line no-new
-          new Shopify.CountryProvinceSelector(`AddressCountry_${formId}`, `AddressProvince_${formId}`, {
-            hideElement: `AddressProvinceContainer_${formId}`,
-          });
-        });
-      }
-    }
-    _setupEventListeners() {
-      this.elements.toggleButtons.forEach((element) => {
-        element.addEventListener('click', this._handleAddEditButtonClick);
-      });
-      this.elements.cancelButtons.forEach((element) => {
-        element.addEventListener('click', this._handleCancelButtonClick);
-      });
-      this.elements.deleteButtons.forEach((element) => {
-        element.addEventListener('click', this._handleDeleteButtonClick);
-      });
-    }
-    _toggleExpanded(target) {
-      target.setAttribute(attributes.expanded, (target.getAttribute(attributes.expanded) === 'false').toString());
-    }
-    _handleAddEditButtonClick = ({ currentTarget }) => {
-      this._toggleExpanded(currentTarget);
-    };
-    _handleCancelButtonClick = ({ currentTarget }) => {
-      this._toggleExpanded(currentTarget.closest(selectors.addressContainer).querySelector(`[${attributes.expanded}]`));
-    };
-    _handleDeleteButtonClick = ({ currentTarget }) => {
-      // eslint-disable-next-line no-alert
-      if (confirm(currentTarget.getAttribute(attributes.confirmMessage))) {
-        Shopify.postLink(currentTarget.dataset.target, {
-          parameters: { _method: 'delete' },
-        });
-      }
-    };
-  }
-</script>
-
 {% unless settings.shipping_calculator == 'Disabled' %}
   <div id="shipping-calculator" class="tp-shipping-calculator">
     <h5 class="mb-5 name-product">{{ settings.shipping_calculator_heading | default: 'Get shipping estimates' }}</h5>
 
     <div class="mb-5 tp-shipping-calculator__form-field">
       <p class="field-top">
-         <select
-                      id="AddressCountryNew"
-                      name="address[country]"
-                      data-default="{{ form.country }}"
-                      autocomplete="country"
-                    >
-                      {{ all_country_option_tags }}
-                    </select>
+        <select
+          id="address_country"
+          name="address[country]"
+          data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
+        >
+          {{ country_option_tags }}
+        </select>
       </p>
       <div class="field-bottom flex items-center justify-start">
         <p class="field mr-4 flex-1" id="address_province_container">
-           <select
-                      id="AddressProvinceNew"
-                      name="address[province]"
-                      data-default="{{ form.province }}"
-                      autocomplete="address-level1"
-                    ></select>
+          <select
+            id="address_province"
+            name="address[province]"
+            data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"
+          ></select>
         </p>
         <p class="field flex-1">
           <input
@@ -233,9 +152,4 @@
       });
     }
   </script>
-  <script>
-  window.onload = () => {
-    typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
-  };
-</script>
 {% endunless %}
