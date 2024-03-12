@@ -41,6 +41,8 @@
             const countryTarget = Countries[this.value];
             const countryCode = countryTarget.code;
 
+          console.log(countryTarget);
+
             if (countryTarget.province_codes) {
                 let html = '<option value="">Select province...</option>';
                 for (const [key, value] of Object.entries(countryTarget.province_codes)) {
