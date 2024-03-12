@@ -1,52 +1,49 @@
 {% unless settings.shipping_calculator == 'Disabled' %}
-<div id="shipping-calculator" class="tp-shipping-calculator">
+  <div id="shipping-calculator" class="tp-shipping-calculator">
     <h5 class="mb-5">{{ settings.shipping_calculator_heading | default: 'Get shipping estimates' }}</h5>
 
     <div class="mb-5 tp-shipping-calculator__form-field">
-        <p class="field-top">
-            <input
-                type="text"
-                id="address_country"
-                placeholder="Country"
-                name="address[country]"
-                data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
-            >
+      <p class="field-top">
+        <select
+          id="address_country"
+          name="address[country]"
+          data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
+        >
+          {{ country_option_tags }}
+        </select>
+      </p>
+      <div class="field-bottom flex items-center justify-start">
+        <p class="field mr-4 flex-1" id="address_province_container">
+          <select
+            id="address_province"
+            name="address[province]"
+            data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"
+          ></select>
         </p>
-        <div class="field-bottom flex items-center justify-start">
-            <p class="field mr-4 flex-1" id="address_province_container">
-                <input
-                    type="text"
-                    id="address_province"
-                    placeholder="Province"
-                    name="address[province]"
-                    data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"
-                >
-            </p>
-            <p class="field flex-1">
-                <input
-                    type="text"
-                    id="address_zip"
-                    placeholder="Zip code"
-                    name="address[zip]"
-                    {% if shop.customer_accounts_enabled %}
-                        value="{{ customer.default_address.zip }}"
-                    {% endif %}
-                >
-            </p>
-        </div>
-        <div class="field-btn">
-            <button
-                type="button"
-                class="get-rates tp-btn tp-btn__primary w-full"
-            >
-                {{ settings.shipping_calculator_submit_button_label | default: 'Calculate Shipping' }}
-            </button>
-        </div>
+        <p class="field flex-1">
+          <input
+            type="text"
+            id="address_zip"
+            placeholder="Zip code"
+            name="address[zip]"
+            {% if shop.customer_accounts_enabled %}
+              value="{{ customer.default_address.zip }}"
+            {% endif %}
+          >
+        </p>
+      </div>
+      <div class="field-btn">
+        <button
+          type="button"
+          class="get-rates tp-btn tp-btn__primary w-full"
+        >
+          {{ settings.shipping_calculator_submit_button_label | default: 'Calculate Shipping' }}
+        </button>
+      </div>
     </div>
 
     <div id="wrapper-response"></div>
-</div>
-
+  </div>
 
   <script async src="/services/javascripts/countries.js"></script>
 
