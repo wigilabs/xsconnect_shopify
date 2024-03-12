@@ -76,49 +76,10 @@
     };
   }
 </script>
-{% section 'breadcrumb' %}
-{%- paginate customer.addresses by 5 -%}
+
   <div class="container">
     <div class="customer addresses" data-customer-addresses>
-      <h2 class="title-body">{{ 'customer.addresses.title' | t }}</h2>
-      <svg style="display: none">
-        <symbol id="icon-caret" viewBox="0 0 10 6">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
-                  fill="currentColor">
-        </symbol>
-      </svg>
-      {%- comment -%}
-        <a href="{{ routes.account_url }}">
-            {{ 'customer.account.return' | t }}
-        </a>
-      {%- endcomment -%}
-
       <div class="customer__wrap ca-default">
-        <div class="customer__left ca-default__left">
-          <ul class="account__ul ca-default__ul">
-            <li class="account__li ca-default__li">
-              <a href="{{ routes.account_url }}">Dashboard</a>
-            </li>
-            <li class="account__li ca-default__li">
-              <a href="{{ routes.account_addresses_url }}" class="active">Addresses</a>
-            </li>
-            {%- comment -%}
-              <li class="account__li ca-default__li">
-                <a href="/pages/wishlist">Wishlist</a>
-              </li>
-              <li class="account__li ca-default__li">
-                <a href="/pages/compare">Compare</a>
-              </li>
-            {%- endcomment -%}
-            <li class="account__li ca-default__li">
-              <a href="/cart">Cart</a>
-            </li>
-            <li class="account__li ca-default__li">
-              <a href="{{ routes.account_logout_url }}">Log Out</a>
-            </li>
-          </ul>
-        </div>
         <div class="customer__right ca-default__right">
           <h2 class="product-count__text text-body">{{ 'customer.addresses.subtile' | t }}</h2>
           <div data-address class="mb-[80px]">
@@ -198,7 +159,7 @@
       </div>
     </div>
   </div>
-{%- endpaginate -%}
+
 
 <script>
   window.onload = () => {
