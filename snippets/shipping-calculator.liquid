@@ -59,35 +59,35 @@
       const addressProvinceWrapper = shippingCart.querySelector('#address_province_container');
 
       if (addressCountry) {
-         var dataDefault = addressCountry.getAttribute('data-default');
-        if(dataDefault == ''){
-           addressCountry.value = 'United States'
+        // var dataDefault = addressCountry.getAttribute('data-default');
+        // if(dataDefault == ''){
+        //   addressCountry.value = 'United States'
 
-           const dataProvinceUnitedStates = Object.values(Countries)[231].province_codes
+        //   const dataProvinceUnitedStates = Object.values(Countries)[231].province_codes
 
-           var provinceKey = Object.keys(dataProvinceUnitedStates)
-           var provinceValue = Object.values(dataProvinceUnitedStates)
+        //   var provinceKey = Object.keys(dataProvinceUnitedStates)
+        //   var provinceValue = Object.values(dataProvinceUnitedStates)
 
-           let html = ''
-           provinceKey.forEach(function(item){
-             html += `
-                 <option value="">${item}</option>
-              `
-           })
+        //   let html = ''
+        //   provinceKey.forEach(function(item){
+        //     html += `
+        //         <option value="">${item}</option>
+        //       `
+        //   })
 
-             dataProvinces.innerHTML = html
+        //     dataProvinces.innerHTML = html
 
-            var optionAddressProvince = dataProvinces.querySelectorAll('option');
-             optionAddressProvince.forEach(function(item){
-               console.log(item);
-               provinceValue.forEach(function(itemValue){
-                 console.log(itemValue);
-                 item.setAttribute('value', `${itemValue}`)
-               })
+        //     var optionAddressProvince = dataProvinces.querySelectorAll('option');
+        //     optionAddressProvince.forEach(function(item){
+        //       console.log(item);
+        //       provinceValue.forEach(function(itemValue){
+        //         console.log(itemValue);
+        //         item.setAttribute('value', `${itemValue}`)
+        //       })
 
-             })
+        //     })
 
-         }
+        // }
 
         addressCountry.addEventListener('change', function (e) {
           const countryTarget = Countries[this.value];
