@@ -17,7 +17,8 @@
           <select
             id="address_province"
             name="address[province]"
-            data-default="{{ customer.default_address.province }}"
+             data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.province }}{% elsif settings.shipping_calculator_default_province != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
+        
           ></select>
         </p>
         <p class="field flex-1">
