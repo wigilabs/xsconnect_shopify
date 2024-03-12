@@ -345,7 +345,7 @@
           <h2 class="tp-cart__right__title mb-5 name-product">{{ 'general.cart.order_summary' | t }}</h2>
           <div class="cart__right">
             {%- if settings.show_shipping -%}
-              {% render 'shipping-calculator', customer: customer %}
+              {% render 'shipping-calculator' %}
             {%- endif -%}
             {%- if settings.show_note -%}
               <cart-note class="cart__note field">
@@ -524,6 +524,19 @@
     }
   });
 </script>
+
+<script>
+  theme.strings = {
+      shippingCalcSubmitButton: {{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' | json }},
+      shippingCalcSubmitButtonDisabled: {{ settings.shipping_calculator_submit_button_label_disabled | default: 'Calculating...' | json }},
+      {% if customer %}shippingCalcCustomerIsLoggedIn: true,{% endif %}
+      shippingCalcMoneyFormat: {{ shop.money_with_currency_format | json }}
+  }
+</script>
+
+<script async src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.j"></script>
+<script async src="/services/javascripts/countries.js"></script>
+<script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
