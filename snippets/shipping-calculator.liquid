@@ -9,6 +9,7 @@
                 id="address_country"
                 placeholder="Country"
                 name="address[country]"
+                value="{{ customer.default_address.country }}"
                 data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
             >
         </p>
@@ -29,6 +30,7 @@
                     id="address_zip"
                     placeholder="Zip code"
                     name="address[zip]"
+                    value="{{ ccustomer.default_address.zip  }}"
                     {% if shop.customer_accounts_enabled %}
                         value="{{ customer.default_address.zip }}"
                     {% endif %}
