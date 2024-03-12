@@ -4,13 +4,13 @@
 
     <div class="mb-5 tp-shipping-calculator__form-field">
       <p class="field-top">
-        <select
-          id="address_country"
-          name="address[country]"
-          data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
-        >
-          {{ country_option_tags }}
-        </select>
+       <div class="country-selection">
+  <input type="hidden" id="address_country" name="address[country]" value="{{ data_default }}">
+
+  <input type="text" id="address_country_name" readonly>
+
+  <button type="button" id="select_country_button">Select Country</button>
+</div>
       </p>
       <div class="field-bottom flex items-center justify-start">
         <p class="field mr-4 flex-1" id="address_province_container">
