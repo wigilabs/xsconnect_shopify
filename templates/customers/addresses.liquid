@@ -103,12 +103,14 @@
             <li class="account__li ca-default__li">
               <a href="{{ routes.account_addresses_url }}" class="active">Addresses</a>
             </li>
-            <li class="account__li ca-default__li">
-              <a href="/pages/wishlist">Wishlist</a>
-            </li>
-            <li class="account__li ca-default__li">
-              <a href="/pages/compare">Compare</a>
-            </li>
+            {%- comment -%}
+              <li class="account__li ca-default__li">
+                <a href="/pages/wishlist">Wishlist</a>
+              </li>
+              <li class="account__li ca-default__li">
+                <a href="/pages/compare">Compare</a>
+              </li>
+            {%- endcomment -%}
             <li class="account__li ca-default__li">
               <a href="/cart">Cart</a>
             </li>
