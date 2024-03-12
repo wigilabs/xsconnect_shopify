@@ -48,108 +48,81 @@
   <script async src="/services/javascripts/countries.js"></script>
 
   <script>
-    //----------shipping cart----------//
-
-    var shippingCart = document.querySelector('#shipping-calculator');
-    if (shippingCart) {
-      const btnCalculateShipping = shippingCart.querySelector('.get-rates');
-      const wrapperResponse = shippingCart.querySelector('#wrapper-response');
-      const addressCountry = shippingCart.querySelector('#address_country');
-      const dataProvinces = shippingCart.querySelector('#address_province');
-      const addressProvinceWrapper = shippingCart.querySelector('#address_province_container');
-
-      if (addressCountry) {
-        // var dataDefault = addressCountry.getAttribute('data-default');
-        // if(dataDefault == ''){
-        //   addressCountry.value = 'United States'
-
-        //   const dataProvinceUnitedStates = Object.values(Countries)[231].province_codes
-
-        //   var provinceKey = Object.keys(dataProvinceUnitedStates)
-        //   var provinceValue = Object.values(dataProvinceUnitedStates)
-
-        //   let html = ''
-        //   provinceKey.forEach(function(item){
-        //     html += `
-        //         <option value="">${item}</option>
-        //       `
-        //   })
-
-        //     dataProvinces.innerHTML = html
-
-        //     var optionAddressProvince = dataProvinces.querySelectorAll('option');
-        //     optionAddressProvince.forEach(function(item){
-        //       console.log(item);
-        //       provinceValue.forEach(function(itemValue){
-        //         console.log(itemValue);
-        //         item.setAttribute('value', `${itemValue}`)
-        //       })
-
-        //     })
-
-        // }
-
-        addressCountry.addEventListener('change', function (e) {
-          const countryTarget = Countries[this.value];
-          const countryCode = countryTarget.code;
-          e.target.setAttribute('country-code', `${countryCode}`);
-          // render province if has
-          if (countryTarget.province_codes != null) {
-            let html = '';
-            for (const [key, value] of Object.entries(countryTarget.province_codes)) {
-              html += `
-            <option value="${value}">${key}</option>
-          `;
-            }
-
-            dataProvinces.innerHTML = html;
-            addressProvinceWrapper.classList.remove('hidden');
-            if (countryTarget.provinces == null) {
-              addressProvinceWrapper.classList.add('hidden');
-            }
+  const selectors = {
+    customerAddresses: '[data-customer-addresses]',
+    addressCountrySelect: '[data-address-country-select]',
+    addressContainer: '[data-address]',
+    toggleAddressButton: 'button[aria-expanded]',
+    cancelAddressButton: 'button[type="reset"]',
+    deleteAddressButton: 'button[data-confirm-message]',
+  };
+  const attributes = {
+    expanded: 'aria-expanded',
+    confirmMessage: 'data-confirm-message',
+  };
+  class CustomerAddresses {
+    constructor() {
+      this.elements = this._getElements();
+      if (Object.keys(this.elements).length === 0) return;
+      this._setupCountries();
+      this._setupEventListeners();
+    }
+    _getElements() {
+      const container = document.querySelector(selectors.customerAddresses);
+      return container
+        ? {
+            container,
+            addressContainer: container.querySelector(selectors.addressContainer),
+            toggleButtons: document.querySelectorAll(selectors.toggleAddressButton),
+            cancelButtons: container.querySelectorAll(selectors.cancelAddressButton),
+            deleteButtons: container.querySelectorAll(selectors.deleteAddressButton),
+            countrySelects: container.querySelectorAll(selectors.addressCountrySelect),
           }
+        : {};
+    }
+    _setupCountries() {
+      if (Shopify && Shopify.CountryProvinceSelector) {
+        // eslint-disable-next-line no-new
+        new Shopify.CountryProvinceSelector('AddressCountryNew', 'AddressProvinceNew', {
+          hideElement: 'AddressProvinceContainerNew',
+        });
+        this.elements.countrySelects.forEach((select) => {
+          const formId = select.dataset.formId;
+          // eslint-disable-next-line no-new
+          new Shopify.CountryProvinceSelector(`AddressCountry_${formId}`, `AddressProvince_${formId}`, {
+            hideElement: `AddressProvinceContainer_${formId}`,
+          });
         });
       }
-
-      btnCalculateShipping.addEventListener('click', function () {
-        const dataZip = shippingCart.querySelector('#address_zip').value;
-        const dataCountry = shippingCart.querySelector('#address_country').getAttribute('country-code');
-        const dataProvince = shippingCart.querySelector('#address_province').value;
-
-        let shipping_address = {
-          zip: dataZip,
-          country: `${dataCountry}`,
-          province: `${dataProvince}`,
-        };
-
-        fetch(
-          `/cart/shipping_rates.json?shipping_address%5Bzip%5D=${shipping_address.zip}&shipping_address%5Bcountry%5D=${shipping_address.country}&shipping_address%5Bprovince%5D=${shipping_address.province}`
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            const dataShippingRates = data.shipping_rates;
-            const count = dataShippingRates.length;
-            let html = '';
-            html += `
-            <div class="scd__addon-message py-5">
-              <p class="mb-3 text-base">We found ${count} shipping rate(s) for your address:</p>
-              `;
-            dataShippingRates.forEach((item) => {
-              const namedataShipping = item.name;
-              const currencyShipping = item.currency;
-              const priceShipping = item.price;
-              html += `
-                  <p>${namedataShipping}:
-                      <span>${window.currencyStrings.symbol}${priceShipping}</span>
-                  </p>
-                `;
-            });
-            html += `
-            </div>
-            `;
-            wrapperResponse.innerHTML = html;
-          });
+    }
+    _setupEventListeners() {
+      this.elements.toggleButtons.forEach((element) => {
+        element.addEventListener('click', this._handleAddEditButtonClick);
+      });
+      this.elements.cancelButtons.forEach((element) => {
+        element.addEventListener('click', this._handleCancelButtonClick);
+      });
+      this.elements.deleteButtons.forEach((element) => {
+        element.addEventListener('click', this._handleDeleteButtonClick);
       });
     }
+    _toggleExpanded(target) {
+      target.setAttribute(attributes.expanded, (target.getAttribute(attributes.expanded) === 'false').toString());
+    }
+    _handleAddEditButtonClick = ({ currentTarget }) => {
+      this._toggleExpanded(currentTarget);
+    };
+    _handleCancelButtonClick = ({ currentTarget }) => {
+      this._toggleExpanded(currentTarget.closest(selectors.addressContainer).querySelector(`[${attributes.expanded}]`));
+    };
+    _handleDeleteButtonClick = ({ currentTarget }) => {
+      // eslint-disable-next-line no-alert
+      if (confirm(currentTarget.getAttribute(attributes.confirmMessage))) {
+        Shopify.postLink(currentTarget.dataset.target, {
+          parameters: { _method: 'delete' },
+        });
+      }
+    };
+  }
   </script>
 {% endunless %}
