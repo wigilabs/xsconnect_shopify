@@ -1,3 +1,4 @@
+{% render '' %}
 {% unless settings.shipping_calculator == 'Disabled' %}
   <div id="shipping-calculator" class="tp-shipping-calculator">
     <h5 class="mb-5 name-product">{{ settings.shipping_calculator_heading | default: 'Get shipping estimates' }}</h5>
@@ -17,8 +18,7 @@
           <select
             id="address_province"
             name="address[province]"
-             data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.province }}{% elsif settings.shipping_calculator_default_province != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
-        
+            data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"
           ></select>
         </p>
         <p class="field flex-1">
