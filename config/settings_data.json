@@ -359,6 +359,22 @@
           "margin_bottom_table": 0,
           "margin_bottom_mobile": 0
         }
+      },
+      "breadcrumb": {
+        "type": "breadcrumb",
+        "settings": {
+          "width_layout": "container",
+          "background_image": "shopify:\/\/shop_images\/Image_slider_1.png",
+          "color_background": "transparent",
+          "color_content": "#fff",
+          "show_page_title": true,
+          "position_bread_crumb": "center-middle",
+          "pbs_collection": "first",
+          "show_image_collection": false,
+          "margin_bottom_desktop": 50,
+          "margin_bottom_table": 40,
+          "margin_bottom_mobile": 30
+        }
       }
     },
     "content_for_index": [
