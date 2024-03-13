@@ -46,10 +46,9 @@
   <script async src="/services/javascripts/countries.js"></script>
 
   <script>
-       var shippingCart = shippingCart.querySelector('#shipping-calculator');
+       
     document.addEventListener("DOMContentLoaded", function () {
-      
-      
+      var shippingCart = document.querySelector('#shipping-calculator');      
       const button = shippingCart.querySelector('#button-test');
       button.addEventListener('click', function (e) {
         console.log("CLICK")
