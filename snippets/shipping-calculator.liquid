@@ -4,7 +4,11 @@
 
     <div class="mb-5 tp-shipping-calculator__form-field">
       <p class="field-top">
-        <select id="address_country" class="special-select" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
+        <select
+          id="address_country"
+          name="address[country]"
+          data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
+        >
           {{ country_option_tags }}
         </select>
       </p>
@@ -43,109 +47,78 @@
 
   <script async src="/services/javascripts/countries.js"></script>
 
-  <script>
-    //----------shipping cart----------//
+ <script id="shipping-calculator-response-template" type="text/x-jquery-tmpl">
+  {% raw %}
+  <em id="shipping-rates-feedback" class="{{if success}}success{{else}}error{{/if}}">
+  {{if success}}
+      {{if (window.multi_lang && translator.current_lang == 2) }}
+          {{if rates.length > 1}}
+          	${window.lang2.cart.general.shipping_calculator_success_many_rates.there_are} ${rates.length} ${window.lang2.cart.general.shipping_calculator_success_many_rates.shipping_rates_available_for} ${address}${window.lang2.cart.general.shipping_calculator_success_many_rates.starting_at} {{html Shopify.Cart.ShippingCalculator.formatRate(rates[0].price)}}.
+          {{else}}
+            {{if rates.length == 1}}
+                ${window.lang2.cart.general.shipping_calculator_success_one_rate} ${address}.
+            {{else}}
+                ${window.lang2.cart.general.shipping_calculator_success_no_rate}
+            {{/if}}
+          {{/if}}
 
-    var shippingCart = document.querySelector('#shipping-calculator');
-    if (shippingCart) {
-      const btnCalculateShipping = shippingCart.querySelector('.get-rates');
-      const wrapperResponse = shippingCart.querySelector('#wrapper-response');
-      const addressCountry = shippingCart.querySelector('#address_country');
-      const dataProvinces = shippingCart.querySelector('#address_province');
-      const addressProvinceWrapper = shippingCart.querySelector('#address_province_container');
+      {{else}} 
+          {{if rates.length > 1}}
+              {% endraw %}{{'cart.general.shipping_calculator_success_many_rates.there_are' |t}}{%raw%} ${rates.length} 
+              {%endraw%}{{'cart.general.shipping_calculator_success_many_rates.shipping_rates_available_for' |t}}{%raw%} ${address}
+              {%endraw%}{{'cart.general.shipping_calculator_success_many_rates.starting_at' |t}}{%raw%} 
+              {{html Shopify.Cart.ShippingCalculator.formatRate(rates[0].price)}}.
 
-      if (addressCountry) {
-        // var dataDefault = addressCountry.getAttribute('data-default');
-        // if(dataDefault == ''){
-        //   addressCountry.value = 'United States'
+          {{else}}
+              {{if rates.length == 1}}
+                  {%endraw%}{{'cart.general.shipping_calculator_success_one_rate' |t}}{%raw%} ${address}.
+              {{else}}
+                  {%endraw%}{{'cart.general.shipping_calculator_success_no_rate' |t}}{%raw%}
+              {{/if}}
+          {{/if}}
+      {{/if}}
+    
+  {{else}}
+    {{if (window.multi_lang && translator.current_lang == 2) }}
+      ${window.lang2.cart.general.shipping_calculator_error_message}
+    {{else}}
+      ${errorFeedback}
+    {{/if}}
+  {{/if}}
+  </em>
+  
+  <div id="shipping-rates">
+    {{each( index, rate ) rates}}
+    <em>
+      ${rate.name} 
+        {{if (window.multi_lang && translator.current_lang == 2) }}
+          	${window.lang2.cart.general.shipping_calculator_success_at}
+        {{else}}
+        	{%endraw%}{{'cart.general.shipping_calculator_success_at' |t}}{%raw%}
+        {{/if}} 
+      {{html Shopify.Cart.ShippingCalculator.formatRate(rate.price)}}
+    </em>
+    {{/each}}
+  </div>
+  {% endraw %} 
+</script>
 
-        //   const dataProvinceUnitedStates = Object.values(Countries)[231].province_codes
+{{ '//ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js' | script_tag }}
+{{ '/services/javascripts/countries.js' | script_tag }}
+{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+{{ 'jquery.cart.min.js' | asset_url | script_tag }} 
 
-        //   var provinceKey = Object.keys(dataProvinceUnitedStates)
-        //   var provinceValue = Object.values(dataProvinceUnitedStates)
-
-        //   let html = ''
-        //   provinceKey.forEach(function(item){
-        //     html += `
-        //         <option value="">${item}</option>
-        //       `
-        //   })
-
-        //     dataProvinces.innerHTML = html
-
-        //     var optionAddressProvince = dataProvinces.querySelectorAll('option');
-        //     optionAddressProvince.forEach(function(item){
-        //       console.log(item);
-        //       provinceValue.forEach(function(itemValue){
-        //         console.log(itemValue);
-        //         item.setAttribute('value', `${itemValue}`)
-        //       })
-
-        //     })
-
-        // }
-
-        addressCountry.addEventListener('change', function (e) {
-          const countryTarget = Countries[this.value];
-          const countryCode = countryTarget.code;
-          e.target.setAttribute('country-code', `${countryCode}`);
-          // render province if has
-          if (countryTarget.province_codes != null) {
-            let html = '';
-            for (const [key, value] of Object.entries(countryTarget.province_codes)) {
-              html += `
-            <option value="${value}">${key}</option>
-          `;
-            }
-
-            dataProvinces.innerHTML = html;
-            addressProvinceWrapper.classList.remove('hidden');
-            if (countryTarget.provinces == null) {
-              addressProvinceWrapper.classList.add('hidden');
-            }
-          }
-        });
-      }
-
-      btnCalculateShipping.addEventListener('click', function () {
-        const dataZip = shippingCart.querySelector('#address_zip').value;
-        const dataCountry = shippingCart.querySelector('#address_country').getAttribute('country-code');
-        const dataProvince = shippingCart.querySelector('#address_province').value;
-
-        let shipping_address = {
-          zip: dataZip,
-          country: `${dataCountry}`,
-          province: `${dataProvince}`,
-        };
-
-        fetch(
-          `/cart/shipping_rates.json?shipping_address%5Bzip%5D=${shipping_address.zip}&shipping_address%5Bcountry%5D=${shipping_address.country}&shipping_address%5Bprovince%5D=${shipping_address.province}`
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            const dataShippingRates = data.shipping_rates;
-            const count = dataShippingRates.length;
-            let html = '';
-            html += `
-            <div class="scd__addon-message py-5">
-              <p class="mb-3 text-base">We found ${count} shipping rate(s) for your address:</p>
-              `;
-            dataShippingRates.forEach((item) => {
-              const namedataShipping = item.name;
-              const currencyShipping = item.currency;
-              const priceShipping = item.price;
-              html += `
-                  <p>${namedataShipping}:
-                      <span>${window.currencyStrings.symbol}${priceShipping}</span>
-                  </p>
-                `;
-            });
-            html += `
-            </div>
-            `;
-            wrapperResponse.innerHTML = html;
-          });
-      });
-    }
-  </script>
+<script>
+  var submitButton = 'BOTON';
+  var submitButtonDisabled = '{{'cart.general.shipping_calculator_calculating' | t}}' ;
+  
+  Shopify.Cart.ShippingCalculator.show({
+    submitButton: submitButton,
+    submitButtonDisabled: submitButtonDisabled,
+    {% if shop.customer_accounts_enabled and customer %}
+    customerIsLoggedIn: true,
+    {% endif %}
+    moneyFormat: {{ shop.money_format | json }}
+  });
+</script>
 {% endunless %}
