@@ -59,6 +59,7 @@
       const addressProvinceWrapper = shippingCart.querySelector('#address_province_container');
 
       if (addressCountry) {
+        console.log("tiene adress country")
         // var dataDefault = addressCountry.getAttribute('data-default');
         // if(dataDefault == ''){
         //   addressCountry.value = 'United States'
@@ -90,6 +91,7 @@
         // }
 
         addressCountry.addEventListener('change', function (e) {
+          console.log("on Change")
           const countryTarget = Countries[this.value];
           const countryCode = countryTarget.code;
           e.target.setAttribute('country-code', `${countryCode}`);
