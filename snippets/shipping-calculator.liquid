@@ -89,8 +89,8 @@
         //     })
 
         // }
-
-        addressCountry.addEventListener('change', function (e) {
+        console.log(addressCountry.value)
+        addressCountry.addEventListener('change', function () {
           console.log("on Change")
           const countryTarget = Countries[this.value];
           const countryCode = countryTarget.code;
