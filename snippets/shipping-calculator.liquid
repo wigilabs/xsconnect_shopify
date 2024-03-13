@@ -58,10 +58,10 @@
     document.addEventListener("DOMContentLoaded", function () {
         console.log("adentro");
       var shippingCart = document.querySelector('#shipping-calculator');      
-      const button = shippingCart.querySelector('#test');
+      const button = shippingCart.querySelector('test');
       console.log(button);
-      button.addEventListener('click', function (e) {
-        console.log("CLICK");
+      button.addEventListener("click", function () {        
+        button.innerHTHML = "ELLLO";
       });
       
       if (shippingCart) {
