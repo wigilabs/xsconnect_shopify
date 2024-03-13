@@ -90,6 +90,9 @@
 
         // }
         console.log(addressCountry)
+        addressCountry.addEventListener('click', function(){
+          console.log(addressCountry.value)
+        });
         addressCountry.addEventListener('change', function () {
           console.log("on Change")
           const countryTarget = Countries[this.value];
