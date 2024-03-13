@@ -47,12 +47,12 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-
+      
+      var shippingCart = shippingCart.querySelector('#shipping-calculator');
       const button = shippingCart.querySelector('#button-test');
       button.addEventListener('click', function (e) {
         console.log("CLICK")
       });
-      var shippingCart = shippingCart.querySelector('#shipping-calculator');
       
       if (shippingCart) {
         const wrapperResponse = shippingCart.querySelector('#wrapper-response');
