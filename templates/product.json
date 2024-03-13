@@ -37,7 +37,7 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "picker_type_active": "#0088cc",
+            "picker_type_active": "#000000",
             "picker_type_hover": "#0088cc",
             "width_variant_image": 40,
             "use_spacing": true,
