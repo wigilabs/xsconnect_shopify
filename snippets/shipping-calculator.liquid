@@ -51,20 +51,14 @@
     <div id="wrapper-response"></div>
   </div>
 
-  <script async src="/services/javascripts/countries.js"></script>
-
-  <script>
-       console.log("afuera");
+   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        console.log("adentro");
       var shippingCart = document.querySelector('#shipping-calculator');      
       const button = shippingCart.querySelector('#test');
       console.log(button);
       button.addEventListener("click", function (e) {        
-        console.log("ola ola oton");
         button.innerHTHML = "ELLLO";
       });
-      debug;
       if (shippingCart) {
         const wrapperResponse = shippingCart.querySelector('#wrapper-response');
         const addressCountry = shippingCart.querySelector('#address_country');
@@ -117,4 +111,7 @@
       }
     });
   </script>
+  <script async src="/services/javascripts/countries.js"></script>
+
+ 
 {% endunless %}
