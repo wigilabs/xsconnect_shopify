@@ -44,78 +44,59 @@
 
   <script async src="/services/javascripts/countries.js"></script>
 
-  <script>
-    var shippingCart = document.querySelector('#shipping-calculator');
-    if (shippingCart) {
-      const btnCalculateShipping = shippingCart.querySelector('.get-rates');
-      const wrapperResponse = shippingCart.querySelector('#wrapper-response');
-      const addressCountry = shippingCart.querySelector('#address_country');
-      const dataProvinces = shippingCart.querySelector('#address_province');
-      const addressProvinceWrapper = shippingCart.querySelector('#address_province_container');
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var shippingCart = document.querySelector('#shipping-calculator');
+      if (shippingCart) {
+        const wrapperResponse = shippingCart.querySelector('#wrapper-response');
+        const addressCountry = shippingCart.querySelector('#address_country');
+        const dataProvinces = shippingCart.querySelector('#address_province');
 
-      if (addressCountry) {
-        addressCountry.addEventListener('change', function () {
-          console.log("Selected country: ", this.value);
-          const countryTarget = Countries[this.value];
-          const countryCode = countryTarget.code;
-          e.target.setAttribute('country-code', `${countryCode}`);
-          // render province if has
-          if (countryTarget.province_codes != null) {
-            let html = '';
-            for (const [key, value] of Object.entries(countryTarget.province_codes)) {
-              html += `
-            <option value="${value}">${key}</option>
-          `;
+        if (addressCountry) {
+          addressCountry.addEventListener('change', function (e) {
+            console.log("Selected country: ", this.value);
+            const countryTarget = Countries[this.value];
+            const countryCode = countryTarget.code;
+            e.target.setAttribute('country-code', `${countryCode}`);
+            // render province if available
+            if (countryTarget.province_codes != null) {
+              let html = '';
+              for (const [key, value] of Object.entries(countryTarget.province_codes)) {
+                html += `<option value="${value}">${key}</option>`;
+              }
+              dataProvinces.innerHTML = html;
             }
+          });
+        }
 
-            dataProvinces.innerHTML = html;
-            addressProvinceWrapper.classList.remove('hidden');
-            if (countryTarget.provinces == null) {
-              addressProvinceWrapper.classList.add('hidden');
-            }
-          }
+        shippingCart.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const dataZip = shippingCart.querySelector('#address_zip').value;
+          const dataCountry = shippingCart.querySelector('#address_country').getAttribute('country-code');
+          const dataProvince = shippingCart.querySelector('#address_province').value;
+
+          let shipping_address = {
+            zip: dataZip,
+            country: `${dataCountry}`,
+            province: `${dataProvince}`,
+          };
+
+          fetch(`/cart/shipping_rates.json?shipping_address%5Bzip%5D=${shipping_address.zip}&shipping_address%5Bcountry%5D=${shipping_address.country}&shipping_address%5Bprovince%5D=${shipping_address.province}`)
+            .then((res) => res.json())
+            .then((data) => {
+              const dataShippingRates = data.shipping_rates;
+              const count = dataShippingRates.length;
+              let html = `<div class="scd__addon-message py-5"><p class="mb-3 text-base">We found ${count} shipping rate(s) for your address:</p>`;
+              dataShippingRates.forEach((item) => {
+                const namedataShipping = item.name;
+                const priceShipping = item.price;
+                html += `<p>${namedataShipping}:<span>${window.currencyStrings.symbol}${priceShipping}</span></p>`;
+              });
+              html += `</div>`;
+              wrapperResponse.innerHTML = html;
+            });
         });
       }
-
-      btnCalculateShipping.addEventListener('click', function () {
-        const dataZip = shippingCart.querySelector('#address_zip').value;
-        const dataCountry = shippingCart.querySelector('#address_country').getAttribute('country-code');
-        const dataProvince = shippingCart.querySelector('#address_province').value;
-
-        let shipping_address = {
-          zip: dataZip,
-          country: `${dataCountry}`,
-          province: `${dataProvince}`,
-        };
-
-        fetch(
-          `/cart/shipping_rates.json?shipping_address%5Bzip%5D=${shipping_address.zip}&shipping_address%5Bcountry%5D=${shipping_address.country}&shipping_address%5Bprovince%5D=${shipping_address.province}`
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            const dataShippingRates = data.shipping_rates;
-            const count = dataShippingRates.length;
-            let html = '';
-            html += `
-            <div class="scd__addon-message py-5">
-              <p class="mb-3 text-base">We found ${count} shipping rate(s) for your address:</p>
-              `;
-            dataShippingRates.forEach((item) => {
-              const namedataShipping = item.name;
-              const currencyShipping = item.currency;
-              const priceShipping = item.price;
-              html += `
-                  <p>${namedataShipping}:
-                      <span>${window.currencyStrings.symbol}${priceShipping}</span>
-                  </p>
-                `;
-            });
-            html += `
-            </div>
-            `;
-            wrapperResponse.innerHTML = html;
-          });
-      });
-    }
+    });
   </script>
 {% endunless %}
