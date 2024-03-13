@@ -8,8 +8,7 @@
           id="address_country"
           name="address[country]"
           data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
-        >
-         
+        >         
         </select>
       </p>
       <div class="field-bottom flex items-center justify-start">
