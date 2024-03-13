@@ -91,7 +91,7 @@
 
         // }
 
-        addressCountry.addEventListener('change', function (e) {
+        addressCountry.addEventListener('click', function (e) {
           const countryTarget = Countries[this.value];
           const countryCode = countryTarget.code;
           e.target.setAttribute('country-code', `${countryCode}`);
