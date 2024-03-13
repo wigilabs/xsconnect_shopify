@@ -8,11 +8,11 @@
           id="address_country"
           name="address[country]"
           data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
-        >         
+        >
+          {{ country_option_tags }}
         </select>
       </p>
-      <div class="field-bottom flex items-center justify-start">
-        {{ customer.default_address.province }}
+      <div class="field-bottom flex items-center justify-start">        
         <p class="field mr-4 flex-1" id="address_province_container">
           <select
             id="address_province"
@@ -48,7 +48,6 @@
   <script async src="/services/javascripts/countries.js"></script>
 
   <script>
-    console.log("hora roq ")
     //----------shipping cart----------//
 
     var shippingCart = document.querySelector('#shipping-calculator');
@@ -91,7 +90,6 @@
         // }
 
         addressCountry.addEventListener('change', function (e) {
-          console.log("entró change ")
           const countryTarget = Countries[this.value];
           const countryCode = countryTarget.code;
           e.target.setAttribute('country-code', `${countryCode}`);
