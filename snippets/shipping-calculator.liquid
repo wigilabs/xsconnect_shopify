@@ -44,9 +44,10 @@
 
   <script async src="/services/javascripts/countries.js"></script>
 
-   <script>
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       var shippingCart = document.querySelector('#shipping-calculator');
+      console.log("al menos cargío xD")
       if (shippingCart) {
         const wrapperResponse = shippingCart.querySelector('#wrapper-response');
         const addressCountry = shippingCart.querySelector('#address_country');
