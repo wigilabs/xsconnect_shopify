@@ -4,11 +4,7 @@
 
     <div class="mb-5 tp-shipping-calculator__form-field">
       <p class="field-top">
-        <select
-          id="address_country"
-          name="address[country]"
-          data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}"
-        >
+        <select id="address_country" class="special-select" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
           {{ country_option_tags }}
         </select>
       </p>
