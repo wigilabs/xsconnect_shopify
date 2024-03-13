@@ -96,6 +96,7 @@
           e.target.setAttribute('country-code', `${countryCode}`);
           // render province if has
           if (countryTarget.province_codes != null) {
+            console.log("entró al IF")
             let html = '';
             for (const [key, value] of Object.entries(countryTarget.province_codes)) {
               html += `
