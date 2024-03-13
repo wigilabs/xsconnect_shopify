@@ -46,12 +46,13 @@
   <script async src="/services/javascripts/countries.js"></script>
 
   <script>
-       
+       console.log("afuera");
     document.addEventListener("DOMContentLoaded", function () {
+        console.log("adentro");
       var shippingCart = document.querySelector('#shipping-calculator');      
       const button = shippingCart.querySelector('#button-test');
       button.addEventListener('click', function (e) {
-        console.log("CLICK")
+        console.log("CLICK");
       });
       
       if (shippingCart) {
