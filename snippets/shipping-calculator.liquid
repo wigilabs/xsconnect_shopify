@@ -33,6 +33,7 @@
         <button
           type="button"
           class="get-rates tp-btn tp-btn__primary w-full"
+          id="button-test"
         >
           {{ settings.shipping_calculator_submit_button_label | default: 'Calculate Shipping' }}
         </button>
@@ -46,8 +47,13 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+
+      const button = document.querySelector('#button-test');
+      button.addEventListener('click', function (e) {
+        console.log("CLICK")
+      };
       var shippingCart = document.querySelector('#shipping-calculator');
-      console.log("al menos cargío xD")
+      
       if (shippingCart) {
         const wrapperResponse = shippingCart.querySelector('#wrapper-response');
         const addressCountry = shippingCart.querySelector('#address_country');
