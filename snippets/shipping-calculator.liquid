@@ -20,15 +20,13 @@
             data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"
           ></select>
         </p>
-        <p class="field flex-1">
-          
+        <p class="field flex-1">          
           <input
             type="text"
             id="address_zip"
             placeholder="Zip code"
             name="address[zip]"
-            {% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} />
-          >
+            {% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} />          
         </p>
       </div>
       <div class="field-btn">
