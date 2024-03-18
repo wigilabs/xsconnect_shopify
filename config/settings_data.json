@@ -379,6 +379,14 @@
     },
     "content_for_index": [
 
-    ]
+    ],
+    "blocks": {
+      "3782161271425840822": {
+        "type": "shopify:\/\/apps\/ns-image-swatch-variant-option\/blocks\/nestscale_product_variant\/53eb5ed4-3892-414c-808b-3ea84516b10d",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   }
 }
