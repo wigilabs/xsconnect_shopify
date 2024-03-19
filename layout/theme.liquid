@@ -134,7 +134,11 @@
         {% endcase %}
       </div>
     {% endif %}
-    {%- render 'cart-drawer' -%}
+    
+    {% unless template contains 'cart' %}
+      {%- render 'cart-drawer' -%}
+    {% endunless %}
+    
     <div id="main-wrapper" class="tp-main-wrapper">
       <a class="skip-to-content-link button visually-hidden" href="#MainContent">
         {{ 'accessibility.skip_to_text' | t }}
