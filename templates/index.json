@@ -134,7 +134,7 @@
         "background_color": "",
         "background_full_width": true,
         "padding_top_bottom": 0,
-        "products_to_show": 8,
+        "products_to_show": 6,
         "column_number": "6",
         "collection_list": [
           "cisco"
