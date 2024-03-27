@@ -296,7 +296,7 @@
           "menu_category_qfDFHQ": {
             "type": "menu_category",
             "settings": {
-              "heading": "Fruits & Vegetables",
+              "heading": "Fibre Optic Transceiver",
               "menu_categories_target": "",
               "url_category": "",
               "column_sub_menu": "col-1"
@@ -379,14 +379,6 @@
     },
     "content_for_index": [
 
-    ],
-    "blocks": {
-      "3782161271425840822": {
-        "type": "shopify:\/\/apps\/ns-image-swatch-variant-option\/blocks\/nestscale_product_variant\/53eb5ed4-3892-414c-808b-3ea84516b10d",
-        "disabled": false,
-        "settings": {
-        }
-      }
-    }
+    ]
   }
 }
