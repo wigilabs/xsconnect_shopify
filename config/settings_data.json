@@ -313,7 +313,7 @@
             "type": "menu_normal",
             "settings": {
               "title_menu": "Products",
-              "title_menu_url": "shopify:\/\/collections\/prueba"
+              "title_menu_url": "shopify:\/\/collections\/all"
             }
           },
           "menu_normal_CzJzHH": {
