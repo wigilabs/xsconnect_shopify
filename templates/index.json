@@ -137,9 +137,7 @@
         "products_to_show": 8,
         "column_number": "6",
         "collection_list": [
-          "prueba",
-          "frontpage",
-          "tp-tated"
+          "cisco"
         ],
         "gap_item": 30,
         "style_button_tab": "tp-box-button__style-1",
@@ -291,9 +289,10 @@
           "settings": {
             "title": "Top Reviews",
             "product_list": [
-              "21st-century-calcium-600-d-liquid-filled-softgels-90-ct",
-              "agadir-argan-oil-daily-moisturizing-conditioner-clear-pack-of-18",
-              "agadir-argan-oil-daily-moisturizing-conditioner-clear"
+              "cisco-glc-fe-100fx-rgd-100base-fx-rugged-sfp-for-fast-ethernet-sfp-ports",
+              "glc-fe-100lx-rgd-100base-lx10-rugged-sfp-for-fast-ethernet-sfp-ports",
+              "glc-ge-100fx-100base-fx-sfp-for-gigabit-ethernet-sfp-ports",
+              "glc-sx-mmd-1000base-sx-sfp-transceiver-module-mmf-850nm-dom"
             ]
           }
         },
@@ -302,9 +301,10 @@
           "settings": {
             "title": "Top Sales",
             "product_list": [
-              "apple-iphone-7-plus-32gb",
-              "copy-of-apple-iphone-7-plus-32gb-genuine",
-              "apple-iphone-7-plus-32gb-genuine"
+              "cisco-glc-fe-100fx-rgd-100base-fx-rugged-sfp-for-fast-ethernet-sfp-ports",
+              "glc-fe-100lx-rgd-100base-lx10-rugged-sfp-for-fast-ethernet-sfp-ports",
+              "glc-ge-100fx-100base-fx-sfp-for-gigabit-ethernet-sfp-ports",
+              "glc-sx-mmd-1000base-sx-sfp-transceiver-module-mmf-850nm-dom"
             ]
           }
         },
@@ -313,9 +313,10 @@
           "settings": {
             "title": "Top Search",
             "product_list": [
-              "bluetooth-speaker-1",
-              "bluetooth-speaker",
-              "bracelet-sports-smartwatch"
+              "cisco-glc-fe-100fx-rgd-100base-fx-rugged-sfp-for-fast-ethernet-sfp-ports",
+              "glc-fe-100lx-rgd-100base-lx10-rugged-sfp-for-fast-ethernet-sfp-ports",
+              "glc-ge-100fx-100base-fx-sfp-for-gigabit-ethernet-sfp-ports",
+              "glc-sx-mmd-1000base-sx-sfp-transceiver-module-mmf-850nm-dom"
             ]
           }
         }
