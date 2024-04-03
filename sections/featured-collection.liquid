@@ -166,12 +166,7 @@
                         {%- assign lazy_load = true -%}
                       {%- endif -%}
                       <li class="tp-fcl__item grid__item {{ classColumnNumber }}">
-                        {% render 'card-product',
-                          card_product: product,
-                          section: section,
-                          layoutProductItem: section.settings.product_item_layout,
-                          lazy_load: lazy_load
-                        %}
+                        
                       </li>
                     {%- endfor -%}
                   {% else %}
