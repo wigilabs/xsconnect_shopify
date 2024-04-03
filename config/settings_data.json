@@ -27,7 +27,7 @@
     "gap_item_collection": 0,
     "gpi_show_quickview": false,
     "gpi_show_compare": false,
-    "gpi_show_atc": true,
+    "gpi_show_atc": false,
     "border_item": true,
     "item_direction": "item_column",
     "image_ratio": "square",
