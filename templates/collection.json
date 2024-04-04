@@ -32,7 +32,7 @@
         "product_item_layout": "use_global",
         "item_direction_prd_top": "use_global",
         "enable_filtering": true,
-        "filter_type": "vertical",
+        "filter_type": "drawer-left",
         "collection_list": [
 
         ],
