@@ -57,10 +57,10 @@
         "c01f5146-b043-446a-8304-06ca501a8ed5": {
           "type": "product_organization",
           "settings": {
-            "show_vendor": true,
-            "show_sku": true,
-            "show_availability": true,
-            "show_categories": true,
+            "show_vendor": false,
+            "show_sku": false,
+            "show_availability": false,
+            "show_categories": false,
             "category_text": "Product Type:",
             "category_type": "first",
             "use_spacing": true,
