@@ -47,6 +47,7 @@
                     name="contact[{{ 'templates.contact.form.name' | t }}]"
                     value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
                     placeholder="{{ 'templates.contact.form.name' | t }}"
+                    required="required"
                   >
                 </div>
                 <div class="field field--with-error">
@@ -64,6 +65,7 @@
                       aria-invalid="true" aria-describedby="ContactForm-email-error"
                     {% endif %}
                     placeholder="{{ 'templates.contact.form.email' | t }}"
+                    required="required"
                   >
                 </div>
 
@@ -76,6 +78,7 @@
                     name="contact[Business name]"
                     value=""
                     placeholder="Business name"
+                    required="required"
                   >
                 </div>
               </div>
@@ -89,6 +92,7 @@
                   pattern="[0-9\-]*"
                   value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
                   placeholder="{{ 'templates.contact.form.phone' | t }}"
+                  required="required"
                 >
               </div>
               <div class="field">
@@ -98,6 +102,7 @@
                   class="text-area field__input"
                   name="contact[{{ 'templates.contact.form.comment' | t }}]"
                   placeholder="{{ 'templates.contact.form.comment' | t }}"
+                  required="required"
                 >
                   {{- form.body -}}
                 </textarea>
