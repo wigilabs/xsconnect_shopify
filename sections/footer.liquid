@@ -225,11 +225,21 @@
               <div class="footer__menu sub-menu-footer">
                 <div class="menu-item color-subtext mb-6 text-gray-custom ease-in duration-500">
                   <ul class="footer__menu sub-menu-footer">
+                    {%- if block.settings.content_no_link_1 != blank -%}
                     <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_1 }}</li>
+                    {% endif %}
+                    {%- if block.settings.content_no_link_2 != blank -%}
                     <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_2 }}</li>
+                       {% endif %}
+                    {%- if block.settings.content_no_link_3 != blank -%}
                     <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_3 }}</li>
+                       {% endif %}
+                    {%- if block.settings.content_no_link_4 != blank -%}
                     <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_4 }}</li>
+                       {% endif %}
+                    {%- if block.settings.content_no_link_5 != blank -%}
                     <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_4 }}</li>
+                       {% endif %}
                   </ul>
                 </div>
               </div>
