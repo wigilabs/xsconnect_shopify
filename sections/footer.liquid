@@ -582,12 +582,12 @@
       ]
     },
     {
-      "name": "Text",
-      "type": "text_content",
+      "name": "Text without link",
+      "type": "text_content_no_link",
       "settings": [
         {
           "type": "range",
-          "id": "item_width",
+          "id": "item_width_no_link",
           "min": 0,
           "max": 100,
           "step": 1,
@@ -597,13 +597,28 @@
         },
         {
           "type": "text",
-          "id": "heading",
+          "id": "heading_no_link",
           "label": "Heading"
         },
         {
           "type": "textarea",
-          "id": "text_content",
-          "label": "Contento"
+          "id": "content_no_link",
+          "label": "Content"
+        },
+        {
+          "type": "range",
+          "id": "width_no_link",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.footer.blocks.text.settings.item_width.label",
+          "default": 25
+        },
+        {
+          "type": "textarea",
+          "id": "text_content_no_link",
+          "label": "Content"
         }
       ]
     }
