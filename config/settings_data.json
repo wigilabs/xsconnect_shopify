@@ -134,7 +134,7 @@
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e": {
             "type": "link_list",
             "settings": {
-              "item_width": 25,
+              "item_width": 23,
               "heading": "Useful links",
               "menu": "useful-links"
             }
@@ -142,25 +142,26 @@
           "4c64e5a1-393a-488f-9b28-d0728e290642": {
             "type": "link_list",
             "settings": {
-              "item_width": 25,
+              "item_width": 23,
               "heading": "Important documents",
               "menu": "important-documents"
-            }
-          },
-          "link_list_rFyh8C": {
-            "type": "link_list",
-            "settings": {
-              "item_width": 26,
-              "heading": "Brands",
-              "menu": "brands"
             }
           },
           "text_content_no_link_Q8YXTh": {
             "type": "text_content_no_link",
             "settings": {
-              "item_width_no_link": 25,
+              "item_width_no_link": 23,
               "heading_no_link": "Brands",
               "content_no_link": "<ul class=\"footer__menu sub-menu-footer\">\n<li class=\"menu-item color-subtext mb-4\">Aruba<\/li>\n<li class=\"menu-item color-subtext mb-4\">Cisco<\/li>\n<li class=\"menu-item color-subtext mb-4\">Juniper<\/li>\n<li class=\"menu-item color-subtext mb-4\">Meraki<\/li>\n<\/ul>"
+            }
+          },
+          "link_list_rFyh8C": {
+            "type": "link_list",
+            "disabled": true,
+            "settings": {
+              "item_width": 26,
+              "heading": "Brands",
+              "menu": "brands"
             }
           }
         },
@@ -168,8 +169,8 @@
           "ff72abfa-fbe6-4f15-91e0-ca978e291c69",
           "7cc0a7d9-5cc3-4d1d-89a9-02e17055690e",
           "4c64e5a1-393a-488f-9b28-d0728e290642",
-          "link_list_rFyh8C",
-          "text_content_no_link_Q8YXTh"
+          "text_content_no_link_Q8YXTh",
+          "link_list_rFyh8C"
         ],
         "settings": {
           "width_layout_ft": "container",
