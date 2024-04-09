@@ -149,7 +149,6 @@
           },
           "link_list_rFyh8C": {
             "type": "link_list",
-            "disabled": true,
             "settings": {
               "item_width": 26,
               "heading": "Brands",
@@ -161,7 +160,7 @@
             "settings": {
               "item_width_no_link": 25,
               "heading_no_link": "Brands",
-              "content_no_link": "<ul class=\"footer__menu sub-menu-footer\">\n<li class=\"menu-item color-subtext mb-4\">Cisco<\/li>\n<li class=\"menu-item color-subtext mb-4\">Juniper<\/li>\n<li class=\"menu-item color-subtext mb-4\">Meraki<\/li>\n<\/ul>"
+              "content_no_link": "<ul class=\"footer__menu sub-menu-footer\">\n<li class=\"menu-item color-subtext mb-4\">Aruba<\/li>\n<li class=\"menu-item color-subtext mb-4\">Cisco<\/li>\n<li class=\"menu-item color-subtext mb-4\">Juniper<\/li>\n<li class=\"menu-item color-subtext mb-4\">Meraki<\/li>\n<\/ul>"
             }
           }
         },
