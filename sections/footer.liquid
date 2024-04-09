@@ -223,7 +223,15 @@
                 </h3>
               {%- endif -%}
               <div class="footer__menu sub-menu-footer">
-                <div class="menu-item color-subtext mb-6 text-gray-custom ease-in duration-500">{{ block.settings.content_no_link }}</div>
+                <div class="menu-item color-subtext mb-6 text-gray-custom ease-in duration-500">
+                  <ul class="footer__menu sub-menu-footer">
+                    <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_1 }}</li>
+                    <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_2 }}</li>
+                    <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_3 }}</li>
+                    <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_4 }}</li>
+                    <li class="menu-item color-subtext mb-4">{{ block.settings.content_no_link_4 }}</li>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -622,7 +630,27 @@
         },
         {
           "type": "html",
-          "id": "content_no_link",
+          "id": "content_no_link_1",
+          "label": "Content"
+        },
+        {
+          "type": "html",
+          "id": "content_no_link_2",
+          "label": "Content"
+        },
+        {
+          "type": "html",
+          "id": "content_no_link_3",
+          "label": "Content"
+        },
+        {
+          "type": "html",
+          "id": "content_no_link_4",
+          "label": "Content"
+        },
+        {
+          "type": "html",
+          "id": "content_no_link_5",
           "label": "Content"
         }
       ]
