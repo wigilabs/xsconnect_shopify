@@ -159,7 +159,8 @@
             "type": "text_content_no_link",
             "settings": {
               "item_width_no_link": 25,
-              "text_content_no_link": ""
+              "heading_no_link": "Brands",
+              "content_no_link": ""
             }
           }
         },
