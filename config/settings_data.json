@@ -149,6 +149,7 @@
           },
           "link_list_rFyh8C": {
             "type": "link_list",
+            "disabled": true,
             "settings": {
               "item_width": 26,
               "heading": "Brands",
@@ -160,7 +161,7 @@
             "settings": {
               "item_width_no_link": 25,
               "heading_no_link": "Brands",
-              "content_no_link": ""
+              "content_no_link": "jhghgh"
             }
           }
         },
