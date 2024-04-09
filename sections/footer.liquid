@@ -1,3 +1,4 @@
+{{ 'custom.css' | asset_url | stylesheet_tag }}
 {% liquid
   assign ImageLogo = section.settings.image_logo
   assign WidthLayout = section.settings.width_layout_ft
@@ -222,7 +223,7 @@
                 </h3>
               {%- endif -%}
               <div class="footer__menu sub-menu-footer">
-                <div class="menu-item color-subtext mb-4">{{ block.settings.content_no_link }}</div>
+                <div class="menu-item color-subtext mb-4 text-gray-custom">{{ block.settings.content_no_link }}</div>
               </div>
             </div>
 
