@@ -161,7 +161,7 @@
             "settings": {
               "item_width_no_link": 25,
               "heading_no_link": "Brands",
-              "content_no_link": "jhghgh"
+              "content_no_link": "<ul class=\"footer__menu sub-menu-footer\">\n<li class=\"menu-item color-subtext mb-4\">Cisco<\/li>\n<li class=\"menu-item color-subtext mb-4\">Juniper<\/li>\n<li class=\"menu-item color-subtext mb-4\">Meraki<\/li>\n<\/ul>"
             }
           }
         },
