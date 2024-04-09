@@ -211,6 +211,22 @@
                 <div class="text-content">{{ block.settings.text_content }}</div>
               </div>
             </div>
+
+
+            {% when 'text_content' %}
+            <div class="footer__col footer__menu footer__menu footer__item-{{ section.id }}-{{ forloop.index }}">
+              {%- if block.settings.heading_no_link != blank -%}
+                <h3 class="footer__title footer__heading mb-6.5 flex items-center justify-between">
+                  <span>{{ block.settings.heading_no_link }}</span>
+                  {% render 'icon', icon_name: 'icon-drop-down-2', width: 8, height: 8 %}
+                </h3>
+              {%- endif -%}
+              <div class="footer__text-content sub-menu-footer">
+                <div class="text-content">{{ block.settings.text_content_no_link }}</div>
+              </div>
+            </div>
+
+
           {% when 'link_list' %}
             <div class="footer__col footer__menu footer__menu footer__item-{{ section.id }}-{{ forloop.index }}">
               {%- if block.settings.heading != blank -%}
