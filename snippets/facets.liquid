@@ -77,7 +77,47 @@
   {% endif %}
   {%- if filter_type == 'vertical' or filter_type == 'vertical-right' %}
     {% if collections != blank %}
-     
+      <details
+        id="Details-{{ forloop.index }}-{{ section.id }}"
+        class="facets__disclosure-vertical js-filter"
+        data-index="{{ forloop.index }}"
+        open
+      >
+        <summary class="facets__summary caption-large focus-offset mb-5">
+          <div class="facet-title">
+            <span class="facet-font-size-title"> {{ 'listing_product.sidebar.collection.label' | t }}</span>
+            {% comment %} {% render 'icon', icon_name: 'menu-down' %} {% endcomment %}
+          </div>
+        </summary>
+        <ul class="collection__menu">
+          {%- for collection in collections -%}
+            <li class="list-menu__item facets__item">
+              <a href="{{ collection.url }}">
+                <label class="facet-checkbox">
+                  <span aria-hidden="true">
+                    <small class="item-name facet-font-size-item"> {{ collection.title }}</small>
+                    <small>
+                      {% if collection.products_count > 9 %}
+                        {{ collection.products_count }}
+                      {% elsif collection.products_count > 99 %}
+                        99+
+                      {% else %}
+                        0{{ collection.products_count }}
+                      {% endif %}
+                    </small>
+                  </span>
+                </label>
+              </a>
+            </li>
+          {% endfor %}
+          <button class="button-show-more link underlined-link no-js-hidden" id="loadmore">
+            <span class="label-show-more label-text">
+              <span class="facet-font-size-title">+ </span>
+              {{ 'products.facets.show_more' | t -}}
+            </span>
+          </button>
+        </ul>
+      </details>
     {%- endif -%}
   {%- endif -%}
   <facet-filters-form class="facets small-hide">
