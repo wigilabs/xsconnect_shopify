@@ -551,12 +551,14 @@
   </div>
 </div>
 
+{% if section.settings.enable_reverse_filter %}                  
 <style>
 .flex-row-reverse {
   flex-direction: initial!important;
 }
 </style>            
-
+{% endif  %}  
+  
 {% schema %}
 {
   "name": "Settings Collection",
@@ -734,6 +736,13 @@
     {
       "type": "header",
       "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_reverse_filter",
+      "default": true,
+      "label": "Override the original filters",
+      "info": "Selecting this option will override the functions below and make the filters on the left fully functional."
     },
     {
       "type": "checkbox",
