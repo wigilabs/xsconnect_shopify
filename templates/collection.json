@@ -32,7 +32,8 @@
         "product_item_layout": "use_global",
         "item_direction_prd_top": "use_global",
         "enable_filtering": true,
-        "filter_type": "enable_reverse_filter",
+        "filter_type": "vertical-right",
+        "enable_reverse_filter": true,
         "collection_list": [
 
         ],
