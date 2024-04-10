@@ -33,7 +33,7 @@
         "item_direction_prd_top": "use_global",
         "enable_filtering": true,
         "enable_reverse_filter": true,
-        "filter_type": "vertical",
+        "filter_type": "vertical-right",
         "collection_list": [
 
         ],
