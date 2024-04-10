@@ -68,7 +68,12 @@
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
-       
+          {% render 'facets',
+            collections: section.settings.collection_list,
+            results: collection,
+            enable_filtering: section.settings.enable_filtering,
+            filter_type: section.settings.filter_type
+          %}
           <span class="facets-head__close hidden">
             {% render 'icon', icon_name: 'icon-close' %}
           </span>
