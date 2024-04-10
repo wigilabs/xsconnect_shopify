@@ -151,7 +151,104 @@
             {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
             {% case filter.type %}
               {% when 'boolean', 'list' %}
-       
+                <details
+                  id="Details-{{ forloop.index }}-{{ section.id }}"
+                  class="facets__disclosure-vertical js-filter"
+                  data-index="{{ forloop.index }}"
+                  {% if filter_type == 'horizontal' and filter.label == 'Product type' %}
+                    style="display:none"
+                  {% endif -%}
+                  open
+                >
+                  <summary
+                    class="facets__summary caption-large focus-offset mb-5 text-black"
+                    aria-label="{{ filter.label }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"
+                  >
+                    <div class="facet-title">
+                      <span class="facet-font-size-title">
+                        {{ filter.label | escape }}
+                      </span>
+                      {% comment %} {% render 'icon', icon_name: 'menu-down' %} {% endcomment %}
+                    </div>
+                  </summary>
+                  <div class="parent-display facets__display-vertical" id="Facet-{{ forloop.index }}-{{ section.id }}">
+                    <fieldset class="facets-wrap parent-wrap facets-wrap-vertical">
+                      <ul
+                        class="list-unstyled no-js-hidden{% if filter.label == 'color' or filter.label == 'Color' %} list-variant-color{% endif %}"
+                        role="list"
+                      >
+                        {%- for value in filter.values -%}
+                          <li class="{% if value.param_name == 'filter.p.vendor' %}item-variant-brand{% endif %} list-menu__item facets__item{% if value.active %} active {% endif %}{% if forloop.index > 5 and filter_type == 'vertical' or filter_type == 'drawer-left' or filter_type == 'drawer-right' %} show-more-item hidden{% endif %} {% if value.param_name == 'filter.v.option.size' %} list-variant-normal {% endif %}">
+                            <label
+                              class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
+                              for="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                            >
+                              <input
+                                type="checkbox"
+                                name="{{ value.param_name }}"
+                                value="{{ value.value }}"
+                                {% if filter.label == 'color' or filter.label == 'Color' %}
+                                  class="item-variant-color"
+                                {% endif -%}
+                                id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                                {% if value.active %}
+                                  checked
+                                {% endif %}
+                                {% if value.count == 0 and value.active == false %}
+                                  disabled
+                                {% endif %}
+                              >
+                              <svg
+                                aria-hidden="true"
+                                focusable="false"
+                                height="1.6rem"
+                                viewbox="0 0 16 16"
+                                width="1.6rem"
+                              >
+                                <rect
+                                  fill="none"
+                                  height="16"
+                                  stroke-width="1"
+                                  stroke="currentColor"
+                                  width="16"></rect>
+                              </svg>
+                              <svg
+                                class="icon icon-checkmark"
+                                fill="none"
+                                height="0.7rem"
+                                viewbox="0 0 11 7"
+                                width="1.1rem"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="1.75"
+                                  stroke="currentColor" />
+                              </svg>
+                              <span
+                                aria-hidden="true"
+                                {% if filter.label != 'color' and filter.label != 'Color' %}
+                                  {%- if value.active %}class="active-facet"{% endif -%}
+                                {% endif -%}
+                                {% if filter.label == 'color' or filter.label == 'Color' %}
+                                  style="background-color: {{ value.label }};"
+                                {% endif %}
+                              >
+                                {% if filter.label != 'color' and filter.label != 'Color' %}
+                                  <small class="item-name mr-0.5 facet-font-size-item">
+                                    {{- value.label | escape -}}
+                                  </small>
+                                {% endif %}
+                              </span>
+                            </label>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </fieldset>
+                  </div>
+                </details>
               {% when 'price_range' %}
                 {% liquid
                   assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
