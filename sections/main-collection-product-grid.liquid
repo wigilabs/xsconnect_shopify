@@ -88,7 +88,7 @@
       <div class="product-grid__head{% if filterType == 'vertical' %} type-revert{% endif %} items-center mb-7.5">
         <div class="product-grid__head-left {% if filterType == 'horizontal' or filterType == 'drawer-left' or filterType == 'drawer-right' %} mb-7.5{% endif %}">
           <div class="facets-hori__sort flex">
-            {% comment %}
+          
               <facet-filters-form class="small-hide mr-7.5">
                 <form id="FacetPagiForm">
                   {% if cart.attributes.collection_products_per_page != blank
@@ -140,7 +140,7 @@
                   </div>
                 </form>
               </facet-filters-form>
-            {% endcomment %}
+           
             <span class="collection-filter-title mr-3.75">{{ 'products.facets.sort_by_label' | t }}</span>
             <facet-filters-form class="small-hide mr-7.5">
               <form id="FacetSortForm">
@@ -464,7 +464,13 @@
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
                 <li class="grid__item">
-                  
+                  {% render 'card-product',
+                    card_product: product,
+                    section: section,
+                    layoutProductItem: section.settings.product_item_layout,
+                    lazy_load: lazy_load,
+                    collection_list: true
+                  %}
                 </li>
               {%- endfor -%}
             </ul>
