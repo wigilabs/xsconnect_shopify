@@ -430,7 +430,7 @@
                 {%- for discount in cart.cart_level_discount_applications -%}
                   <li class="discounts__discount discounts__discount--end" style="margin-bottom: 15px;">
                     {% comment %}{%- render 'icon-discount' -%}{% endcomment %}
-                    Discount code: {{ discount.title }}
+                    Discount code:<br> {{ discount.title }}
                     (-{{ discount.total_allocated_amount | money }})
                   </li>
                 {%- endfor -%}
