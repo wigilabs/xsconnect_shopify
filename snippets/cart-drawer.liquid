@@ -429,9 +429,14 @@
               <ul class="discounts list-unstyled" aria-label="{{ 'customer.order.discount' | t }}">
                 {%- for discount in cart.cart_level_discount_applications -%}
                   <li class="discounts__discount discounts__discount--end">
-                    {% comment %}{%- render 'icon-discount' -%}{% endcomment %}
-                    Discount code: <br>{{ discount.title }}
-                    (-{{ discount.total_allocated_amount | money }})
+                    <div class="totals">
+                      <h2 class="totals__subtotal text-black"> Discount code:</h2>
+                      <p class="totals__subtotal-value"> 
+                         {{ discount.title }}
+                       (-{{ discount.total_allocated_amount | money }})
+                      </p>
+                    </div>
+                   
                   </li>
                 {%- endfor -%}
               </ul>
