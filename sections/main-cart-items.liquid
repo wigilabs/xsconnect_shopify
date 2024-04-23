@@ -365,6 +365,7 @@
             {%- if settings.show_coupon -%}
               <div class="cart__coupon">
                 <div class="tca_coupon tca_item">
+                  
                   <div class="tca-field mb-5 flex flex-col">
                     <h5 class="mb-5 name-product">{{ 'sections.cart.discount_code' | t }}</h5>
                     <input
@@ -376,6 +377,7 @@
                       placeholder="Enter discount code"
                     >
                   </div>
+                  
                   <div class="cp-applied mb-5 hide">
                     <div class="cp-applied__message inline-flex flex-row items-center justify-center">
                       <div class="cp-applied__text uppercase font-normal">
@@ -386,6 +388,7 @@
                       </div>
                     </div>
                   </div>
+                  
                   <div class="tca-field mb-5">
                     <button
                       type="button"
@@ -399,6 +402,7 @@
                       <div class="load-more_text">{{ 'sections.cart.discount_code_applied' | t }}</div>
                     </button>
                   </div>
+                  
                 </div>
               </div>
             {%- endif -%}
