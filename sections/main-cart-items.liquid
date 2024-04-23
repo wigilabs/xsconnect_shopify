@@ -430,7 +430,7 @@
                           {%- for discount in cart.cart_level_discount_applications -%}
                             <li class="discounts__discount discounts__discount--position" style="margin-top: 25px;margin-bottom: 15px;">
                               <div class="totals flex items-center justify-between">
-                                <span class="totals__subtotal" style="font-weight"> Discount code: </span>
+                                <span class="totals__subtotal" style="font-weight: bold;">Discount code: </span>
                                 <span class="totals__origin totals__value">
                                 {{ discount.title }}
                               (-{{ discount.total_allocated_amount | money }})
