@@ -344,9 +344,9 @@
         >
           <h2 class="tp-cart__right__title mb-5 name-product">{{ 'general.cart.order_summary' | t }}</h2>
           <div class="cart__right">
-            {%- if settings.show_shipping -%}
+            {% comment %}{%- if settings.show_shipping -%}{% endcomment %}
               {% render 'shipping-calculator', customer: customer %}
-            {%- endif -%}
+            {% comment %}{%- endif -%}{% endcomment %}
             {% comment %}{%- if settings.show_note -%}{% endcomment %}
               <cart-note class="cart__note field">
                 <h5 class="mb-5 name-product" for="Cart-note">{{ 'sections.cart.note' | t }}</h5>
