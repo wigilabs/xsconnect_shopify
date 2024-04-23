@@ -336,9 +336,9 @@
             <div class="tca-field mb-5 flex items-center gap-4">
               <button
                 type="button"
-                data-action="save-discountcode"
-                data-cart-tool_close=""
-                class="ajc-discount__push tp-btn tp-btn__primary w-full"
+                      data-url="{{ routes.root_url }}"
+                      class="ajc-discount__push tp-btn tp-btn__secondary"
+                      id="cpcode-incart__apply"
               >
                 {{ 'general.cart.coupon_save' | t }}
               </button>
