@@ -331,24 +331,15 @@
           <div class="tca_coupon ajc-hidden tca_item">
             <h5 class="mb-5">{{ 'general.cart.add_coupon' | t }}</h5>
             <div class="tca-field mb-5">
-              <input
-                      type="text"
-                      data-name="discount"
-                      name="cartdiscountcode"
-                      id="CartDiscountcode"
-                      value=""
-                      placeholder="Enter discount code"
-                    >
+              <input type="text" data-name="discount" id="CartDiscountcode" value="" placeholder="Coupon code">
             </div>
             <div class="tca-field mb-5 flex items-center gap-4">
-              <a href="/cart/#cartDiscount">
               <button
                 type="button"
                 class="ajc-discount__push tp-btn tp-btn__primary w-full"
               >
                 {{ 'general.cart.coupon_save' | t }}
               </button>
-              </a>
               <button type="button" data-cart-tool_close="" class="stp-tool__back w-full tp-btn tp-btn__secondary">
                 {{ 'general.cart.cancel' | t }}
               </button>
