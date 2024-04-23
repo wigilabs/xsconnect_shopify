@@ -40,7 +40,7 @@
     "color_price_item_last": "#d63888",
     "color_sale_badge": "#a42a68",
     "show_note": false,
-    "show_shipping": false,
+    "show_shipping": true,
     "show_coupon": false,
     "currency_display_type": "flag__currency_code",
     "fz_prd_title": 26,
