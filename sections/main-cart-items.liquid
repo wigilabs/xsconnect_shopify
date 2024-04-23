@@ -347,7 +347,7 @@
             {%- if settings.show_shipping -%}
               {% render 'shipping-calculator', customer: customer %}
             {%- endif -%}
-            {%- if settings.show_note -%}
+            {% comment %}{%- if settings.show_note -%}{% endcomment %}
               <cart-note class="cart__note field">
                 <h5 class="mb-5 name-product" for="Cart-note">{{ 'sections.cart.note' | t }}</h5>
                 <textarea
@@ -359,10 +359,10 @@
                   placeholder="{{ 'sections.cart.note' | t }}"
                 >{{ cart.note }}</textarea>
               </cart-note>
-            {%- endif -%}
+            {% comment %}{%- endif -%}{% endcomment %}
 
         
-            
+            {% comment %}{%- if settings.show_coupon -%}{% endcomment %}
               <div class="cart__coupon">
                 <div class="tca_coupon tca_item">
                   
@@ -405,7 +405,7 @@
                   
                 </div>
               </div>
-            
+            {% comment %}{%- endif -%}{% endcomment %}
             
             <div class="cart__blocks">
               {% for block in section.blocks %}
