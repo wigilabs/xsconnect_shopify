@@ -499,7 +499,7 @@
   
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     function isIE() {
       const ua = window.navigator.userAgent;
       const msie = ua.indexOf('MSIE ');
@@ -509,9 +509,17 @@
     }
 
     if (!isIE()) return;
-    const checkoutButton = document.querySelector('#CartDrawer-Checkout');
-    checkoutButton.addEventListener('click', function (event) {
-      document.querySelector('#CartDrawer-Form').submit();
+    const cartSubmitInput = document.createElement('input');
+    cartSubmitInput.setAttribute('name', 'checkout');
+    cartSubmitInput.setAttribute('type', 'hidden');
+    document.querySelector('#cart').appendChild(cartSubmitInput);
+
+    // Utilizando un evento delegado para escuchar clics en elementos dentro del <cart-drawer>
+    document.querySelector('cart-drawer').addEventListener('click', function(event) {
+        if (event.target.id === 'CartDrawer-Checkout') {
+            document.querySelector('#CartDrawer-Form').submit();
+        }
     });
-  });
+});
+
 </script>
