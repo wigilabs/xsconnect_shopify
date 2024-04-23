@@ -328,24 +328,12 @@
               </div>
             </div>
           </div>
-                          
           <div class="tca_coupon ajc-hidden tca_item">
-            
             <h5 class="mb-5">{{ 'general.cart.add_coupon' | t }}</h5>
-            
             <div class="tca-field mb-5">
-              <input
-                type="text"
-                data-name="discount"
-                name="cartdiscountcode"
-                id="CartDiscountcode"
-                value=""
-                placeholder="Enter discount code"
-              >
+              <input type="text" data-name="discount" id="CartDiscountcode" value="" placeholder="Coupon code">
             </div>
-            
             <div class="tca-field mb-5 flex items-center gap-4">
-              
               <button
                 type="button"
                 data-action="save-discountcode"
@@ -354,22 +342,17 @@
               >
                 {{ 'general.cart.coupon_save' | t }}
               </button>
-              
               <button type="button" data-cart-tool_close="" class="stp-tool__back w-full tp-btn tp-btn__secondary">
                 {{ 'general.cart.cancel' | t }}
               </button>
-              
             </div>
-            
           </div>
-                          
           <div class="tca_shipping ajc-hidden tca_item">
             {% render 'shipping-calculator', customer: customer %}
             <button type="button" data-cart-tool_close="" class="mb-5 stp-tool__back w-full tp-btn tp-btn__secondary">
               {{ 'general.cart.cancel' | t }}
             </button>
           </div>
-                          
           {% if settings.show_gift_wrap and settings.collection_gift_wrap != blank %}
             <div class="tca_gift_wrap ajc-hidden tca_item">
               <div class="tca-mini_cart-tool__wrap">
@@ -440,51 +423,6 @@
             <h2 class="totals__subtotal text-black">{{ 'sections.cart.subtotal' | t }}</h2>
             <p class="totals__subtotal-value">{{ cart.total_price | money }}</p>
           </div>
-
-          {%- if settings.show_coupon -%}
-              <div class="cart__coupon">
-                <div class="tca_coupon tca_item">
-                  
-                  <div class="tca-field mb-5 flex flex-col">
-                    <h5 class="mb-5 name-product">{{ 'sections.cart.discount_code' | t }}</h5>
-                    <input
-                      type="text"
-                      data-name="discount"
-                      name="cartdiscountcode"
-                      id="CartDiscountcode"
-                      value=""
-                      placeholder="Enter discount code"
-                    >
-                  </div>
-                  
-                  <div class="cp-applied mb-5 hide">
-                    <div class="cp-applied__message inline-flex flex-row items-center justify-center">
-                      <div class="cp-applied__text uppercase font-normal">
-                        {{ 'sections.cart.discount_code_noti' | t }}
-                      </div>
-                      <div class="cp-applied__close">
-                        {% render 'icon', icon_name: 'icon-close' %}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="tca-field mb-5">
-                    <button
-                      type="button"
-                      data-url="{{ routes.root_url }}"
-                      class="ajc-discount__push tp-btn tp-btn__secondary"
-                      id="cpcode-incart__apply"
-                    >
-                      <div
-                        class="load-more_spinner hide w-5 h-5 ml-auto mr-auto border-2 border-solid border-black border-t-gray-200 rounded-full animate-spin"
-                      ></div>
-                      <div class="load-more_text">{{ 'sections.cart.discount_code_applied' | t }}</div>
-                    </button>
-                  </div>
-                  
-                </div>
-              </div>
-            {%- endif -%}
 
           <div>
             {%- if cart.cart_level_discount_applications.size > 0 -%}
