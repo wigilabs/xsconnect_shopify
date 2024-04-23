@@ -360,6 +360,8 @@
                 >{{ cart.note }}</textarea>
               </cart-note>
             {%- endif -%}
+
+        
             {%- if settings.show_coupon -%}
               <div class="cart__coupon">
                 <div class="tca_coupon tca_item">
@@ -400,6 +402,7 @@
                 </div>
               </div>
             {%- endif -%}
+            
             <div class="cart__blocks">
               {% for block in section.blocks %}
                 {%- case block.type -%}
