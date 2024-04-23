@@ -271,11 +271,9 @@
                   </li>
                 {% endif %}
                 {% if settings.show_coupon %}
-                  <a href="/cart/#cartDiscount">
                   <li flow="up" tooltip="Add Coupon" class="tca-icon__item" data-show="coupon">
                     {% render 'icon', icon_name: 'icon-coupon' %}
                   </li>
-                  </a>
                 {% endif %}
                 {% if settings.show_shipping %}
                   <li flow="up" tooltip="Estimate Shipping" class="tca-icon__item" data-show="shipping">
