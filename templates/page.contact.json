@@ -54,7 +54,7 @@
         "41c2296d-c53b-4253-809f-ef19e373debc": {
           "type": "map",
           "settings": {
-            "iframe_address": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d6623.898093464649!2d151.2675924471828!3d-33.890966086843406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b201c6bc3859%3A0x5017d681632ad80!2sBondi%20Beach%20Nueva%20Gales%20del%20Sur%202026%2C%20Australia!5e0!3m2!1ses-419!2sco!4v1709040276406!5m2!1ses-419!2sco\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>"
+            "iframe_address": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3311.8948148531636!2d151.27550352646858!3d-33.89236272028098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ad9c447281c7%3A0x20c31809c62de978!2sBondi%20Beach!5e0!3m2!1sen!2sau!4v1716174720604!5m2!1sen!2sau\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>"
           }
         }
       },
@@ -62,6 +62,9 @@
         "8f4f4259-b711-4098-a16f-5c7f54239606",
         "f19b80ea-26fb-42fc-be6c-60d969a8b5d7",
         "41c2296d-c53b-4253-809f-ef19e373debc"
+      ],
+      "custom_css": [
+
       ],
       "settings": {
       }
