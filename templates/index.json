@@ -54,8 +54,8 @@
           "type": "service_item",
           "settings": {
             "image_service": "shopify:\/\/shop_images\/icon_service_one.png",
-            "title_service": "Free shipping",
-            "description_service": "From $99",
+            "title_service": "Free Express Delivery",
+            "description_service": "On orders over $99",
             "background_item_service": "rgba(0,0,0,0)",
             "service_title": "#000000",
             "service_brief": "#909090",
@@ -67,8 +67,8 @@
           "type": "service_item",
           "settings": {
             "image_service": "shopify:\/\/shop_images\/icon_service_two.png",
-            "title_service": "365 days",
-            "description_service": "For free return",
+            "title_service": "Proudly Aussie",
+            "description_service": "Australian Owned & Operated",
             "background_item_service": "rgba(0,0,0,0)",
             "service_title": "#000000",
             "service_brief": "#909090",
@@ -80,8 +80,8 @@
           "type": "service_item",
           "settings": {
             "image_service": "shopify:\/\/shop_images\/icon_service_three.png",
-            "title_service": "Support",
-            "description_service": "Online support 24\/7",
+            "title_service": "Real-time Inventory",
+            "description_service": "AU stocked, updated real-time",
             "background_item_service": "rgba(0,0,0,0)",
             "service_title": "#000000",
             "service_brief": "#909090",
@@ -93,8 +93,8 @@
           "type": "service_item",
           "settings": {
             "image_service": "shopify:\/\/shop_images\/icon_service_four.png",
-            "title_service": "99% Positive",
-            "description_service": "Feedbacks",
+            "title_service": "Reseller Discounts Available",
+            "description_service": "Contact us for wholesale pricing",
             "background_item_service": "rgba(0,0,0,0)",
             "service_title": "#000000",
             "service_brief": "#909090",
