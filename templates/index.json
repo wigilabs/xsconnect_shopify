@@ -249,7 +249,7 @@
             "fix_height_image": true,
             "height_image_mobile": 30,
             "title": "<p>Start Buying<\/p>",
-            "sub_title": "<p>Next Day delivery available to all Major Australian Cities.<\/p>",
+            "sub_title": "<p>Next Day delivery available <\/p><p>to all Major Australian Cities.<\/p>",
             "font_size_title": 36,
             "color_title": "#ffffff",
             "font_size_sub_title": 24,
