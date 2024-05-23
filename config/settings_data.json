@@ -264,7 +264,6 @@
         ],
         "settings": {
           "display_layout": "newsletter-layout_1",
-          "background_img": "shopify:\/\/shop_images\/Adaptar_banner.png",
           "newsletter_background_1": "#fba242",
           "newsletter_background": "#d63888",
           "newsletter_content": "#ffffff",
