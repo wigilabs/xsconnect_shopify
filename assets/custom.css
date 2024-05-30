@@ -54,9 +54,9 @@
       color: #d83e84!important;
       font-weight: bold!important;
   }
-  .newsletter {
+  /*.newsletter {
       background: linear-gradient(90deg,#d63888, #fba242);
-  }
+  }*/
   newsletter .field__input {
     background-color: hsla(0,0%,100%,.2);
     border-radius: 60px!important;;
