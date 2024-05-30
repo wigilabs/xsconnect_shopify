@@ -34,17 +34,17 @@
       "settings": {
         "width_layout": "width-full",
         "show_navigation": false,
-        "show_pagination": false,
-        "loop": false,
-        "autoplay": false,
+        "show_pagination": true,
+        "loop": true,
+        "autoplay": true,
         "autoplay_time": 7,
         "fix_height_img": "height_by_theme",
-        "position_pagination": "left_center",
+        "position_pagination": "right_bottom",
         "pag_bg": "#000000",
         "type_navigation": "button_icon_title",
-        "margin_bottom_desktop": 0,
-        "margin_bottom_table": 0,
-        "margin_bottom_mobile": 0
+        "margin_bottom_desktop": 30,
+        "margin_bottom_table": 30,
+        "margin_bottom_mobile": 30
       }
     },
     "da1b0273-97b6-4bbf-bd85-2d9887a4ed74": {
