@@ -1,6 +1,9 @@
 {
   "current": {
-    "recommen_sts": "hidden",
+    "recommen_sts": "visible",
+    "product_list": [
+      "cisco-glc-fe-100fx-rgd-100base-fx-rugged-sfp-for-fast-ethernet-sfp-ports"
+    ],
     "ctn_width": 1310,
     "font_source": "1",
     "headings_font_weight": 600,
