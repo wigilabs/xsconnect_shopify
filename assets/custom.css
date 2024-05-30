@@ -17,9 +17,6 @@
     display: flex;
     justify-content: center;
   }
-  /* .tp-fcl__main-banner .tp-fcl__banner .popup-wrapper .sale:after, .tp-fcl__main-banner .tp-fcl__banner .popup-wrapper .sale:before{
-    #ffffff;
-  } */
   .title-hurry{
     font-size: 22px!important;
   }
@@ -58,7 +55,7 @@
       font-weight: bold!important;
   }
   .newsletter {
-      background: linear-gradient(90deg,#d63888, #fba242)!important;
+      background: linear-gradient(90deg,#d63888, #fba242);
   }
   newsletter .field__input {
     background-color: hsla(0,0%,100%,.2);
