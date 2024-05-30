@@ -42,8 +42,8 @@
         "position_pagination": "left_center",
         "pag_bg": "#000000",
         "type_navigation": "button_icon_title",
-        "margin_bottom_desktop": -50,
-        "margin_bottom_table": -20,
+        "margin_bottom_desktop": 0,
+        "margin_bottom_table": 0,
         "margin_bottom_mobile": 0
       }
     },
