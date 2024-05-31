@@ -167,3 +167,6 @@
 .text-gray-custom{
   color:#909090;
 }
+.product-grid-container .product-count__text{
+  display:none!important;
+}
