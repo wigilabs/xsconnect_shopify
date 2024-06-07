@@ -46,7 +46,7 @@
     "show_shipping": false,
     "show_coupon": false,
     "currency_display_type": "flag__currency_code",
-    "custom_css": ".product-form span.was-price.theme-money:after {\n    content: \" Traditional Retail\";\n    text-transform: capitalize;\n}\n\n.product-form span.was-price.theme-money::before {\n    content: \"|\";\n}",
+    "custom_css": "",
     "fz_prd_title": 26,
     "fz_prd_price": 20,
     "prd_color_price": "#f5583e",
